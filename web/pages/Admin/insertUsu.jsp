@@ -86,11 +86,7 @@
             </section>
         </main>
             
-        <script src="../../js/jquery.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/abrir.js" charset="utf-8"></script>
-        <script src="../../js/desplegable.js" charset="utf-8"></script>
-        <script src="../../js/sweetalert2.min.js" charset="utf-8"></script>
+        <jsp:include page="../../layout/scripts.jsp"></jsp:include>
         
         
         <!-- Validar si el usuario fue ingresado correctamente y mostrar el mensaje correspondiente-->

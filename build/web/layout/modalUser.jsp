@@ -51,13 +51,6 @@
                             <td><input type="email" class="form-control" name="" value=""></td>
                         </tr>
                         <tr>
-                        <th><label>Estado:</label></th>
-                        <td><select class="form-control">
-                                <option value="">Activo</option>
-                                <option value="">Inactivo</option>
-                            </select></td>
-                        </tr>
-                        <tr>
                             <td><button class="btn btn-danger" data-dismiss="modal">Cerrar</button></td>
                             <td><button class="btn btn-success" data-dismiss="modal">Guardar</button></td>
                         </tr>

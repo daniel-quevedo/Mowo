@@ -15,3 +15,4 @@
 <link rel="stylesheet" href="../../css/sweetalert2.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" >
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" href="../../css/jquery.dataTables.min.css">

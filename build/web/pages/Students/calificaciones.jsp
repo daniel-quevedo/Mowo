@@ -68,11 +68,7 @@
     </section>
   </main>
 
-	<script src="../../js/jquery.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/abrir.js" charset="utf-8"></script>
-        <script src="../../js/student/showNotes.js" charset="utf-8"></script>
-
+	<jsp:include page="../../layout/scripts.jsp"></jsp:include>
 </body>
 </html>
 
