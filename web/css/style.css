@@ -1,0 +1,173 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+body{
+    overflow: hidden;
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 6px;
+    background: linear-gradient(transparent,#30ff00);
+}
+
+.sidebar{
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background: #13293D;
+    color: white;
+    font-family: 'Patrick Hand', serif;
+    font-size: 1.5em;
+    overflow-y: scroll;
+}
+.sidebar::-webkit-scrollbar{
+    width: 2px;
+} 
+
+.sidebar h2{
+    text-align: center;
+    margin: 0;
+    background: #702632;
+    padding: 10px;
+}
+
+.sidebar h2 a{
+    color: white;
+}
+.sidebar h2 a:hover{
+    color: white;
+    display: block;
+    text-decoration: none;
+    box-shadow: 1px 1px 1px  black;
+}
+
+.sidebar ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar >ul >li{
+    border-bottom: 1px solid black;
+    transition-property: border;
+    transition-duration: all .35s;
+
+}
+
+.sidebar >ul >li >a:hover{
+    background: #605F5E	;
+    border-left: 6px solid #702632;
+}
+
+.sidebar ul li a{
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+.sidebar a img{
+    padding-left:50px;
+}
+
+.submenu ul{
+    display: none;
+}
+
+.submenu ul li a{    
+    background: #419CDE;
+    color: black; 
+}
+
+.submenu ul li a:hover{
+    background: #702632;
+    border-left: 6px solid #605F5E;     
+}
+
+.active{
+    background: #605F5E;
+}
+.prueba{
+    cursor: pointer;
+    display: block;
+}
+
+
+.logo a img{
+    margin-left: 40%;
+    margin-right: 20%;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    opacity: .70;
+    padding-left: 0px;
+
+}
+
+.nav{
+    margin: 0px 20%;
+}
+.contenido{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: url(../img/loginFont.jpg) no-repeat center center fixed;
+    transition-duration: .3s;
+    overflow-y: scroll;
+}
+
+.contenido img{
+    padding: 20px 20px;
+}
+
+.menu-bar{
+    cursor: pointer;
+}
+
+.abrir{
+    transform: translateX(250px);
+}
+
+.contenedor{
+    margin-left: 6%;
+    width: 75%;
+    height: 100%;
+    text-align: left;
+    color: white;
+}
+.contenedor h2{
+    text-align: center;
+}
+
+.table{
+    text-align: center;
+    border-radius: 15px;
+}
+
+tr td  a{
+    color:black;
+}
+tr td >a:hover {
+    display: block;
+    text-decoration: none;
+    color: black;
+    box-shadow: 2px 2px 3px lightseagreen;
+}
+
+
+td button  {
+    margin: 0px 5px;
+    float: right;
+
+}
+
+h2 img{
+    float: left;
+    padding-bottom: 5px;
+    margin: 0 0;
+}

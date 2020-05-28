@@ -1,0 +1,67 @@
+<%-- 
+    Document   : index
+    Created on : 27/04/2020, 12:24:26 AM
+    Author     : Leonardo
+--%>
+
+<%@page import="DAO.LoginDAO"%>
+<% 
+    LoginDAO DUser = new LoginDAO();
+    DUser.closeConnection(); 
+%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./css/styleIndex.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <title>Mowo o</title>
+    </head>
+    <body>
+         
+        <div class="model ">
+            <div class="col-md-8 col-sm-10 contenedor">
+                <div class="box-content animated zoomIn">
+                    <div class="col-12 login text-center">
+                        <img src="./img/login.png" width="200" height="200" alt="login">
+                        <h5>Iniciar Sesión</h5>
+                    </div>
+                    <form class="col-12" action="LoginSERVLET" method="post" autocomplete ="off">
+
+                        <div class="form-group">
+                            <img src="./img/user.png">
+                            <label>Nombre:</label><br>
+                            <input type="text" name="user" class="form-control" autofocus placeholder="Nombre de usuario" required pattern="[A-Za-z ]{2,30}" >
+                        </div>
+                        <div class="form-group">
+                            <img src="./img/lock.png">
+                            <label>Contraseña:</label><br>
+                            <input type="password" name="passUsu" class="form-control" placeholder="Contraseña" required pattern="(?=.*\d)(?=.*[A-Z]).{8,}" title="
+                                   Debe contener al menos un número, una letra mayúscula y al menos 8 o más caracteres">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-outline-primary botones" ><img src="./img/sign.png"> Ingresar</button>
+                        </div>
+
+                    </form>
+                    <div>
+                        <div class="col-12 text-right">
+                            <a href="#">Recordar Contraseña</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <%request.getAttribute("error");%> 
+                    
+                ${error} 
+                    
+            </div>
+            
+    </body>
+</html>
