@@ -106,6 +106,8 @@
     </section>
   </main>
 
-	<jsp:include page="../../layout/scripts.jsp"></jsp:include>
+	<script src="../../js/jquery.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/abrir.js" charset="utf-8"></script>
 </body>
 </html>

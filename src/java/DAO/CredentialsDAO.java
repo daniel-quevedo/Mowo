@@ -28,6 +28,7 @@ public class CredentialsDAO extends ClassConnection{
     //CREDENCIALES ******************
     private String user;
     private String pass;
+    private String opt;
     
     //VARIABLE RETORNO*******
     
@@ -45,6 +46,7 @@ public class CredentialsDAO extends ClassConnection{
         
             this.user = cVO.getUser();
             this.pass = cVO.getPass();
+            this.opt = cVO.getOpt();
             
         }catch(Exception ex){
             
@@ -65,7 +67,7 @@ public class CredentialsDAO extends ClassConnection{
             this.pstm = this.conn.prepareStatement(sqlCred);
             this.pstm.setString(1, this.user);
             this.pstm.setString(2, this.pass);
-            this.pstm.setString(3, "B");
+            this.pstm.setString(3, this.opt);
             
             this.res = this.pstm.executeQuery();
             
@@ -83,5 +85,25 @@ public class CredentialsDAO extends ClassConnection{
         
         return this.returned;
     }
+    
+//    public static void main(String[] args) {
+//        
+//       
+//        
+//       try{
+//           
+//            CredentialsVO cVO = new CredentialsVO("juanrramirez159753@gmail.com", "holaperras", "A");
+//            
+//            CredentialsDAO cDAO = new CredentialsDAO(cVO); 
+//            
+//            System.out.println(cDAO.insertCred());
+//
+//       }catch(Exception ex){
+//           
+//           
+//       }
+//       
+//       
+//    }
     
 }

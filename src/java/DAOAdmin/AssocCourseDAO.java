@@ -84,21 +84,21 @@ public class AssocCourseDAO extends ClassConnection{
     }
     
     
-//    public static void main(String[] args) {
-//        
-//        try{
-//           
-//            AssocCourseVO acVO = new AssocCourseVO(18,4,"A");
-//
-//            AssocCourseDAO objP = new AssocCourseDAO(acVO);
-//            
-//            System.out.println(objP.assoc());
-//
-//       }catch(Exception ex){
-//           
-//           
-//       }
-//        
-//    }
+    public static void main(String[] args) {
+        
+        try{
+           //primera opcion:id_usu segunda opcion:id_curso tercera opcion: (A)estudiante (B)profesor
+            AssocCourseVO acVO = new AssocCourseVO(67,4,"A");
+
+            AssocCourseDAO objP = new AssocCourseDAO(acVO);
+            
+            System.out.println(objP.assoc());
+
+       }catch(Exception ex){
+           
+           
+       }
+        
+    }
 
 }

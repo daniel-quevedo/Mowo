@@ -73,9 +73,9 @@ function modal(val) {
     
     var codUser = val;
     
-    $('#modCourse').html("<input type='text' id='id_course' value=" + course + ">");
-    $('#modSubject').html("<input type='text' id='id_subject' value=" + subject + ">");
-    $('#modStudent').html("<input type='text' id='id_user' value=" + codUser + ">");
+    $('#modCourse').html("<input type='hidden' id='id_course' value=" + course + ">");
+    $('#modSubject').html("<input type='hidden' id='id_subject' value=" + subject + ">");
+    $('#modStudent').html("<input type='hidden' id='id_user' value=" + codUser + ">");
 
 
 }

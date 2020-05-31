@@ -13,14 +13,24 @@ public class CredentialsVO {
     
     private String user;
     private String pass;
+    private String opt;
     
-    public CredentialsVO(String user, String pass){
+    public CredentialsVO(String user, String pass, String opt){
         
         this.user = user;
         this.pass = pass;
+        this.opt = opt;
         
     }
 
+    public String getOpt(){
+        return this.opt;
+    }
+    
+    public void setOpt(String opt){
+        this.opt = opt;
+    }
+    
     public String getUser() {
         return user;
     }

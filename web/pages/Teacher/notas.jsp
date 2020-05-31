@@ -80,5 +80,6 @@
         </main>
 
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
+        <script src="../../js/teacher/insertNotes.js"></script>
     </body>
 </html>

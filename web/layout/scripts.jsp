@@ -13,3 +13,4 @@
     <script src="../../js/desplegable.js" charset="utf-8"></script>
     <script src="../../js/jquery.dataTables.min.js" charset="utf-8"></script>
     <script src="../../js/dataTable.js" charset="utf-8"></script>
+    <script src="../../js/sweetalert2.min.js" charset="utf-8"></script>

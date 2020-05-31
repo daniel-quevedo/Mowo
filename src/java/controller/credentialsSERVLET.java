@@ -5,8 +5,13 @@
  */
 package controller;
 
+import DAO.CredentialsDAO;
+import DAO.PassDAO;
+import VO.CredentialsVO;
+import VO.PassVO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Leonardo
  */
 @WebServlet(name = "credentialsSERVLET", urlPatterns = {"/credentialsSERVLET"})
-public class credentialsSERVLET extends HttpServlet {
+public class CredentialsSERVLET extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,18 +37,18 @@ public class credentialsSERVLET extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet credentialsSERVLET</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet credentialsSERVLET at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+//        try (PrintWriter out = response.getWriter()) {
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet credentialsSERVLET</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet credentialsSERVLET at " + request.getContextPath() + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -73,6 +78,44 @@ public class credentialsSERVLET extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            
+            String pass = request.getParameter("pass");
+            String user = request.getParameter("user");
+            String opt = "A";
+            
+            
+            //ENCRIPTAR LA CONTRASEÑA*******************
+            
+            PassVO pVO = new PassVO(pass);
+            
+            PassDAO pDAO = new PassDAO(pVO);
+            
+            String passEncryp = pDAO.getMD5();
+            
+
+            
+            //INGRESAR LAS CREDENCIALES********************
+            
+            CredentialsVO cVO = new CredentialsVO(user, passEncryp, opt);
+            
+            CredentialsDAO cDAO = new CredentialsDAO(cVO);
+            
+            int result = cDAO.insertCred();
+            
+            if (result == -1) {
+                
+                response.sendRedirect("pages/validUser/Validate.jsp?res=1");
+                        
+            }else{
+                
+                response.sendRedirect("pages/validUser/Validate.jsp?res=0");
+                
+            }
+        
+        }
+        
+        
     }
 
     /**

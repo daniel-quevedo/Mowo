@@ -68,7 +68,8 @@
     </section>
   </main>
 
-	<jsp:include page="../../layout/scripts.jsp"></jsp:include>
+    <jsp:include page="../../layout/scripts.jsp"></jsp:include>
+    <script src="../../js/student/showNotes.js"></script>    
 </body>
 </html>
 

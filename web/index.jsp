@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <img src="./img/user.png">
                             <label>Nombre:</label><br>
-                            <input type="text" name="user" class="form-control" autofocus placeholder="Nombre de usuario" required pattern="[A-Za-z ]{2,30}" >
+                            <input type="text" name="user" class="form-control" autofocus placeholder="Nombre de usuario" required pattern="[A-Za-0-9z.@]{2,30}" >
                         </div>
                         <div class="form-group">
                             <img src="./img/lock.png">

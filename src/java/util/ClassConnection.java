@@ -24,7 +24,7 @@ public class ClassConnection {
         driver = "org.postgresql.Driver";
         user = "postgres";
         pass = "B@W5p~%\\Z@mCGRt";
-        db = "mowo";
+        db = "mowo_o";
         urldb = "jdbc:postgresql://192.168.0.18:5432/"+db;
         
         
