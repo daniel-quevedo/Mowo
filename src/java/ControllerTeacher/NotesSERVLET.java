@@ -80,14 +80,14 @@ public class NotesSERVLET extends HttpServlet {
             try{
                 
                 double note1, note2, note3, note4;
-                int id_user, id_subj, result;
+                int id_user, id_subj, result, returned;
                 
-                note1 = Double.parseDouble(request.getParameter("n1"));
-                note2 = Double.parseDouble(request.getParameter("n2"));
-                note3 = Double.parseDouble(request.getParameter("n3"));
-                note4 = Double.parseDouble(request.getParameter("n4"));
+                note1 = Double.parseDouble(request.getParameter("note1"));
+                note2 = Double.parseDouble(request.getParameter("note2"));
+                note3 = Double.parseDouble(request.getParameter("note3"));
+                note4 = Double.parseDouble(request.getParameter("note4"));
                 id_user = Integer.parseInt(request.getParameter("id_user"));
-                id_subj = Integer.parseInt(request.getParameter("id_subj"));
+                id_subj = Integer.parseInt(request.getParameter("id_subject"));
                 
 //                out.println("<h1> here </h1>");
 //                out.println("<h1> "+ note1 +" </h1>");
@@ -104,11 +104,20 @@ public class NotesSERVLET extends HttpServlet {
                 
                 result = nDAO.notes();
 
-                if (result == 4)                    
-                    out.println("Las notas se ingresaron correctamente");
-                    
-                else
-                    out.println("Ocurrio un error al insertar las notas");
+                switch (result) {
+                    case 5:
+                        returned = 1;
+                        break;
+                    case 1:
+                        returned = 2;
+                        break;
+                    default:
+                        returned = 0;
+                        break;
+                }
+                
+                
+                response.sendRedirect("pages/Teacher/notas.jsp?result="+returned+"");
                 
             }catch(Exception ex){
                 

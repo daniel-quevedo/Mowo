@@ -4,30 +4,11 @@
     Author     : Daniel
 --%>
 
-<%!
-    String idProfile; 
-    int id_profile;
-%>
+<!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA ADMINISTRADOR************************-->
 
+<%@include file="../../includes/Admin/ValidateSession.jsp"%> 
 
-<%
-   if (session.getAttribute("nameUser") == null) {
-            
-       response.sendRedirect("../../index.jsp");
-        
-    }else{
-       
-       idProfile = (String) session.getAttribute("idProfile");
-       id_profile = Integer.parseInt(idProfile);
-       
-       if(id_profile != 1){
-           
-        response.sendRedirect("../../index.jsp");
-        
-       }
-       
-    }
-%>
+<!--*****************************************************************************************-->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -87,7 +87,7 @@ public class NotesDAO extends ClassConnection{
             
         }catch(SQLException ex){
             
-            System.out.println("Ocurrio un erro al momento de insertar las notas " + ex);
+            System.out.println("Ocurrio un error al momento de insertar las notas " + ex);
             
         }
         

@@ -23,7 +23,7 @@
         
         %> <input type="hidden" value="<%=mailEncode%>" id="mailEncode"> <%
         
-        if(result == 2){
+        if(result == 3){
             %>
         
             <script type="text/javascript">
@@ -51,7 +51,7 @@
             </script>  
 
             <%
-        }else if(result == 1){
+        }else if(result == 2){
             %>
         
             <script type="text/javascript">
@@ -79,7 +79,7 @@
             </script>  
 
             <%
-        }else{
+        }else if(result == 1){
             
             %>
         
@@ -88,7 +88,7 @@
                 Swal.fire({
 
                     title: "Error",
-                    text: "Ocurrio un error al insertar el usuario",
+                    text: "La identificacion o el email ya existen",
                     icon: "error",
                     timer: 5000
 
@@ -102,6 +102,29 @@
 
             <%
         
+        }else{
+
+            %>
+        
+            <script type="text/javascript">
+
+                Swal.fire({
+
+                    title: "Error",
+                    text: "Ocurrio un error inesperado",
+                    icon: "error",
+                    timer: 5000
+
+                }).then((value)=>{
+
+                    window.location.href = window.location.href.split("?")[0];
+
+                });
+
+            </script>  
+
+            <%
+
         }
         
     }

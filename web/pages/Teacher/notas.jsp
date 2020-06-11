@@ -4,17 +4,13 @@
     Author     : Daniel
 --%>
 
-<%! private int id_profile; %>
 
-<%
-    
-    if (session.getAttribute("nameUser") == null) {
-            
-       response.sendRedirect("../../index.jsp");
-        
-    }
-    
-%>
+<!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA PROFESOR************************-->
+
+<%@include file="../../includes/Teacher/ValidateSession.jsp"%> 
+
+<!--*****************************************************************************************-->
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -81,5 +77,9 @@
 
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
         <script src="../../js/teacher/insertNotes.js"></script>
+        
+        <!-- Validar si las notas fueron ingresadas correctamente y mostrar el mensaje correspondiente-->
+        <jsp:include page="../../includes/Teacher/ValidateInsertNotes.jsp"></jsp:include>   
+        
     </body>
 </html>

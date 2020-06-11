@@ -94,6 +94,8 @@ public class InsertUserDAO extends ClassConnection{
             
             this.res = this.pstm.executeQuery();
             
+            System.out.println(this.pstm);
+            
             if (this.res.next()) {
                 result = res.getInt(1);
             }

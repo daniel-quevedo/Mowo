@@ -4,6 +4,12 @@
     Author     : Daniel
 --%>
 
+<!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA ADMINISTRADOR************************-->
+
+<%@include file="../../includes/Admin/ValidateSession.jsp"%> 
+
+<!--*****************************************************************************************-->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -90,6 +96,6 @@
         
         
         <!-- Validar si el usuario fue ingresado correctamente y mostrar el mensaje correspondiente-->
-        <jsp:include page="../../includes/Admin/ValidateURL.jsp"></jsp:include>   
+        <jsp:include page="../../includes/Admin/ValidateInsertUsu.jsp"></jsp:include>   
     </body>
 </html>

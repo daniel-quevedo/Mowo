@@ -15,7 +15,7 @@
             </div>
 
             <div class="modal-body">
-                <form>
+                <form action="../../NotesSERVLET" method="POST">
                     
                     <div id="modCourse"></div>
                     <div id="modSubject"></div>
@@ -25,24 +25,24 @@
                     <table class="table table-responsive-sm table-light">
                         <tr>
                             <td>Nota 1</td>
-                            <td><input class="form-control" name="note1" id="note1" type="number" min="0" max="5" pattern="[0-9]" step="0.1" ></td>
+                            <td><input class="form-control" name="note1" id="note1" type="number" min="1" max="5" pattern="[1-9]" step="0.1" required></td>
                         </tr>
                         <tr>
                             <td>Nota 2</td>
-                            <td><input class="form-control" name="note2" id="note2" type="number" min="0" max="5"pattern="[0-9]" step="0.1"></td>
+                            <td><input class="form-control" name="note2" id="note2" type="number" min="1" max="5"pattern="[1-9]" step="0.1" required></td>
                         </tr>
                         <tr>
                             <td>Nota 3</td>
-                            <td><input class="form-control" name="note3" id="note3" type="number" min="0" max="5" pattern="[0-9]" step="0.1"></td>
+                            <td><input class="form-control" name="note3" id="note3" type="number" min="1" max="5" pattern="[1-9]" step="0.1" required></td>
                         </tr>
                         <tr>
                             <td>Nota 4</td>
-                            <td><input class="form-control" name="note4" id="note4" type="number" min="0" max="5"pattern="[0-9]" step="0.1"></td>
+                            <td><input class="form-control" name="note4" id="note4" type="number" min="1" max="5"pattern="[1-9]" step="0.1" required></td>
                         </tr>
                         <tr>
                             
-                            <td><button class="btn btn-success" data-dismiss="modal" onClick="notes(); students();">Guardar</button></td>
-                            <td><button class="btn btn-danger" data-dismiss="modal">Cerrar</button></td>
+                            <td><button type="submit" class="btn btn-success" >Guardar</button></td>
+                            <td><button type="reset" class="btn btn-danger" data-dismiss="modal" >Cerrar</button></td>
                             
                         </tr>
                     </table>

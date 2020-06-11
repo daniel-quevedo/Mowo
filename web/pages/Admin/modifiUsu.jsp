@@ -4,6 +4,13 @@
     Author     : Daniel
 --%>
 
+<!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA ADMINISTRADOR************************-->
+
+<%@include file="../../includes/Admin/ValidateSession.jsp"%> 
+
+<!--*****************************************************************************************-->
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
