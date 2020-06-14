@@ -9,7 +9,7 @@ package VOAdmin;
  *
  * @author Leonardo
  */
-public class InsertUserVO {
+public class CrudUserVO {
     
     private String typeDoc;
     private int nDocument;
@@ -21,13 +21,14 @@ public class InsertUserVO {
     private String date;
     private String mail;
     private int active;
+    private String opt;
 
     
-     public InsertUserVO(){
+     public CrudUserVO(){
         
     }
 
-    public InsertUserVO(String typeDoc, int nDocument, String name, String lname, int typeUser, int phone, String dir, String date, String mail, int active) {
+    public CrudUserVO(String typeDoc, int nDocument, String name, String lname, int typeUser, int phone, String dir, String date, String mail, int active, String opt) {
         this.typeDoc = typeDoc;
         this.nDocument = nDocument;
         this.name = name;
@@ -38,6 +39,7 @@ public class InsertUserVO {
         this.date = date;
         this.mail = mail;
         this.active = active;
+        this.opt = opt;
     }
     
     public int getActive(){
@@ -120,8 +122,12 @@ public class InsertUserVO {
         this.mail = mail;
     }
     
-   
-   
-    
+   public String getOpt() {
+        return opt;
+    }
+
+    public void setOpt(String opt) {
+        this.opt = opt;
+    }    
     
 }

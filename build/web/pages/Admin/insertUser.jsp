@@ -27,7 +27,7 @@
                     <img src="../../img/menu.png" alt="" class="menu-bar">
                     <div class="contenedor animated zoomIn">
                         <h5 class="mb-4">Insertar Usuarios</h5>
-                        <form action="../../InsertUserSERVLET" method="POST">
+                        <form action="../../CrudUserSERVLET" method="POST">
                             <input type="hidden" name="option" value="2">
                             <table class="table table-hover table-warning table-borderless table-responsive-sm mt-2">
                                 <tr><td colspam="2"></td><td></td></tr>

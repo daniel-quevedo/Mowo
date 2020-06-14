@@ -5,9 +5,9 @@
  */
 package ControllerAdmin;
 
-import DAOAdmin.InsertUserDAO;
+import DAOAdmin.CrudUserDAO;
 import EncodeDecode.EncodeDecode;
-import VOAdmin.InsertUserVO;
+import VOAdmin.CrudUserVO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -24,7 +24,7 @@ import mail.Mail;
  * @author Leonardo
  */
 @WebServlet(name = "InsertUserSERVLET", urlPatterns = {"/InsertUserSERVLET"})
-public class InsertUserSERVLET extends HttpServlet {
+public class CrudUserSERVLET extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +43,10 @@ public class InsertUserSERVLET extends HttpServlet {
 //            out.println("<!DOCTYPE html>");
 //            out.println("<html>");
 //            out.println("<head>");
-//            out.println("<title>Servlet InsertUserSERVLET</title>");            
+//            out.println("<title>Servlet CrudUserSERVLET</title>");            
 //            out.println("</head>");
 //            out.println("<body>");
-//            out.println("<h1>Servlet InsertUserSERVLET at " + request.getContextPath() + "</h1>");
+//            out.println("<h1>Servlet CrudUserSERVLET at " + request.getContextPath() + "</h1>");
 //            out.println("</body>");
 //            out.println("</html>");
 //        }
@@ -82,7 +82,7 @@ public class InsertUserSERVLET extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             int option = Integer.parseInt(request.getParameter("option"));
-            
+            int res = 0;
             
             try{
                 
@@ -102,7 +102,7 @@ public class InsertUserSERVLET extends HttpServlet {
 
                     objMail.sendMail();
                     
-                }else{
+                }else if(option == 2){
                     
                     String mail = request.getParameter("mail");
                     String name = request.getParameter("name");
@@ -113,12 +113,13 @@ public class InsertUserSERVLET extends HttpServlet {
                     int phone = Integer.parseInt(request.getParameter("phone"));
                     String dir = request.getParameter("dir");
                     String date = request.getParameter("date");
+                    String opt = request.getParameter("opt");
 
-                    InsertUserVO uVO = new InsertUserVO(typeDoc, nDocument, name, lname, typeUser, phone, dir, date, mail, 1);
+                    CrudUserVO uVO = new CrudUserVO(typeDoc, nDocument, name, lname, typeUser, phone, dir, date, mail, 1,opt);
 
-                    InsertUserDAO uDAO = new InsertUserDAO(uVO);
+                    CrudUserDAO uDAO = new CrudUserDAO(uVO);
 
-                    int res = uDAO.insertUser();
+                    res = uDAO.insertUser();
 
                     uDAO.closeConnection();
                     
@@ -130,6 +131,26 @@ public class InsertUserSERVLET extends HttpServlet {
 
                     response.sendRedirect("pages/Admin/insertUsu.jsp?result="+res+"&resm="+mailEncode+""); 
                     
+                } else{
+                    
+                    String mail = request.getParameter("mail");
+                    String name = request.getParameter("name");
+                    String lname = request.getParameter("lname");
+                    String typeDoc = request.getParameter("typeDoc");
+                    int nDocument = Integer.parseInt(request.getParameter("nDocument"));
+                    int typeUser = Integer.parseInt(request.getParameter("typeUser"));
+                    int phone = Integer.parseInt(request.getParameter("phone"));
+                    String dir = request.getParameter("dir");
+                    String date = request.getParameter("date");
+                    String opt = request.getParameter("opt");
+                    
+                    CrudUserVO uVO = new CrudUserVO(typeDoc, nDocument, name, lname, typeUser, phone, dir, date, mail, 1,opt);
+                  
+                    CrudUserDAO uDAO = new CrudUserDAO(uVO);
+
+                    res = uDAO.modifyUser();
+
+                    uDAO.closeConnection();
                 }
 
             }catch(SQLException ex){

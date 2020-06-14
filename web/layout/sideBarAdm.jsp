@@ -15,8 +15,9 @@
     <ul class="submenu">
         <li><a href="#">Usuarios</a>
             <ul> 
-                <li><a href="insertUsu.jsp">Insertar Usuarios</a></li>
-                <li><a href="modifiUsu.jsp">Modificar Usuarios</a></li>
+                <li><a href="insertUser.jsp">Insertar Usuarios</a></li>
+                <li><a href="modifyUser.jsp">Modificar Usuarios</a></li>
+                <li><a href="modifiUsu.jsp">Asignar Cursos</a></li>
             </ul>
         </li>
         <li><a href="#">Docente</a>
