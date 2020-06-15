@@ -10,8 +10,8 @@ import EncodeDecode.EncodeDecode;
 import VOAdmin.CrudUserVO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Base64;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +23,7 @@ import mail.Mail;
  *
  * @author Leonardo
  */
-@WebServlet(name = "InsertUserSERVLET", urlPatterns = {"/InsertUserSERVLET"})
+@WebServlet(name = "CrudUserSERVLET", urlPatterns = {"/CrudUserSERVLET"})
 public class CrudUserSERVLET extends HttpServlet {
 
     /**
@@ -82,75 +82,106 @@ public class CrudUserSERVLET extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             int option = Integer.parseInt(request.getParameter("option"));
-            int res = 0;
+            
             
             try{
                 
-                if (option == 1) {
-                    
-                    String mailEncode = request.getParameter("mail");
-                    
-                    //decodificar el mail****************
-                    
-                    EncodeDecode coDe = new EncodeDecode();
-                    
-                    String mailDecode = coDe.decode(mailEncode);
-                    
-                    //Enviar correo al mail ingresado**********
-                    
-                    Mail objMail = new Mail(mailDecode);
-
-                    objMail.sendMail();
-                    
-                }else if(option == 2){
-                    
-                    String mail = request.getParameter("mail");
-                    String name = request.getParameter("name");
-                    String lname = request.getParameter("lname");
-                    String typeDoc = request.getParameter("typeDoc");
-                    int nDocument = Integer.parseInt(request.getParameter("nDocument"));
-                    int typeUser = Integer.parseInt(request.getParameter("typeUser"));
-                    int phone = Integer.parseInt(request.getParameter("phone"));
-                    String dir = request.getParameter("dir");
-                    String date = request.getParameter("date");
-                    String opt = request.getParameter("opt");
-
-                    CrudUserVO uVO = new CrudUserVO(typeDoc, nDocument, name, lname, typeUser, phone, dir, date, mail, 1,opt);
-
-                    CrudUserDAO uDAO = new CrudUserDAO(uVO);
-
-                    res = uDAO.insertUser();
-
-                    uDAO.closeConnection();
-                    
-                    //codificar el mail
-                    
-                    EncodeDecode coDe = new EncodeDecode(mail);
-                    
-                    String mailEncode = coDe.encode();
-
-                    response.sendRedirect("pages/Admin/insertUsu.jsp?result="+res+"&resm="+mailEncode+""); 
-                    
-                } else{
-                    
-                    String mail = request.getParameter("mail");
-                    String name = request.getParameter("name");
-                    String lname = request.getParameter("lname");
-                    String typeDoc = request.getParameter("typeDoc");
-                    int nDocument = Integer.parseInt(request.getParameter("nDocument"));
-                    int typeUser = Integer.parseInt(request.getParameter("typeUser"));
-                    int phone = Integer.parseInt(request.getParameter("phone"));
-                    String dir = request.getParameter("dir");
-                    String date = request.getParameter("date");
-                    String opt = request.getParameter("opt");
-                    
-                    CrudUserVO uVO = new CrudUserVO(typeDoc, nDocument, name, lname, typeUser, phone, dir, date, mail, 1,opt);
-                  
-                    CrudUserDAO uDAO = new CrudUserDAO(uVO);
-
-                    res = uDAO.modifyUser();
-
-                    uDAO.closeConnection();
+                switch (option) {
+                    case 1:
+                        {
+                            
+                            //enviar el email con el link para cambiar el password*******
+                            
+                            String mailEncode = request.getParameter("mail");
+                            //decodificar el mail****************
+                            
+                            EncodeDecode coDe = new EncodeDecode();
+                            String mailDecode = coDe.decode(mailEncode);
+                            //Enviar correo al mail ingresado**********
+                            
+                            Mail objMail = new Mail(mailDecode);
+                            objMail.sendMail();
+                            break;
+                        }
+                    case 2:
+                        {
+                            //insertar usuarios ***************************
+                            String mail = request.getParameter("mail");
+                            String name = request.getParameter("name");
+                            String lname = request.getParameter("lname");
+                            String typeDoc = request.getParameter("typeDoc");
+                            int nDocument = Integer.parseInt(request.getParameter("nDocument"));
+                            int typeUser = Integer.parseInt(request.getParameter("typeUser"));
+                            int phone = Integer.parseInt(request.getParameter("phone"));
+                            String dir = request.getParameter("dir");
+                            String date = request.getParameter("date");
+                            CrudUserVO uVO = new CrudUserVO(typeDoc, nDocument, name, lname, typeUser, phone, dir, date, mail, 1);
+                            CrudUserDAO uDAO = new CrudUserDAO(uVO);
+                            
+                            
+                            int res = uDAO.insertUser();
+                            uDAO.closeConnection();
+                            //codificar el mail
+                            
+                            EncodeDecode coDe = new EncodeDecode(mail);
+                            String mailEncode = coDe.encode();
+                            response.sendRedirect("pages/Admin/insertUser.jsp?result="+res+"&resm="+mailEncode+"");
+                            break;
+                        }
+                        
+                    case 3:
+                        {
+                            //mostrar los usuarios en la tabla para modificar*****************
+                            
+                            CrudUserDAO uDAO = new CrudUserDAO(); 
+                            
+                            ResultSet result = uDAO.dataUsers();
+                            
+                            out.println("<table class='table-hover table-borderless  table-responsive mt-5 mydataTable' id='dataUser'>");
+                                out.println("<thead>");
+                                
+                                out.println("<tr>" +
+                                                "<th>Estado</th> \n" +
+                                                "<th>Nombre</th>\n" +
+                                                "<th>Apellido</th>\n" +
+                                                "<th>Tipo de Documento</th>\n" +
+                                                "<th>N° Documento</th>\n" +
+                                                "<th>Tipo de Usuario</th>\n" +
+                                                "<th>Telefono</th>\n" +
+                                                "<th>Direccion</th>\n" +
+                                                "<th>Fecha de Nac.</th>\n" +
+                                                "<th>Correo</th>\n" +
+                                                "<th>Acciones</th>\n" +
+                                                "<th></th>\n" +
+                                            "</tr>");
+                                
+                                out.println("</thead>");
+                                out.println("<tbody>");
+//                                
+//                                while(result.next()){
+//                                    out.println("<tr>");
+//                                        
+//                                        out.println("<td>"+result.getInt(1)+"</td>");
+//                                        out.println("<td>"+result.getInt(2)+"</td>");
+//                                        out.println("<td>"+result.getInt(3)+"</td>");
+//                                        out.println("<td>"+result.getInt(4)+"</td>");
+//                                        out.println("<td>"+result.getInt(5)+"</td>");
+//                                        out.println("<td>"+result.getInt(6)+"</td>");
+//                                        out.println("<td>"+result.getInt(7)+"</td>");
+//                                        out.println("<td>"+result.getInt(8)+"</td>");
+//                                        out.println("<td>"+result.getInt(9)+"</td>");
+//                                        out.println("<td><a href='#ventana1' data-toggle='modal'><button type='button' class='btn btn-primary'>Editar</button></a></td>");
+//                                        out.println("<td><button class='btn btn-outline-danger'>Inactivar</button></td>");
+//                                    
+//                                    out.println("</tr>");
+//                                }
+//                                
+//                                out.println("</tbody>");
+                            out.println("</table>");
+                        
+                            break;
+                            
+                        }
                 }
 
             }catch(SQLException ex){

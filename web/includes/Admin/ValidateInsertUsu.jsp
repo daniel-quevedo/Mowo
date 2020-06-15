@@ -41,7 +41,7 @@
                     
                     $.ajax({
                         type:"post",
-                        url:"../../InsertUserSERVLET",
+                        url:"../../CrudUserSERVLET",
                         data:{option:1, mail:$("#mailEncode").val()}
                         
                     });
@@ -69,7 +69,7 @@
                     
                     $.ajax({
                         type:"post",
-                        url:"../../InsertUserSERVLET",
+                        url:"../../CrudUserSERVLET",
                         data:{option:1, mail:$("#mailEncode").val()}
                         
                     });

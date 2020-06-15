@@ -13,21 +13,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import mail.Mail;
 import util.ClassConnection;
 
 /**
  *
  * @author Leonardo
  */
-public class CrudUserDAO extends ClassConnection {
-
+public class CrudUserDAO extends ClassConnection{
+    
     //variables de conexion *************
-    private Connection con;
+    
+    private Connection con; 
     private PreparedStatement pstm;
     private ResultSet res;
-
+    
     //variables con datos de usuario********
+    
     private String typeDoc;
     private int nDocument;
     private String name;
@@ -38,19 +39,19 @@ public class CrudUserDAO extends ClassConnection {
     private String date;
     private String mail;
     private int active;
-    private String opt;
-    private boolean resMail = false;
-
-    public CrudUserDAO() {
-
+    
+    
+    
+    public CrudUserDAO(){
+        
     }
-
-    public CrudUserDAO(CrudUserVO uVO) {
-
-        try {
+    
+    public CrudUserDAO(CrudUserVO uVO){
+        
+        try{
 
             this.con = this.getConnection();
-
+            
             this.typeDoc = uVO.getTypeDoc();
             this.nDocument = uVO.getnDocument();
             this.name = uVO.getName();
@@ -61,24 +62,23 @@ public class CrudUserDAO extends ClassConnection {
             this.date = uVO.getDate();
             this.mail = uVO.getMail();
             this.active = uVO.getActive();
-            this.opt =uVO.getOpt();
-
-        } catch (Exception ex) {
-
+            
+        }catch(Exception ex){
+            
             Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
-
+           
         }
-
+        
     }
-
-    public int insertUser() {
-
+    
+    public int insertUser(){
+        
         int result = 0;
-        String sqlUser = "SELECT mowo.f_insert_usu(?, ?, ?, ?, ?, ?, ?, ?, ?);";
-
-        try {
+        String sqlUser = "SELECT mowo.f_insert_usu(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        
+        try{
             this.pstm = this.con.prepareStatement(sqlUser);
-
+            
             this.pstm.setString(1, this.typeDoc);
             this.pstm.setInt(2, this.nDocument);
             this.pstm.setString(3, this.name);
@@ -89,64 +89,65 @@ public class CrudUserDAO extends ClassConnection {
             this.pstm.setString(8, this.date);
             this.pstm.setString(9, this.mail);
             this.pstm.setInt(10, this.active);
-
-            this.res = this.pstm.executeQuery();
-
-            System.out.println(this.pstm);
-
-            if (this.res.next()) {
-                result = res.getInt(1);
-            }
-
-        } catch (SQLException ex) {
-            System.out.println("Ocurrio un error al insertar el usuario " + ex);
-        }
-
-        return result;
-
-    }
-
-    public int modifyUser() {
-        int result = 0;
-        String sqlUser = "SELECT mowo.f_modificar_usuario(?,?,?,?,?,?,?,?) ";
-        try {
-            this.pstm = this.con.prepareStatement(sqlUser);
-            
-            this.pstm.setString(1, this.name);
-            this.pstm.setString(2, lname);
-            this.pstm.setInt(3, phone);
-            this.pstm.setString(2, dir);
-            this.pstm.setString(5, date);
-            this.pstm.setString(6, mail);
-            this.pstm.setInt(7, active);
-            this.pstm.setString(8, opt);
             
             this.res = this.pstm.executeQuery();
-
+            
             System.out.println(this.pstm);
-
+            
             if (this.res.next()) {
                 result = res.getInt(1);
             }
             
-        } catch (SQLException ex) {
+            
+        }catch(SQLException ex){
             System.out.println("Ocurrio un error al insertar el usuario " + ex);
         }
-
+        
         return result;
+        
     }
-
+    
+    public ResultSet dataUsers(){
+        
+        String sqlDataUser = "SELECT activo\n" +
+                                    ",nombre\n" +
+                                    ",apellido\n" +
+                                    ",tipo_iden\n" +
+                                    ",identificacion\n" +
+                                    ",fk_perfil\n" +
+                                    ",telefono\n" +
+                                    ",direccion\n" +
+                                    ",fecha_nacimiento\n" +
+                                    ",email\n" +
+                            "FROM mowo.usuario;";
+        
+        try{
+            
+            this.pstm = this.con.prepareStatement(sqlDataUser);
+            
+            System.out.println(this.pstm);
+            
+            this.res = this.pstm.executeQuery();
+            
+        }catch(SQLException ex){
+            System.out.println("Ocurrio un error al mostrar los usuarios " + ex);
+        }
+            
+        return this.res;
+        
+    }
+    
 //    public static void main(String[] args) {
 //        
 //       
 //        
 //       try{
 //           
-//            CrudUserVO uVO = new CrudUserVO("CC", 778888, "Blaaa", "Blaaaa", 2, 151551, "cra 14 a este", "2020-01-01", "juanRRamirez159753@gmail.com",1);
+//            //CrudUserVO uVO = new CrudUserVO("CC", 778888, "Blaaa", "Blaaaa", 2, 151551, "cra 14 a este", "2020-01-01", "juanRRamirez159753@gmail.com",1);
 //
-//            CrudUserDAO objP = new CrudUserDAO(uVO);
+//            CrudUserDAO objP = new CrudUserDAO();
 //            
-//            System.out.println(objP.insertUser());
+//            System.out.println(objP.dataUsers());
 //
 //       }catch(Exception ex){
 //           
@@ -155,4 +156,5 @@ public class CrudUserDAO extends ClassConnection {
 //       
 //       
 //    }
+    
 }

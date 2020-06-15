@@ -78,37 +78,3 @@ function modal(val) {
 
 
 }
-
-//function notes(){
-//    
-//    var note1 = $('#note1').val();
-//    var note2 = $('#note2').val();
-//    var note3 = $('#note3').val();
-//    var note4 = $('#note4').val();
-//    var id_course = $('#id_course').val();
-//    var id_subject = $('#id_subject').val();
-//    var id_user = $('#id_user').val();
-//
-//    
-//    var url ="../../NotesSERVLET";
-//    
-//    $.ajax
-//    ({
-//       
-//        type: "post",
-//        data: {n1:note1, n2:note2, n3:note3, n4:note4, id_course:id_course, id_subj:id_subject, id_user:id_user},
-//        url: url,
-//    
-//    success:function(result){
-//        
-//        alert(result);
-//        
-//    },
-//    error:function(){
-//        
-//        alert('ocurrio un error inesperado');
-//    }
-//        
-//    });
-//    
-//}

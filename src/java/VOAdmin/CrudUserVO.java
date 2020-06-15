@@ -21,14 +21,13 @@ public class CrudUserVO {
     private String date;
     private String mail;
     private int active;
-    private String opt;
 
     
      public CrudUserVO(){
         
     }
 
-    public CrudUserVO(String typeDoc, int nDocument, String name, String lname, int typeUser, int phone, String dir, String date, String mail, int active, String opt) {
+    public CrudUserVO(String typeDoc, int nDocument, String name, String lname, int typeUser, int phone, String dir, String date, String mail, int active) {
         this.typeDoc = typeDoc;
         this.nDocument = nDocument;
         this.name = name;
@@ -39,7 +38,6 @@ public class CrudUserVO {
         this.date = date;
         this.mail = mail;
         this.active = active;
-        this.opt = opt;
     }
     
     public int getActive(){
@@ -122,12 +120,8 @@ public class CrudUserVO {
         this.mail = mail;
     }
     
-   public String getOpt() {
-        return opt;
-    }
-
-    public void setOpt(String opt) {
-        this.opt = opt;
-    }    
+   
+   
+    
     
 }

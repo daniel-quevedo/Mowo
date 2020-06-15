@@ -118,9 +118,9 @@ public class ShowNotesSERVLET extends HttpServlet {
                         resApprove = result.getBoolean(7);
                         
                         if (resApprove) {
-                            approve="Aprobo";
+                            approve="<td class='text-success'>Aprobo</td>";
                         }else{
-                            approve="Reprobo";
+                            approve="<td class='text-danger '>Reprobo</td>";
                         }
                         
                         
@@ -132,7 +132,7 @@ public class ShowNotesSERVLET extends HttpServlet {
                                     "<td> "+result.getDouble(4)+" </td> \n"+
                                     "<td> "+result.getDouble(5)+" </td> \n"+
                                     "<td> "+result.getDouble(6)+" </td> \n"+
-                                    "<td> "+approve+" </td> \n"+
+                                    approve+
                                 "</tr>");
                     out.println("</tbody> \n"+
                         "</table>");

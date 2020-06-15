@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class ClassConnection {
     
@@ -25,7 +25,7 @@ public class ClassConnection {
         user = "postgres";
         pass = "B@W5p~%\\Z@mCGRt";
         db = "mowo_o";
-        urldb = "jdbc:postgresql://192.168.0.18:5432/"+db;
+        urldb = "jdbc:postgresql://localhost:5432/"+db;
         
         
         try{
@@ -35,7 +35,7 @@ public class ClassConnection {
             
             System.out.println("Se conecto correctamente a la base de datos");
    
-        }catch (Exception e){
+        }catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){
     
             System.out.println("Ocurrio un erro al conectarse a la base de datos: "+e);   
             
