@@ -1,7 +1,7 @@
 <%-- 
     Document   : menu
     Created on : 28/04/2020, 12:32:48 AM
-    Author     : Leonardo
+    Author     : Daniel
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,7 +17,7 @@
             <ul> 
                 <li><a href="insertUser.jsp">Insertar Usuarios</a></li>
                 <li><a href="modifyUser.jsp">Modificar Usuarios</a></li>
-                <li><a href="modifiUsu.jsp">Asignar Cursos</a></li>
+                <li><a href="asigCourses.jsp">Asignar Cursos</a></li>
             </ul>
         </li>
         <li><a href="#">Docente</a>
