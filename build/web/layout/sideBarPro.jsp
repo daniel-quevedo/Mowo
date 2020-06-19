@@ -10,7 +10,7 @@
     <h2>Profesor</h2>
     <a href="perfil.jsp" title="Ver Perfil"><img src="../../img/avatar.png" ></a>
     <div class="logo">
-        <a href="../../index.jsp" title="Salir"><img src="../../img/salir.png" alt="Salir" ></a>
+        <a href="../../LoginSERVLET?logout=1" title="Salir"><img src="../../img/salir.png" alt="Salir" ></a>
     </div>
     <ul>
         <li><a href="index.jsp">Inicio</a></li>

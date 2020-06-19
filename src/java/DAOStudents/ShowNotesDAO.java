@@ -17,7 +17,7 @@ import util.ClassConnection;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class ShowNotesDAO extends ClassConnection{
     

@@ -21,7 +21,7 @@ import mail.Mail;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 @WebServlet(name = "CrudUserSERVLET", urlPatterns = {"/CrudUserSERVLET"})
 public class CrudUserSERVLET extends HttpServlet {

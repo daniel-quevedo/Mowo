@@ -14,7 +14,7 @@
     </div>
     <ul>
           <li><a href="index.jsp">Inicio</a></li>
-          <li><a href="calificaciones.jsp">Revisar Notas</a></li>
+          <li><a href="revisarNotas.jsp">Revisar Notas</a></li>
           <li><a href="asistencia.jsp">Revisar Asistencia</a></li>
           <li><a href="asignaturas.jsp">Revisar Asignaturas</a></li>
           <li><a href="observaciones.jsp">Revisar Observaciones</a></li>   

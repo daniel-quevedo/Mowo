@@ -172,3 +172,19 @@ h2 img{
     padding-bottom: 5px;
     margin: 0 0;
 }
+
+.target{
+    width: 90%;
+    text-align: center;
+    border-radius: 150px;
+    background-color: #CCDDE2;
+    border: 1px solid white;
+    box-shadow: 2px 3px 3px black;
+    color: black;
+}
+.target:hover{
+    display: block;
+    text-decoration: none;
+    background-color: #9DAAA6;
+}
+
