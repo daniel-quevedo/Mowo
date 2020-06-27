@@ -1,7 +1,5 @@
 $(document).ready(function(){
     
-    //alert("hello");
-    
     $.ajax({
         
         type:"post",
@@ -11,6 +9,7 @@ $(document).ready(function(){
         success:function(res){
             
             $("#dataUser").html(res);
+            
             
         },
         
@@ -23,5 +22,32 @@ $(document).ready(function(){
         
     });
     
+    
+    
 });
+
+
+function adUser(opt, cod){
+    $('#adUser').submit(function(event){
+        
+        event.preventDefault();
+        
+        $('#cod').val(cod);
+        
+        if(opt === 2){
+            
+            $('#opt').val(2);
+            
+        }else{
+            
+            $('#opt').val(1);
+        
+        }
+        
+        $("#adUser").unbind("submit").submit();
+        
+    });
+    
+}
+
 

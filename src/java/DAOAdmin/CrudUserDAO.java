@@ -17,7 +17,7 @@ import util.ClassConnection;
 
 /**
  *
- * @author Daniel
+ * @author Leonardo
  */
 public class CrudUserDAO extends ClassConnection{
     
@@ -43,7 +43,7 @@ public class CrudUserDAO extends ClassConnection{
     
     
     public CrudUserDAO(){
-        
+        this.con = this.getConnection();
     }
     
     public CrudUserDAO(CrudUserVO uVO){
@@ -119,13 +119,12 @@ public class CrudUserDAO extends ClassConnection{
                                     ",direccion\n" +
                                     ",fecha_nacimiento\n" +
                                     ",email\n" +
+                                    ",id_usuario\n"+
                             "FROM mowo.usuario;";
         
         try{
             
             this.pstm = this.con.prepareStatement(sqlDataUser);
-            
-            System.out.println(this.pstm);
             
             this.res = this.pstm.executeQuery();
             
@@ -137,24 +136,24 @@ public class CrudUserDAO extends ClassConnection{
         
     }
     
-//    public static void main(String[] args) {
-//        
-//       
-//        
-//       try{
-//           
-//            //CrudUserVO uVO = new CrudUserVO("CC", 778888, "Blaaa", "Blaaaa", 2, 151551, "cra 14 a este", "2020-01-01", "juanRRamirez159753@gmail.com",1);
-//
-//            CrudUserDAO objP = new CrudUserDAO();
-//            
-//            System.out.println(objP.dataUsers());
-//
-//       }catch(Exception ex){
-//           
-//           
-//       }
-//       
-//       
-//    }
+    public static void main(String[] args) {
+        
+       
+        
+       try{
+           
+            //CrudUserVO uVO = new CrudUserVO("CC", 778888, "Blaaa", "Blaaaa", 2, 151551, "cra 14 a este", "2020-01-01", "juanRRamirez159753@gmail.com",1);
+
+            CrudUserDAO objP = new CrudUserDAO();
+            
+            System.out.println(objP.dataUsers());
+
+       }catch(Exception ex){
+           
+           
+       }
+       
+       
+    }
     
 }

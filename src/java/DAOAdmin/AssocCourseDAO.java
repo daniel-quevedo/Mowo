@@ -17,7 +17,7 @@ import util.ClassConnection;
 
 /**
  *
- * @author Daniel
+ * @author Leonardo
  */
 public class AssocCourseDAO extends ClassConnection{
     

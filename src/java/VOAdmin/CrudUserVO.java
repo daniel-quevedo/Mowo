@@ -7,7 +7,7 @@ package VOAdmin;
 
 /**
  *
- * @author Daniel
+ * @author Leonardo
  */
 public class CrudUserVO {
     

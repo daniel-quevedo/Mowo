@@ -21,7 +21,7 @@ import mail.Mail;
 
 /**
  *
- * @author Daniel
+ * @author Leonardo
  */
 @WebServlet(name = "CrudUserSERVLET", urlPatterns = {"/CrudUserSERVLET"})
 public class CrudUserSERVLET extends HttpServlet {
@@ -83,6 +83,12 @@ public class CrudUserSERVLET extends HttpServlet {
             
             int option = Integer.parseInt(request.getParameter("option"));
             
+            //variables para validar estado y tipo de usuario******
+            
+            String state;
+            String button;
+            String typeUs = "";
+            
             
             try{
                 
@@ -117,8 +123,6 @@ public class CrudUserSERVLET extends HttpServlet {
                             String date = request.getParameter("date");
                             CrudUserVO uVO = new CrudUserVO(typeDoc, nDocument, name, lname, typeUser, phone, dir, date, mail, 1);
                             CrudUserDAO uDAO = new CrudUserDAO(uVO);
-                            
-                            
                             int res = uDAO.insertUser();
                             uDAO.closeConnection();
                             //codificar el mail
@@ -137,7 +141,10 @@ public class CrudUserSERVLET extends HttpServlet {
                             
                             ResultSet result = uDAO.dataUsers();
                             
-                            out.println("<table class='table-hover table-borderless  table-responsive mt-5 mydataTable' id='dataUser'>");
+                            out.println("<script src='../../js/jquery.dataTables.min.js' charset='utf-8'></script>\n" +
+                                        "<script src='../../js/dataTable.js' charset='utf-8'></script>");
+                            
+                            out.println("<table class=\"table-hover table-borderless  table-responsive mt-5 mydataTable\" id=\"dataUser\">");
                                 out.println("<thead>");
                                 
                                 out.println("<tr>" +
@@ -157,26 +164,63 @@ public class CrudUserSERVLET extends HttpServlet {
                                 
                                 out.println("</thead>");
                                 out.println("<tbody>");
-//                                
-//                                while(result.next()){
-//                                    out.println("<tr>");
-//                                        
-//                                        out.println("<td>"+result.getInt(1)+"</td>");
-//                                        out.println("<td>"+result.getInt(2)+"</td>");
-//                                        out.println("<td>"+result.getInt(3)+"</td>");
-//                                        out.println("<td>"+result.getInt(4)+"</td>");
-//                                        out.println("<td>"+result.getInt(5)+"</td>");
-//                                        out.println("<td>"+result.getInt(6)+"</td>");
-//                                        out.println("<td>"+result.getInt(7)+"</td>");
-//                                        out.println("<td>"+result.getInt(8)+"</td>");
-//                                        out.println("<td>"+result.getInt(9)+"</td>");
-//                                        out.println("<td><a href='#ventana1' data-toggle='modal'><button type='button' class='btn btn-primary'>Editar</button></a></td>");
-//                                        out.println("<td><button class='btn btn-outline-danger'>Inactivar</button></td>");
-//                                    
-//                                    out.println("</tr>");
-//                                }
-//                                
-//                                out.println("</tbody>");
+                                
+                                
+                                
+                                
+                                while(result.next()){
+                                    
+                                    //validar si el usuario esta activo*****************
+
+                                    if (result.getInt(1) == 1){ 
+                                        state = "Activo";
+                                        
+                                        button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-danger' onclick='adUser(2,"+result.getInt(11)+")'>Inactivar</button>";
+                                        
+                                    }else{
+                                        state = "Inactivo";
+                                        
+                                        button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-success' onclick='adUser(1,"+result.getInt(11)+")'>Activar</button>";
+                                        
+                                        
+                                    }
+                                    //validar el tipo de usuario ********************
+                                    
+                                    int typeOpt = result.getInt(6);
+                                    
+                                    switch(typeOpt){
+                                        case 1:
+                                            typeUs = "Administrador";
+                                            break;
+                                        case 2:
+                                            typeUs = "Profesor";
+                                            break;
+                                        case 3:
+                                            typeUs = "Estudiante";
+                                            break;
+                                        case 4:
+                                            typeUs = "Acudiante";
+                                    }
+                                    
+                                    
+                                    out.println("<tr>");
+                                        
+                                        out.println("<td>"+state+"</td>");
+                                        out.println("<td>"+result.getString(2)+"</td>");
+                                        out.println("<td>"+result.getString(3)+"</td>");
+                                        out.println("<td>"+result.getString(4)+"</td>");
+                                        out.println("<td>"+result.getInt(5)+"</td>");
+                                        out.println("<td>"+typeUs+"</td>");
+                                        out.println("<td>"+result.getString(7)+"</td>");
+                                        out.println("<td>"+result.getString(8)+"</td>");
+                                        out.println("<td>"+result.getString(9)+"</td>");
+                                        out.println("<td>"+result.getString(10)+"</td>");
+                                        out.println("<td><a href='#ventana1' data-toggle='modal'><button type='button' class='btn btn-primary'>Editar</button></a></td>");
+                                        out.println("<td>"+button+"</td>");
+                                    out.println("</tr>");
+                                }
+                                
+                                out.println("</tbody>");
                             out.println("</table>");
                         
                             break;
@@ -188,7 +232,7 @@ public class CrudUserSERVLET extends HttpServlet {
                 
                 out.println("<script>");
                     
-                        out.println("alert('Ocurrio un error al ingresar el usuario "+ ex +" ');");
+                        out.println("alert('Ocurrio un error al mostrar los usuarios"+ ex +" ');");
                     
                 out.println("</script>");
                 
