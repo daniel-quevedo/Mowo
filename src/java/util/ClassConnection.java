@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Daniel
+ * @author Leonardo
  */
 public class ClassConnection {
     
@@ -22,8 +22,8 @@ public class ClassConnection {
     public ClassConnection(){
         
         driver = "org.postgresql.Driver";
-        user = "postgres";
-        pass = "B@W5p~%\\Z@mCGRt";
+        user = "administrador";
+        pass = "$vF3b7T4TxCwm!";
         db = "mowo_o";
         urldb = "jdbc:postgresql://localhost:5432/"+db;
         

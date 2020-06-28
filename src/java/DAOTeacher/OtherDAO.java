@@ -131,6 +131,17 @@ public class OtherDAO extends ClassConnection{
         
         int periodo =0;
         
+        String where = ";";
+        
+        
+        //mostrar las notas del estudiante seleccionado en el modal************
+        if(this.idPro != 0){
+            
+            where = "AND U.id_usuario = ?;";
+            
+        }
+        //***********************************************
+        
         try{
             
             String sqlPeriodo = "SELECT mowo.f_periodo();";
@@ -158,13 +169,25 @@ public class OtherDAO extends ClassConnection{
                                         "INNER JOIN mowo.usuario U ON U.id_usuario = N.fk_estudiante \n" +
                                     "WHERE N.fk_asignatura = ? \n" +
                                     "AND U.fK_curso = ? \n" +
-                                    "AND N.periodo = ?; ";
+                                    "AND N.periodo = ? \n" +
+                                    where;
             
             this.pstm = this.conn.prepareStatement(sqlStudents);
             
             this.pstm.setInt(1, this.codAsig);
             this.pstm.setInt(2, this.codCourse);
             this.pstm.setInt(3, periodo);
+            
+            
+            //opcion en caso de que sea mostrar las notas en el modal***************
+            if(this.idPro != 0){
+            
+                this.pstm.setInt(4, this.idPro);
+            
+            }
+            //*****************************************************************
+            System.out.println(this.pstm);
+            
             this.res = this.pstm.executeQuery();
             
             

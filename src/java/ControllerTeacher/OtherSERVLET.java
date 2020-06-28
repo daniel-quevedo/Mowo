@@ -86,22 +86,25 @@ public class OtherSERVLET extends HttpServlet {
             
             int option = Integer.parseInt(request.getParameter("Option"));
             int idProf = Integer.parseInt(request.getParameter("codProfile"));
-            int codUser;
+            int subject;
+            int codUsers;
+            int courses;
+            int cont;
             
             switch(option){
                 //Mostrar los cursos segun el profesor
                 case 1: 
                     
-                    codUser = Integer.parseInt(request.getParameter("codUser"));
+                    codUsers = Integer.parseInt(request.getParameter("codUser"));
 
-                    OtherVO oVO = new OtherVO(codUser,idProf,0,0);
+                    OtherVO oVO = new OtherVO(codUsers,idProf,0,0);
                     OtherDAO oDAO = new OtherDAO(oVO);
 
                     ResultSet valCourses = oDAO.Courses();
 
                     oDAO.closeConnection();
                     
-                    out.println("<input type='hidden' value='"+codUser+"' name='cod' id='cod'>");   
+                    out.println("<input type='hidden' value='"+codUsers+"' name='cod' id='cod'>");   
                     out.println("<select class='form-control' name='course' id='course' onchange='encontrar()'>");
                     out.println("<option value=''>..Cursos..</option>");
 
@@ -112,7 +115,7 @@ public class OtherSERVLET extends HttpServlet {
                     }
                     out.println("</select>"); 
                     
-                    codUser = 0;
+                    codUsers = 0;
                     
                     break;
                     
@@ -120,9 +123,9 @@ public class OtherSERVLET extends HttpServlet {
                     
                 case 2: 
                     int course = Integer.parseInt(request.getParameter("Course"));
-                    codUser = Integer.parseInt(request.getParameter("codUser"));
+                    codUsers = Integer.parseInt(request.getParameter("codUser"));
 
-                    OtherVO VAs = new OtherVO(codUser,idProf,0,course);
+                    OtherVO VAs = new OtherVO(codUsers,idProf,0,course);
                     OtherDAO DAs = new OtherDAO(VAs);
 
                     ResultSet asig = DAs.Subjects();
@@ -141,13 +144,12 @@ public class OtherSERVLET extends HttpServlet {
                     
                 case 3:
                     
-                    int subject = Integer.parseInt(request.getParameter("subject"));
-                    int codUsers = Integer.parseInt(request.getParameter("codUser"));
-                    int courses = Integer.parseInt(request.getParameter("Course"));
-                    int cont =1;
+                    subject = Integer.parseInt(request.getParameter("subject"));
+                    courses = Integer.parseInt(request.getParameter("Course"));
+                    cont =1;
                     
                     
-                    OtherVO VStu = new OtherVO(codUsers,idProf,courses,subject);
+                    OtherVO VStu = new OtherVO(0,idProf,courses,subject);
                     OtherDAO DStu = new OtherDAO(VStu);
                     
                     ResultSet students = DStu.students();
@@ -184,6 +186,51 @@ public class OtherSERVLET extends HttpServlet {
                         out.println("</tbody>");
                     out.println("</table>");
 
+                    
+                    break;
+                case 4:
+                    
+                    subject = Integer.parseInt(request.getParameter("subject"));
+                    codUsers = Integer.parseInt(request.getParameter("codUser"));
+                    courses = Integer.parseInt(request.getParameter("Course"));
+                    cont =1;
+                    
+                    
+                    OtherVO VStu2 = new OtherVO(codUsers,idProf,courses,subject);
+                    OtherDAO DStu2 = new OtherDAO(VStu2);
+                    
+                    ResultSet students2 = DStu2.students();
+                    
+                    DStu2.closeConnection();
+                    
+                    if(students2.next()){
+                    
+                        out.println("<div id=\"tableNotes\">"+
+                                    "<table class=\"table table-responsive-sm table-light\" id=\"tableNotes\"> \n"+
+                                    "<tr> \n" +
+                                        "<td>Nota 1</td> \n" +
+                                        "<td><input class=\"form-control\" name=\"note1\" id=\"note1\" type=\"number\" min=\"1\" max=\"5\" pattern=\"[1-9]\" step=\"0.1\" value="+students2.getDouble(3)+" required></td>\n" +
+                                    "</tr>\n" +
+                                    "<tr>\n" +
+                                        "<td>Nota 2</td>\n" +
+                                        "<td><input class=\"form-control\" name=\"note2\" id=\"note2\" type=\"number\" min=\"1\" max=\"5\"pattern=\"[1-9]\" step=\"0.1\" value="+students2.getDouble(4)+" required></td>\n" +
+                                    "</tr>\n" +
+                                    "<tr>\n" +
+                                        "<td>Nota 3</td>\n" +
+                                        "<td><input class=\"form-control\" name=\"note3\" id=\"note3\" type=\"number\" min=\"1\" max=\"5\" pattern=\"[1-9]\" step=\"0.1\" value="+students2.getDouble(5)+" required></td>\n" +
+                                    "</tr>\n" +
+                                    "<tr>\n" +
+                                        "<td>Nota 4</td>\n" +
+                                        "<td><input class=\"form-control\" name=\"note4\" id=\"note4\" type=\"number\" min=\"1\" max=\"5\"pattern=\"[1-9]\" step=\"0.1\" value="+students2.getDouble(6)+" required></td>\n" +
+                                    "</tr>\n" +
+                                    "<tr>\n" +
+                                        "<td><button type=\"submit\" class=\"btn btn-success\" >Guardar</button></td>\n" +
+                                        "<td><button type=\"reset\" class=\"btn btn-danger\" data-dismiss=\"modal\" >Cerrar</button></td>\n" +
+                                    "</tr>\n" +
+                                "</table>"+
+                                "</div>");
+                        
+                    }
                     
                     break;
             }

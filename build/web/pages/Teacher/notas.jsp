@@ -33,7 +33,7 @@
             <section>
                 <div class="contenido abrir">
                 <img src="../../img/menu.png" alt="" class="menu-bar">
-                <div class="contenedor animated zoomIn">                      
+                <div class="contenedor">                      
                         <h3 class="mb-4">Notas</h3><br>
                         <form onsubmit="" method="post">
                             <input type="hidden" value="<%=session.getAttribute("codUser")%>" name="cod" id="cod">
