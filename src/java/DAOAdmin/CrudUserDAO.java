@@ -109,7 +109,20 @@ public class CrudUserDAO extends ClassConnection{
     
     public ResultSet dataUsers(){
         
-        String sqlDataUser = "SELECT activo\n" +
+        
+        //MOSTRAR LOS DATOS DEL USUARIO EN EL MODAL SEGUN SU IDENTIFICACION PARA MODIFICAR***********
+        String where = ";";
+        
+        if(this.nDocument != 0){
+            where = "WHERE identificacion = ?;";
+        }
+        //************************************************************************
+        
+        try{
+            
+            
+            
+            String sqlDataUser = "SELECT activo\n" +
                                     ",nombre\n" +
                                     ",apellido\n" +
                                     ",tipo_iden\n" +
@@ -120,11 +133,18 @@ public class CrudUserDAO extends ClassConnection{
                                     ",fecha_nacimiento\n" +
                                     ",email\n" +
                                     ",id_usuario\n"+
-                            "FROM mowo.usuario;";
-        
-        try{
+                            "FROM mowo.usuario \n" +
+                            where;
+            
             
             this.pstm = this.con.prepareStatement(sqlDataUser);
+            
+            
+            //EN CASO DE QUE SE QUIERA MOSTRAR LOS DATOS EN EL MODAL*****************
+            if(this.nDocument != 0){
+                this.pstm.setInt(1, this.nDocument);
+            }
+            //*******************************************************************
             
             this.res = this.pstm.executeQuery();
             

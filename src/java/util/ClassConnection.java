@@ -22,13 +22,14 @@ public class ClassConnection {
     public ClassConnection(){
         
         driver = "org.postgresql.Driver";
-        user = "administrador";
+        user = "postgres";
         pass = "$vF3b7T4TxCwm!";
         db = "mowo_o";
         urldb = "jdbc:postgresql://localhost:5432/"+db;
         
         
         try{
+            
     
             Class.forName(driver).newInstance();
             connection = DriverManager.getConnection(urldb,user,pass);

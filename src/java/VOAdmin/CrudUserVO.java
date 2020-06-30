@@ -23,8 +23,8 @@ public class CrudUserVO {
     private int active;
 
     
-     public CrudUserVO(){
-        
+    public CrudUserVO(int nDocument){
+        this.nDocument = nDocument;
     }
 
     public CrudUserVO(String typeDoc, int nDocument, String name, String lname, int typeUser, int phone, String dir, String date, String mail, int active) {

@@ -25,7 +25,7 @@
             <section>
                 <div class="contenido abrir">
                     <img src="../../img/menu.png" alt="" class="menu-bar">
-                    <div class="contenedor animated zoomIn">
+                    <div class="contenedor">
                         <h5 class="mb-4">Insertar Usuarios</h5>
                         <form action="../../CrudUserSERVLET" method="POST">
                             <input type="hidden" name="option" value="2">

@@ -131,10 +131,9 @@ public class OtherDAO extends ClassConnection{
         
         int periodo =0;
         
+        
+        //MOSTRAR LAS NOTAS EN EL MODAL PARA MODIFICARLAS**********
         String where = ";";
-        
-        
-        //mostrar las notas del estudiante seleccionado en el modal************
         if(this.idPro != 0){
             
             where = "AND U.id_usuario = ?;";

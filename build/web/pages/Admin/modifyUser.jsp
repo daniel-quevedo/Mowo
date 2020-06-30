@@ -32,7 +32,6 @@
                         <form action="../../ActivDeacSERVLET" method="POST" id="adUser">
                             <input type="hidden" value="" name="opt" id="opt">
                             <input type="hidden" value="" name="cod" id="cod">
-
                             <div id="dataUser"></div>
                         </form>
                     </div>

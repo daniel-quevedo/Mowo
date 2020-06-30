@@ -50,4 +50,28 @@ function adUser(opt, cod){
     
 }
 
+function modalUser(cod){
+ 
+    var opt = 4;
+    
+    $.ajax({
+        
+        type: "post",
+        data:{option:opt, nDocument:cod},
+        url: "../../CrudUserSERVLET",
+        
+        success:function(value){
+            
+            alert(value);
+            
+        },
+        error:function(){
+            
+            alert("ocurrio un error al mostrar las datos del usuario");
+            
+        }
+        
+    });
+}
+
 
