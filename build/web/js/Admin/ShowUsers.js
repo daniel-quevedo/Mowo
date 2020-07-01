@@ -62,7 +62,8 @@ function modalUser(cod){
         
         success:function(value){
             
-            alert(value);
+            $('#tableUsers').html(value);
+            //alert(value);
             
         },
         error:function(){

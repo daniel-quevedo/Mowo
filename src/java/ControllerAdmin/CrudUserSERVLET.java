@@ -248,81 +248,70 @@ public class CrudUserSERVLET extends HttpServlet {
                         
                         CrudUserVO uVO = new CrudUserVO(nDocument);
                         CrudUserDAO uDAO = new CrudUserDAO(uVO);
-                        ResultSet res = uDAO.dataUsers();
+                        ResultSet result = uDAO.dataUsers();
                         
-                        if(res.next()){
-                            
+                        String typeU = "";
+                        
+                        if(result.next()){
                             out.println("<div id='tableUsers'>");
                                 out.println("<table class='table table-responsive-sm table-light'>");
                                     out.println("<tr>\n" +
                                                     "<th><label>Nombre:</label></th>\n" +
-                                                    "<td><input type='text' class='form-control' name='name' value='' minlength='3' maxlength='25' pattern='[A-Za-z ]{3,25}'></td>\n" +
+                                                    "<td><input type='text' class='form-control' name='name' value='"+result.getString(2)+"' minlength='3' maxlength='25' pattern='[A-Za-z ]{3,25}'></td>\n" +
                                                 "</tr>");
                                     out.println("<tr>\n" +
                                                     "<th><label>Apellido:</label></th>\n" +
-                                                    "<td><input type='text' class='form-control' name='lname' value='' minlength='3' maxlength='25' pattern='[A-Za-z ]{3,25}'></td>\n" +
+                                                    "<td><input type='text' class='form-control' name='lname' value='"+result.getString(3)+"' minlength='3' maxlength='25' pattern='[A-Za-z ]{3,25}'></td>\n" +
                                                 "</tr>");
                                 
                                     out.println("<tr>\n"+
                                                     "<th><label>Tipo de Documento:</label></th>\n" +
                                                         "<td>\n"+
                                                             "<select class='form-control' name='typeDoc'>\n" +
-                                                                "<option value=''>Seleccione...</option>\n" +
-                                                                "<option value=''>CC</option>\n" +
-                                                                "<option value=''>TI</option>\n" +
-                                                                "<option value=''>CE</option>\n" +
+                                                                "<option value='#'>Seleccione...</option>\n" +
+                                                                "<option value='CC'>CC</option>\n" +
+                                                                "<option value='TI'>TI</option>\n" +
+                                                                "<option value='CE'>CE</option>\n" +
                                                             "</select>\n"+
                                                         "</td>"+
                                                 "</tr>");
                                     out.println("<tr>\n" +
                                                     "<th><label>N° Documento:</label></th>\n" +
-                                                    "<td><input type='number' class='form-control' name='' value='' minlength='7' maxlength='10' pattern='[0-9]{3,11}'></td>\n" +
+                                                    "<td><input type='number' class='form-control' name='nDocument' value='"+result.getString(5)+"' minlength='7' maxlength='10' pattern='[0-9]{3,11}'></td>\n" +
                                                 "</tr>");
-                                    
-                                    out.println("<tr>\n" +
-                                                    "<th><label>Tipo de Usuario:</label></th>\n" +
-                                                    "<td>\n"+
-                                                        "<select class='form-control' name=''>\n" +
-                                                            "<option value=''>Seleccione...</option>\n" +
-                                                            "<option value=''>Administrador</option>\n" +
-                                                            "<option value=''>Docente</option>\n" +
-                                                            "<option value=''>Estudiante</option>\n" +
-                                                            "<option value=''>Acudiente</option>\n" +
-                                                        "</select>\n"+
-                                                    "</td>\n" +
-                                                    "</tr>");
                                     out.println("<tr>\n" +
                                                     "<th><label>Telefono:</label></th>\n" +
-                                                        "<td>\n"+
-                                                            "<input type='number' class='form-control' name='' value='' minlength='7' maxlength='15' pattern='[0-9]{3,15}'>\n"+
-                                                            "</td>\n" +
+                                                    "<td>\n"+
+                                                        "<input type='number' class='form-control' name='phone' value='"+result.getString(7)+"' minlength='7' maxlength='15' pattern='[0-9]{3,15}'>\n"+
+                                                    "</td>\n" +
                                                 "</tr>\n" +
                                                 "<tr>\n" +
                                                     "<th><label>Direccion:</label></th>\n" +
                                                     "<td>\n"+
-                                                        "<input type='text' class='form-control' name='' value='' minlength='10' maxlength='100'>\n"+
+                                                        "<input type='text' class='form-control' name='dir' value='"+result.getString(8)+"' minlength='10' maxlength='100'>\n"+
                                                     "</td>\n" +
                                                 "</tr>\n" +
                                                 "<tr>\n" +
                                                     "<th><label>Fecha de Nacimiento:</label></th>\n" +
                                                     "<td>\n"+
-                                                        "<input type='date' class='form-control' name='' value='' min='1960-01-01' max='dd-mm-yyyy'>\n"+
+                                                        "<input type='date' class='form-control' name='date' value='"+result.getString(9)+"' min='1960-01-01' max='dd-mm-yyyy'>\n"+
                                                     "</td>\n" +
                                                 "</tr>\n" +
                                                 "<tr>\n" +
                                                     "<th><label>Correo:</label></th>\n" +
                                                     "<td>\n"+
-                                                        "<input type='email' class='form-control' name='' value='' pattern='[a-zA-Z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$'>\n"+
+                                                        "<input type='email' class='form-control' name='mail' value='"+result.getString(10)+"' pattern='[a-zA-Z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$'>\n"+
                                                     "</td>\n" +
+                                                "</tr>");
+                                    out.println("<tr>\n"+
+                                                    "<td><button class='btn btn-danger' data-dismiss='modal'>Cerrar</button></td>\n" +
+                                                    "<td><button class='btn btn-success' data-dismiss='modal'>Guardar</button></td>\n" +
                                                 "</tr>");
                                 out.println("</table>");
                             out.println("</div>");
 
                             
                         }
-                            
-                        
-                        
                         break;
                     }
                 }
