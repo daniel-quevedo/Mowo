@@ -250,10 +250,10 @@ public class CrudUserSERVLET extends HttpServlet {
                         CrudUserDAO uDAO = new CrudUserDAO(uVO);
                         ResultSet result = uDAO.dataUsers();
                         
-                        String typeU = "";
-                        
                         if(result.next()){
-                            out.println("<div id='tableUsers'>");
+                            out.println("<div id='tableUsers'>\n"+
+                                        "<input type='hidden' name='cod_user' value="+result.getInt(11)+" > \n" +
+                                        "<input type='hidden' value='5' name='option'>");
                                 out.println("<table class='table table-responsive-sm table-light'>");
                                     out.println("<tr>\n" +
                                                     "<th><label>Nombre:</label></th>\n" +
@@ -270,7 +270,7 @@ public class CrudUserSERVLET extends HttpServlet {
                                                             "<select class='form-control' name='typeDoc'>\n" +
                                                                 "<option value='#'>Seleccione...</option>\n" +
                                                                 "<option value='CC'>CC</option>\n" +
-                                                                "<option value='TI'>TI</option>\n" +
+                                                                "<option value='TI' focus>TI</option>\n" +
                                                                 "<option value='CE'>CE</option>\n" +
                                                             "</select>\n"+
                                                         "</td>"+
@@ -305,13 +305,42 @@ public class CrudUserSERVLET extends HttpServlet {
                                                 "</tr>");
                                     out.println("<tr>\n"+
                                                     "<td><button class='btn btn-danger' data-dismiss='modal'>Cerrar</button></td>\n" +
-                                                    "<td><button class='btn btn-success' data-dismiss='modal'>Guardar</button></td>\n" +
+                                                    "<td><button class='btn btn-success'>Guardar</button></td>\n" +
                                                 "</tr>");
                                 out.println("</table>");
                             out.println("</div>");
 
                             
                         }
+                        break;
+                    }
+                    case 5: 
+                    {
+                        
+                        //ACTUALIZAR EL USUARIO ***********************************
+                        int result =0;
+                        
+                        int id_user = Integer.parseInt(request.getParameter("cod_user"));
+                        
+                        
+                        mail = request.getParameter("mail");
+                        name = request.getParameter("name");
+                        lname = request.getParameter("lname");
+                        typeDoc = request.getParameter("typeDoc");
+                        nDocument = Integer.parseInt(request.getParameter("nDocument"));
+                        phone = Integer.parseInt(request.getParameter("phone"));
+                        dir = request.getParameter("dir");
+                        date = request.getParameter("date");
+                        
+                        CrudUserVO uVO = new CrudUserVO(typeDoc, nDocument, name, lname, 0, phone, dir, date, mail, 1);
+                        CrudUserDAO uDAO = new CrudUserDAO(uVO);
+                        
+                        result = uDAO.modifyUser(id_user);
+                        
+                        response.sendRedirect("pages/Admin/modifyUser.jsp?res="+result+"");
+                        
+                        
+                        
                         break;
                     }
                 }

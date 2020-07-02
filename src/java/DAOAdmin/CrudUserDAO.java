@@ -156,24 +156,72 @@ public class CrudUserDAO extends ClassConnection{
         
     }
     
-    public static void main(String[] args) {
+    public int modifyUser(int id_usuario){
         
-       
+        int result = 0;
         
-       try{
-           
-            //CrudUserVO uVO = new CrudUserVO("CC", 778888, "Blaaa", "Blaaaa", 2, 151551, "cra 14 a este", "2020-01-01", "juanRRamirez159753@gmail.com",1);
-
-            CrudUserDAO objP = new CrudUserDAO();
+        String sqlModify = "";
+        
+        
+        try{
             
-            System.out.println(objP.dataUsers());
+            
+            
+            sqlModify = "SELECT mowo.f_modificar_usuario(?,?,?,?,?,?,?,?,?,?,?);";
+            
+            this.pstm = this.con.prepareStatement(sqlModify);
+            this.pstm.setInt(1, id_usuario);
+            this.pstm.setString(2, this.name);
+            this.pstm.setString(3, this.lname);
+            this.pstm.setInt(4,this.phone);
+            this.pstm.setString(5, this.dir);
+            this.pstm.setString(6, this.date);
+            this.pstm.setString(7, this.mail);
+            this.pstm.setString(8, this.typeDoc);
+            this.pstm.setInt(9, this.nDocument);
+            this.pstm.setInt(10, 0);
+            this.pstm.setInt(11, 0);
+            
+            System.out.println(this.pstm);
+            
+            this.res = this.pstm.executeQuery();
+            
+            if(this.res.next()){
+                
+                result = this.res.getInt(1);
+                
+            }
 
-       }catch(Exception ex){
-           
-           
-       }
-       
-       
+            
+        }catch(SQLException ex){
+            
+            System.out.println("Ocurrio un erro al modificar los usuario: " + ex);
+            
+        }
+        
+        
+        return result;
+        
     }
+    
+//    public static void main(String[] args) {
+//        
+//       
+//        
+//       try{
+//           
+//            CrudUserVO uVO = new CrudUserVO("CC", 44455555, "Blaadooooo", "Bldooooo", 0, 151551, "cra 14 a este", "2020-01-01", "ju@gmail.com",1);
+//
+//            CrudUserDAO objP = new CrudUserDAO(uVO);
+//            
+//            System.out.println(objP.modifyUser());
+//
+//       }catch(Exception ex){
+//           
+//           
+//       }
+//       
+//       
+//    }
     
 }

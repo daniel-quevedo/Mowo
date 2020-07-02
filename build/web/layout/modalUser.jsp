@@ -16,7 +16,7 @@
             </div>
 
             <div class="modal-body">
-                <form action="action">
+                <form action="../../CrudUserSERVLET" method="POST">
                     <div id="tableUsers">
                         <table class="table table-responsive-sm table-light">
                             <tr>
