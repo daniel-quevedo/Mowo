@@ -37,7 +37,7 @@ public class CrudUserSERVLET extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+//        response.setContentType("text/html;charset=UTF-8");
 //        try (PrintWriter out = response.getWriter()) {
 //            /* TODO output your page here. You may use following sample code. */
 //            out.println("<!DOCTYPE html>");
@@ -87,19 +87,6 @@ public class CrudUserSERVLET extends HttpServlet {
             String state;
             String button;
             String typeUs = "";
-            //******************************************
-            
-            
-            //VARIABLES DATOS DE USUARIO******************
-            String mail;
-            String name;
-            String lname;
-            String typeDoc;
-            int nDocument;
-            int typeUser;
-            int phone;
-            String dir;
-            String date;
             //*******************************************
             
             try{
@@ -124,15 +111,15 @@ public class CrudUserSERVLET extends HttpServlet {
                     case 2:
                     {
                         //INSERTAR USUARIO ******************************
-                        mail = request.getParameter("mail");
-                        name = request.getParameter("name");
-                        lname = request.getParameter("lname");
-                        typeDoc = request.getParameter("typeDoc");
-                        nDocument = Integer.parseInt(request.getParameter("nDocument"));
-                        typeUser = Integer.parseInt(request.getParameter("typeUser"));
-                        phone = Integer.parseInt(request.getParameter("phone"));
-                        dir = request.getParameter("dir");
-                        date = request.getParameter("date");
+                        String mail = request.getParameter("mail");
+                        String name = request.getParameter("name");
+                        String lname = request.getParameter("lname");
+                        String typeDoc = request.getParameter("typeDoc");
+                        int nDocument = Integer.parseInt(request.getParameter("nDocument"));
+                        int typeUser = Integer.parseInt(request.getParameter("typeUser"));
+                        int phone = Integer.parseInt(request.getParameter("phone"));
+                        String dir = request.getParameter("dir");
+                        String date = request.getParameter("date");
                         
                         CrudUserVO uVO = new CrudUserVO(typeDoc, nDocument, name, lname, typeUser, phone, dir, date, mail, 1);
                         CrudUserDAO uDAO = new CrudUserDAO(uVO);
@@ -140,10 +127,13 @@ public class CrudUserSERVLET extends HttpServlet {
                         int res = uDAO.insertUser();
                         uDAO.closeConnection();
                         
+                        
+                        
                         //CODIFICAR EL EMAIL PARA ENVIARLO POR URL********
                         EncodeDecode coDe = new EncodeDecode(mail);
                         String mailEncode = coDe.encode();
                         response.sendRedirect("pages/Admin/insertUser.jsp?result="+res+"&resm="+mailEncode+"");
+
                         break;
                     } 
                     case 3:
@@ -244,7 +234,7 @@ public class CrudUserSERVLET extends HttpServlet {
                         
                         //MOSTRAR LOS DATOS DEL USUARIO EN EL MODAL PARA MODIFICAR***************
                         
-                        nDocument = Integer.parseInt(request.getParameter("nDocument"));
+                        int nDocument = Integer.parseInt(request.getParameter("nDocument"));
                         
                         CrudUserVO uVO = new CrudUserVO(nDocument);
                         CrudUserDAO uDAO = new CrudUserDAO(uVO);
@@ -323,14 +313,14 @@ public class CrudUserSERVLET extends HttpServlet {
                         int id_user = Integer.parseInt(request.getParameter("cod_user"));
                         
                         
-                        mail = request.getParameter("mail");
-                        name = request.getParameter("name");
-                        lname = request.getParameter("lname");
-                        typeDoc = request.getParameter("typeDoc");
-                        nDocument = Integer.parseInt(request.getParameter("nDocument"));
-                        phone = Integer.parseInt(request.getParameter("phone"));
-                        dir = request.getParameter("dir");
-                        date = request.getParameter("date");
+                        String mail = request.getParameter("mail");
+                        String name = request.getParameter("name");
+                        String lname = request.getParameter("lname");
+                        String typeDoc = request.getParameter("typeDoc");
+                        int nDocument = Integer.parseInt(request.getParameter("nDocument"));
+                        int phone = Integer.parseInt(request.getParameter("phone"));
+                        String dir = request.getParameter("dir");
+                        String date = request.getParameter("date");
                         
                         CrudUserVO uVO = new CrudUserVO(typeDoc, nDocument, name, lname, 0, phone, dir, date, mail, 1);
                         CrudUserDAO uDAO = new CrudUserDAO(uVO);
