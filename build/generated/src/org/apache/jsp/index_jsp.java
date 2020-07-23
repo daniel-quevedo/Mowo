@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import DAO.LoginDAO;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -44,6 +45,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+ 
+    LoginDAO DUser = new LoginDAO();
+    DUser.closeConnection(); 
+
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
@@ -68,7 +76,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"form-group\">\r\n");
       out.write("                            <img src=\"./img/user.png\">\r\n");
       out.write("                            <label>Nombre:</label><br>\r\n");
-      out.write("                            <input type=\"text\" name=\"user\" class=\"form-control\" autofocus placeholder=\"Nombre de usuario\" required pattern=\"[A-Za-z ]{2,30}\" >\r\n");
+      out.write("                            <input type=\"text\" name=\"user\" class=\"form-control\" autofocus placeholder=\"Nombre de usuario\" required pattern=\"[A-Za-0-9z.@]{2,30}\" >\r\n");
       out.write("                        </div>\r\n");
       out.write("                        <div class=\"form-group\">\r\n");
       out.write("                            <img src=\"./img/lock.png\">\r\n");

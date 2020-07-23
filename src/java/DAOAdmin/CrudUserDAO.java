@@ -61,7 +61,7 @@ public class CrudUserDAO extends ClassConnection{
             this.dir = uVO.getDir();
             this.date = uVO.getDate();
             this.mail = uVO.getMail();
-            this.active = uVO.getActive();
+            this.active = uVO.getActive();      
             
         }catch(Exception ex){
             
