@@ -204,6 +204,7 @@ public class CrudUserSERVLET extends HttpServlet {
                                         break;
                                     case 4:
                                         typeUs = "Acudiante";
+                                        break;
                                 }
 
 
@@ -312,7 +313,7 @@ public class CrudUserSERVLET extends HttpServlet {
                         
                         int id_user = Integer.parseInt(request.getParameter("cod_user"));
                         
-                        
+                       
                         String mail = request.getParameter("mail");
                         String name = request.getParameter("name");
                         String lname = request.getParameter("lname");
