@@ -6,12 +6,10 @@
 package ControllerAdmin;
 
 import DAOAdmin.AssocCourseDAO;
-import DAOAdmin.CrudUserDAO;
 import VOAdmin.AssocCourseVO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -19,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import jdk.nashorn.internal.ir.WhileNode;
 
 /**
  *
@@ -90,7 +89,56 @@ public class AssocCourseSERVLET extends HttpServlet {
             switch(option){
                 
                 case 1:
+                    int user = Integer.parseInt(request.getParameter("user"));
                     
+                    AssocCourseDAO DocEst = new AssocCourseDAO();
+                    
+                    ResultSet result = DocEst.listDocEst(user);
+                    
+                    
+                     out.println("<script src='../../js/jquery.dataTables.min.js' charset='utf-8'></script>\n" +
+                                    "<script src='../../js/dataTable.js' charset='utf-8'></script>");
+                     
+                     
+                    out.println("<table class=\"table-hover table-borderless table-responsive mt-5 mydataTable\">");
+                    out.println("<thead class=\"text-center\">");
+                    out.println("<tr>");
+                    out.println("<th>Estado</th>");
+                    out.println("<th>Nombre</th>");
+                    out.println("<th>Apellido</th>");
+                    out.println("<th>N° Documento</th>");
+                    out.println("<th>Teléfono</th>");
+                    out.println("<th>Correo</th>");
+                    out.println("<th>Cursos</th>");
+                    out.println("<th>Acciones</th>");
+                    out.println("</tr>");
+                    out.println("</thead>");
+                    out.println("<tbody>");
+                    while (result.next()) {
+                        ResultSet resCourse = DocEst.listCourse();
+                        String state;
+                        if (result.getInt(1) == 1){ 
+                            state = "Activo";
+                        }else{
+                            state = "Inactivo";
+                        }                        
+                        out.println("<tr>");
+                        out.println("<td>"+state+"</td>");
+                        out.println("<td>"+result.getString(2)+"</td>");
+                        out.println("<td>"+result.getString(3)+"</td>");
+                        out.println("<td>"+result.getInt(4)+"</td>");
+                        out.println("<td>"+result.getInt(5)+"</td>");
+                        out.println("<td>"+result.getString(6)+"</td>");
+                        out.println("<td><select class=\"form-control\" name=\"courses\">");
+                        out.println("<option value=\"\">Seleccione...</option>");
+                        while(resCourse.next()){
+                            out.println("<option value="+resCourse.getInt(1)+">"+resCourse.getString(2)+"</option>");
+                        }
+                        out.println("</td></select>");
+                        out.println("<td><button id=\"submit\" type=\"submit\" class=\"btn btn-primary\">Agregar</button></td>");
+                    }
+                    out.println("</tbody>");
+                    out.println("</table>");                    
                     break;
                 
                 case 2:

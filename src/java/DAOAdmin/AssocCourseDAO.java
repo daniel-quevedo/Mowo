@@ -31,6 +31,16 @@ public class AssocCourseDAO extends ClassConnection{
     private int id_course;
     private int id_user;
     private String opt;
+
+    public AssocCourseDAO() {
+        try {
+            this.conn = this.getConnection();
+            
+        } catch (Exception e) {
+            Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    
     
     public AssocCourseDAO(AssocCourseVO acVO){
         
@@ -83,6 +93,38 @@ public class AssocCourseDAO extends ClassConnection{
         
     }
     
+    public ResultSet listDocEst(int data){
+        
+        try {
+            
+        String sqlList = "SELECT activo, nombre, apellido, identificacion,telefono,email FROM mowo.usuario WHERE fk_perfil = ?";
+            
+        this.pstm = this.conn.prepareStatement(sqlList);
+        this.pstm.setInt(1,data);
+        
+        this.res = this.pstm.executeQuery();
+        
+        } catch (SQLException e) {
+            System.out.println("Ocurrio un error al mostrar los usuarios " + e);
+        }
+        
+        return this.res;
+    }
+    
+    public ResultSet listCourse(){
+        try {
+            
+        String sqlListC = "SELECT id_curso, nombre_curso FROM mowo.curso";
+        
+        this.pstm = this.conn.prepareStatement(sqlListC);        
+        
+        this.res = this.pstm.executeQuery();
+        } catch (SQLException e) {
+            System.out.println("Ocurrio un error al mostrar los usuarios " + e);
+        }
+        return this.res;
+    }
+    
     
     
     
@@ -90,11 +132,11 @@ public class AssocCourseDAO extends ClassConnection{
         
         try{
            //primera opcion:id_usu segunda opcion:id_curso tercera opcion: (A)estudiante (B)profesor
-            AssocCourseVO acVO = new AssocCourseVO(67,4,"A");
+            //AssocCourseVO acVO = new AssocCourseVO(67,4,"A");
 
-            AssocCourseDAO objP = new AssocCourseDAO(acVO);
+            AssocCourseDAO objP = new AssocCourseDAO();
             
-            System.out.println(objP.assoc());
+            System.out.println(objP.listDocEst(1));
 
        }catch(Exception ex){
            

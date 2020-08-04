@@ -1,6 +1,6 @@
 <%-- 
-    Document   : menu
-    Created on : 21-abr-2020, 8:17:04
+    Document   : insertUser
+    Created on : 30-abr-2020, 22:49:36
     Author     : Daniel
 --%>
 
@@ -13,78 +13,37 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
+<html>
     <head>
         <jsp:include page="../../layout/head.jsp"></jsp:include>
             <title>Asignar Cursos</title>
         </head>
         <body>
             <main>
-                <header>
+            <header>
                 <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
             </header>
             <section>
+                
                 <div class="contenido abrir">
                     <img src="../../img/menu.png" alt="" class="menu-bar">
-                    <div class="contenedor">
+                    <div class="contenedor  animated zoomIn">
+                        <h5 class="mb-4">Asignar Curso a Estudiantes</h5>
+                        <div class="table table-secondary p-3">
                         <form action="" method="POST">
-                            <table class="table table-hover table-success table-borderless table-responsive-sm mt-5">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th colspan="3">Estudiantes</th>
-                                        <th>Cursos</th>
-                                        <th><input type="search" class="form-control" name="" value="" placeholder="Buscar"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Daniel Eduardo</td>
-                                        <td>Quevedo ruiz</td>
-                                        <td>dequevedo@misena.edu.co</td>
-                                        <td><select class="form-control">
-                                                <option value="">--Seleccione--</option>
-                                                <option value="">Curso 1</option>
-                                                <option value="">Curso 2</option>
-                                                <option value="">Curso 3</option>
-                                                <option value="">Curso 4</option>
-                                            </select></td>
-                                        <td><a href="#ventana1" data-toggle="modal"><button type="button" class="btn btn-success">Asignar</button></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Daniel Eduardo</td>
-                                        <td>Quevedo ruiz</td>
-                                        <td>dequevedo@misena.edu.co</td>
-                                        <td><select class="form-control">
-                                                <option value="">--Seleccione--</option>
-                                                <option value="">Curso 1</option>
-                                                <option value="">Curso 2</option>
-                                                <option value="">Curso 3</option>
-                                                <option value="">Curso 4</option>
-                                            </select></td>
-                                        <td><a href="#ventana1" data-toggle="modal"><button type="button" class="btn btn-success">Asignar</button></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Daniel Eduardo</td>
-                                        <td>Quevedo ruiz</td>
-                                        <td>dequevedo@misena.edu.co</td>
-                                        <td><select class="form-control">
-                                                <option value="">--Seleccione--</option>
-                                                <option value="">Curso 1</option>
-                                                <option value="">Curso 2</option>
-                                                <option value="">Curso 3</option>
-                                                <option value="">Curso 4</option>
-                                            </select></td>
-                                        <td><a href="#ventana1" data-toggle="modal"><button type="button" class="btn btn-success">Asignar</button></a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <input type="hidden" name="user" value="3" id="user">
+                            
+                            <div id="listUser"></div>
                         </form>
                     </div>
                 </div>
             </section>
+            <!--Ventana Modal -->
+            <jsp:include page="../../layout/modalUser.jsp"></jsp:include>
         </main>
-
+            
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
+    
+    <script src="../../js/Admin/ShowDocEst.js" charset="utf-8"></script>
     </body>
 </html>
-

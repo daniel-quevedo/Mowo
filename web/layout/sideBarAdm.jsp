@@ -22,7 +22,7 @@
         </li>
         <li><a href="#">Docente</a>
             <ul>
-                <li><a href="asigCursoPro.jsp">Asignar Horario</a></li>
+                <li><a href="asigCursoPro.jsp">Asignar Curso</a></li>
                 <li><a href="#"> 2</a></li>
                 <li><a href="#"> 3</a></li>
             </ul>
