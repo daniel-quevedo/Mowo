@@ -125,7 +125,7 @@ public class LoginSERVLET extends HttpServlet {
                         response.sendRedirect("pages/Students/index.jsp");
                         break;
                     case 4:
-                        response.sendRedirect("pages/Tutor/index.jsp");
+                        response.sendRedirect("pages/tutor/index.jsp");
                         break;
                     default :
                         break;

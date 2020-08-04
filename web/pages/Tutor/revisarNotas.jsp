@@ -20,50 +20,12 @@
             </header>
             <section>
                 <div class="contenido abrir">
+                    <input type="hidden" id="codUser" value="<%=session.getAttribute("codUser")%>">
                     <img src="../../img/menu.png" class="menu-bar">
                     <div class="contenedor animated zoomIn">
                         <section>
                             <div class="row center-xs">
-                                <div class="col-xs-10 col-sm-6 col-md-4 mb-5">
-                                    <a href="notes.jsp" ><div class="target p-2">
-                                        <img src="../../img/avatar.png" alt="Foto de Perfil">
-                                        <h4>Daniel Quevedo</h4>
-                                        <p>1023037660</p>
-                                        <p>Curso 10-01 J.M.</p>
-                                    </div></a>
-                                </div> 
-                                <div class="col-xs-10 col-sm-6 col-md-4 mb-5">
-                                    <div class="target p-2">
-                                        <img src="../../img/avatar.png" alt="Foto de Perfil">
-                                        <h4>Eduardo Ruiz</h4>
-                                        <p>1023037660</p>
-                                        <p>Curso 10-01 J.M.</p>
-                                    </div>
-                                </div> 
-                                <div class="col-xs-10 col-sm-6 col-md-4 mb-5">
-                                    <div class="target p-2">
-                                        <img src="../../img/avatar.png" alt="Foto de Perfil">
-                                        <h4>David Quevedo</h4>
-                                        <p>1023037660</p>
-                                        <p>Curso 10-01 J.M.</p>
-                                    </div>
-                                </div> 
-                                <div class="col-xs-10 col-sm-6 col-md-4 mb-5">
-                                    <div class="target p-2">
-                                        <img src="../../img/avatar.png" alt="Foto de Perfil">
-                                        <h4>Leonardo Ruiz</h4>
-                                        <p>1023037660</p>
-                                        <p>Curso 10-01 J.M.</p>
-                                    </div>
-                                </div> 
-                                <div class="col-xs-10 col-sm-6 col-md-4 mb-5">
-                                    <div class="target p-2">
-                                        <img src="../../img/avatar.png" alt="Foto de Perfil">
-                                        <h4>Mauricio Gonzalez</h4>
-                                        <p>1023037660</p>
-                                        <p>Curso 10-01 J.M.</p>
-                                    </div>
-                                </div> 
+                                <div id="dataUser"></div>
                             </div>
                         </section>
                     </div>
@@ -72,7 +34,7 @@
         </main>
 
     <jsp:include page="../../layout/scripts.jsp"></jsp:include>
-    <script src="../../js/student/showNotes.js"></script>    
+    <script src="../../js/Tutor/showEstudents.js"></script>    
     </body>
 </html>
 

@@ -22,10 +22,10 @@
     <body>
         <main>
             <header>
-            </header>
-            <section>
+                    
                 <jsp:include page="../../layout/sideBarPro.jsp"></jsp:include>
-            </section>
+                
+            </header>
             <section>
                 <div class="contenido abrir">
                     <img src="../../img/menu.png" alt="" class="menu-bar">

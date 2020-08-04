@@ -24,6 +24,8 @@
                     <img src="../../img/menu.png" alt="" class="menu-bar">
                     <div class="contenedor">
 
+                        <h2>Bienvenido: <%=session.getAttribute("nameUser")%></h2>
+                    
                     </div>
                 </div>
             </section>

@@ -90,9 +90,9 @@ public class CrudUserDAO extends ClassConnection{
             this.pstm.setString(9, this.mail);
             this.pstm.setInt(10, this.active);
             
-            this.res = this.pstm.executeQuery();
-            
             System.out.println(this.pstm);
+            
+            this.res = this.pstm.executeQuery();
             
             if (this.res.next()) {
                 result = res.getInt(1);

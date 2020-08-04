@@ -4,11 +4,7 @@
     Author     : Leonardo
 --%>
 
-<%@page import="DAO.LoginDAO"%>
-<% 
-    LoginDAO DUser = new LoginDAO();
-    DUser.closeConnection(); 
-%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
