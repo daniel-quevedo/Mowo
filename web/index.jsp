@@ -18,46 +18,44 @@
         <title>Mowo o</title>
     </head>
     <body>
-         
-        <div class="model ">
-            <div class="col-md-8 col-sm-10 contenedor">
-                <div class="box-content animated zoomIn">
-                    <div class="col-12 login text-center">
-                        <img src="./img/login.png" width="200" height="200" alt="login">
-                        <h5>Iniciar Sesión</h5>
+
+        <div class="col-lg-3 col-md-4 col-sm-12 contenedor ">            
+            <div class=" box-content animated zoomIn">
+                <div class="col-12 login text-center">
+                    <img src="./img/login.png" width="200" height="200" alt="login">
+                    <h5>Iniciar Sesión</h5>
+                </div>
+                <form class="col-12" action="LoginSERVLET" method="post" autocomplete ="off">
+
+                    <div class="form-group">
+                        <img src="./img/user.png">
+                        <label>Nombre:</label><br>
+                        <input type="text" name="user" class="form-control" autofocus placeholder="Nombre de usuario" required pattern="[A-Za-0-9z.@]{2,30}" >
                     </div>
-                    <form class="col-12" action="LoginSERVLET" method="post" autocomplete ="off">
+                    <div class="form-group">
+                        <img src="./img/lock.png">
+                        <label>Contraseña:</label><br>
+                        <input type="password" name="passUsu" class="form-control" placeholder="Contraseña" required pattern="(?=.*\d)(?=.*[A-Z]).{8,}" title="
+                               Debe contener al menos un número, una letra mayúscula y al menos 8 o más caracteres">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary botones col-12" ><img src="./img/fingerprint.png"> Ingresar</button>
+                    </div>
 
-                        <div class="form-group">
-                            <img src="./img/user.png">
-                            <label>Nombre:</label><br>
-                            <input type="text" name="user" class="form-control" autofocus placeholder="Nombre de usuario" required pattern="[A-Za-0-9z.@]{2,30}" >
-                        </div>
-                        <div class="form-group">
-                            <img src="./img/lock.png">
-                            <label>Contraseña:</label><br>
-                            <input type="password" name="passUsu" class="form-control" placeholder="Contraseña" required pattern="(?=.*\d)(?=.*[A-Z]).{8,}" title="
-                                   Debe contener al menos un número, una letra mayúscula y al menos 8 o más caracteres">
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-outline-primary botones" ><img src="./img/sign.png"> Ingresar</button>
-                        </div>
-
-                    </form>
-                    <div>
-                        <div class="col-12 text-right">
-                            <a href="#">Recordar Contraseña</a>
-                        </div>
+                </form>
+                <div>
+                    <div class="col-12 text-center mb-2">
+                        <a href="#">Recordar Contraseña</a>
                     </div>
                 </div>
-            </div>
-            
-            <div>
-                <%request.getAttribute("error");%> 
-                    
-                ${error} 
-                    
-            </div>
-            
+            </div>            
+        </div>
+        <div>
+            <%request.getAttribute("error");%> 
+
+            ${error} 
+
+        </div>
+
     </body>
 </html>

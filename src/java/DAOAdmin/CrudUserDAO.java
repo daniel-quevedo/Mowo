@@ -90,9 +90,9 @@ public class CrudUserDAO extends ClassConnection{
             this.pstm.setString(9, this.mail);
             this.pstm.setInt(10, this.active);
             
-            System.out.println(this.pstm);
-            
             this.res = this.pstm.executeQuery();
+            
+            System.out.println(this.pstm);
             
             if (this.res.next()) {
                 result = res.getInt(1);
@@ -118,10 +118,7 @@ public class CrudUserDAO extends ClassConnection{
         }
         //************************************************************************
         
-        try{
-            
-            
-            
+        try{                                    
             String sqlDataUser = "SELECT activo\n" +
                                     ",nombre\n" +
                                     ",apellido\n" +
@@ -135,7 +132,6 @@ public class CrudUserDAO extends ClassConnection{
                                     ",id_usuario\n"+
                             "FROM mowo.usuario \n" +
                             where;
-            
             
             this.pstm = this.con.prepareStatement(sqlDataUser);
             
@@ -164,8 +160,6 @@ public class CrudUserDAO extends ClassConnection{
         
         
         try{
-            
-            
             
             sqlModify = "SELECT mowo.f_modificar_usuario(?,?,?,?,?,?,?,?,?,?,?);";
             
@@ -202,7 +196,7 @@ public class CrudUserDAO extends ClassConnection{
         
         return result;
         
-    }
+    }        
     
     
     

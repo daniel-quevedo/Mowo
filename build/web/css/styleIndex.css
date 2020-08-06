@@ -4,27 +4,24 @@ body {
 }
 
 .login {
-    margin-top: -90px;
+    margin-top: -92px;
     margin-bottom: 20px;
 }
 .login h5{
     margin-top: -30px;
-}
-.model{
-    position: relative;
-    width: auto;
-    max-width: 500px;
-    margin: 1.75rem auto;
+    font-size: 2em;
+    margin-bottom: 30px;
 }
 .contenedor {
-    margin: 0 auto;
-    margin-top: 25%;
+    background-size: cover;
+    margin: 30px auto;
+    margin-top: 8%;
     padding: 0;
+    position: fixed;
 }
 
-.box-content{
-    margin-top: 5px;
-    background-color: #CCDDE2;
+.box-content{    
+    background-color: #F9F6F0;
     border-radius: 7px;
     box-shadow: 3px 3px 3px #003049;
     border: 1px solid white;
@@ -35,7 +32,7 @@ body {
     font-size: 18px;
     padding-left: 55px;
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #939393;
     background-color: transparent;
 
 }
@@ -46,8 +43,8 @@ body {
     height: 40px;
     font-size: 16px;
     padding-left: 55px;
-    border: none;
-    border-bottom: 2px solid #939393;
+    border: none;   
+    border-bottom: 2px solid black;
     border-right: 1px solid #939393;
     background-color: transparent;
     box-shadow: none;
@@ -63,6 +60,7 @@ body {
     left: 28px;
     padding-top: 40px;
     opacity: .70;
+    
 }
 
 .botones{

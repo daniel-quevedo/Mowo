@@ -23,8 +23,8 @@ public class ClassConnection {
         
         driver = "org.postgresql.Driver";
         user = "postgres";
-        pass = "$vF3b7T4TxCwm!";
-        db = "mowo";
+        pass = "B@W5p~%\\Z@mCGRt";
+        db = "mowo_o";
         urldb = "jdbc:postgresql://localhost:5432/"+db;
             
         

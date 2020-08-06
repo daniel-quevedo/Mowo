@@ -80,26 +80,25 @@ public class AssocCourseSERVLET extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         try (PrintWriter out = response.getWriter()) {
-            
-            
+
             int option = Integer.parseInt(request.getParameter("option"));
-            
+            //VARIABLES PARA VALIDAR ACTIVO/INACTIVO
+            String state;
+            String button;
             int res;
-            
-            switch(option){
-                
+
+            switch (option) {
+
                 case 1:
                     int user = Integer.parseInt(request.getParameter("user"));
-                    
+
                     AssocCourseDAO DocEst = new AssocCourseDAO();
-                    
+
                     ResultSet result = DocEst.listDocEst(user);
-                    
-                    
-                     out.println("<script src='../../js/jquery.dataTables.min.js' charset='utf-8'></script>\n" +
-                                    "<script src='../../js/dataTable.js' charset='utf-8'></script>");
-                     
-                     
+
+                    out.println("<script src='../../js/jquery.dataTables.min.js' charset='utf-8'></script>\n"
+                            + "<script src='../../js/dataTable.js' charset='utf-8'></script>");
+
                     out.println("<table class=\"table-hover table-borderless table-responsive mt-5 mydataTable\">");
                     out.println("<thead class=\"text-center\">");
                     out.println("<tr>");
@@ -116,35 +115,35 @@ public class AssocCourseSERVLET extends HttpServlet {
                     out.println("<tbody>");
                     while (result.next()) {
                         ResultSet resCourse = DocEst.listCourse();
-                        String state;
-                        if (result.getInt(1) == 1){ 
+
+                        if (result.getInt(1) == 1) {
                             state = "Activo";
-                        }else{
+                        } else {
                             state = "Inactivo";
-                        }                        
+                        }
                         out.println("<tr>");
-                        out.println("<td>"+state+"</td>");
-                        out.println("<td>"+result.getString(2)+"</td>");
-                        out.println("<td>"+result.getString(3)+"</td>");
-                        out.println("<td>"+result.getInt(4)+"</td>");
-                        out.println("<td>"+result.getInt(5)+"</td>");
-                        out.println("<td>"+result.getString(6)+"</td>");
+                        out.println("<td>" + state + "</td>");
+                        out.println("<td>" + result.getString(2) + "</td>");
+                        out.println("<td>" + result.getString(3) + "</td>");
+                        out.println("<td>" + result.getInt(4) + "</td>");
+                        out.println("<td>" + result.getInt(5) + "</td>");
+                        out.println("<td>" + result.getString(6) + "</td>");
                         out.println("<td><select class=\"form-control\" name=\"courses\">");
                         out.println("<option value=\"\">Seleccione...</option>");
-                        while(resCourse.next()){
-                            out.println("<option value="+resCourse.getInt(1)+">"+resCourse.getString(2)+"</option>");
+                        while (resCourse.next()) {
+                            out.println("<option value=" + resCourse.getInt(1) + ">" + resCourse.getString(2) + "</option>");
                         }
                         out.println("</td></select>");
                         out.println("<td><button id=\"submit\" type=\"submit\" class=\"btn btn-primary\">Agregar</button></td>");
                     }
                     out.println("</tbody>");
-                    out.println("</table>");                    
+                    out.println("</table>");
                     break;
-                
+
                 case 2:
-                    
-                    try{
-                
+
+                    try {
+
                         int id_user = Integer.parseInt(request.getParameter("idUser"));
                         int id_course = Integer.parseInt(request.getParameter("idCourse"));
                         String opt = request.getParameter("opt");
@@ -167,13 +166,50 @@ public class AssocCourseSERVLET extends HttpServlet {
                                 break;
                         }
 
+                    } catch (Exception ex) {
 
-                    }catch(Exception ex){
-
-                        out.println("Ocurio un error al momento de asociar el usuario "+ ex);
+                        out.println("Ocurio un error al momento de asociar el usuario " + ex);
 
                     }
-                    
+
+                    break;
+
+                case 3:
+                    //INSERTAR CURSO ******************************
+                    String name_course = request.getParameter("name");
+                    int code = Integer.parseInt(request.getParameter("code"));
+
+                    AssocCourseDAO insCourse = new AssocCourseDAO();
+
+                    int resu = insCourse.insertCourse(name_course, code);
+                    insCourse.closeConnection();
+                    break;
+                case 4:
+                    //LISTAR CURSOS *******************************                    
+
+                    AssocCourseDAO cDAO = new AssocCourseDAO();
+
+                    ResultSet resulCourse = cDAO.listCourse();
+
+
+                    out.println("<table class=\"table table-hover table-borderless table-responsive mt-5 \">");
+                    out.println("<thead class=\"text-center\">");
+                    out.println("<tr>");                    
+                    out.println("<th>Nombre</th>");
+                    out.println("<th>Apellido</th>");                                        
+                    out.println("<th>Acciones</th>");                    
+                    out.println("</tr>");
+                    out.println("</thead>");
+                    out.println("<tbody>");
+                    while (resulCourse.next()) {                                                
+                        out.println("<tr>");                        
+                        out.println("<td>" + resulCourse.getString(2) + "</td>");                        
+                        out.println("<td>" + resulCourse.getInt(1) + "</td>");                        
+                        out.println("<td><button id=\"submit\" type=\"submit\" class=\"btn btn-primary\">Agregar</button></td>");                        
+                        out.println("</tr>");
+                    }
+                    out.println("</tbody>");
+                    out.println("</table>");
                     break;
             }
         } catch (Exception ex) {

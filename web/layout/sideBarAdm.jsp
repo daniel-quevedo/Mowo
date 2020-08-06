@@ -18,6 +18,8 @@
                 <li><a href="insertUser.jsp">Insertar Usuarios</a></li>
                 <li><a href="modifyUser.jsp">Modificar Usuarios</a></li>
                 <li><a href="asigCourses.jsp">Asignar Cursos</a></li>
+                <li><a href="insertCourse.jsp">Insertar Cursos</a></li>
+                <li><a href="modifyCourse.jsp">Modificar Cursos</a></li>
             </ul>
         </li>
         <li><a href="#">Docente</a>

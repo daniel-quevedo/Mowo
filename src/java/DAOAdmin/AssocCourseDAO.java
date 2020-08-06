@@ -31,6 +31,10 @@ public class AssocCourseDAO extends ClassConnection{
     private int id_course;
     private int id_user;
     private String opt;
+    
+    //variables para insertar curso
+    private String name_course;
+    private String code;
 
     public AssocCourseDAO() {
         try {
@@ -120,12 +124,35 @@ public class AssocCourseDAO extends ClassConnection{
         
         this.res = this.pstm.executeQuery();
         } catch (SQLException e) {
-            System.out.println("Ocurrio un error al mostrar los usuarios " + e);
+            System.out.println("Ocurrio un error al mostrar los cursos " + e);
         }
         return this.res;
     }
     
-    
+    public int insertCourse(String name, int code){
+        int result = 0;
+        String sqlInsCourser = "INSERT INTO mowo.curso(nombre_curso,codigo) VALUES(?,?) ";
+        
+        try{
+            this.pstm = this.conn.prepareStatement(sqlInsCourser);
+            this.pstm.setString(1, this.name_course);
+            this.pstm.setString(2, this.code);
+            
+            this.res = this.pstm.executeQuery();
+            
+            System.out.println(this.pstm);
+            
+            if (this.res.next()) {
+                result = res.getInt(1);
+            }
+            
+            
+        }catch(SQLException ex){
+            System.out.println("Ocurrio un error al insertar el curso " + ex);
+        }
+        
+        return result;
+    }
     
     
     public static void main(String[] args) {
