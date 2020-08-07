@@ -129,23 +129,21 @@ public class AssocCourseDAO extends ClassConnection{
         return this.res;
     }
     
-    public int insertCourse(String name, int code){
+    public int insertCourse(String pamname, int pamcode){
+        int resultQuery = 0;
         int result = 0;
         String sqlInsCourser = "INSERT INTO mowo.curso(nombre_curso,codigo) VALUES(?,?) ";
         
         try{
             this.pstm = this.conn.prepareStatement(sqlInsCourser);
-            this.pstm.setString(1, this.name_course);
-            this.pstm.setString(2, this.code);
+            this.pstm.setString(1, pamname);
+            this.pstm.setInt(2, pamcode);
             
-            this.res = this.pstm.executeQuery();
+            //System.out.println(this.pstm);
+            resultQuery = this.pstm.executeUpdate();
             
-            System.out.println(this.pstm);
-            
-            if (this.res.next()) {
-                result = res.getInt(1);
-            }
-            
+            if(resultQuery == 1)
+                result = 1;
             
         }catch(SQLException ex){
             System.out.println("Ocurrio un error al insertar el curso " + ex);

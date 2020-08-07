@@ -183,6 +183,10 @@ public class AssocCourseSERVLET extends HttpServlet {
 
                     int resu = insCourse.insertCourse(name_course, code);
                     insCourse.closeConnection();
+                    
+                    response.sendRedirect("pages/Admin/insertCourse.jsp?src="+resu+"");
+                    
+                    
                     break;
                 case 4:
                     //LISTAR CURSOS *******************************                    
