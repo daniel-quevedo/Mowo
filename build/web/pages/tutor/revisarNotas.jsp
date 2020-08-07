@@ -6,7 +6,21 @@
 
 
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="DAOTutor.ShowEstutorDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%!
+    private String id_tutor_rec;
+    private int id_tutor;
+%>
+<%
+
+    id_tutor_rec = (String)session.getAttribute("codUser");
+                                    
+    id_tutor = Integer.parseInt(id_tutor_rec);
+    
+%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -20,12 +34,32 @@
             </header>
             <section>
                 <div class="contenido abrir">
-                    <input type="hidden" id="codUser" value="<%=session.getAttribute("codUser")%>">
                     <img src="../../img/menu.png" class="menu-bar">
                     <div class="contenedor animated zoomIn">
                         <section>
                             <div class="row center-xs">
-                                <div id="dataUser"></div>
+                                <%  
+                                    ShowEstutorDAO shwetDAO = new ShowEstutorDAO();
+                                    ResultSet result = shwetDAO.listUser(id_tutor);
+                                    
+                                    shwetDAO.closeConnection();
+                                    
+                                    while(result.next()){
+                                        
+                                            out.println("<div class='col-xs-10 col-sm-6 col-md-4 mb-5'>\n" +
+                                                            "<a href='notes.jsp?src="+result.getInt(1)+"'>\n"+
+                                                            "<div class='target p-2'>\n"+
+                                                                "<img src='../../img/avatar.png' alt='Foto de Perfil'>\n"+
+                                                                "<h4>"+result.getString(3)+"</h4>\n"+
+                                                                "<p>CC:"+result.getInt(2)+"</p>\n"+
+                                                            "</div>\n"+ 
+                                                            "</a>\n" +
+                                                        "</div> "
+                                            );
+                                        
+                                    }
+                                
+                                %>
                             </div>
                         </section>
                     </div>
@@ -34,7 +68,6 @@
         </main>
 
     <jsp:include page="../../layout/scripts.jsp"></jsp:include>
-    <script src="../../js/Tutor/showEstudents.js"></script>    
     </body>
 </html>
 

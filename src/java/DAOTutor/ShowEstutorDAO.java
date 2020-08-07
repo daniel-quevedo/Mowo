@@ -50,6 +50,8 @@ public class ShowEstutorDAO extends ClassConnection{
             this.pstm = this.conn.prepareStatement(sql);
             this.pstm.setInt(1, id_tutor);
             
+            System.out.println(pstm);
+            
             this.res = pstm.executeQuery();
             
         }catch(SQLException ex){

@@ -38,7 +38,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><input type="text" class="form-control" name="name" id="name" value="" minlength="3" maxlength="25" autofocus pattern="[A-Za-z ]{3,25}" required></td>
+                                            <td><input type="text" class="form-control" name="name" id="name" value="" minlength="3" maxlength="25" autofocus pattern="[A-Za-z9-0 ]{3,25}" required></td>
                                             <td><input type="number" class="form-control" name="code" id="code" value="" minlength="3" maxlength="25" autofocus pattern="[A-Za-z ]{3,25}" required></td>
                                         </tr>                                                                
                                     <td colspan="2">

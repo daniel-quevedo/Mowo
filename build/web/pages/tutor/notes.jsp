@@ -4,7 +4,12 @@
     Author     : Daniel
 --%>
 
-
+<%!
+    private String id_student;
+%>
+<%
+    id_student = request.getParameter("src");
+%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,6 +25,7 @@
     </header>
     <section>
     <div class="contenido abrir">
+        
         <img src="../../img/menu.png" alt="" class="menu-bar">
         <div class="contenedor animated zoomIn">
             <section>
@@ -42,7 +48,7 @@
             </section>
             <section>
                 <h5>Calificaciones</h5><br>
-                <input type="hidden" value="<%=session.getAttribute("codUser")%>" id="codUser">
+                <input type="hidden" value="<%=id_student%>" id="codUser">
                 <table class="table table-borderless table-success table-responsive-sm" id="tableNotesStu">
                     <thead class="thead-dark">
                         <tr>
@@ -60,6 +66,11 @@
                             <th>Promedio</th>
                             <th>Aprobo</th>
                         </tr>
+                        <tr>
+                            
+                            
+                            
+                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -69,7 +80,7 @@
   </main>
 
     <jsp:include page="../../layout/scripts.jsp"></jsp:include>
-    <script src="../../js/student/showNotes.js"></script>    
+    <script src="../../js/student/showNotes.js"></script>   
 </body>
 </html>
 
