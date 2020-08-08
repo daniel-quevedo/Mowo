@@ -24,14 +24,14 @@
         </li>
         <li><a href="#">Docente</a>
             <ul>
-                <li><a href="asigCursoPro.jsp">Asignar Curso</a></li>
+                <li><a href="asigCoursePro.jsp">Asignar Curso</a></li>
                 <li><a href="#"> 2</a></li>
                 <li><a href="#"> 3</a></li>
             </ul>
         </li>
         <li><a href="#">Estudiantes</a>
             <ul>
-                <li><a href="asigCursoEst.jsp">Asignar Curso</a></li>
+                <li><a href="asigCourseEst.jsp">Asignar Curso</a></li>
                 <li><a href="#"> 2</a></li>
                 <li><a href="#"> 3</a></li>
             </ul>

@@ -69,7 +69,6 @@ public class AssocCourseDAO extends ClassConnection{
         
         String sqlAssoc = "SELECT mowo.f_asociar_curso(?,?,?);";
         
-        //String sqlAssoc = "SELECT mowo.f_asociar_curso("+this.id_user+","+this.id_course+",'"+this.opt+"');";
         try{
             
             this.pstm = this.conn.prepareStatement(sqlAssoc);
@@ -77,7 +76,7 @@ public class AssocCourseDAO extends ClassConnection{
             this.pstm.setInt(2, this.id_course);
             this.pstm.setString(3, this.opt);
             
-            //System.out.println(this.pstm);
+            System.out.println(this.pstm);
             
             this.res = this.pstm.executeQuery();
             
@@ -101,10 +100,11 @@ public class AssocCourseDAO extends ClassConnection{
         
         try {
             
-        String sqlList = "SELECT activo, nombre, apellido, identificacion,telefono,email FROM mowo.usuario WHERE fk_perfil = ?";
+        String sqlList = "SELECT id_usuario, nombre, apellido, identificacion,telefono,email FROM mowo.usuario WHERE fk_perfil = ? AND activo = ?";
             
         this.pstm = this.conn.prepareStatement(sqlList);
         this.pstm.setInt(1,data);
+        this.pstm.setInt(2, 1);
         
         this.res = this.pstm.executeQuery();
         

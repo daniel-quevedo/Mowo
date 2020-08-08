@@ -85,7 +85,7 @@ public class AssocCourseSERVLET extends HttpServlet {
             //VARIABLES PARA VALIDAR ACTIVO/INACTIVO
             String state;
             String button;
-            int res;
+            int res = 0;
 
             switch (option) {
 
@@ -143,29 +143,39 @@ public class AssocCourseSERVLET extends HttpServlet {
                 case 2:
 
                     try {
-
-                        int id_user = Integer.parseInt(request.getParameter("idUser"));
+                        
                         int id_course = Integer.parseInt(request.getParameter("idCourse"));
+
+                        String[] users = request.getParameterValues("user");
+                        
                         String opt = request.getParameter("opt");
+                        
+                        for(int i =0;i<users.length;i++){
+                            
+                            int id_user = Integer.parseInt(users[i]);
+                         
+                            AssocCourseVO acVO = new AssocCourseVO(id_user, id_course, opt);
 
-                        AssocCourseVO acVO = new AssocCourseVO(id_course, id_user, opt);
+                            AssocCourseDAO acDAO = new AssocCourseDAO(acVO);
 
-                        AssocCourseDAO acDAO = new AssocCourseDAO(acVO);
+                            int temp = acDAO.assoc();
+                            
+                            if(temp == -1){
+                                res --;
+                            }else if(temp == 1){
+                                res ++;
+                            }
 
-                        res = acDAO.assoc();
-
-                        switch (res) {
-                            case 1:
-                                out.println("El estudiante se asocio correctamente");
-                                break;
-                            case -1:
-                                out.println("El profesor se asocio correctamente");
-                                break;
-                            default:
-                                out.println("Ocurio un error al momento de asociar el usuario");
-                                break;
+                            acDAO.closeConnection();
+                            
                         }
-
+                        
+                        if (res < 0)
+                            response.sendRedirect("pages/Admin/asigCoursePro.jsp?="+res+"");
+                        else if(res > 0)
+                            response.sendRedirect("pages/Admin/asigCourseEst.jsp?="+res+"");
+                            
+                        
                     } catch (Exception ex) {
 
                         out.println("Ocurio un error al momento de asociar el usuario " + ex);
