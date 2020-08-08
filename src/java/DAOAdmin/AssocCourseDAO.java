@@ -115,21 +115,38 @@ public class AssocCourseDAO extends ClassConnection{
         return this.res;
     }
     
+    
     public ResultSet listCourse(){
-        try {
+        
+        String where = "";
+        
+        try{
+
+            if(this.id_course !=0)
+                where = "WHERE id_curso=?";
             
-        String sqlListC = "SELECT id_curso, nombre_curso FROM mowo.curso";
+            String sqlListC = "SELECT id_curso, nombre_curso, codigo FROM mowo.curso "+where;
+
+            this.pstm = this.conn.prepareStatement(sqlListC);
+            
+            if(this.id_course !=0)
+                this.pstm.setInt(1, this.id_course);
+            
+            System.out.println(this.pstm);
+
+            this.res = this.pstm.executeQuery();
         
-        this.pstm = this.conn.prepareStatement(sqlListC);        
-        
-        this.res = this.pstm.executeQuery();
         } catch (SQLException e) {
             System.out.println("Ocurrio un error al mostrar los cursos " + e);
         }
+        
         return this.res;
     }
     
+    
+    
     public int insertCourse(String pamname, int pamcode){
+        
         int resultQuery = 0;
         int result = 0;
         String sqlInsCourser = "INSERT INTO mowo.curso(nombre_curso,codigo) VALUES(?,?) ";

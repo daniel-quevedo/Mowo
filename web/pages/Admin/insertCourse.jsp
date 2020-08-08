@@ -28,7 +28,7 @@
                         <div class="contenedor ">
                             <h5 class="mb-4 ml-5">Insertar Cursos</h5>
                             <form action="../../AssocCourseSERVLET" method="POST">
-                                <input type="hidden" name="option" value="3">
+                                <input type="hidden" name="option" value="2">
                                 <table class="ml-5 table table-light table-borderless col-6 table-responsive-sm mt-2">                                
                                     <thead>
                                         <tr>

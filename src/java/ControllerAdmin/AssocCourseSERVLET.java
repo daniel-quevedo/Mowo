@@ -17,7 +17,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import jdk.nashorn.internal.ir.WhileNode;
 
 /**
  *
@@ -88,59 +87,8 @@ public class AssocCourseSERVLET extends HttpServlet {
             int res = 0;
 
             switch (option) {
-
+                
                 case 1:
-                    int user = Integer.parseInt(request.getParameter("user"));
-
-                    AssocCourseDAO DocEst = new AssocCourseDAO();
-
-                    ResultSet result = DocEst.listDocEst(user);
-
-                    out.println("<script src='../../js/jquery.dataTables.min.js' charset='utf-8'></script>\n"
-                            + "<script src='../../js/dataTable.js' charset='utf-8'></script>");
-
-                    out.println("<table class=\"table-hover table-borderless table-responsive mt-5 mydataTable\">");
-                    out.println("<thead class=\"text-center\">");
-                    out.println("<tr>");
-                    out.println("<th>Estado</th>");
-                    out.println("<th>Nombre</th>");
-                    out.println("<th>Apellido</th>");
-                    out.println("<th>N° Documento</th>");
-                    out.println("<th>Teléfono</th>");
-                    out.println("<th>Correo</th>");
-                    out.println("<th>Cursos</th>");
-                    out.println("<th>Acciones</th>");
-                    out.println("</tr>");
-                    out.println("</thead>");
-                    out.println("<tbody>");
-                    while (result.next()) {
-                        ResultSet resCourse = DocEst.listCourse();
-
-                        if (result.getInt(1) == 1) {
-                            state = "Activo";
-                        } else {
-                            state = "Inactivo";
-                        }
-                        out.println("<tr>");
-                        out.println("<td>" + state + "</td>");
-                        out.println("<td>" + result.getString(2) + "</td>");
-                        out.println("<td>" + result.getString(3) + "</td>");
-                        out.println("<td>" + result.getInt(4) + "</td>");
-                        out.println("<td>" + result.getInt(5) + "</td>");
-                        out.println("<td>" + result.getString(6) + "</td>");
-                        out.println("<td><select class=\"form-control\" name=\"courses\">");
-                        out.println("<option value=\"\">Seleccione...</option>");
-                        while (resCourse.next()) {
-                            out.println("<option value=" + resCourse.getInt(1) + ">" + resCourse.getString(2) + "</option>");
-                        }
-                        out.println("</td></select>");
-                        out.println("<td><button id=\"submit\" type=\"submit\" class=\"btn btn-primary\">Agregar</button></td>");
-                    }
-                    out.println("</tbody>");
-                    out.println("</table>");
-                    break;
-
-                case 2:
 
                     try {
                         
@@ -184,7 +132,7 @@ public class AssocCourseSERVLET extends HttpServlet {
 
                     break;
 
-                case 3:
+                case 2:
                     //INSERTAR CURSO ******************************
                     String name_course = request.getParameter("name");
                     int code = Integer.parseInt(request.getParameter("code"));
@@ -198,32 +146,56 @@ public class AssocCourseSERVLET extends HttpServlet {
                     
                     
                     break;
-                case 4:
-                    //LISTAR CURSOS *******************************                    
+                
+                case 3:
+                    //MOSTRAR VALORES DE LOS CURSOS EN EL MODAL¨***********
+                    
+                    int id_course = Integer.parseInt(request.getParameter("cod"));
+                    
+                    AssocCourseVO aVO = new AssocCourseVO(0,id_course,"0");
+                    AssocCourseDAO aDAO = new AssocCourseDAO(aVO);
+                    
+                    ResultSet result = aDAO.listCourse();
+                    
+                    out.println("<table class='ml-5 table table-light table-borderless col-6 table-responsive-sm mt-2'>");
+                    
+                    if(result.next()){
+                        
+                        out.println("<input type='hidden' value='"+result.getInt(1)+"' name='id_course'>");
+                        
+                        out.println("<thead>");
+                            out.println("<tr>");
+                                out.println("<th><label>Nombre:</label></th>\n" +
+                                            "<td><input type='text' class='form-control' name='name' id='name' value='"+result.getString(2)+"' minlength='6' maxlength='10' autofocus pattern='[9-0]+ [A-Z]{3,25}' required></td>");
+                            out.println("<tr>");
+                        out.println("</thead>\n"+
+                                    "<tbody>");
+                            out.println("<tr>");
+                                out.println("<th><label>Codigo:</label></th>\n" +
+                                            "<td><input type='number' class='form-control' name='code' id='code' value='"+result.getInt(3)+"' minlength='3' maxlength='25' autofocus pattern='[A-Za-z ]{3,25}' required></td>");
+                            out.println("</tr>");
+                            out.println("<tr>");
 
-                    AssocCourseDAO cDAO = new AssocCourseDAO();
+                                out.println("<td><button class=\"btn btn-danger\" data-dismiss=\"modal\">Cerrar</button></td>\n" +
+                                            "<td><button class=\"btn btn-success\" data-dismiss=\"modal\">Guardar</button></td>");
 
-                    ResultSet resulCourse = cDAO.listCourse();
-
-
-                    out.println("<table class=\"table table-hover table-borderless table-responsive mt-5 \">");
-                    out.println("<thead class=\"text-center\">");
-                    out.println("<tr>");                    
-                    out.println("<th>Nombre</th>");
-                    out.println("<th>Apellido</th>");                                        
-                    out.println("<th>Acciones</th>");                    
-                    out.println("</tr>");
-                    out.println("</thead>");
-                    out.println("<tbody>");
-                    while (resulCourse.next()) {                                                
-                        out.println("<tr>");                        
-                        out.println("<td>" + resulCourse.getString(2) + "</td>");                        
-                        out.println("<td>" + resulCourse.getInt(1) + "</td>");                        
-                        out.println("<td><button id=\"submit\" type=\"submit\" class=\"btn btn-primary\">Agregar</button></td>");                        
-                        out.println("</tr>");
+                            out.println("</tr>");
+                        out.println("</tbody>");
                     }
-                    out.println("</tbody>");
                     out.println("</table>");
+                    
+                    aDAO.closeConnection();
+                    
+                    break;
+                    
+                    
+                    
+                case 4:
+                    
+                    //ACTUALIZAR LOS CURSOS
+                    
+                    
+                    
                     break;
             }
         } catch (Exception ex) {

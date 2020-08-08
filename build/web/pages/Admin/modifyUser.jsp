@@ -46,6 +46,7 @@
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
         
         <script src="../../js/Admin/ShowUsers.js"></script>
+        
        
         <!-- Validar si el usuario fue activado, desactivado o modificado***********-->
         <jsp:include page="../../includes/Admin/ValidateActDeac.jsp"></jsp:include> 

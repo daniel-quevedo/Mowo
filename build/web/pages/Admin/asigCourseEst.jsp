@@ -53,7 +53,7 @@
                         <br>
                         <form action="../../AssocCourseSERVLET" method="POST">
                             <input type="hidden" name="opt" value="A">  
-                            <input type="hidden" name="option" value="2">
+                            <input type="hidden" name="option" value="1">
                             <div class="row">
                                 <div class="col-md-3">
                                     <label> Seleccion un curso </label>
