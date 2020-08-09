@@ -17,30 +17,29 @@
             <ul> 
                 <li><a href="insertUser.jsp">Insertar Usuarios</a></li>
                 <li><a href="modifyUser.jsp">Modificar Usuarios</a></li>
-                <li><a href="asigCourses.jsp">Asignar Cursos</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Cursos</a>
+            <ul>
+                
                 <li><a href="insertCourse.jsp">Insertar Cursos</a></li>
                 <li><a href="modifyCourse.jsp">Modificar Cursos</a></li>
+                
             </ul>
         </li>
         <li><a href="#">Docente</a>
             <ul>
                 <li><a href="asigCoursePro.jsp">Asignar Curso</a></li>
-                <li><a href="#"> 2</a></li>
-                <li><a href="#"> 3</a></li>
             </ul>
         </li>
         <li><a href="#">Estudiantes</a>
             <ul>
                 <li><a href="asigCourseEst.jsp">Asignar Curso</a></li>
-                <li><a href="#"> 2</a></li>
-                <li><a href="#"> 3</a></li>
             </ul>
         </li>
         <li><a href="#">Acudientes</a>
             <ul>
-                <li><a href="#"> 1</a></li>
-                <li><a href="#"> 2</a></li>
-                <li><a href="#"> 3</a></li>
+                <li><a href="asigStudent.jsp">Asignar Estudiantes</a></li>
             </ul>
         </li>
     </ul>

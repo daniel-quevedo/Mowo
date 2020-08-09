@@ -15,11 +15,11 @@
 <html>
     <head>
         <jsp:include page="../../layout/head.jsp"></jsp:include>
-            <title>Asignar Horarios</title>
-        </head>
-        <body>
-            <main>
-                <header>
+        <title>Asignar Horarios</title>
+    </head>
+    <body>
+        <main>
+            <header>
                 <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
             </header>
             <section>
