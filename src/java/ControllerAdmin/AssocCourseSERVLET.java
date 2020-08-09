@@ -81,49 +81,46 @@ public class AssocCourseSERVLET extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 
             int option = Integer.parseInt(request.getParameter("option"));
-            //VARIABLES PARA VALIDAR ACTIVO/INACTIVO
-            String state;
-            String button;
             int res = 0;
 
             switch (option) {
-                
+
                 case 1:
 
                     try {
-                        
+
                         int id_course = Integer.parseInt(request.getParameter("idCourse"));
 
                         String[] users = request.getParameterValues("user");
-                        
+
                         String opt = request.getParameter("opt");
-                        
-                        for(int i =0;i<users.length;i++){
-                            
+
+                        for (int i = 0; i < users.length; i++) {
+
                             int id_user = Integer.parseInt(users[i]);
-                         
+
                             AssocCourseVO acVO = new AssocCourseVO(id_user, id_course, opt);
 
                             AssocCourseDAO acDAO = new AssocCourseDAO(acVO);
 
                             int temp = acDAO.assoc();
-                            
-                            if(temp == -1){
-                                res --;
-                            }else if(temp == 1){
-                                res ++;
+
+                            if (temp == -1) {
+                                res--;
+                            } else if (temp == 1) {
+                                res++;
                             }
 
                             acDAO.closeConnection();
-                            
+
                         }
-                        
-                        if (res < 0)
-                            response.sendRedirect("pages/Admin/asigCoursePro.jsp?="+res+"");
-                        else if(res > 0)
-                            response.sendRedirect("pages/Admin/asigCourseEst.jsp?="+res+"");
-                            
-                        
+
+                        if (res < 0) {
+                            response.sendRedirect("pages/Admin/asigCoursePro.jsp?=" + res + "");
+                        } else if (res > 0) {
+                            response.sendRedirect("pages/Admin/asigCourseEst.jsp?=" + res + "");
+                        }
+
                     } catch (Exception ex) {
 
                         out.println("Ocurio un error al momento de asociar el usuario " + ex);
@@ -141,61 +138,55 @@ public class AssocCourseSERVLET extends HttpServlet {
 
                     int resu = insCourse.insertCourse(name_course, code);
                     insCourse.closeConnection();
-                    
-                    response.sendRedirect("pages/Admin/insertCourse.jsp?src="+resu+"");
-                    
-                    
+
+                    response.sendRedirect("pages/Admin/insertCourse.jsp?src=" + resu + "");
+
                     break;
-                
+
                 case 3:
-                    //MOSTRAR VALORES DE LOS CURSOS EN EL MODAL¨***********
-                    
+                    // MODAL¨***********
+
                     int id_course = Integer.parseInt(request.getParameter("cod"));
-                    
-                    AssocCourseVO aVO = new AssocCourseVO(0,id_course,"0");
+
+                    AssocCourseVO aVO = new AssocCourseVO(0, id_course, "0");
                     AssocCourseDAO aDAO = new AssocCourseDAO(aVO);
-                    
+
                     ResultSet result = aDAO.listCourse();
                     
-                    out.println("<table class='ml-5 table table-light table-borderless col-6 table-responsive-sm mt-2'>");
-                    
-                    if(result.next()){
-                        
-                        out.println("<input type='hidden' value='"+result.getInt(1)+"' name='id_course'>");
-                        
+                    out.println("<table class='ml-5 table table-light table-borderless col-4 table-responsive-sm mt-2'>");
+
+                    if (result.next()) {
+
+                        out.println("<input type='hidden' value='" + result.getInt(1) + "' name='id_course'>");
+
                         out.println("<thead>");
-                            out.println("<tr>");
-                                out.println("<th><label>Nombre:</label></th>\n" +
-                                            "<td><input type='text' class='form-control' name='name' id='name' value='"+result.getString(2)+"' minlength='6' maxlength='10' autofocus pattern='[9-0]+ [A-Z]{3,25}' required></td>");
-                            out.println("<tr>");
-                        out.println("</thead>\n"+
-                                    "<tbody>");
-                            out.println("<tr>");
-                                out.println("<th><label>Codigo:</label></th>\n" +
-                                            "<td><input type='number' class='form-control' name='code' id='code' value='"+result.getInt(3)+"' minlength='3' maxlength='25' autofocus pattern='[A-Za-z ]{3,25}' required></td>");
-                            out.println("</tr>");
-                            out.println("<tr>");
+                        out.println("<tr>");
+                        out.println("<th><label>Nombre:</label></th>\n"
+                                + "<td><input type='text' class='form-control' name='name' id='name' value='" + result.getString(2) + "' minlength='6' maxlength='10' autofocus pattern='[9-0]+ [A-Z]{3,25}' required></td>");
+                        out.println("<tr>");
+                        out.println("</thead>\n"
+                                + "<tbody>");
+                        out.println("<tr>");
+                        out.println("<th><label>Codigo:</label></th>\n"
+                                + "<td><input type='number' class='form-control' name='code' id='code' value='" + result.getInt(3) + "' minlength='3' maxlength='3' pattern='[9-0]{3}' required></td>");
+                        out.println("</tr>");
+                        out.println("<tr>");
 
-                                out.println("<td><button class=\"btn btn-danger\" data-dismiss=\"modal\">Cerrar</button></td>\n" +
-                                            "<td><button class=\"btn btn-success\" data-dismiss=\"modal\">Guardar</button></td>");
+                        out.println("<td><button class=\"btn btn-danger\" data-dismiss=\"modal\">Cerrar</button></td>\n"
+                                + "<td><button class=\"btn btn-success\" data-dismiss=\"modal\">Guardar</button></td>");
 
-                            out.println("</tr>");
+                        out.println("</tr>");
                         out.println("</tbody>");
                     }
                     out.println("</table>");
-                    
+
                     aDAO.closeConnection();
-                    
+
                     break;
-                    
-                    
-                    
+
                 case 4:
-                    
+
                     //ACTUALIZAR LOS CURSOS
-                    
-                    
-                    
                     break;
             }
         } catch (Exception ex) {

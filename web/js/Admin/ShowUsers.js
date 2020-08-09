@@ -27,12 +27,12 @@ $(document).ready(function(){
 });
 
 
-function adUser(opt, cod){
+function adUser(opt, id_course){
     $('#adUser').submit(function(event){
         
         event.preventDefault();
         
-        $('#cod').val(cod);
+        $('#cod').val(id_course);
         
         if(opt === 2){
             
@@ -47,7 +47,6 @@ function adUser(opt, cod){
         $("#adUser").unbind("submit").submit();
         
     });
-    
 }
 
 function modalUser(cod){

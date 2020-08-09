@@ -116,16 +116,20 @@ public class AssocCourseDAO extends ClassConnection{
     }
     
     
-    public ResultSet listCourse(){
+    public ResultSet listCourse(int view){
         
-        String where = "";
+        String and = "";
+        String where ="";
         
         try{
-
-            if(this.id_course !=0)
-                where = "WHERE id_curso=?";
             
-            String sqlListC = "SELECT id_curso, nombre_curso, codigo FROM mowo.curso "+where;
+            if(view == 1)
+                where = "WHERE estado = 1";
+            
+            if(this.id_course !=0)
+                and = " AND id_curso=?";
+            
+            String sqlListC = "SELECT id_curso, nombre_curso, codigo, estado FROM mowo.curso "+where+and;
 
             this.pstm = this.conn.prepareStatement(sqlListC);
             
@@ -149,7 +153,7 @@ public class AssocCourseDAO extends ClassConnection{
         
         int resultQuery = 0;
         int result = 0;
-        String sqlInsCourser = "INSERT INTO mowo.curso(nombre_curso,codigo) VALUES(?,?) ";
+        String sqlInsCourser = "INSERT INTO mowo.curso(nombre_curso,codigo,estado) VALUES(?,?,1) ";
         
         try{
             this.pstm = this.conn.prepareStatement(sqlInsCourser);

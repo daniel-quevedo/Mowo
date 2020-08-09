@@ -11,16 +11,29 @@ package VOAdmin;
  */
 public class ActivDeacVO {
     
-    private int id_user;
-    private int value;
+    private int id_user;    
     private String opt;
+    private int id_course;
     
-    public ActivDeacVO(int id_user, String opt){
+    
+    
+    
+    public ActivDeacVO(int id_user, String opt,int id_course){
         
         this.id_user = id_user;
         this.opt = opt;
+        this.id_course = id_course;
         
     }
+      
+
+    public int getId_course() {
+        return id_course;
+    }
+
+    public void setId_course(int id_course) {
+        this.id_course = id_course;
+    }          
 
     public int getId_user() {
         return id_user;

@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <div class="modal fade" id="ventana1">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content col-9">
 
             <div class="modal-header">
                 <h4 class="modal-title">Modificar Cursos</h4> 

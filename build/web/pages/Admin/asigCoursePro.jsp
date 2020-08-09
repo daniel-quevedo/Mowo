@@ -19,7 +19,7 @@
 
     ResultSet resUser = DocEst.listDocEst(id_user);
     
-    ResultSet resCourse = DocEst.listCourse();
+    ResultSet resCourse = DocEst.listCourse(1);
     
 
 %>

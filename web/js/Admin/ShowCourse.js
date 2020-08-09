@@ -1,6 +1,6 @@
 function modalCourse(cod){
  
-    var opt = 3;
+    var opt = 3;    
     
     $.ajax({
         
@@ -16,9 +16,31 @@ function modalCourse(cod){
         },
         error:function(){
             
-            alert("ocurrio un error al mostrar las datos del usuario");
+            alert("ocurrio un error al mostrar las datos del curso");
             
         }
+        
+    });
+}
+function addCourse(opt, cod){
+    
+    $('#addCourse').submit(function(event){
+        
+        event.preventDefault();                               
+        
+        $('#cod').val(cod);
+        
+        if(opt === 3){
+            
+            $('#opt').val(3);
+            
+        }else{
+            
+            $('#opt').val(4);
+        
+        }
+        
+        $("#addCourse").unbind("submit").submit();
         
     });
 }

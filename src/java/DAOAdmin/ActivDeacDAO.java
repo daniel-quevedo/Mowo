@@ -27,7 +27,7 @@ public class ActivDeacDAO extends ClassConnection{
     //VARIABLES PARA ACTIVAR O DESACTIVAR EL USUARIO***
     
     private int id_user;
-    private int value;
+    private int id_course;
     private String opt;
     
     private int result;
@@ -42,7 +42,7 @@ public class ActivDeacDAO extends ClassConnection{
         
         this.id_user = adVO.getId_user();
         this.opt = adVO.getOpt();
-        
+        this.id_course = adVO.getId_course();
     }
     
     public int activDeac(){
@@ -65,7 +65,6 @@ public class ActivDeacDAO extends ClassConnection{
                 result = this.res.getInt(1);
                 
             }
-
             
         }catch(SQLException ex){
             
@@ -75,6 +74,37 @@ public class ActivDeacDAO extends ClassConnection{
         
         return result;
     }
+    public int actDeacCourse(){
+        result = 0;        
+        
+        String sqlActDeaCourse = "SELECT mowo.f_activar_desacti_Course(?,?);";
+        
+        try{
+            
+            this.pstm = this.con.prepareStatement(sqlActDeaCourse);
+            
+            this.pstm.setInt(1, this.id_course);
+            this.pstm.setString(2, this.opt);
+                        
+            System.out.println(this.pstm);
+            
+            this.res = this.pstm.executeQuery();
+            
+            if (this.res.next()) {
+                
+                result = this.res.getInt(1);
+                
+            }
+            
+        }catch(SQLException ex){
+            
+            System.out.println("Ocurrio un error inesperado al activar o desactivar el usuario: " + ex);
+            
+        }
+        
+        return result;
+    }
+    
     
 //      public static void main(String[] args) {
 //        

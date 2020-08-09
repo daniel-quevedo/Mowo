@@ -76,38 +76,55 @@ public class ActivDeacSERVLET extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         try (PrintWriter out = response.getWriter()) {
-            
-  //          out.println("<h1> Hello </h1>");
-            
+
+            //          out.println("<h1> Hello </h1>");
             int opt = Integer.parseInt(request.getParameter("opt"));
-            int idUser = Integer.parseInt(request.getParameter("cod"));
-            
-            
+            int idUser = 0;
+            int idCourse = 0;
             int result = 0;
-            
-            if (opt == 1) {
-                
-                ActivDeacVO adVO = new ActivDeacVO(idUser,"A"); 
-                
-                ActivDeacDAO adDAO = new ActivDeacDAO(adVO);
-                
-                result = adDAO.activDeac();
-                
-            }else if(opt == 2){
-                
-                ActivDeacVO adVO = new ActivDeacVO(idUser,"B"); 
-                
-                ActivDeacDAO adDAO = new ActivDeacDAO(adVO);
-                
-                result = adDAO.activDeac();
-                
+            switch (opt) {
+                case 1:
+                    idUser = Integer.parseInt(request.getParameter("cod"));
+                    ActivDeacVO acUsudVO = new ActivDeacVO(idUser, "A",0);
+
+                    ActivDeacDAO acUsudDAO = new ActivDeacDAO(acUsudVO);
+
+                    result = acUsudDAO.activDeac();
+                    break;
+                case 2:
+                    idUser = Integer.parseInt(request.getParameter("cod"));
+                    ActivDeacVO decUsuVO = new ActivDeacVO(idUser, "B",0);
+
+                    ActivDeacDAO decUsuDAO = new ActivDeacDAO(decUsuVO);
+
+                    result = decUsuDAO.activDeac();
+                    break;
+                case 3:
+                    idCourse = Integer.parseInt(request.getParameter("cod"));
+                    ActivDeacVO acCouVO = new ActivDeacVO(0, "A",idCourse);
+
+                    ActivDeacDAO acCouDAO = new ActivDeacDAO(acCouVO);
+
+                    result = acCouDAO.actDeacCourse();
+                    break;
+                case 4:
+                    idCourse = Integer.parseInt(request.getParameter("cod"));
+                    
+                    ActivDeacVO deCouVO = new ActivDeacVO(0, "B",idCourse);
+
+                    ActivDeacDAO deCouDAO = new ActivDeacDAO(deCouVO);
+
+                    result = deCouDAO.actDeacCourse();
+                    break;
+            }            
+            if (opt==1 || opt==2) {                 
+                response.sendRedirect("pages/Admin/modifyUser.jsp?result=" + result + "");                   
+            }else{
+                response.sendRedirect("pages/Admin/modifyCourse.jsp?result=" + result + "");                                                      
             }
-            
-            response.sendRedirect("pages/Admin/modifyUser.jsp?result="+result+"");
-            
+
         }
-        
-        
+
     }
 
     /**

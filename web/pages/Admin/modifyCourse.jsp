@@ -12,10 +12,11 @@
 
 <!--*****************************************************************************************-->
 
-<%
-    AssocCourseDAO cDAO = new AssocCourseDAO();
+<%    AssocCourseDAO cDAO = new AssocCourseDAO();
 
-    ResultSet resulCourse = cDAO.listCourse();
+    ResultSet resulCourse = cDAO.listCourse(0);
+    String state;
+    String button;
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -27,51 +28,65 @@
         </head>
         <body>
             <main>
-            <header>
+                <header>
                 <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
-            </header>
-            <section>
-                
-                <div class="contenido abrir">
-                    <img src="../../img/menu.png" alt="" class="menu-bar">
-                    <div class="contenedor  animated zoomIn">
-                        <h5 class="mb-4">Asignar Cursos a Profesores</h5>
-                        <div class="table table-secondary p-3">
-                        <form action="" method="POST">
-                            <table class="table table-hover table-borderless table-responsive mt-5 mydataTable">
-                                <thead class="text-center">
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Apellido</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%
-                                        while (resulCourse.next()) {                                                
-                                            out.println("<tr>");                        
-                                            out.println("<td>" + resulCourse.getString(2) + "</td>");                        
-                                            out.println("<td>" + resulCourse.getInt(3) + "</td>");                        
-                                            out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalCourse("+resulCourse.getInt(1)+")'><button type='button' class='btn btn-primary'>Editar</button></a></td></td>");                        
+                </header>
+                <section>
+
+                    <div class="contenido abrir">
+                        <img src="../../img/menu.png" alt="" class="menu-bar">
+                        <div class="contenedor  animated zoomIn ">
+                            <h5 class="mb-4 ml-5">Lista de Cursos</h5>
+                            <form action="../../ActivDeacSERVLET" id="addCourse" method="POST">
+                                
+                                <input type="hidden" value="" name="opt" id="opt">
+                                <input type="hidden" value="" name="cod" id="cod">
+                                
+                                <table class="table table-hover table-borderless table-light col-sm-4 col-xs-12 table-responsive-sm mt-5 ml-5">
+                                    <thead class="text-center thead-dark">
+                                        <tr>
+                                            <th>Estado</th>
+                                            <th>Nombre</th>
+                                            <th>Codigo</th>
+                                            <th colspan="2" class="text-center">Acciones</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    <%    
+                                        while (resulCourse.next()) {
+                                            
+                                            if (resulCourse.getInt(4) == 1) {
+                                                state = "Activo";
+
+                                                button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-danger' onclick='addCourse(4," + resulCourse.getInt(1) + ")'>Inactivar</button>";
+
+                                            } else {
+                                                state = "Inactivo";
+
+                                                button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-success' onclick='addCourse(3," + resulCourse.getInt(1) + ")'>Activar</button>";
+                                            }
+                                            out.println("<tr>");
+                                            out.println("<td>"+state+"</td>");
+                                            out.println("<td>" + resulCourse.getString(2) + "</td>");
+                                            out.println("<td>" + resulCourse.getInt(3) + "</td>");                                            
+                                            out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalCourse(" + resulCourse.getInt(1) + ")'><button type='button' class='btn btn-primary'>Editar</button></a></td></td>");
+                                            out.println("<td>"+button+"</td>");
                                             out.println("</tr>");
                                         }
                                     %>
                                 </tbody>
                             </table>
-                            
-                            
-                            
                         </form>
                     </div>
-                </div>
             </section>
             <!--Ventana Modal -->
             <jsp:include page="../../layout/modalCourse.jsp"></jsp:include>
-        </main>
-            
-        
-        <jsp:include page="../../layout/scripts.jsp"></jsp:include>
-    
+            </main>
+
+
+        <jsp:include page="../../layout/scripts.jsp"></jsp:include>            
         <script src="../../js/Admin/ShowCourse.js" charset="utf-8"></script>
     </body>
 </html>

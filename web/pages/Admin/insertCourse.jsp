@@ -33,20 +33,19 @@
                                     <thead>
                                         <tr>
                                             <th><label>Nombre:</label></th>
-                                            <th><label>Codigo</label></th>                                 
+                                            <th><label>Codigo:</label></th>                                 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><input type="text" class="form-control" name="name" id="name" value="" minlength="3" maxlength="25" autofocus pattern="[A-Za-z9-0 ]{3,25}" required></td>
-                                            <td><input type="number" class="form-control" name="code" id="code" value="" minlength="3" maxlength="25" autofocus pattern="[A-Za-z ]{3,25}" required></td>
+                                            <td><input type="text" class="form-control" name="name" id="name" value="" minlength="6" maxlength="10" autofocus pattern="[9-0]+ [A-Z]{3,10}" placeholder="ej. 902 JM" required></td>
+                                            <td><input type="number" class="form-control" name="code" id="code" value="" minlength="3" maxlength="3"  pattern="[9-0]{3}" placeholder="ej. 902" required></td>
                                         </tr>                                                                
                                     <td colspan="2">
                                         <button type="submit" name="save" class="btn btn-success">Guardar</button>
                                         <button class="btn btn-danger" type="reset">Cancelar</button>
                                     </td>
                                     </tbody>
-
                                 </table>
                             </form>
                         </div>
@@ -57,8 +56,8 @@
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
 
 
-            <!-- Validar si el usuario fue ingresado correctamente y mostrar el mensaje correspondiente-->
-        <jsp:include page="../../includes/Admin/ValidateInsertUsu.jsp"></jsp:include>   
+            <!-- Validar si el curso fue ingresado correctamente y mostrar el mensaje correspondiente-->
+        <jsp:include page="../../includes/Admin/ValidateInsertCourse.jsp"></jsp:include>   
     </body>
 </html>
 
