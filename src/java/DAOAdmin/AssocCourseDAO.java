@@ -118,7 +118,6 @@ public class AssocCourseDAO extends ClassConnection{
     
     public ResultSet listCourse(int view){
         
-        String and = "";
         String where ="";
         
         try{
@@ -127,9 +126,9 @@ public class AssocCourseDAO extends ClassConnection{
                 where = "WHERE estado = 1";
             
             if(this.id_course !=0)
-                and = " AND id_curso=?";
+                where= "WHERE id_curso=?";
             
-            String sqlListC = "SELECT id_curso, nombre_curso, codigo, estado FROM mowo.curso "+where+and;
+            String sqlListC = "SELECT id_curso, nombre_curso, codigo, estado FROM mowo.curso "+where;
 
             this.pstm = this.conn.prepareStatement(sqlListC);
             

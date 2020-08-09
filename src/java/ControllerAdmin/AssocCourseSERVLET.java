@@ -151,7 +151,7 @@ public class AssocCourseSERVLET extends HttpServlet {
                     AssocCourseVO aVO = new AssocCourseVO(0, id_course, "0");
                     AssocCourseDAO aDAO = new AssocCourseDAO(aVO);
 
-                    ResultSet result = aDAO.listCourse();
+                    ResultSet result = aDAO.listCourse(0);
                     
                     out.println("<table class='ml-5 table table-light table-borderless col-4 table-responsive-sm mt-2'>");
 

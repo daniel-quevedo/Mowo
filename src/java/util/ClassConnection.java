@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Daniel
+ * @author Leonardo
  */
 public class ClassConnection {
     
@@ -23,20 +23,19 @@ public class ClassConnection {
         
         driver = "org.postgresql.Driver";
         user = "postgres";
-        pass = "B@W5p~%\\Z@mCGRt";
+        pass = "B@W5p~%\\\\Z@mCGRt";
         db = "mowo_o";
         urldb = "jdbc:postgresql://localhost:5432/"+db;
-            
+        
         
         try{
-            
     
             Class.forName(driver).newInstance();
             connection = DriverManager.getConnection(urldb,user,pass);
             
             System.out.println("Se conecto correctamente a la base de datos");
    
-        }catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){
+        }catch (Exception e){
     
             System.out.println("Ocurrio un erro al conectarse a la base de datos: "+e);   
             
