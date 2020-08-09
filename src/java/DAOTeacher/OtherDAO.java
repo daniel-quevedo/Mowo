@@ -75,7 +75,8 @@ public class OtherDAO extends ClassConnection{
                                 "INNER JOIN mowo.prof_curso CP ON C.id_curso = CP.fk_prof_curso\n" +
                                 "INNER JOIN mowo.usuario U ON U.id_usuario = CP.fk_curso_prof\n" +
                             "WHERE U.id_usuario = ? \n"+
-                            "AND U.fk_perfil = 2";
+                            "AND U.fk_perfil = 2\n"+
+                            "AND C.estado = 1";
         try{
             
             

@@ -1,12 +1,12 @@
 function modalCourse(cod){
  
-    var opt = 3;    
+    var opt = 2;    
     
     $.ajax({
         
         type: "post",
         data:{option:opt, cod:cod},
-        url: "../../AssocCourseSERVLET",
+        url: "../../CrudCourseSERVLET",
         
         success:function(value){
             

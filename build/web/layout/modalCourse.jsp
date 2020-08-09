@@ -16,8 +16,8 @@
             </div>
 
             <div class="modal-body">
-                <form action="../../AssocCourseSERVLET" method="POST">
-                    <input type="hidden" name="option" value="4">
+                <form action="../../CrudCourseSEEVLET" method="POST">
+                    <input type="hidden" name="option" value="3">
                     <div id="tableCourse">
                         
                     </div>
