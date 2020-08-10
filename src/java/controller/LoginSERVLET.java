@@ -107,7 +107,7 @@ public class LoginSERVLET extends HttpServlet {
                 
                 HttpSession mySession = request.getSession(true);
                 
-                mySession.setMaxInactiveInterval(60*5);
+                mySession.setMaxInactiveInterval(60*10);
                 mySession.setAttribute("codUser", valuesUsu[0]);
                 mySession.setAttribute("nameUser", valuesUsu[1]);
                 mySession.setAttribute("idProfile", valuesUsu[2]);

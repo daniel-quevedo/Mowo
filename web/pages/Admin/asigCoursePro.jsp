@@ -48,7 +48,7 @@
                 
                 <div class="contenido abrir">
                     <img src="../../img/menu.png" alt="" class="menu-bar">
-                    <div class="contenedor  animated zoomIn">
+                    <div class="contenedor">
                         <h5 class="mb-4">Asignar Cursos a Profesores</h5>
                         <br>
                         <form action="../../AssocCourseSERVLET" method="POST">
@@ -122,6 +122,9 @@
         </main>
             
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
+        
+        <!-- Validar si se asociaron correctemente los Profesores-->
+        <jsp:include page="../../includes/Admin/ValidateAssocUser.jsp"></jsp:include>   
     
     </body>
 </html>

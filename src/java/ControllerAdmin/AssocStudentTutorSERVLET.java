@@ -5,12 +5,10 @@
  */
 package ControllerAdmin;
 
-import DAOAdmin.AssocCourseDAO;
-import VOAdmin.AssocCourseVO;
+import DAOAdmin.AssocStudentTutorDAO;
+import VOAdmin.AssocStudentTutorVO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Leonardo
  */
-@WebServlet(name = "AssocCourseSERVLET", urlPatterns = {"/AssocCourseSERVLET"})
-public class AssocCourseSERVLET extends HttpServlet {
+@WebServlet(name = "AssocStudentTutorSERVLET", urlPatterns = {"/AssocStudentTutorSERVLET"})
+public class AssocStudentTutorSERVLET extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +39,10 @@ public class AssocCourseSERVLET extends HttpServlet {
 //            out.println("<!DOCTYPE html>");
 //            out.println("<html>");
 //            out.println("<head>");
-//            out.println("<title>Servlet AssocCourseSERVLET</title>");            
+//            out.println("<title>Servlet AssocStudentTutorSERVLET</title>");            
 //            out.println("</head>");
 //            out.println("<body>");
-//            out.println("<h1>Servlet AssocCourseSERVLET at " + request.getContextPath() + "</h1>");
+//            out.println("<h1>Servlet AssocStudentTutorSERVLET at " + request.getContextPath() + "</h1>");
 //            out.println("</body>");
 //            out.println("</html>");
 //        }
@@ -77,62 +75,33 @@ public class AssocCourseSERVLET extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
         try (PrintWriter out = response.getWriter()) {
-
-            int option = Integer.parseInt(request.getParameter("option"));
-            int res = 0;
-
-            switch (option) {
-
-                case 1:
-                    
-                    //ASOCIAR CURSO A ESTUDIANTE O PROFESOR**********************
-                    
-                    try {
-
-                        int id_course = Integer.parseInt(request.getParameter("idCourse"));
-
-                        String[] users = request.getParameterValues("user");
-
-                        String opt = request.getParameter("opt");
-
-                        for (int i = 0; i < users.length; i++) {
-
-                            int id_user = Integer.parseInt(users[i]);
-
-                            AssocCourseVO acVO = new AssocCourseVO(id_user, id_course, opt);
-
-                            AssocCourseDAO acDAO = new AssocCourseDAO(acVO);
-
-                            int result = acDAO.assoc();
-
-                            if (result == -1) {
-                                res--;
-                            } else if (result == 1) {
-                                res++;
-                            }
-
-                            acDAO.closeConnection();
-
-                        }
-
-                        if (res < 0) {
-                            response.sendRedirect("pages/Admin/asigCoursePro.jsp?src=" + res + "&opt=2");
-                        } else if (res > 0) {
-                            response.sendRedirect("pages/Admin/asigCourseEst.jsp?src=" + res + "&opt=3");
-                        }
-
-                    } catch (Exception ex) {
-
-                        out.println("Ocurio un error al momento de asociar el usuario " + ex);
-
-                    }
-
-                    break;
+            
+            int id_tutor = Integer.parseInt(request.getParameter("id_tutor"));
+            
+            String[] id_students = request.getParameterValues("students");
+            
+            int result=0, resReturn=0;
+            
+            for(int i=0; i<id_students.length; i++){
+               
+                int id_student = Integer.parseInt(id_students[i]); 
+               
+                AssocStudentTutorVO astVO = new AssocStudentTutorVO(id_student, id_tutor); 
+                AssocStudentTutorDAO astDAO = new AssocStudentTutorDAO(astVO);
+                
+                result = astDAO.assoc();
+                
+                if(result == 1)
+                    resReturn ++;
+                
             }
-        } catch (Exception ex) {
-            Logger.getLogger(AssocCourseSERVLET.class.getName()).log(Level.SEVERE, null, ex);
+            
+            response.sendRedirect("pages/Admin/asigStudent.jsp?src="+resReturn+"&opt=1");
+            
         }
+        
     }
 
     /**
