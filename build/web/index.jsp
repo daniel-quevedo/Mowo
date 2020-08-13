@@ -45,7 +45,7 @@
                 </form>
                 <div>
                     <div class="col-12 text-center mb-2">
-                        <a href="#">Recordar Contraseña</a>
+                        <a href="#">¿Olvidaste la Contraseña?</a>
                     </div>
                 </div>
             </div>            

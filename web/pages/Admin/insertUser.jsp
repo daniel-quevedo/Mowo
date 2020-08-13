@@ -29,7 +29,7 @@
                         <h5 class="mb-4">Insertar Usuarios</h5>
                         <form action="../../CrudUserSERVLET" method="POST" autocomplete="off">
                             <input type="hidden" name="option" value="2">
-                            <table class="table table-hover table-warning table-borderless table-responsive-sm mt-2">
+                            <table class="table text-white backg table-borderless table-responsive-sm mt-2">
                                 <tr><td colspam="2"></td><td></td></tr>
                                 <tr>
                                   <th><label>Nombre:</label></th>
@@ -63,11 +63,11 @@
                                   </select></td>
                                 </tr>
                                 <tr>
-                                  <th><label>Telefono:</label></th>
+                                  <th><label>Teléfono:</label></th>
                                   <td><input type="text" class="form-control" name="phone" id="phone" value="" minlength="7" maxlength="15" pattern="[0-9]{3,15}"  required></td>
                                 </tr>
                                 <tr>
-                                  <th><label>Direccion:</label></th>
+                                  <th><label>Dirección:</label></th>
                                   <td><input type="text" class="form-control" name="dir" id="dir" value="" minlength="10" maxlength="100" required></td>
                                 </tr>
                                 <tr>

@@ -16,7 +16,7 @@ import util.ClassConnection;
 
 /**
  *
- * @author david.quevedo
+ * @author Daniel
  */
 public class ShowEstutorDAO extends ClassConnection{
     

@@ -57,7 +57,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <label> Seleccion un curso </label>
-                                    <select class="form-control" name="idCourse" autofocus>
+                                    <select class="form-control" name="idCourse" autofocus required>
                                         <option value="1">--SELECCIONE--</option> 
                                         <%
                                             while(resCourse.next()){
@@ -73,7 +73,7 @@
                                     
                             <div class="row">
                                 
-                                <div class="col-md-10">
+                                <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
                                     
                                     <table class="table table-borderless table-responsive table-dark">
                                         <thead class="text-center">
@@ -87,8 +87,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <%
-                                                    
+                                                <%                                                   
                                                     while(resUser.next()){
                                                         out.println("<tr>");
                                                             out.println("<td>\n"+
@@ -98,7 +97,7 @@
                                                             out.println("<td> "+resUser.getString(3)+" </td>");
                                                             out.println("<td> "+resUser.getInt(4)+" </td>");
                                                             out.println("<td> "+resUser.getInt(5)+" </td>");
-                                                            out.println("<td> "+resUser.getString(5)+" </td>");
+                                                            out.println("<td> "+resUser.getString(6)+" </td>");
                                                         
                                                         out.println("</tr>");
                                                     }

@@ -17,7 +17,7 @@ import util.ClassConnection;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class AssocStudentTutorDAO extends ClassConnection{
     
@@ -69,6 +69,8 @@ public class AssocStudentTutorDAO extends ClassConnection{
             this.pstm = this.conn.prepareStatement(sqlAssoc);
             this.pstm.setInt(1, id_tutor);
             this.pstm.setInt(2, id_student);
+            
+            System.out.println(this.pstm);
             
             this.result = this.pstm.executeQuery();
             

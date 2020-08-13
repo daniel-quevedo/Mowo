@@ -21,9 +21,9 @@ body {
 }
 
 .box-content{    
-    background-color: #F9F6F0;
+    background-color: #EDF8FD;
     border-radius: 7px;
-    box-shadow: 3px 3px 3px #003049;
+    box-shadow: 3px 3px 3px black;
     border: 1px solid white;
 }
 

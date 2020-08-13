@@ -1,7 +1,7 @@
 <%-- 
     Document   : ValidateURL
     Created on : 25/05/2020, 12:07:35 AM
-    Author     : Leonardo
+    Author     : Daniel
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
 
 <%
 
-    //Validar el valor que se envia por URL (InsertUserSERVLET) insetar usuario
+    //Validar el valor que se envia por URL (CrudUserSERVLET) insetar usuario
     
     if(request.getParameter("result") != null) {
         

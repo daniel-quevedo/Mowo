@@ -21,7 +21,7 @@ import mail.Mail;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 @WebServlet(name = "CrudUserSERVLET", urlPatterns = {"/CrudUserSERVLET"})
 public class CrudUserSERVLET extends HttpServlet {
@@ -147,7 +147,7 @@ public class CrudUserSERVLET extends HttpServlet {
                         out.println("<script src='../../js/jquery.dataTables.min.js' charset='utf-8'></script>\n" +
                                     "<script src='../../js/dataTable.js' charset='utf-8'></script>");
 
-                        out.println("<table class=\"table-hover table-borderless  table-responsive mt-5 mydataTable\" id=\"dataUser\">");
+                        out.println("<table class=\"table-hover table-borderless table-responsive mt-5 mydataTable\" id=\"dataUser\">");
                             out.println("<thead>");
 
                             out.println("<tr>" +
@@ -157,8 +157,8 @@ public class CrudUserSERVLET extends HttpServlet {
                                             "<th>Tipo de Documento</th>\n" +
                                             "<th>N° Documento</th>\n" +
                                             "<th>Tipo de Usuario</th>\n" +
-                                            "<th>Telefono</th>\n" +
-                                            "<th>Direccion</th>\n" +
+                                            "<th>Teléfono</th>\n" +
+                                            "<th>Dirección</th>\n" +
                                             "<th>Fecha de Nac.</th>\n" +
                                             "<th>Correo</th>\n" +
                                             "<th>Acciones</th>\n" +
@@ -265,11 +265,7 @@ public class CrudUserSERVLET extends HttpServlet {
                                                                 "<option value='CE'>CE</option>\n" +
                                                             "</select>\n"+
                                                         "</td>"+
-                                                "</tr>");
-                                    out.println("<tr>\n" +
-                                                    "<th><label>N° Documento:</label></th>\n" +
-                                                    "<td><input type='number' class='form-control' name='nDocument' value='"+result.getString(5)+"' minlength='7' maxlength='10' pattern='[0-9]{3,11}'></td>\n" +
-                                                "</tr>");
+                                                "</tr>");                                    
                                     out.println("<tr>\n" +
                                                     "<th><label>Telefono:</label></th>\n" +
                                                     "<td>\n"+

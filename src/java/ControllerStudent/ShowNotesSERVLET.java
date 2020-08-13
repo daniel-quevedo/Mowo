@@ -112,7 +112,7 @@ public class ShowNotesSERVLET extends HttpServlet {
                                     "<th>Nota 3</th> \n" +
                                     "<th>Nota 4</th> \n" +
                                     "<th>Promedio</th> \n" +
-                                    "<th>Aprobo</th> \n" +
+                                    "<th>Resultado</th> \n" +
                                 "</tr>");
                     while(result.next()){
                         resApprove = result.getBoolean(7);

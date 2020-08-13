@@ -45,11 +45,11 @@
                     <div class="contenedor">
                         <h3 class="mb-4">Asignar Estudiantes</h3>
                         
-                        <hr>
+                        
                         
                         <form action="../../AssocStudentTutorSERVLET" method="POST">
                             
-                            <div class="row">
+                            <div class="row mb-4">
                                 <div class="col-md-3">
                                     
                                     <h5>Seleccione el acudiente</h5>
@@ -64,11 +64,10 @@
                                     </select>
                                 </div>
                             </div>
-                                    
-                            <hr>
+                                                                
                             
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
                                     <table class="table table-borderless table-responsive table-dark">
                                         <thead>
                                             <tr>

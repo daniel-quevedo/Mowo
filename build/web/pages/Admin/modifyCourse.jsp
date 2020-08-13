@@ -37,47 +37,47 @@
                         <img src="../../img/menu.png" alt="" class="menu-bar">
                         <div class="contenedor  animated zoomIn ">
                             <h5 class="mb-4 ml-5">Lista de Cursos</h5>
-                            <form action="../../ActivDeacSERVLET" id="addCourse" method="POST">
-                                
+                            <form action="../../ActivDeacSERVLET" id="addCourse" method="POST">                                
                                 <input type="hidden" value="" name="opt" id="opt">
                                 <input type="hidden" value="" name="cod" id="cod">
-                                
-                                <table class="table table-hover table-borderless table-light col-sm-4 col-xs-12 table-responsive-sm mt-5 ml-5">
-                                    <thead class="text-center thead-dark">
-                                        <tr>
-                                            <th>Estado</th>
-                                            <th>Nombre</th>
-                                            <th>Codigo</th>
-                                            <th colspan="2" class="text-center">Acciones</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    
-                                    <%    
-                                        while (resulCourse.next()) {
-                                            
-                                            if (resulCourse.getInt(4) == 1) {
-                                                state = "Activo";
+                                <div class="t-fixed col-lg-6 col-sm-8 col-xs-12 ml-4 ">
+                                    <table class="table table-hover table-borderless table-light table-responsive-sm">
+                                        <thead class="text-center thead-dark">
+                                            <tr>
+                                                <th>Estado</th>
+                                                <th>Nombre</th>
+                                                <th>Codigo</th>
+                                                <th colspan="2" class="text-center">Acciones</th>
 
-                                                button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-danger' onclick='addCourse(4," + resulCourse.getInt(1) + ")'>Inactivar</button>";
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                            } else {
-                                                state = "Inactivo";
+                                        <%
+                                            while (resulCourse.next()) {
 
-                                                button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-success' onclick='addCourse(3," + resulCourse.getInt(1) + ")'>Activar</button>";
+                                                if (resulCourse.getInt(4) == 1) {
+                                                    state = "Activo";
+
+                                                    button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-danger' onclick='addCourse(4," + resulCourse.getInt(1) + ")'>Inactivar</button>";
+
+                                                } else {
+                                                    state = "Inactivo";
+
+                                                    button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-success' onclick='addCourse(3," + resulCourse.getInt(1) + ")'>Activar</button>";
+                                                }
+                                                out.println("<tr>");
+                                                out.println("<td>" + state + "</td>");
+                                                out.println("<td>" + resulCourse.getString(2) + "</td>");
+                                                out.println("<td>" + resulCourse.getInt(3) + "</td>");
+                                                out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalCourse(" + resulCourse.getInt(1) + ")'><button type='button' class='btn btn-primary'>Editar</button></a></td></td>");
+                                                out.println("<td>" + button + "</td>");
+                                                out.println("</tr>");
                                             }
-                                            out.println("<tr>");
-                                            out.println("<td>"+state+"</td>");
-                                            out.println("<td>" + resulCourse.getString(2) + "</td>");
-                                            out.println("<td>" + resulCourse.getInt(3) + "</td>");                                            
-                                            out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalCourse(" + resulCourse.getInt(1) + ")'><button type='button' class='btn btn-primary'>Editar</button></a></td></td>");
-                                            out.println("<td>"+button+"</td>");
-                                            out.println("</tr>");
-                                        }
-                                    %>
-                                </tbody>
-                            </table>
+                                        %>
+                                    </tbody>
+                                </table>
+                            </div>
                         </form>
                     </div>
             </section>

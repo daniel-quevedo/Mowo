@@ -58,7 +58,7 @@
                             <th>Nota 3</th>
                             <th>Nota 4</th>
                             <th>Promedio</th>
-                            <th>Aprobo</th>
+                            <th>Resultado</th>
                         </tr>
                     </tbody>
                 </table>

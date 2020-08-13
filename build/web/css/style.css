@@ -82,12 +82,12 @@ body{
 }
 
 .submenu ul li a{    
-    background: #419CDE;
+    background: #F9E9EC;
     color: black; 
 }
 
 .submenu ul li a:hover{
-    background: #702632;
+    background: #983445;
     border-left: 6px solid #605F5E;     
 }
 
@@ -150,6 +150,11 @@ body{
     border-radius: 15px;
 }
 
+.t-fixed{    
+    height: 600px;
+    overflow-y: auto;        
+}
+
 tr td  a{
     color:black;
 }
@@ -176,15 +181,26 @@ h2 img{
 .target{
     width: 90%;
     text-align: center;
-    border-radius: 150px;
+    border-radius: 15px;
     background-color: #CCDDE2;
     border: 1px solid white;
     box-shadow: 2px 3px 3px black;
     color: black;
+    margin-left: auto;
+    
+    margin-top: 15%;
+}
+
+.target img{
+    padding-top: 5px;
 }
 .target:hover{
     display: block;
     text-decoration: none;
     background-color: #9DAAA6;
+}
+
+.backg{
+    background: #10210880;    
 }
 

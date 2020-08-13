@@ -1,7 +1,8 @@
 $(document).ready(function() {
     $('.mydataTable').DataTable({
-        order: [[3, 'desc']],
-        lengthMenu: [[3, 10, 25, 50, -1], [3, 10, 25, 50, "all"]],
+        
+        order: [[1, 'asc']],
+        lengthMenu: [[ 10, 25, 50, -1], [ 10, 25, 50, "all"]],
         pagingType: 'full_numbers',
         "language": {
             "lengthMenu": "Mostrar _MENU_ Registros",
