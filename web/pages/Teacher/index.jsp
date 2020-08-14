@@ -17,28 +17,30 @@
 <html lang="es">
     <head>
         <jsp:include page="../../layout/head.jsp"></jsp:include>
-        <title>Menu</title>
-    </head>
-    <body>
-        <main>
-            <header>
-                    
+            <title>Menu</title>
+        </head>
+        <body>
+            <main>
+                <header>
+
                 <jsp:include page="../../layout/sideBarPro.jsp"></jsp:include>
-                
-            </header>
-            <section>
-                <div class="contenido abrir">
-                    <img src="../../img/menu.png" alt="" class="menu-bar">
-                    <div class="contenedor">
-                        
-                       <h2>Bienvenido: <%=session.getAttribute("nameUser")%></h2>
+
+                </header>
+                <section>
+                    <div class="contenido abrir">
+                        <div class="line-top sticky-top">
+                            <img src="../../img/menu.png" alt="" class="menu-bar">
+                        </div>
+                        <div class="contenedor mt-4">
+
+                            <h2>Bienvenido: <%=session.getAttribute("nameUser")%></h2>
 
                     </div>
                 </div>
             </section>
         </main>
-        
-       <jsp:include page="../../layout/scripts.jsp"></jsp:include>
+
+        <jsp:include page="../../layout/scripts.jsp"></jsp:include>
     </body>
 </html>
 

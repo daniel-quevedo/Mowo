@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div class="sidebar">
+<div class="sidebar">    
     <h2><a href="index.jsp" title="inicio">Administrador</a></h2>
     <a href="perfil.jsp" title="Ver Perfil"><img src="../../img/avatar.png" ></a>
     <div class="logo">

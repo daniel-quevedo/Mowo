@@ -21,8 +21,10 @@
             
             <section>
                 <div class="contenido abrir">
-                    <img src="../../img/menu.png" alt="" class="menu-bar">
-                    <div class="contenedor">
+                    <div class="line-top sticky-top">
+                            <img src="../../img/menu.png" alt="" class="menu-bar">
+                        </div>
+                    <div class="contenedor mt-4">
 
                         <h2>Bienvenido: <%=session.getAttribute("nameUser")%></h2>
                     

@@ -41,12 +41,11 @@
             </header>
             <section>
                 <div class="contenido abrir">
-                    <img src="../../img/menu.png" alt="" class="menu-bar">
-                    <div class="contenedor">
-                        <h3 class="mb-4">Asignar Estudiantes</h3>
-                        
-                        
-                        
+                    <div class="line-top sticky-top">
+                            <img src="../../img/menu.png" alt="" class="menu-bar">
+                        </div>
+                    <div class="contenedor mt-4">
+                        <h3 class="mb-4">Asignar Estudiantes</h3>                                                                        
                         <form action="../../AssocStudentTutorSERVLET" method="POST">
                             
                             <div class="row mb-4">
@@ -96,10 +95,10 @@
                                             %>
                                         </tbody>
                                     </table>
+                                        <button type="submit" name="assoc" class="btn btn-success">Enviar</button>
                                 </div>
                             </div>
                                         
-                            <button type="submit" name="assoc" class="btn btn-info">Enviar</button>
                             
                         </form>
                         

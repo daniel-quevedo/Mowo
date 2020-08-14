@@ -15,35 +15,37 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-       
+
         <jsp:include page="../../layout/head.jsp"></jsp:include>
-    <title>Notas</title>
-    </head>
-    <body>
-        <main>
-            <header>
-            </header>
-            <section>
+            <title>Notas</title>
+        </head>
+        <body>
+            <main>
+                <header>
+                </header>
+                <section>
                 <jsp:include page="../../layout/sideBarPro.jsp"></jsp:include>
-            </section>
-            <section>
-                <div class="contenido abrir">
-                <img src="../../img/menu.png" alt="" class="menu-bar">
-                <div class="contenedor">                      
-                        <h3 class="mb-4">Notas</h3><br>
-                        <form onsubmit="" method="post">
-                            <input type="hidden" value="<%=session.getAttribute("codUser")%>" name="cod" id="cod">
+                </section>
+                <section>
+                    <div class="contenido abrir">
+                        <div class="line-top sticky-top">
+                            <img src="../../img/menu.png" alt="" class="menu-bar">
+                        </div>
+                        <div class="contenedor mt-4">                      
+                            <h3 class="mb-4">Notas</h3><br>
+                            <form onsubmit="" method="post">
+                                <input type="hidden" value="<%=session.getAttribute("codUser")%>" name="cod" id="cod">
                             <input type="hidden" value="<%=session.getAttribute("idProfile")%>" name="idProfile" id="idProfile">
                             <div class="row">
                                 <div class="col-md-4">
-                                    
+
                                     <div id='Course'>
                                         <select class='form-control'>
                                             <option value=''>..Cursos..</option>
                                         </select>
                                         <!-- Lista en la que se muestran los cursos -->                                        
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="col-md-4">
@@ -55,29 +57,29 @@
                             </div>
                         </form>
                         <br>
-
-                        <div class="table-responsive-sm" id='notes'>
-                            <!-- Tabla en la que se muestran las notas -->
+                        <div class="t-fixed col-lg-10 col-sm-10 col-xs-12">
+                            <div class="table-responsive-sm" id='notes'>
+                                <!-- Tabla en la que se muestran las notas -->
+                            </div>
                         </div>
-                        
                     </div>
                 </div> 
-            
+
                 <div id="sup"></div>
             </section>
 
-		 <!-- Ventana Modal -->
-           	 <jsp:include page="../../layout/modalNotas.jsp"></jsp:include>
-           	
-         
-            
-        </main>
+            <!-- Ventana Modal -->
+            <jsp:include page="../../layout/modalNotas.jsp"></jsp:include>
+
+
+
+            </main>
 
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
-        <script src="../../js/teacher/insertNotes.js"></script>
-        
-        <!-- Validar si las notas fueron ingresadas correctamente y mostrar el mensaje correspondiente-->
+            <script src="../../js/teacher/insertNotes.js"></script>
+
+            <!-- Validar si las notas fueron ingresadas correctamente y mostrar el mensaje correspondiente-->
         <jsp:include page="../../includes/Teacher/ValidateInsertNotes.jsp"></jsp:include>   
-        
+
     </body>
 </html>

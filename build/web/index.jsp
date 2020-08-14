@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <title>Mowo o</title>
+        <title>Mowo_o</title>
     </head>
     <body>
 
@@ -39,7 +39,7 @@
                                Debe contener al menos un número, una letra mayúscula y al menos 8 o más caracteres">
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary botones col-12" ><img src="./img/fingerprint.png"> Ingresar</button>
+                        <button type="submit" class="btn btn-info botones col-12" ><img src="./img/fingerprint.png"> Ingresar</button>
                     </div>
 
                 </form>

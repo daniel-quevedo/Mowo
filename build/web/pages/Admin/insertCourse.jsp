@@ -24,8 +24,10 @@
                 </header>
                 <section>
                     <div class="contenido abrir">
-                        <img src="../../img/menu.png" alt="" class="menu-bar">
-                        <div class="contenedor ">
+                        <div class="line-top sticky-top">
+                            <img src="../../img/menu.png" alt="" class="menu-bar">
+                        </div>
+                        <div class="contenedor mt-4">
                             <h5 class="mb-4 ml-5">Insertar Cursos</h5>
                             <form action="../../CrudCourseSERVLET" method="POST">
                                 <input type="hidden" name="option" value="1">

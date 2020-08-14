@@ -22,11 +22,11 @@ body{
     position: fixed;
     width: 250px;
     height: 100%;
-    background: #13293D;
+    background: #222939;
     color: white;
     font-family: 'Patrick Hand', serif;
     font-size: 1.5em;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .sidebar::-webkit-scrollbar{
     width: 2px;
@@ -35,15 +35,15 @@ body{
 .sidebar h2{
     text-align: center;
     margin: 0;
-    background: #702632;
+    background: #598D63;
     padding: 10px;
 }
 
 .sidebar h2 a{
-    color: white;
+    color: black;
 }
 .sidebar h2 a:hover{
-    color: white;
+    color: black;
     display: block;
     text-decoration: none;
     box-shadow: 1px 1px 1px  black;
@@ -63,7 +63,7 @@ body{
 }
 
 .sidebar >ul >li >a:hover{
-    background: #605F5E	;
+    background: #598D63;
     border-left: 6px solid #702632;
 }
 
@@ -88,11 +88,11 @@ body{
 
 .submenu ul li a:hover{
     background: #983445;
-    border-left: 6px solid #605F5E;     
+    border-left: 6px solid #598D63;     
 }
 
 .active{
-    background: #605F5E;
+    background: #598D63;
 }
 .prueba{
     cursor: pointer;
@@ -110,20 +110,24 @@ body{
 
 }
 
-.nav{
-    margin: 0px 20%;
-}
 .contenido{
     width: 100%;
     height: 100%;
     position: fixed;
     background: url(../img/loginFont.jpg) no-repeat center center fixed;
     transition-duration: .3s;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
-.contenido img{
-    padding: 20px 20px;
+.line-top{
+	background-color: #598D63;
+	width: 100%;
+	height: 58px;
+        border-left: 1px solid #222939;
+}
+.line-top img{
+	padding: 15px 30px ;
+	
 }
 
 .menu-bar{
@@ -135,6 +139,7 @@ body{
 }
 
 .contenedor{
+    padding-top: 30px;
     margin-left: 6%;
     width: 75%;
     height: 100%;
@@ -145,13 +150,18 @@ body{
     text-align: center;
 }
 
+.contenedor nav{
+    margin-left: 20%;
+    
+}
+
 .table{
     text-align: center;
     border-radius: 15px;
 }
 
 .t-fixed{    
-    height: 600px;
+    height: 500px;
     overflow-y: auto;        
 }
 
@@ -182,8 +192,7 @@ h2 img{
     width: 90%;
     text-align: center;
     border-radius: 15px;
-    background-color: #CCDDE2;
-    border: 1px solid white;
+    background-color: #A7C8AE;    
     box-shadow: 2px 3px 3px black;
     color: black;
     margin-left: auto;
@@ -201,6 +210,6 @@ h2 img{
 }
 
 .backg{
-    background: #10210880;    
+    background: #22293980;    
 }
 

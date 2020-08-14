@@ -11,23 +11,25 @@
 <html lang="es">
     <head>
         <jsp:include page="../../layout/head.jsp"></jsp:include>
-        <title>Menu</title>
-    </head>
-    <body>
-        <main>
-            <header>
+            <title>Menu</title>
+        </head>
+        <body>
+            <main>
+                <header>
                 <jsp:include page="../../layout/sideBarEst.jsp"></jsp:include>
-            </header>
-            
-            <section>
-                <div class="contenido abrir">
-                    <img src="../../img/menu.png" alt="" class="menu-bar">
-                    <div class="contenedor">
+                </header>
 
+                <section>
+                    <div class="contenido abrir">
+                        <div class="line-top sticky-top">
+                            <img src="../../img/menu.png" alt="" class="menu-bar">
+                        </div>
+                        <div class="contenedor mt-4">
+
+                        </div>
                     </div>
-                </div>
-            </section>
-        </main>
+                </section>
+            </main>
 
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
     </body>

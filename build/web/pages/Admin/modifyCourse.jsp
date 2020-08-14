@@ -34,8 +34,10 @@
                 <section>
 
                     <div class="contenido abrir">
-                        <img src="../../img/menu.png" alt="" class="menu-bar">
-                        <div class="contenedor  animated zoomIn ">
+                        <div class="line-top sticky-top">
+                            <img src="../../img/menu.png" alt="" class="menu-bar">
+                        </div>
+                        <div class="contenedor mt-4  animated zoomIn ">
                             <h5 class="mb-4 ml-5">Lista de Cursos</h5>
                             <form action="../../ActivDeacSERVLET" id="addCourse" method="POST">                                
                                 <input type="hidden" value="" name="opt" id="opt">
