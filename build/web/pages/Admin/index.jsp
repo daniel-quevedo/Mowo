@@ -25,7 +25,7 @@
                 <section>
                     <div class="contenido abrir">
                         <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">
+                            <img src="../../img/menu.png" alt="" class="menu-bar">                            
                         </div>
 
                         <div class="contenedor">

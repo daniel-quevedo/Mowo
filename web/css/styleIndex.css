@@ -12,19 +12,17 @@ body {
     font-size: 2em;
     margin-bottom: 30px;
 }
-.contenedor {
-    background-size: cover;
-    margin: 0px auto;
-    margin-top: 8%;
-    padding: 0;
-    position: fixed;
+.contenedor {            
+    margin: auto;
+    margin-top: 8%;       
 }
 
-.box-content{    
+.box-content{        
     background-color: #F6F4F6;
     border-radius: 7px;
     box-shadow: 1px 1px 2px 1px black;
     border: .50px solid white;
+    padding: 0 10px;
 }
 
 .form-group input{
@@ -39,7 +37,6 @@ body {
 
 
 .form-group input:focus{
-
     height: 40px;
     font-size: 16px;
     padding-left: 55px;
@@ -71,10 +68,16 @@ body {
 }
 
 .perfil{
-    margin_left: 15%;
+    margin-left: 15%;
     margin-bottom: 3%;
     width: 70%;
     text-align: left;
     float: left;
 
+}
+.rpass{
+    margin: auto;
+    width: 90%;    
+    background: #F6F4F6;    
+    border-radius: 10px;
 }

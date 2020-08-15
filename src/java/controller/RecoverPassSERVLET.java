@@ -5,24 +5,23 @@
  */
 package controller;
 
-import DAO.CredentialsDAO;
-import DAO.PassDAO;
-import VO.CredentialsVO;
-import VO.PassVO;
+import DAO.RecoverPassDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import mail.Mail;
 
 /**
  *
  * @author Daniel
  */
-@WebServlet(name = "credentialsSERVLET", urlPatterns = {"/credentialsSERVLET"})
-public class CredentialsSERVLET extends HttpServlet {
+@WebServlet(name = "RecoverPassSERVLET", urlPatterns = {"/RecoverPassSERVLET"})
+public class RecoverPassSERVLET extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,18 +35,6 @@ public class CredentialsSERVLET extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet credentialsSERVLET</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet credentialsSERVLET at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -77,44 +64,32 @@ public class CredentialsSERVLET extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        try (PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()){
+            String email = request.getParameter("email");
             
-            String pass = request.getParameter("pass");
-            String user = request.getParameter("user");
-            String opt = "A";
-            
-            
-            //ENCRIPTAR LA CONTRASEÑA*******************
-            
-            PassVO pVO = new PassVO(pass);
-            
-            PassDAO pDAO = new PassDAO(pVO);
-            
-            String passEncryp = pDAO.getMD5();
-            
+            boolean result, resMail;
+            int src = 0;
+            RecoverPassDAO rDAO = new RecoverPassDAO();
+            result = rDAO.sendEmail(email);
 
-            
-            //INGRESAR LAS CREDENCIALES********************
-            
-            CredentialsVO cVO = new CredentialsVO(user, passEncryp, opt);
-            
-            CredentialsDAO cDAO = new CredentialsDAO(cVO);
-            
-            int result = cDAO.insertCred();
-            
-            if (result == -1) {
+            if (result == true) {
+                Mail objMail = new Mail(email);
+                resMail = objMail.sendMail();
                 
-                response.sendRedirect("pages/validUser/Validate.jsp?res=1");
-                        
-            }else{
-                
-                response.sendRedirect("pages/validUser/Validate.jsp?res=0");
+                if (resMail) {
+                    src = 1;
+                }else{
+                    src = 2;
+                }
                 
             }
-        
+            
+            response.sendRedirect("pages/validUser/RecoverPass.jsp?src="+src+"");
+            
+            
+        }catch (Exception e) {
+            System.out.println("Ocurrio un problema: "+e);
         }
-        
-        
     }
 
     /**

@@ -67,7 +67,7 @@ public class Mail {
             mail.setFrom(new InternetAddress (this.mailEmi));
             mail.addRecipient(Message.RecipientType.TO, new InternetAddress(this.mailRec));
             mail.setSubject(this.subject);
-            mail.setText("http://localhost:21666/Mowo_o/pages/validUser/Validate.jsp?m41r="+mailEncode+"");
+            mail.setText("http://localhost:8084/Mowo/pages/validUser/Validate.jsp?m41r="+mailEncode+"");
             
             Transport transport = session.getTransport("smtp");
             transport.connect(this.mailEmi, this.passEmi);

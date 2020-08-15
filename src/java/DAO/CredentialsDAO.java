@@ -16,7 +16,7 @@ import util.ClassConnection;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class CredentialsDAO extends ClassConnection{
     
