@@ -43,7 +43,7 @@
                                 <input type="hidden" value="" name="opt" id="opt">
                                 <input type="hidden" value="" name="cod" id="cod">
                                 <div class="t-fixed col-lg-6 col-sm-8 col-xs-12 ml-4 ">
-                                    <table class="table table-hover table-borderless table-light table-responsive-sm">
+                                    <table class="table table-hover table-borderless backg table-responsive-sm">
                                         <thead class="text-center thead-dark">
                                             <tr>
                                                 <th>Estado</th>

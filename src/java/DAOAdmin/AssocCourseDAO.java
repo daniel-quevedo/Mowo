@@ -19,195 +19,216 @@ import util.ClassConnection;
  *
  * @author Daniel
  */
-public class AssocCourseDAO extends ClassConnection{
-    
+
+public class AssocCourseDAO extends ClassConnection {
+
     //variables de conexion 
     private Connection conn;
     private PreparedStatement pstm;
     private ResultSet res;
-    
-    
+
     //variables para asociar el curso al usuario
     private int id_course;
     private int id_user;
     private String opt;
     
-    //variables para insertar curso
-    private String name_course;
-    private String code;
+    //variable para validar retorno de consulta insert y update
+    private int resultQuery = 0;
+    private int result = 0;
+    
 
     public AssocCourseDAO() {
         try {
             this.conn = this.getConnection();
-            
+
         } catch (Exception e) {
             Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-    
-    
-    public AssocCourseDAO(AssocCourseVO acVO){
-        
-        try
-        {
+
+    public AssocCourseDAO(AssocCourseVO acVO) {
+
+        try {
             this.conn = this.getConnection();
-        
+
             this.id_course = acVO.getId_course();
             this.id_user = acVO.getId_user();
             this.opt = acVO.getOpt();
-            
-        }catch(Exception ex){
+
+        } catch (Exception ex) {
             Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }
-    
-    public int assoc(){
-        
-        int result =0;
-        
+
+    public int assoc() {
+
+        int result = 0;
+
         String sqlAssoc = "SELECT mowo.f_asociar_curso(?,?,?);";
-        
-        try{
-            
+
+        try {
+
             this.pstm = this.conn.prepareStatement(sqlAssoc);
             this.pstm.setInt(1, this.id_user);
             this.pstm.setInt(2, this.id_course);
             this.pstm.setString(3, this.opt);
-            
+
             System.out.println(this.pstm);
-            
+
             this.res = this.pstm.executeQuery();
-            
-            if (this.res.next() ) {
-                
+
+            if (this.res.next()) {
+
                 result = this.res.getInt(1);
-                
+
             }
-            
-        }catch(SQLException ex){
-            
+
+        } catch (SQLException ex) {
+
             System.out.println("ocurrio un error al asociar el usuario" + ex);
-            
+
         }
-        
+
         return result;
-        
+
     }
-    
-    public ResultSet listTutor(){
-        
-        try { 
-            
-        String sqlList =    "SELECT id_usuario, nombre, apellido, identificacion,telefono,email FROM mowo.usuario\n" +
-                            "WHERE fk_perfil = ? \n" +
-                            "AND    (id_usuario NOT IN(SELECT fk_curso_prof \n" +
-                                                        "FROM mowo.prof_curso \n" +
-                                                        "WHERE fk_prof_curso = ?)\n" +
-                                    "OR NOT EXISTS (SELECT fk_curso_prof \n" +
-                                                        "FROM mowo.prof_curso \n" +
-                                                        "WHERE fk_prof_curso = ?)\n" +
-                                    ")\n" +
-                            "AND activo = ?";
-            
-        this.pstm = this.conn.prepareStatement(sqlList);
-        this.pstm.setInt(1,2);
-        this.pstm.setInt(2, id_course);
-        this.pstm.setInt(3, id_course);
-        this.pstm.setInt(4, 1);
-        
+
+    public ResultSet listTutor() {
+
+        try {
+
+            String sqlList = "SELECT id_usuario, nombre, apellido, identificacion,telefono,email FROM mowo.usuario\n"
+                    + "WHERE fk_perfil = ? \n"
+                    + "AND    (id_usuario NOT IN(SELECT fk_curso_prof \n"
+                    + "FROM mowo.prof_curso \n"
+                    + "WHERE fk_prof_curso = ?)\n"
+                    + "OR NOT EXISTS (SELECT fk_curso_prof \n"
+                    + "FROM mowo.prof_curso \n"
+                    + "WHERE fk_prof_curso = ?)\n"
+                    + ")\n"
+                    + "AND activo = ?";
+
+            this.pstm = this.conn.prepareStatement(sqlList);
+            this.pstm.setInt(1, 2);
+            this.pstm.setInt(2, id_course);
+            this.pstm.setInt(3, id_course);
+            this.pstm.setInt(4, 1);
+
             System.out.println(this.pstm);
-        
-        this.res = this.pstm.executeQuery();
-        
+
+            this.res = this.pstm.executeQuery();
+
         } catch (SQLException e) {
             System.out.println("Ocurrio un error al mostrar los usuarios " + e);
         }
-        
+
         return this.res;
     }
-    
-    public ResultSet listStudent(){
-        
-        try { 
-            
-        String sqlList = "SELECT id_usuario, nombre, apellido, identificacion,telefono,email, fk_curso\n" +
-                        "FROM mowo.usuario \n" +
-                        "WHERE fk_perfil = ? \n" +
-                        "AND activo = ? \n" +
-                        "AND fk_curso IS NULL ";
-        this.pstm = this.conn.prepareStatement(sqlList);
-        this.pstm.setInt(1,3);
-        this.pstm.setInt(2, 1);
-        
-        this.res = this.pstm.executeQuery();
-        
+
+    public ResultSet listStudent() {
+
+        try {
+
+            String sqlList = "SELECT id_usuario, nombre, apellido, identificacion,telefono,email, fk_curso\n"
+                    + "FROM mowo.usuario \n"
+                    + "WHERE fk_perfil = ? \n"
+                    + "AND activo = ? \n"
+                    + "AND fk_curso IS NULL ";
+            this.pstm = this.conn.prepareStatement(sqlList);
+            this.pstm.setInt(1, 3);
+            this.pstm.setInt(2, 1);
+
+            this.res = this.pstm.executeQuery();
+
         } catch (SQLException e) {
             System.out.println("Ocurrio un error al mostrar los usuarios " + e);
         }
-        
+
         return this.res;
     }
-    
-    
-    public ResultSet listCourse(int view){
-        
-        String where ="";
-        
-        try{
-            
-            if(view == 1)
+
+    public ResultSet listCourse(int view) {
+
+        String where = "";
+
+        try {
+
+            if (view == 1) {
                 where = "WHERE estado = 1";
-            
-            if(this.id_course !=0)
-                where= "WHERE id_curso=?";
-            
-            String sqlListC = "SELECT id_curso, nombre_curso, codigo, estado FROM mowo.curso "+where;
+            }
+
+            if (this.id_course != 0) {
+                where = "WHERE id_curso=?";
+            }
+
+            String sqlListC = "SELECT id_curso, nombre_curso, codigo, estado FROM mowo.curso " + where;
 
             this.pstm = this.conn.prepareStatement(sqlListC);
-            
-            if(this.id_course !=0)
+
+            if (this.id_course != 0) {
                 this.pstm.setInt(1, this.id_course);
-            
+            }
+
             System.out.println(this.pstm);
 
             this.res = this.pstm.executeQuery();
-        
+
         } catch (SQLException e) {
             System.out.println("Ocurrio un error al mostrar los cursos " + e);
         }
-        
+
         return this.res;
     }
-    
-    
-    
-    public int insertCourse(String pamname, int pamcode){
+
+    public int insertCourse(String pamname, int pamcode) {
+
         
-        int resultQuery = 0;
-        int result = 0;
         String sqlInsCourser = "INSERT INTO mowo.curso(nombre_curso,codigo,estado) VALUES(?,?,1) ";
-        
-        try{
+
+        try {
             this.pstm = this.conn.prepareStatement(sqlInsCourser);
             this.pstm.setString(1, pamname);
             this.pstm.setInt(2, pamcode);
             
-            //System.out.println(this.pstm);
             resultQuery = this.pstm.executeUpdate();
-            
-            if(resultQuery == 1)
+
+            if (resultQuery == 1) {
                 result = 1;
-            
-        }catch(SQLException ex){
+            }
+
+        } catch (SQLException ex) {
             System.out.println("Ocurrio un error al insertar el curso " + ex);
+        }
+
+        return result;
+    }
+
+    public int modifyCourse(String pamNCourse, int pamcode, int pamid) {
+               
+        String sqlModify = "";
+        try {
+            sqlModify = "UPDATE mowo.curso SET nombre_curso=?, codigo=?, estado=1\n"
+                    + "WHERE id_curso=?";
+            this.pstm = this.conn.prepareStatement(sqlModify);
+            this.pstm.setString(1, pamNCourse);
+            this.pstm.setInt(2, pamcode);
+            this.pstm.setInt(3, pamid);
+                       
+            
+            resultQuery = this.pstm.executeUpdate();
+
+            if (resultQuery == 1) {
+                result = 1;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Ocurrio un erro al modificar los usuario: " + e);
         }
         
         return result;
     }
-    
-    
+
 //    public static void main(String[] args) {
 //        
 //        try{
@@ -224,5 +245,4 @@ public class AssocCourseDAO extends ClassConnection{
 //       }
 //        
 //    }
-
 }

@@ -16,7 +16,7 @@
             </div>
 
             <div class="modal-body">
-                <form action="../../CrudCourseSEEVLET" method="POST">
+                <form action="../../CrudCourseSERVLET" method="POST">
                     <input type="hidden" name="option" value="3">
                     <div id="tableCourse">
                         

@@ -78,16 +78,16 @@ public class CrudCourseSERVLET extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
+
         try (PrintWriter out = response.getWriter()) {
-        
+
             int option = Integer.parseInt(request.getParameter("option"));
-            
-            switch(option){
+
+            switch (option) {
                 case 1:
-                    
-                    try{
-                     
+
+                    try {
+
                         //INSERTAR CURSO ******************************
                         String name_course = request.getParameter("name");
                         int code = Integer.parseInt(request.getParameter("code"));
@@ -98,23 +98,22 @@ public class CrudCourseSERVLET extends HttpServlet {
                         insCourse.closeConnection();
 
                         response.sendRedirect("pages/Admin/insertCourse.jsp?src=" + resu + "");
-                        
-                    }catch(Exception ex){
-                        System.out.println("ocurrion un error al momento de insertar un curso "+ex);
+
+                    } catch (Exception ex) {
+                        System.out.println("ocurrion un error al momento de insertar un curso " + ex);
                     }
                     break;
-                    
-                case 2:
-                    
-                    // MODAL¨***********
 
+                case 2:
+
+                    // MODAL¨***********
                     int id_course = Integer.parseInt(request.getParameter("cod"));
 
                     AssocCourseVO aVO = new AssocCourseVO(0, id_course, "0");
                     AssocCourseDAO aDAO = new AssocCourseDAO(aVO);
 
                     ResultSet result = aDAO.listCourse(0);
-                    
+
                     out.println("<table class='ml-5 table table-light table-borderless col-4 table-responsive-sm mt-2'>");
 
                     if (result.next()) {
@@ -135,7 +134,7 @@ public class CrudCourseSERVLET extends HttpServlet {
                         out.println("<tr>");
 
                         out.println("<td><button class=\"btn btn-danger\" data-dismiss=\"modal\">Cerrar</button></td>\n"
-                                + "<td><button class=\"btn btn-success\" data-dismiss=\"modal\">Guardar</button></td>");
+                                + "<td><button class=\"btn btn-success\">Guardar</button></td>");
 
                         out.println("</tr>");
                         out.println("</tbody>");
@@ -143,18 +142,27 @@ public class CrudCourseSERVLET extends HttpServlet {
                     out.println("</table>");
 
                     aDAO.closeConnection();
-                    
+
                     break;
-                
+
                 case 3:
-                    
+
                     //ACTUALIZAR CURSOS**************
+                    int resu = 0;
+                    
+                    id_course = Integer.parseInt(request.getParameter("id_course"));
+                    
+                    String nameCourse = request.getParameter("name");
+                    int code = Integer.parseInt(request.getParameter("code"));
+                    AssocCourseDAO uDAO = new AssocCourseDAO();
+                    resu = uDAO.modifyCourse(nameCourse, code, id_course);
+                    
+                    response.sendRedirect("pages/Admin/modifyCourse.jsp?res="+resu+"");
                     
                     break;
             }
-            
-            
-        }catch (Exception ex) {
+
+        } catch (Exception ex) {
             Logger.getLogger(AssocCourseSERVLET.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
