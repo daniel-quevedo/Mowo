@@ -4,21 +4,21 @@
     Author     : Daniel
 --%>
 
+<%@page import="VOAdmin.AssocCourseVO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="DAOAdmin.AssocCourseDAO"%>
-<%!
-    private int id_user;
-%>
+
 <%
 
-    //traer los datos de los profesores y los cursos*** 
-    id_user = 2;
+    //traer los datos de los profesores y los cursos***
 
-    AssocCourseDAO DocEst = new AssocCourseDAO();
+    AssocCourseVO DcoStuV = new AssocCourseVO(0,0,"");
+    
+    AssocCourseDAO TuStu = new AssocCourseDAO(DcoStuV);
 
-    ResultSet resUser = DocEst.listDocEst(id_user);
+    ResultSet resUser = TuStu.listTutor();
 
-    ResultSet resCourse = DocEst.listCourse(1);
+    ResultSet resCourse = TuStu.listCourse(1);
 
 
 %>
@@ -58,7 +58,7 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label> Seleccion un curso </label>
-                                        <select class="form-control" name="idCourse" autofocus required>
+                                        <select class="form-control" id="idCourse" name="idCourse" autofocus required>
                                             <option value="1">--SELECCIONE--</option> 
                                         <%                                            while (resCourse.next()) {
                                                 out.println("<option value='" + resCourse.getInt(1) + "'>" + resCourse.getString(2) + "</option>");
@@ -75,7 +75,7 @@
 
                                 <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
 
-                                    <table class="table table-borderless table-responsive table-dark">
+                                    <table class="table table-borderless table-responsive table-dark" id="dataUser">
                                         <thead class="text-center">
                                             <tr>
                                                 <th></th>
@@ -122,8 +122,11 @@
 
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
 
-            <!-- Validar si se asociaron correctemente los Profesores-->
+        <!-- Validar si se asociaron correctemente los Profesores-->
         <jsp:include page="../../includes/Admin/ValidateAssocUser.jsp"></jsp:include>   
 
+        <!--Validar cambio de estado del select-->
+        <script src="../../js/Admin/ShowTeacherAssoc.js"></script>
+        
     </body>
 </html>

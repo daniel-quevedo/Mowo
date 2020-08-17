@@ -115,7 +115,10 @@ public class AssocStudentTutorDAO extends ClassConnection{
         
         try{
             
-            sqlList = "SELECT id_usuario, identificacion, nombre||' '||apellido AS nombre, telefono, email FROM mowo.usuario WHERE fk_perfil = ?";
+            sqlList = "SELECT id_usuario, identificacion, nombre||' '||apellido AS nombre, telefono, email \n" + 
+                        "FROM mowo.usuario \n"+ 
+                        "WHERE fk_perfil = ? \n"+
+                        "AND id_acudiente IS NULL";
             
             this.pstm = this.conn.prepareStatement(sqlList);
             this.pstm.setInt(1, 3);

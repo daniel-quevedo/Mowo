@@ -9,6 +9,8 @@ import DAOAdmin.AssocCourseDAO;
 import VOAdmin.AssocCourseVO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -80,6 +82,7 @@ public class AssocCourseSERVLET extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 
             int option = Integer.parseInt(request.getParameter("option"));
+            int id_course = Integer.parseInt(request.getParameter("idCourse"));
             int res = 0;
 
             switch (option) {
@@ -89,9 +92,7 @@ public class AssocCourseSERVLET extends HttpServlet {
                     //ASOCIAR CURSO A ESTUDIANTE O PROFESOR**********************
                     
                     try {
-
-                        int id_course = Integer.parseInt(request.getParameter("idCourse"));
-
+                        
                         String[] users = request.getParameterValues("user");
 
                         String opt = request.getParameter("opt");
@@ -129,6 +130,54 @@ public class AssocCourseSERVLET extends HttpServlet {
                     }
 
                     break;
+                    
+                case 2:
+                    
+                    AssocCourseVO DcoStuV = new AssocCourseVO(0,id_course,"");
+    
+                    AssocCourseDAO TuStu = new AssocCourseDAO(DcoStuV);
+
+                    ResultSet resUser = TuStu.listTutor();
+                    
+                    try{
+                        
+                        out.println("<thead class=\"text-center\">\n" +
+                                        "<tr>\n" +
+                                            "<th></th>\n" +
+                                            "<th>Nombre</th>\n" +
+                                            "<th>Apellido</th>\n" +
+                                            "<th>No Documento</th>\n" +
+                                            "<th>Telefono</th>\n" +
+                                            "<th>Correo</th>\n" +
+                                        "</tr>\n" +
+                                    "</thead>");
+                        
+                        out.println("<tbody>");
+                        
+                        while (resUser.next()) {
+                            out.println("<tr>");
+                            out.println("<td>\n"
+                                    + "<input type='checkbox' name='user' value='" + resUser.getInt(1) + "'>\n"
+                                    + "</td>");
+                            out.println("<td> " + resUser.getString(2) + " </td>");
+                            out.println("<td> " + resUser.getString(3) + " </td>");
+                            out.println("<td> " + resUser.getInt(4) + " </td>");
+                            out.println("<td> " + resUser.getInt(5) + " </td>");
+                            out.println("<td> " + resUser.getString(6) + " </td>");
+
+                            out.println("</tr>");
+                        }
+                        
+                        out.println("</tbody>");
+                        
+                    }catch(SQLException ex){
+                        System.out.println("ocurrio un error al listar los profesores" + ex);
+                    }
+                    
+                    TuStu.closeConnection();
+                    
+                    break;
+                    
             }
         } catch (Exception ex) {
             Logger.getLogger(AssocCourseSERVLET.class.getName()).log(Level.SEVERE, null, ex);

@@ -6,17 +6,14 @@
 
 <%@page import="java.sql.ResultSet"%>
 <%@page import="DAOAdmin.AssocCourseDAO"%>
-<%!
-    private int id_user;
-%>
+
 <%
 
     //traer los datos de los estudianes y los cursos*** 
-    id_user = 3;
 
     AssocCourseDAO DocEst = new AssocCourseDAO();
 
-    ResultSet resUser = DocEst.listDocEst(id_user);
+    ResultSet resUser = DocEst.listStudent();
 
     ResultSet resCourse = DocEst.listCourse(1);
 

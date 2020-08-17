@@ -96,14 +96,49 @@ public class AssocCourseDAO extends ClassConnection{
         
     }
     
-    public ResultSet listDocEst(int data){
+    public ResultSet listTutor(){
         
-        try {
+        try { 
             
-        String sqlList = "SELECT id_usuario, nombre, apellido, identificacion,telefono,email FROM mowo.usuario WHERE fk_perfil = ? AND activo = ?";
+        String sqlList =    "SELECT id_usuario, nombre, apellido, identificacion,telefono,email FROM mowo.usuario\n" +
+                            "WHERE fk_perfil = ? \n" +
+                            "AND    (id_usuario NOT IN(SELECT fk_curso_prof \n" +
+                                                        "FROM mowo.prof_curso \n" +
+                                                        "WHERE fk_prof_curso = ?)\n" +
+                                    "OR NOT EXISTS (SELECT fk_curso_prof \n" +
+                                                        "FROM mowo.prof_curso \n" +
+                                                        "WHERE fk_prof_curso = ?)\n" +
+                                    ")\n" +
+                            "AND activo = ?";
             
         this.pstm = this.conn.prepareStatement(sqlList);
-        this.pstm.setInt(1,data);
+        this.pstm.setInt(1,2);
+        this.pstm.setInt(2, id_course);
+        this.pstm.setInt(3, id_course);
+        this.pstm.setInt(4, 1);
+        
+            System.out.println(this.pstm);
+        
+        this.res = this.pstm.executeQuery();
+        
+        } catch (SQLException e) {
+            System.out.println("Ocurrio un error al mostrar los usuarios " + e);
+        }
+        
+        return this.res;
+    }
+    
+    public ResultSet listStudent(){
+        
+        try { 
+            
+        String sqlList = "SELECT id_usuario, nombre, apellido, identificacion,telefono,email, fk_curso\n" +
+                        "FROM mowo.usuario \n" +
+                        "WHERE fk_perfil = ? \n" +
+                        "AND activo = ? \n" +
+                        "AND fk_curso IS NULL ";
+        this.pstm = this.conn.prepareStatement(sqlList);
+        this.pstm.setInt(1,3);
         this.pstm.setInt(2, 1);
         
         this.res = this.pstm.executeQuery();
@@ -173,21 +208,21 @@ public class AssocCourseDAO extends ClassConnection{
     }
     
     
-    public static void main(String[] args) {
-        
-        try{
-           //primera opcion:id_usu segunda opcion:id_curso tercera opcion: (A)estudiante (B)profesor
-            //AssocCourseVO acVO = new AssocCourseVO(67,4,"A");
-
-            AssocCourseDAO objP = new AssocCourseDAO();
-            
-            System.out.println(objP.listDocEst(1));
-
-       }catch(Exception ex){
-           
-           
-       }
-        
-    }
+//    public static void main(String[] args) {
+//        
+//        try{
+//           //primera opcion:id_usu segunda opcion:id_curso tercera opcion: (A)estudiante (B)profesor
+//            //AssocCourseVO acVO = new AssocCourseVO(67,4,"A");
+//
+//            AssocCourseDAO objP = new AssocCourseDAO();
+//            
+//            System.out.println(objP.listTutor(1));
+//
+//       }catch(Exception ex){
+//           
+//           
+//       }
+//        
+//    }
 
 }
