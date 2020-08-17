@@ -87,7 +87,7 @@ body{
 }
 
 .submenu ul li a:hover{
-    background: #983445;
+    background: #D07685;
     border-left: 6px solid #598D63;     
 }
 
@@ -151,8 +151,7 @@ body{
 }
 
 .contenedor nav{
-    margin-left: 20%;
-    
+    margin-left: 20%;   
 }
 
 .table{
@@ -210,6 +209,5 @@ h2 img{
 }
 
 .backg{
-    background: #22293980;    
+    background: #1F322390;    
 }
-

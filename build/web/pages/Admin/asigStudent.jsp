@@ -45,15 +45,13 @@
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
                     <div class="contenedor mt-4">
-                        <h3 class="mb-4">Asignar Estudiantes</h3>                                                                        
+                        <h5 class="mb-5">Asignar Estudiantes</h5>                                                                        
                         <form action="../../AssocStudentTutorSERVLET" method="POST">
                             
-                            <div class="row mb-4">
-                                <div class="col-md-3">
-                                    
-                                    <h5>Seleccione el acudiente</h5>
-                                    
-                                    <select class="form-control" name="id_tutor">
+                            <div class="row">
+                                <div class="col-md-3">                                    
+                                    <label>Seleccione el acudiente</label>                                    
+                                    <select class="form-control mb-5" name="id_tutor">
                                         <option value="#">--SELECCIONE--</option>
                                         <%
                                               while(resultParents.next()){
@@ -67,7 +65,7 @@
                             
                             <div class="row">
                                 <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
-                                    <table class="table table-borderless table-responsive table-dark">
+                                    <table class="table table-borderless table-responsive text-white backg">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>

@@ -57,10 +57,15 @@
                                 <input type="hidden" name="option" value="1">
                                 <div class="row">
                                     <div class="col-md-3">
+<<<<<<< HEAD
                                         <label> Seleccion un curso </label>
                                         <select class="form-control" id="idCourse" name="idCourse" autofocus required>
+=======
+                                        <label> Seleccione un curso </label>
+                                        <select class="form-control mb-3" name="idCourse" autofocus required>
+>>>>>>> 1daa53a738618beffb709dca1bdafc794e55bf6a
                                             <option value="1">--SELECCIONE--</option> 
-                                        <%                                            while (resCourse.next()) {
+                                        <%  while (resCourse.next()) {
                                                 out.println("<option value='" + resCourse.getInt(1) + "'>" + resCourse.getString(2) + "</option>");
                                             }
                                         %>
@@ -75,7 +80,11 @@
 
                                 <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
 
+<<<<<<< HEAD
                                     <table class="table table-borderless table-responsive table-dark" id="dataUser">
+=======
+                                    <table class="table table-borderless table-responsive text-white backg">
+>>>>>>> 1daa53a738618beffb709dca1bdafc794e55bf6a
                                         <thead class="text-center">
                                             <tr>
                                                 <th></th>

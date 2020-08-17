@@ -24,14 +24,14 @@
         <title>Crear Contraseña</title>
     </head>
     <body>
-        <main class="model mt-5 animated zoomIn">
-            <div class="col-md-9 col-sm-10 contenedor">
+        <main class="mt-5 container animated zoomIn">
+            <div class="col-lg-4 col-md-6 col-12 contenedor">
                 <div class="box-content">
                     <div class="col-12 login text-center">
                         <img src="../../img/login.png" width="200" height="200" alt="login">
                         <h5>Crear Contraseña</h5>
                     </div>
-                    <form class="col-12" method="post" action="../../credentialsSERVLET" autocomplete="off" id="validatePass">
+                    <form method="post" action="../../credentialsSERVLET" autocomplete="off" id="validatePass">
                         <div class="form-group">
                             <img src="../../img/user.png">
                             <label>Tu Usuario:</label><br>

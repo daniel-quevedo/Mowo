@@ -17,10 +17,9 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <title>Mowo_o</title>
     </head>
-    <body>
-
-        <div class="col-lg-3 col-md-4 col-sm-12 contenedor ">            
-            <div class=" box-content animated zoomIn">
+    <body class="container">
+        <div class="col-lg-4 col-md-6 col-12 contenedor">            
+            <div class="box-content animated zoomIn">
                 <div class="col-12 login text-center">
                     <img src="./img/login.png" width="200" height="200" alt="login">
                     <h5>Iniciar Sesión</h5>
@@ -45,7 +44,7 @@
                 </form>
                 <div>
                     <div class="col-12 text-center mb-2">
-                        <a href="#">¿Olvidaste la Contraseña?</a>
+                        <a href="./pages/validUser/RecoverPass.jsp">¿Olvidaste la Contraseña?</a>
                     </div>
                 </div>
             </div>            
