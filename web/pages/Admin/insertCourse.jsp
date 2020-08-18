@@ -34,13 +34,13 @@
                                 <table class="ml-5 table backg table-borderless col-6 table-responsive-sm mt-2">                                
                                     <thead>
                                         <tr>
-                                            <th><label>Nombre:</label></th>
+                                            <th><label>Jornada:</label></th>
                                             <th><label>Codigo:</label></th>                                 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><input type="text" class="form-control" name="name" id="name" value="" minlength="6" maxlength="10" autofocus pattern="[9-0]+ [A-Z]{3,10}" placeholder="ej. 902 JM" required></td>
+                                            <td><input type="text" class="form-control" name="name" id="name" value="" autofocus pattern="([J]+[T,M])" placeholder="JM / JT" title="Se debe escribir JM o JT en MAYUSCULAS" required></td>
                                             <td><input type="number" class="form-control" name="code" id="code" value="" minlength="3" maxlength="3"  pattern="[9-0]{3}" placeholder="ej. 902" required></td>
                                         </tr>                                                                
                                     <td colspan="2">
