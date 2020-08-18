@@ -98,7 +98,7 @@ public class AssocStudentTutorSERVLET extends HttpServlet {
                 
             }
             
-            response.sendRedirect("pages/Admin/asigStudent.jsp?src="+resReturn+"&opt=1");
+            response.sendRedirect("pages/Admin/assocStudent.jsp?src="+resReturn+"&opt=1");
             
         }
         

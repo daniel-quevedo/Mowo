@@ -79,7 +79,7 @@
 
                                     <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
 
-                                        <table class="table table-borderless table-responsive text-white backg" id="dataSubject">
+                                        <table class="table table-borderless table-responsive backg" id="dataSubject">
                                             <thead class="text-center">
                                                 <tr>
                                                     <th></th>

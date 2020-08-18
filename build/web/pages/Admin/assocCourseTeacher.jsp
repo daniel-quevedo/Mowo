@@ -78,7 +78,7 @@
 
                                     <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
 
-                                        <table class="table table-borderless table-responsive text-white backg" id="dataUser">
+                                        <table class="table table-borderless table-responsive backg" id="dataUser">
                                             <thead class="text-center">
                                                 <tr>
                                                     <th></th>

@@ -24,7 +24,7 @@
         <title>Crear Contraseña</title>
     </head>
     <body>
-        <main class="mt-5 container animated zoomIn">
+        <main class="mt-5 container">
             <div class="col-lg-4 col-md-6 col-12 contenedor">
                 <div class="box-content">
                     <div class="col-12 login text-center">

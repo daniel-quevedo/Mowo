@@ -31,7 +31,7 @@
                             <h5 class="mb-4 ">Insertar Usuarios</h5>
                             <form action="../../CrudUserSERVLET" method="POST" autocomplete="off">
                                 <input type="hidden" name="option" value="2">
-                                <table class="table text-white backg table-borderless table-responsive-sm col-lg-11 mt-2">
+                                <table class="table backg table-borderless table-responsive-sm col-lg-11 mt-2">
                                     <tr><td colspam="2"></td><td></td></tr>
                                     <tr>
                                         <th><label>Nombre:</label></th>
@@ -74,7 +74,7 @@
                                     </tr>
                                     <tr>
                                         <th><label>Fecha de Nacimiento:</label></th>
-                                        <td><input type="date" class="form-control" name="date" id="date" value="" min="1960-01-01" max="dd-mm-yyyy" required></td>
+                                        <td><input type="date" class="form-control" name="date" id="date" value="" min="1960-01-01" max="2014-01-01" required></td>
                                     </tr>
                                     <tr>
                                         <th><label>Correo:</label></th>

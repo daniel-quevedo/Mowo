@@ -43,11 +43,11 @@
                                 <input type="hidden" value="" name="opt" id="opt">
                                 <input type="hidden" value="" name="cod" id="cod">
                                 <div class="t-fixed col-lg-6 col-sm-8 col-xs-12 ml-4 ">
-                                    <table class="table table-hover table-borderless table-light table-responsive-sm">
+                                    <table class="table table-hover table-borderless backg table-responsive-sm">
                                         <thead class="text-center thead-dark">
                                             <tr>
                                                 <th>Estado</th>
-                                                <th>Nombre</th>
+                                                <th>Jornada</th>
                                                 <th>Codigo</th>
                                                 <th colspan="2" class="text-center">Acciones</th>
 
@@ -58,7 +58,7 @@
                                         <%
                                             while (resulCourse.next()) {
 
-                                                if (resulCourse.getInt(4) == 1) {
+                                                if (resulCourse.getInt(5) == 1) {
                                                     state = "Activo";
 
                                                     button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-danger' onclick='addCourse(4," + resulCourse.getInt(1) + ")'>Inactivar</button>";
@@ -70,8 +70,8 @@
                                                 }
                                                 out.println("<tr>");
                                                 out.println("<td>" + state + "</td>");
-                                                out.println("<td>" + resulCourse.getString(2) + "</td>");
-                                                out.println("<td>" + resulCourse.getInt(3) + "</td>");
+                                                out.println("<td>" + resulCourse.getString(3) + "</td>");
+                                                out.println("<td>" + resulCourse.getInt(4) + "</td>");
                                                 out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalCourse(" + resulCourse.getInt(1) + ")'><button type='button' class='btn btn-primary'>Editar</button></a></td></td>");
                                                 out.println("<td>" + button + "</td>");
                                                 out.println("</tr>");

@@ -65,7 +65,7 @@
                             
                             <div class="row">
                                 <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
-                                    <table class="table table-borderless table-responsive text-white backg">
+                                    <table class="table table-borderless table-responsive backg">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>

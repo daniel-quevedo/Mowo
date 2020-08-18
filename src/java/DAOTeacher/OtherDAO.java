@@ -70,7 +70,7 @@ public class OtherDAO extends ClassConnection{
     
     public ResultSet Courses(){
         
-        String sqlCours =   "SELECT C.id_curso, C.nombre_curso \n" +
+        String sqlCours =   "SELECT C.id_curso, (C.codigo||' '||C.nombre_curso) AS nombre\n" +
                             "FROM mowo.curso C \n" +
                                 "INNER JOIN mowo.prof_curso CP ON C.id_curso = CP.fk_prof_curso\n" +
                                 "INNER JOIN mowo.usuario U ON U.id_usuario = CP.fk_curso_prof\n" +
