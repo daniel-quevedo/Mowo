@@ -20,60 +20,25 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 @WebServlet(name = "CrudCourseSERVLET", urlPatterns = {"/CrudCourseSERVLET"})
 public class CrudCourseSERVLET extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet CrudCourseSERVLET</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet CrudCourseSERVLET at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
+        response.setContentType("text/html;charset=UTF-8");    
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -122,8 +87,8 @@ public class CrudCourseSERVLET extends HttpServlet {
 
                         out.println("<thead>");
                         out.println("<tr>");
-                        out.println("<th><label>Nombre:</label></th>\n"
-                                + "<td><input type='text' class='form-control' name='name' id='name' value='" + result.getString(2) + "' minlength='6' maxlength='10' autofocus pattern='[9-0]+ [A-Z]{3,25}' required></td>");
+                        out.println("<th><label>Jornada::</label></th>\n"
+                                + "<td><input type='text' class='form-control' name='name' id='name' value='" + result.getString(2) + "' pattern='([J]+[T,M])' placeholder='JM / JT' title='Se debe escribir JM o JT en MAYUSCULAS' required></td>");
                         out.println("<tr>");
                         out.println("</thead>\n"
                                 + "<tbody>");

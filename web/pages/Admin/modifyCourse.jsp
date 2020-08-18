@@ -47,7 +47,7 @@
                                         <thead class="text-center thead-dark">
                                             <tr>
                                                 <th>Estado</th>
-                                                <th>Nombre</th>
+                                                <th>Jornada</th>
                                                 <th>Codigo</th>
                                                 <th colspan="2" class="text-center">Acciones</th>
 

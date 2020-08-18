@@ -162,7 +162,7 @@ public class AssocCourseDAO extends ClassConnection {
                 where = "WHERE id_curso=?";
             }
 
-            String sqlListC = "SELECT id_curso, nombre_curso, codigo, estado FROM mowo.curso " + where;
+            String sqlListC = "SELECT id_curso, nombre_curso, codigo, estado FROM mowo.curso " + where+" ORDER BY id_curso asc";
 
             this.pstm = this.conn.prepareStatement(sqlListC);
 
