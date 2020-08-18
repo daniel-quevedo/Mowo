@@ -88,9 +88,9 @@ public class CrudUserSERVLET extends HttpServlet {
                         String name = request.getParameter("name");
                         String lname = request.getParameter("lname");
                         String typeDoc = request.getParameter("typeDoc");
-                        int nDocument = Integer.parseInt(request.getParameter("nDocument"));
+                        long nDocument = Long.parseLong(request.getParameter("nDocument"));
                         int typeUser = Integer.parseInt(request.getParameter("typeUser"));
-                        int phone = Integer.parseInt(request.getParameter("phone"));
+                        long phone = Long.parseLong(request.getParameter("phone"));
                         String dir = request.getParameter("dir");
                         String date = request.getParameter("date");
                         
@@ -217,7 +217,8 @@ public class CrudUserSERVLET extends HttpServlet {
                         if(result.next()){
                             out.println("<div id='tableUsers'>\n"+
                                         "<input type='hidden' name='cod_user' value="+result.getInt(11)+" > \n" +
-                                        "<input type='hidden' value='5' name='option'>");
+                                        "<input type='hidden' value='5' name='option'>"+
+                                        "<input type='hidden' value="+result.getInt(5)+" name='nDocument'>");
                                 out.println("<table class='table table-responsive-sm table-light'>");
                                     out.println("<tr>\n" +
                                                     "<th><label>Nombre:</label></th>\n" +
@@ -287,8 +288,8 @@ public class CrudUserSERVLET extends HttpServlet {
                         String name = request.getParameter("name");
                         String lname = request.getParameter("lname");
                         String typeDoc = request.getParameter("typeDoc");
-                        int nDocument = Integer.parseInt(request.getParameter("nDocument"));
-                        int phone = Integer.parseInt(request.getParameter("phone"));
+                        long nDocument = Long.parseLong(request.getParameter("nDocument"));
+                        long phone = Long.parseLong(request.getParameter("phone"));
                         String dir = request.getParameter("dir");
                         String date = request.getParameter("date");
                         

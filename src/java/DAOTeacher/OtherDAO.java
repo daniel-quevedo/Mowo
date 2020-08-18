@@ -70,7 +70,7 @@ public class OtherDAO extends ClassConnection{
     
     public ResultSet Courses(){
         
-        String sqlCours =   "SELECT C.id_curso, C.nombre_curso \n" +
+        String sqlCours =   "SELECT C.id_curso, (C.codigo||' '||C.nombre_curso) AS nombre\n" +
                             "FROM mowo.curso C \n" +
                                 "INNER JOIN mowo.prof_curso CP ON C.id_curso = CP.fk_prof_curso\n" +
                                 "INNER JOIN mowo.usuario U ON U.id_usuario = CP.fk_curso_prof\n" +
@@ -108,6 +108,7 @@ public class OtherDAO extends ClassConnection{
                                 "INNER JOIN mowo.prof_asig PA ON PA.fk_prof_asig = A.id_asignatura \n" +
                             "WHERE CA.fk_asig_curso = ? \n" +
                             "AND U.id_usuario = ?" +
+                            "AND PA.fk_asig_prof = ?" +
                             "AND U.fk_perfil = 2";
         
         try{
@@ -115,6 +116,8 @@ public class OtherDAO extends ClassConnection{
             this.pstm = this.conn.prepareStatement(sqlAsig);
             this.pstm.setInt(1,this.codAsig);
             this.pstm.setInt(2, this.idPro);
+            this.pstm.setInt(3, idPro);
+            
             this.res = this.pstm.executeQuery();
             
             

@@ -58,7 +58,7 @@
                                         <%
                                             while (resulCourse.next()) {
 
-                                                if (resulCourse.getInt(4) == 1) {
+                                                if (resulCourse.getInt(5) == 1) {
                                                     state = "Activo";
 
                                                     button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-danger' onclick='addCourse(4," + resulCourse.getInt(1) + ")'>Inactivar</button>";
@@ -70,8 +70,8 @@
                                                 }
                                                 out.println("<tr>");
                                                 out.println("<td>" + state + "</td>");
-                                                out.println("<td>" + resulCourse.getString(2) + "</td>");
-                                                out.println("<td>" + resulCourse.getInt(3) + "</td>");
+                                                out.println("<td>" + resulCourse.getString(3) + "</td>");
+                                                out.println("<td>" + resulCourse.getInt(4) + "</td>");
                                                 out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalCourse(" + resulCourse.getInt(1) + ")'><button type='button' class='btn btn-primary'>Editar</button></a></td></td>");
                                                 out.println("<td>" + button + "</td>");
                                                 out.println("</tr>");

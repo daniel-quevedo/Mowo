@@ -87,14 +87,16 @@ public class CrudCourseSERVLET extends HttpServlet {
 
                         out.println("<thead>");
                         out.println("<tr>");
+
                         out.println("<th><label>Jornada::</label></th>\n"
-                                + "<td><input type='text' class='form-control' name='name' id='name' value='" + result.getString(2) + "' pattern='([J]+[T,M])' placeholder='JM / JT' title='Se debe escribir JM o JT en MAYUSCULAS' required></td>");
+                                + "<td><input type='text' class='form-control' name='name' id='name' value='" + result.getString(3) + "' pattern='([J]+[T,M])' placeholder='JM / JT' title='Se debe escribir JM o JT en MAYUSCULAS' required></td>");
+
                         out.println("<tr>");
                         out.println("</thead>\n"
                                 + "<tbody>");
                         out.println("<tr>");
                         out.println("<th><label>Codigo:</label></th>\n"
-                                + "<td><input type='number' class='form-control' name='code' id='code' value='" + result.getInt(3) + "' minlength='3' maxlength='3' pattern='[9-0]{3}' required></td>");
+                                + "<td><input type='number' class='form-control' name='code' id='code' value='" + result.getInt(4) + "' minlength='3' maxlength='3' pattern='[9-0]{3}' required></td>");
                         out.println("</tr>");
                         out.println("<tr>");
 

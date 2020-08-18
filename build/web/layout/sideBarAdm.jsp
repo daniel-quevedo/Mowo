@@ -24,22 +24,24 @@
                 
                 <li><a href="insertCourse.jsp">Insertar Cursos</a></li>
                 <li><a href="modifyCourse.jsp">Modificar Cursos</a></li>
+                <li><a href="assocSubjectCourse.jsp">Asignar asignatura</a></li>
                 
             </ul>
         </li>
         <li><a href="#">Docente</a>
             <ul>
-                <li><a href="asigCoursePro.jsp">Asignar Curso</a></li>
+                <li><a href="assocCourseTeacher.jsp">Asignar Curso</a></li>
+                <li><a href="assocSubjectTeacher.jsp">Asignar Asignaturas</a></li>
             </ul>
         </li>
         <li><a href="#">Estudiantes</a>
             <ul>
-                <li><a href="asigCourseEst.jsp">Asignar Curso</a></li>
+                <li><a href="assocCourseStu.jsp">Asignar Curso</a></li>
             </ul>
         </li>
         <li><a href="#">Acudientes</a>
             <ul>
-                <li><a href="asigStudent.jsp">Asignar Estudiantes</a></li>
+                <li><a href="assocStudent.jsp">Asignar Estudiantes</a></li>
             </ul>
         </li>
     </ul>

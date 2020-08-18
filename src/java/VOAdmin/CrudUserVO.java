@@ -12,11 +12,11 @@ package VOAdmin;
 public class CrudUserVO {
     
     private String typeDoc;
-    private int nDocument;
+    private long nDocument;
     private String name;
     private String lname;
     private int typeUser;
-    private int phone;
+    private long phone;
     private String dir;
     private String date;
     private String mail;
@@ -27,7 +27,7 @@ public class CrudUserVO {
         this.nDocument = nDocument;
     }
 
-    public CrudUserVO(String typeDoc, int nDocument, String name, String lname, int typeUser, int phone, String dir, String date, String mail, int active) {
+    public CrudUserVO(String typeDoc, long nDocument, String name, String lname, int typeUser, long phone, String dir, String date, String mail, int active) {
         this.typeDoc = typeDoc;
         this.nDocument = nDocument;
         this.name = name;
@@ -56,7 +56,7 @@ public class CrudUserVO {
         this.typeDoc = typeDoc;
     }
 
-    public int getnDocument() {
+    public long getnDocument() {
         return nDocument;
     }
 
@@ -88,7 +88,7 @@ public class CrudUserVO {
         this.typeUser = typeUser;
     }
 
-    public int getPhone() {
+    public long getPhone() {
         return phone;
     }
 

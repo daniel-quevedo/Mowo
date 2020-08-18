@@ -93,30 +93,28 @@ public class AssocCourseDAO extends ClassConnection {
         return result;
 
     }
-
-    public ResultSet listTutor() {
-
-        try {
-
-            String sqlList = "SELECT id_usuario, nombre, apellido, identificacion,telefono,email FROM mowo.usuario\n"
-                    + "WHERE fk_perfil = ? \n"
-                    + "AND    (id_usuario NOT IN(SELECT fk_curso_prof \n"
-                    + "FROM mowo.prof_curso \n"
-                    + "WHERE fk_prof_curso = ?)\n"
-                    + "OR NOT EXISTS (SELECT fk_curso_prof \n"
-                    + "FROM mowo.prof_curso \n"
-                    + "WHERE fk_prof_curso = ?)\n"
-                    + ")\n"
-                    + "AND activo = ?";
+    
+    public ResultSet listTutor(){
+        
+        try { 
+            
+            String sqlList =    "SELECT id_usuario, nombre, apellido, identificacion,telefono,email FROM mowo.usuario\n" +
+                                "WHERE fk_perfil = ? \n" +
+                                "AND    (id_usuario NOT IN(SELECT fk_curso_prof \n" +
+                                                            "FROM mowo.prof_curso \n" +
+                                                            "WHERE fk_prof_curso = ?)\n" +
+                                        "OR NOT EXISTS (SELECT fk_curso_prof \n" +
+                                                            "FROM mowo.prof_curso \n" +
+                                                            "WHERE fk_prof_curso = ?)\n" +
+                                        ")\n" +
+                                "AND activo = ?"+
+                                "ORDER BY nombre ASC";
 
             this.pstm = this.conn.prepareStatement(sqlList);
-            this.pstm.setInt(1, 2);
+            this.pstm.setInt(1,2);
             this.pstm.setInt(2, id_course);
             this.pstm.setInt(3, id_course);
             this.pstm.setInt(4, 1);
-
-            System.out.println(this.pstm);
-
             this.res = this.pstm.executeQuery();
 
         } catch (SQLException e) {
@@ -157,12 +155,13 @@ public class AssocCourseDAO extends ClassConnection {
             if (view == 1) {
                 where = "WHERE estado = 1";
             }
-
-            if (this.id_course != 0) {
-                where = "WHERE id_curso=?";
-            }
-
-            String sqlListC = "SELECT id_curso, nombre_curso, codigo, estado FROM mowo.curso " + where+" ORDER BY id_curso asc";
+            if(this.id_course !=0)
+                where= "WHERE id_curso=?";
+            
+            String sqlListC =   "SELECT id_curso, (codigo||' '||nombre_curso)AS nombre, nombre_curso ,codigo, estado "
+                                +"FROM mowo.curso "
+                                +where+
+                                "ORDER BY nombre_curso DESC";
 
             this.pstm = this.conn.prepareStatement(sqlListC);
 

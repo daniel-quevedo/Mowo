@@ -52,7 +52,7 @@
                                 <div class="col-md-3">                                    
                                     <label>Seleccione el acudiente</label>                                    
                                     <select class="form-control mb-5" name="id_tutor">
-                                        <option value="#">--SELECCIONE--</option>
+                                        <option value="#" selected>--SELECCIONE--</option>
                                         <%
                                               while(resultParents.next()){
                                                   out.println("<option value='"+resultParents.getInt(2)+"'>"+resultParents.getString(1)+"</option>");
@@ -89,8 +89,8 @@
                                                         out.println("<td>"+resultStudents.getString(5)+"</td>");
                                                     out.println("</tr>");
                                                 }
-
-                                            %>
+                                                astDAO.closeConnection();
+                                            %>  
                                         </tbody>
                                     </table>
                                         <button type="submit" name="assoc" class="btn btn-success">Enviar</button>
@@ -108,5 +108,15 @@
         
         <!-- Validar si se asociaron correctemente los estudiantes-->
         <jsp:include page="../../includes/Admin/ValidateAssocUser.jsp"></jsp:include>   
+        
+        <!--implementar select2********-->
+            <script>
+                
+                $(document).ready(function() {
+                    $('#idCourse').select2();
+                });
+                
+            </script>
+        
     </body>
 </html>

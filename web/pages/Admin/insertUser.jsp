@@ -66,7 +66,7 @@
                                     </tr>
                                     <tr>
                                         <th><label>Teléfono:</label></th>
-                                        <td><input type="text" class="form-control" name="phone" id="phone" value="" minlength="7" maxlength="15" pattern="[0-9]{3,15}"  required></td>
+                                        <td><input type="text" class="form-control" name="phone" id="phone" value="" minlength="7" maxlength="10" pattern="[0-9]{3,10}"  required></td>
                                     </tr>
                                     <tr>
                                         <th><label>Dirección:</label></th>

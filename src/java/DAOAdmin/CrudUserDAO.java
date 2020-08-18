@@ -30,11 +30,11 @@ public class CrudUserDAO extends ClassConnection{
     //variables con datos de usuario********
     
     private String typeDoc;
-    private int nDocument;
+    private long nDocument;
     private String name;
     private String lname;
     private int typeUser;
-    private int phone;
+    private long phone;
     private String dir;
     private String date;
     private String mail;
@@ -80,11 +80,11 @@ public class CrudUserDAO extends ClassConnection{
             this.pstm = this.con.prepareStatement(sqlUser);
             
             this.pstm.setString(1, this.typeDoc);
-            this.pstm.setInt(2, this.nDocument);
+            this.pstm.setLong(2, this.nDocument);
             this.pstm.setString(3, this.name);
             this.pstm.setString(4, this.lname);
             this.pstm.setInt(5, this.typeUser);
-            this.pstm.setInt(6, this.phone);
+            this.pstm.setLong(6, this.phone);
             this.pstm.setString(7, this.dir);
             this.pstm.setString(8, this.date);
             this.pstm.setString(9, this.mail);
@@ -140,7 +140,7 @@ public class CrudUserDAO extends ClassConnection{
             
             //EN CASO DE QUE SE QUIERA MOSTRAR LOS DATOS EN EL MODAL*****************
             if(this.nDocument != 0){
-                this.pstm.setInt(1, this.nDocument);
+                this.pstm.setLong(1, this.nDocument);
             }
             //*******************************************************************
             
@@ -169,12 +169,12 @@ public class CrudUserDAO extends ClassConnection{
             this.pstm.setInt(1, id_usuario);
             this.pstm.setString(2, this.name);
             this.pstm.setString(3, this.lname);
-            this.pstm.setInt(4,this.phone);
+            this.pstm.setLong(4,this.phone);
             this.pstm.setString(5, this.dir);
             this.pstm.setString(6, this.date);
             this.pstm.setString(7, this.mail);
             this.pstm.setString(8, this.typeDoc);
-            this.pstm.setInt(9, this.nDocument);
+            this.pstm.setLong(9, this.nDocument);
             this.pstm.setInt(10, 0);
             this.pstm.setInt(11, 0);
             

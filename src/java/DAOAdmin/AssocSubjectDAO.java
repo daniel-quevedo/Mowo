@@ -57,8 +57,6 @@ public class AssocSubjectDAO extends ClassConnection{
         
         String sqlInsert = "SELECT mowo.f_asociar_asignatura(?,?,?,?);";
         
-        //String sqlInsert = "SELECT mowo.f_asociar_asignatura("+id_prof+","+id_subject+","+id_course+","+opt+");";
-      
         try{
 
             this.pstm = this.con.prepareStatement(sqlInsert);
@@ -67,6 +65,8 @@ public class AssocSubjectDAO extends ClassConnection{
             this.pstm.setInt(2, id_subject);
             this.pstm.setInt(3, id_course);
             this.pstm.setString(4, opt);
+            
+            System.out.println(this.pstm);
 
             this.res = this.pstm.executeQuery();
             
@@ -85,6 +85,65 @@ public class AssocSubjectDAO extends ClassConnection{
         }
         
         return result;
+        
+    }
+    
+    public ResultSet listSubjects(){
+        
+        try{
+            
+            String sql ="SELECT id_asignatura, nombre, salon FROM mowo.asignaturas\n" +
+                        "WHERE id_asignatura NOT IN (\n" +
+                                                        "SELECT fk_prof_asig \n" +
+                                                        "FROM mowo.prof_asig \n" +
+                                                        "WHERE fk_asig_prof = ? \n" +
+                                                    ")\n"+
+                        "AND    (id_asignatura NOT IN(\n" +
+                                                        "SELECT fk_curso_asig \n" +
+                                                        "FROM mowo.curso_asignatura \n" +
+                                                        "WHERE fk_asig_curso = ? \n" +
+                                                    ")\n" +
+                                    "OR NOT EXISTS (\n" +
+                                                        "SELECT fk_curso_asig\n" +
+                                                        "FROM mowo.curso_asignatura \n" +
+                                                        "WHERE fk_asig_curso = ? \n" +
+                                                    ")\n"+
+                                ")";
+            
+            this.pstm = this.con.prepareStatement(sql);
+            this.pstm.setInt(1, id_prof);
+            this.pstm.setInt(2, id_course);
+            this.pstm.setInt(3, id_course);
+            
+            System.out.println(pstm);
+            
+            this.res = this.pstm.executeQuery();
+            
+        }catch(SQLException ex){
+            System.out.println("Ocurrio un error al listar las asignaturas " + ex);
+        }
+        
+        return this.res;
+        
+    }
+    
+    public ResultSet listTutor(){
+        
+        try{
+            String sql = "SELECT id_usuario, identificacion, (nombre||' '||apellido) AS nombre "
+                        +"FROM mowo.usuario "
+                        +"WHERE fk_perfil = ?"
+                        +"ORDER BY nombre ASC";
+            this.pstm = this.con.prepareStatement(sql);
+            this.pstm.setInt(1, 2);
+            
+            this.res = this.pstm.executeQuery();
+            
+        }catch(SQLException ex){
+            System.out.println("ocurrio un error al listar los docentes " + ex);
+        }
+        
+        return this.res;
         
     }
     
