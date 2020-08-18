@@ -109,7 +109,8 @@ public class AssocCourseDAO extends ClassConnection{
                                                         "FROM mowo.prof_curso \n" +
                                                         "WHERE fk_prof_curso = ?)\n" +
                                     ")\n" +
-                            "AND activo = ?";
+                            "AND activo = ?"+
+                            "ORDER BY nombre ASC";
             
         this.pstm = this.conn.prepareStatement(sqlList);
         this.pstm.setInt(1,2);
@@ -163,7 +164,10 @@ public class AssocCourseDAO extends ClassConnection{
             if(this.id_course !=0)
                 where= "WHERE id_curso=?";
             
-            String sqlListC = "SELECT id_curso, nombre_curso, codigo, estado FROM mowo.curso "+where;
+            String sqlListC =   "SELECT id_curso, nombre_curso, codigo, estado "
+                                +"FROM mowo.curso "
+                                +where+
+                                "ORDER BY nombre_curso DESC";
 
             this.pstm = this.conn.prepareStatement(sqlListC);
             
