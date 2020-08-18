@@ -118,9 +118,9 @@ public class AssocCourseSERVLET extends HttpServlet {
                         }
 
                         if (res < 0) {
-                            response.sendRedirect("pages/Admin/asigCoursePro.jsp?src=" + res + "&opt=2");
+                            response.sendRedirect("pages/Admin/assocCourseTeacher.jsp?src=" + res + "&opt=2");
                         } else if (res > 0) {
-                            response.sendRedirect("pages/Admin/asigCourseEst.jsp?src=" + res + "&opt=3");
+                            response.sendRedirect("pages/Admin/assocCourseStu.jsp?src=" + res + "&opt=3");
                         }
 
                     } catch (Exception ex) {
