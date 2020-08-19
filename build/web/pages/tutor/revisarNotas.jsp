@@ -37,7 +37,7 @@
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor mt-4 animated zoomIn">
+                        <div class="contenedor animated zoomIn">
                             <section>
                                 <div class="row center-xs">
                                 <%                        ShowEstutorDAO shwetDAO = new ShowEstutorDAO();
@@ -52,7 +52,7 @@
                                                 + "<div class='target'>\n"
                                                 + "<img src='../../img/avatar.png' alt='Foto de Perfil'>\n"
                                                 + "<h4>" + result.getString(3) + "</h4>\n"
-                                                + "<p>CC:" + result.getLong(2) + "</p>\n"
+                                                + "<p>CC: " + result.getLong(2) + "</p>\n"
                                                 + "</div>\n"
                                                 + "</a>\n"
                                                 + "</div> "
