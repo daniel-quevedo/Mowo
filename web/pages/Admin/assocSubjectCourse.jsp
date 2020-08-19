@@ -12,19 +12,16 @@
 <%
 
     //traer los datos de los cursos***
+    AssocCourseVO DcoStuV = new AssocCourseVO(0, 0, "");
 
-    AssocCourseVO DcoStuV = new AssocCourseVO(0,0,"");
-    
     AssocCourseDAO TuStu = new AssocCourseDAO(DcoStuV);
 
     ResultSet resCourse = TuStu.listCourse(1);
-    
-    
+
     //traer las asignaturas ******************
-    
-    AssocSubjectVO asSubjectVO = new AssocSubjectVO(0,0,0,"");
+    AssocSubjectVO asSubjectVO = new AssocSubjectVO(0, 0, 0, "");
     AssocSubjectDAO asSubjectDAO = new AssocSubjectDAO(asSubjectVO);
-    
+
     ResultSet listSubjects = asSubjectDAO.listSubjects();
 
 
@@ -56,7 +53,7 @@
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor mt-4">
+                        <div class="contenedor m-auto">
                             <h5 class="mb-4">Asignar asignaturas a un curso</h5>
                             <br>
                             <form action="../../AssocSubjectSERVLET" method="POST">
@@ -68,75 +65,76 @@
                                         <label> Seleccion un curso </label>
                                         <select class="form-control" id="idCourse" name="idCourse" autofocus required>
                                             <option value="#" selected>--SELECCIONE--</option>
-                                            <%  
-                                                while (resCourse.next()) {
-                                                    out.println("<option value='" + resCourse.getInt(1) + "'>" + resCourse.getString(2) + "</option>");
+                                        <%                                                while (resCourse.next()) {
+                                                out.println("<option value='" + resCourse.getInt(1) + "'>" + resCourse.getString(2) + "</option>");
+                                            }
+                                        %>
+                                    </select> 
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="row mb-3">
+
+                                <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
+
+                                    <table class="table table-hover table-borderless backg table-responsive-sm" id="dataSubject">
+                                        <thead class="text-center">
+                                            <tr>
+                                                <th></th>
+                                                <th>Nombre</th>
+                                                <th>Salon</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%
+                                                while (listSubjects.next()) {
+                                                    out.println("<tr>");
+                                                    out.println("<td>\n"
+                                                            + "<input type='checkbox' name='subject' value='" + listSubjects.getInt(1) + "'>\n"
+                                                            + "</td>");
+                                                    out.println("<td> " + listSubjects.getString(2) + " </td>");
+                                                    out.println("<td> " + listSubjects.getString(3) + " </td>");
+                                                    out.println("</tr>");
                                                 }
+
+                                                asSubjectDAO.closeConnection();
                                             %>
-                                        </select> 
-                                    </div>
+                                        </tbody>
+
+                                    </table>
                                 </div>
-                                <br>
 
-                                <div class="row">
-
-                                    <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
-
-                                        <table class="table table-borderless table-responsive backg" id="dataSubject">
-                                            <thead class="text-center">
-                                                <tr>
-                                                    <th></th>
-                                                    <th>Nombre</th>
-                                                    <th>Salon</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <%
-                                                    while (listSubjects.next()) {
-                                                        out.println("<tr>");
-                                                        out.println("<td>\n"
-                                                                        +"<input type='checkbox' name='subject' value='" + listSubjects.getInt(1) + "'>\n"
-                                                                   +"</td>");
-                                                        out.println("<td> " + listSubjects.getString(2) + " </td>");
-                                                        out.println("<td> " + listSubjects.getString(3) + " </td>");    
-                                                        out.println("</tr>");
-                                                    }
-
-                                                    asSubjectDAO.closeConnection();
-                                                %>
-                                            </tbody>
-
-                                        </table>
-                                    </div>
-
-                                </div>
+                            </div>
+                            <div class="row mb-3 ml-2">
                                 <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
-                </section>
-                <!--Ventana Modal -->
-                <jsp:include page="../../layout/modalUser.jsp"></jsp:include>
+                </div>
+            </section>
+            <!--Ventana Modal -->
+            <jsp:include page="../../layout/modalUser.jsp"></jsp:include>
             </main>
 
-            <jsp:include page="../../layout/scripts.jsp"></jsp:include>
+        <jsp:include page="../../layout/scripts.jsp"></jsp:include>
 
             <!--Validar cambio de estado del select-->
             <script src="../../js/Admin/ShowSubjectAssoc.js"></script>
-            
+
             <!-- Validar si se asociaron correctemente los asignaturas-->
-            <jsp:include page="../../includes/Admin/ValidateAssocSubject.jsp"></jsp:include> 
-            
-            
-            <!--implementar select2********-->
-            <script>
-                
-                $(document).ready(function() {
-                    $('#idCourse').select2();
-                });
-                
-            </script>
-            
+        <jsp:include page="../../includes/Admin/ValidateAssocSubject.jsp"></jsp:include> 
+
+
+        <!--implementar select2********-->
+        <script>
+
+            $(document).ready(function () {
+                $('#idCourse').select2();
+            });
+
+        </script>
+
     </body>
 </html>
 

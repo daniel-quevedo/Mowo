@@ -23,9 +23,9 @@
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor mt-4 animated zoomIn">
+                        <div class="contenedor m-auto animated zoomIn">
                             <section>
-                                <nav class="navbar navbar-expand-sm navbar-dark justify-content-end col-lg-6 col-sm-8">                                    
+                                <nav class="navbar navbar-expand-sm justify-content-end col-lg-6 col-sm-8">                                    
                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="navbar-toggler-icon"></span>
                                     </button>
@@ -43,8 +43,8 @@
                                 <h5>Calificaciones</h5><br>
                                 <input type="hidden" value="<%=session.getAttribute("codUser")%>" id="codUser">
                             <div class="t-fixed col-lg-10 col-sm-12 col-xs-12">
-                                <table class="table table-borderless table-success table-responsive-sm" id="tableNotesStu">
-                                    <thead class="thead-dark">
+                                <table class="table table-borderless backg table-responsive-sm" id="tableNotesStu">
+                                    <thead>
                                         <tr>
                                             <th colspan="8" scope="col">Primer Periodo</th>
                                         </tr>

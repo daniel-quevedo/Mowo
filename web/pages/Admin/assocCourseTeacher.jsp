@@ -49,7 +49,7 @@
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor mt-4">
+                        <div class="contenedor m-auto">
                             <h5 class="mb-4">Asignar Cursos a Profesores</h5>
                             <br>
                             <form action="../../AssocCourseSERVLET" method="POST">
@@ -98,8 +98,8 @@
                                                                 + "</td>");
                                                         out.println("<td> " + resUser.getString(2) + " </td>");
                                                         out.println("<td> " + resUser.getString(3) + " </td>");
-                                                        out.println("<td> " + resUser.getInt(4) + " </td>");
-                                                        out.println("<td> " + resUser.getInt(5) + " </td>");
+                                                        out.println("<td> " + resUser.getLong(4) + " </td>");
+                                                        out.println("<td> " + resUser.getLong(5) + " </td>");
                                                         out.println("<td> " + resUser.getString(6) + " </td>");
 
                                                         out.println("</tr>");

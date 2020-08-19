@@ -26,15 +26,6 @@ import mail.Mail;
 @WebServlet(name = "CrudUserSERVLET", urlPatterns = {"/CrudUserSERVLET"})
 public class CrudUserSERVLET extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -128,10 +119,10 @@ public class CrudUserSERVLET extends HttpServlet {
                                             "<th>Nombre</th>\n" +
                                             "<th>Apellido</th>\n" +
                                             "<th>Tipo de Documento</th>\n" +
-                                            "<th>N° Documento</th>\n" +
+                                            "<th>No. Documento</th>\n" +
                                             "<th>Tipo de Usuario</th>\n" +
                                             "<th>Teléfono</th>\n" +
-                                            "<th>Dirección</th>\n" +
+                                            "<th>Direccion</th>\n" +
                                             "<th>Fecha de Nac.</th>\n" +
                                             "<th>Correo</th>\n" +
                                             "<th>Acciones</th>\n" +

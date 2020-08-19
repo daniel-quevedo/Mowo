@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 @WebServlet(name = "ShowNotesSERVLET", urlPatterns = {"/ShowNotesSERVLET"})
 public class ShowNotesSERVLET extends HttpServlet {
@@ -38,43 +38,17 @@ public class ShowNotesSERVLET extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet ShowNotesSERVLET</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet ShowNotesSERVLET at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
+
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -97,8 +71,8 @@ public class ShowNotesSERVLET extends HttpServlet {
             
             shDAO.closeConnection();
             
-            out.println("<table class='table table-borderless table-success table-responsive-sm' id='tableNotesStu'> \n" +
-                            "<thead class='thead-dark'> \n" +
+            out.println("<table class='table table-borderless backg table-responsive-sm' id='tableNotesStu'> \n" +
+                            "<thead> \n" +
                                 "<tr> \n" +
                                     "<th colspan='8' scope='col'>Primer Periodo</th> \n" +
                                 "</tr> \n" +

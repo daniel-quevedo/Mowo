@@ -31,7 +31,7 @@
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor mt-4">                      
+                        <div class="contenedor m-auto">                      
                             <h3 class="mb-4">Notas</h3><br>
                             <form onsubmit="" method="post">
                                 <input type="hidden" value="<%=session.getAttribute("codUser")%>" name="cod" id="cod">
@@ -58,7 +58,7 @@
                         </form>
                         <br>
                         <div class="t-fixed col-lg-10 col-sm-10 col-xs-12">
-                            <div class="table-responsive-sm" id='notes'>
+                            <div class="table-responsive-sm backg" id='notes'>
                                 <!-- Tabla en la que se muestran las notas -->
                             </div>
                         </div>

@@ -12,12 +12,11 @@
 <%
 
     //traer los datos de los docentes*********
-    
-    AssocSubjectVO asSubjectVO = new AssocSubjectVO(0,0,0,"");
+    AssocSubjectVO asSubjectVO = new AssocSubjectVO(0, 0, 0, "");
     AssocSubjectDAO asSubjectDAO = new AssocSubjectDAO(asSubjectVO);
-    
+
     ResultSet listSubjects = asSubjectDAO.listSubjects();
-    
+
     ResultSet listTutor = asSubjectDAO.listTutor();
 
 
@@ -49,8 +48,8 @@
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor mt-4">
-                            <h5 class="mb-4">Asignar asignaturas a un docente</h5>
+                        <div class="contenedor m-auto">
+                            <h5 class="mb-3">Asignar asignaturas a un docente</h5>
                             <br>
                             <form action="../../AssocSubjectSERVLET" method="POST">
                                 <input type="hidden" name="opt" value="A">  
@@ -61,79 +60,78 @@
                                         <label> Seleccion un docente </label>
                                         <select class="form-control" id="idTeacher" name="idTeacher" required>
                                             <option value="#" selected>--SELECCIONE--</option>
-                                            <%  
-                                                while (listTutor.next()) {
-                                                    out.println("<option value='" + listTutor.getInt(1) + "'>"+ listTutor.getString(3) +"</option>");
+                                        <%                                                while (listTutor.next()) {
+                                                out.println("<option value='" + listTutor.getInt(1) + "'>" + listTutor.getString(3) + "</option>");
+                                            }
+                                        %>
+                                    </select> 
+                                </div>
+                                <div class="col-md-3 offset-md-1">
+                                    <label> Numero de identificacion </label>
+                                    <p id="numDoc"> # </p>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="row mb-3">
+                                <div class="t-fixed col-lg-5 col-sm-6 col-xs-12">
+
+                                    <table class=" table table-borderless table-responsive-sm backg" id="dataSubject">
+                                        <thead class="text-center">
+                                            <tr>
+                                                <th></th>
+                                                <th>Nombre</th>
+                                                <th>Salon</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%
+                                                while (listSubjects.next()) {
+                                                    out.println("<tr>");
+                                                    out.println("<td>\n"
+                                                            + "<input type='checkbox' name='subject' value='" + listSubjects.getInt(1) + "'>\n"
+                                                            + "</td>");
+                                                    out.println("<td> " + listSubjects.getString(2) + " </td>");
+                                                    out.println("<td> " + listSubjects.getString(3) + " </td>");
+                                                    out.println("</tr>");
                                                 }
+
+                                                asSubjectDAO.closeConnection();
                                             %>
-                                        </select> 
-                                    </div>
-                                    <div class="col-md-3 offset-md-1">
-                                        <label> Numero de identificacion </label>
-                                        <p id="numDoc"> # </p>
-                                    </div>
+                                        </tbody>
+
+                                    </table>
                                 </div>
-                                <br>
-
-                                <div class="row">
-
-                                    <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
-
-                                        <table class="table table-borderless table-responsive backg" id="dataSubject">
-                                            <thead class="text-center">
-                                                <tr>
-                                                    <th></th>
-                                                    <th>Nombre</th>
-                                                    <th>Salon</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <%
-                                                    while (listSubjects.next()) {
-                                                        out.println("<tr>");
-                                                        out.println("<td>\n"
-                                                                        +"<input type='checkbox' name='subject' value='" + listSubjects.getInt(1) + "'>\n"
-                                                                   +"</td>");
-                                                        out.println("<td> " + listSubjects.getString(2) + " </td>");
-                                                        out.println("<td> " + listSubjects.getString(3) + " </td>");    
-                                                        out.println("</tr>");
-                                                    }
-
-                                                    asSubjectDAO.closeConnection();
-                                                %>
-                                            </tbody>
-
-                                        </table>
-                                    </div>
-
-                                </div>
+                            </div>
+                            <div class="row mb-3 ml-2">
                                 <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
-                            </form>
-                        </div>
+                            </div>           
+                        </form>
                     </div>
-                </section>
-                <!--Ventana Modal -->
-                <jsp:include page="../../layout/modalUser.jsp"></jsp:include>
+                </div>
+            </section>
+            <!--Ventana Modal -->
+            <jsp:include page="../../layout/modalUser.jsp"></jsp:include>
             </main>
 
-            <jsp:include page="../../layout/scripts.jsp"></jsp:include>
+        <jsp:include page="../../layout/scripts.jsp"></jsp:include>
 
             <!--Validar cambio de estado del select-->
             <script src="../../js/Admin/ShowSubjectAssoc.js"></script>
-            
+
             <!-- Validar si se asociaron correctemente los asignaturas-->
-            <jsp:include page="../../includes/Admin/ValidateAssocSubject.jsp"></jsp:include> 
-            
-            
-            <!--implementar select2********-->
-            <script>
-                
-                $(document).ready(function() {
-                    $('#idTeacher').select2();
-                });
-                
-            </script>
-            
+        <jsp:include page="../../includes/Admin/ValidateAssocSubject.jsp"></jsp:include> 
+
+
+        <!--implementar select2********-->
+        <script>
+
+            $(document).ready(function () {
+                $('#idTeacher').select2();
+            });
+
+        </script>
+
     </body>
 </html>
 

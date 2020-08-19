@@ -22,7 +22,7 @@ body{
     position: fixed;
     width: 250px;
     height: 100%;
-    background: #222939;
+    background: #31343D;
     color: white;
     font-family: 'Patrick Hand', serif;
     font-size: 1.5em;
@@ -35,18 +35,18 @@ body{
 .sidebar h2{
     text-align: center;
     margin: 0;
-    background: #598D63;
+    background: #9929B0;
     padding: 10px;
 }
 
 .sidebar h2 a{
-    color: black;
+    color: white;
 }
 .sidebar h2 a:hover{
-    color: black;
+    color: white;
     display: block;
     text-decoration: none;
-    box-shadow: 1px 1px 1px  black;
+    box-shadow: 2px 1px 2px -1px black;
 }
 
 .sidebar ul{
@@ -63,8 +63,8 @@ body{
 }
 
 .sidebar >ul >li >a:hover{
-    background: #598D63;
-    border-left: 6px solid #702632;
+    background: #441452;
+    border-left: 6px solid #858585;
 }
 
 .sidebar ul li a{
@@ -82,21 +82,29 @@ body{
 }
 
 .submenu ul li a{    
-    background: #F9E9EC;
-    color: black; 
+    background: #494D5B;
+    color: white; 
 }
 
 .submenu ul li a:hover{
-    background: #D07685;
-    border-left: 6px solid #598D63;     
+    background: #5B6071;
+    border-left: 6px solid #441452;
+    font-size: 23px;
+    
 }
 
 .active{
-    background: #598D63;
+    background: #441452;         
 }
 .prueba{
     cursor: pointer;
     display: block;
+}
+.navbar-nav a,.navbar-nav a:hover{
+    color: rgba(0,0,0,.5);
+}
+.navbar-nav .nav-link.active{
+    color: white;
 }
 
 
@@ -114,13 +122,13 @@ body{
     width: 100%;
     height: 100%;
     position: fixed;
-    background: url(../img/loginFont.jpg) no-repeat center center fixed;
+    background: #EFEFEF;
     transition-duration: .3s;
     overflow-y: auto;
 }
 
 .line-top{
-	background-color: #598D63;
+	background-color: #AD2FC6;
 	width: 100%;
 	height: 58px;
         border-left: 1px solid #222939;
@@ -144,7 +152,7 @@ body{
     width: 75%;
     height: 100%;
     text-align: left;
-    color: white;
+    color: black;
 }
 .contenedor h2{
     text-align: center;
@@ -156,7 +164,8 @@ body{
 
 .table{
     text-align: center;
-    border-radius: 15px;
+    border-radius: 5px;
+    
 }
 
 .t-fixed{    
@@ -171,7 +180,7 @@ tr td >a:hover {
     display: block;
     text-decoration: none;
     color: black;
-    box-shadow: 2px 2px 3px lightseagreen;
+    box-shadow: 2px 2px 2px -1px #AD2FC6;
 }
 
 
@@ -191,7 +200,7 @@ h2 img{
     width: 90%;
     text-align: center;
     border-radius: 15px;
-    background-color: #A7C8AE;    
+    background-color: #D9E8DC;    
     box-shadow: 2px 3px 3px black;
     color: black;
     margin-left: auto;
@@ -209,6 +218,8 @@ h2 img{
 }
 
 .backg{
-    background: #D9E7DC;    
-    color: black;
+    background: #FFFFFF;
+    color: white;
+    margin: auto;
+    box-shadow: 4px 5px 14px -7px black;
 }

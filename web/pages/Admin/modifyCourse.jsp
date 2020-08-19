@@ -37,14 +37,14 @@
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor mt-4  animated zoomIn ">
+                        <div class="contenedor m-auto  animated zoomIn ">
                             <h5 class="mb-4 ml-5">Lista de Cursos</h5>
                             <form action="../../ActivDeacSERVLET" id="addCourse" method="POST">                                
                                 <input type="hidden" value="" name="opt" id="opt">
                                 <input type="hidden" value="" name="cod" id="cod">
                                 <div class="t-fixed col-lg-6 col-sm-8 col-xs-12 ml-4 ">
                                     <table class="table table-hover table-borderless backg table-responsive-sm">
-                                        <thead class="text-center thead-dark">
+                                        <thead class="text-center">
                                             <tr>
                                                 <th>Estado</th>
                                                 <th>Jornada</th>

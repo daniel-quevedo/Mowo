@@ -11,15 +11,12 @@
 <%@include file="../../includes/Admin/ValidateSession.jsp"%> 
 
 <!--*****************************************************************************************-->
-<%! 
-    private ResultSet resultParents, resultStudents;
+<%!    private ResultSet resultParents, resultStudents;
 %>
-<%
+<%    AssocStudentTutorDAO astDAO = new AssocStudentTutorDAO();
 
-    AssocStudentTutorDAO astDAO = new AssocStudentTutorDAO();
-    
     resultParents = astDAO.listParents();
-    
+
     resultStudents = astDAO.listStudents();
 
 %>
@@ -31,39 +28,36 @@
 <html>
     <head>
         <jsp:include page="../../layout/head.jsp"></jsp:include>
-        <title>Asignar Estudiantes</title>
-    </head>
-    <body>
-        <main>
-            
-            <header>
+            <title>Asignar Estudiantes</title>
+        </head>
+        <body>
+            <main>
+
+                <header>
                 <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
-            </header>
-            <section>
-                <div class="contenido abrir">
-                    <div class="line-top sticky-top">
+                </header>
+                <section>
+                    <div class="contenido abrir">
+                        <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                    <div class="contenedor mt-4">
-                        <h5 class="mb-5">Asignar Estudiantes</h5>                                                                        
-                        <form action="../../AssocStudentTutorSERVLET" method="POST">
-                            
-                            <div class="row">
-                                <div class="col-md-3">                                    
-                                    <label>Seleccione el acudiente</label>                                    
-                                    <select class="form-control mb-5" name="id_tutor">
-                                        <option value="#" selected>--SELECCIONE--</option>
-                                        <%
-                                              while(resultParents.next()){
-                                                  out.println("<option value='"+resultParents.getInt(2)+"'>"+resultParents.getString(1)+"</option>");
-                                              }
+                        <div class="contenedor m-auto">
+                            <h5 class="mb-5">Asignar Estudiantes</h5>                                                                        
+                            <form action="../../AssocStudentTutorSERVLET" method="POST">
+
+                                <div class="row">
+                                    <div class="col-md-3">                                    
+                                        <label>Seleccione el acudiente</label>                                    
+                                        <select class="form-control mb-5" name="id_tutor">
+                                            <option value="#" selected>--SELECCIONE--</option>
+                                        <%                                            while (resultParents.next()) {
+                                                out.println("<option value='" + resultParents.getInt(2) + "'>" + resultParents.getString(1) + "</option>");
+                                            }
                                         %>
                                     </select>
                                 </div>
                             </div>
-                                                                
-                            
-                            <div class="row">
+                            <div class="row mb-3">
                                 <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
                                     <table class="table table-borderless table-responsive backg">
                                         <thead>
@@ -77,46 +71,44 @@
                                         </thead>
                                         <tbody>
                                             <%
-
-                                                while(resultStudents.next()){
+                                                while (resultStudents.next()) {
                                                     out.println("<tr>");
-                                                        out.println("<td>\n"+
-                                                                        "<input type='checkbox' name='students' value='"+resultStudents.getInt(1)+"'>\n"+
-                                                                    "</td>");
-                                                        out.println("<td>"+resultStudents.getInt(2)+"</td>");
-                                                        out.println("<td>"+resultStudents.getString(3)+"</td>");
-                                                        out.println("<td>"+resultStudents.getInt(4)+"</td>");
-                                                        out.println("<td>"+resultStudents.getString(5)+"</td>");
+                                                    out.println("<td>\n"
+                                                            + "<input type='checkbox' name='students' value='" + resultStudents.getInt(1) + "'>\n"
+                                                            + "</td>");
+                                                    out.println("<td>" + resultStudents.getLong(2) + "</td>");
+                                                    out.println("<td>" + resultStudents.getString(3) + "</td>");
+                                                    out.println("<td>" + resultStudents.getLong(4) + "</td>");
+                                                    out.println("<td>" + resultStudents.getString(5) + "</td>");
                                                     out.println("</tr>");
                                                 }
                                                 astDAO.closeConnection();
                                             %>  
                                         </tbody>
-                                    </table>
-                                        <button type="submit" name="assoc" class="btn btn-success">Enviar</button>
+                                    </table>                                        
                                 </div>
                             </div>
-                                        
-                            
+                            <div class=" mb-3 ml-2">
+                                <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
+                            </div>
                         </form>
-                        
                     </div>
                 </div>
             </section>
         </main>
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
-        
-        <!-- Validar si se asociaron correctemente los estudiantes-->
+
+            <!-- Validar si se asociaron correctemente los estudiantes-->
         <jsp:include page="../../includes/Admin/ValidateAssocUser.jsp"></jsp:include>   
-        
+
         <!--implementar select2********-->
-            <script>
-                
-                $(document).ready(function() {
-                    $('#idCourse').select2();
-                });
-                
-            </script>
-        
+        <script>
+
+            $(document).ready(function () {
+                $('#idCourse').select2();
+            });
+
+        </script>
+
     </body>
 </html>

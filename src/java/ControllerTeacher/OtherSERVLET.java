@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 @WebServlet(name = "OtherSERVLET", urlPatterns = {"/OtherSERVLET"})
 public class OtherSERVLET extends HttpServlet {    
@@ -156,11 +156,11 @@ public class OtherSERVLET extends HttpServlet {
                     
                     DStu.closeConnection();
                     
-                    out.println("<table class='table table-hover table-borderless table-success mt-2'>");
-                        out.println("<thead class='thead-dark'>");
+                    out.println("<table class='table table-hover table-borderless backg table-responsive-sm'>");
+                        out.println("<thead'>");
                             out.println("<tr>");
                             
-                                out.println("<th scope='col'>#</th>");
+                                out.println("<th scope='col'>N°</th>");
                                 out.println("<th scope='col'>Nombres Completos</th>");
                                 out.println("<th scope='col'>Nota 1</th>");
                                 out.println("<th scope='col'>Nota 2</th>");

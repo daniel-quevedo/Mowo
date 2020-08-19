@@ -44,7 +44,7 @@
                                             </select></td>
                                         <td><label>N° de documento:</label></td>
                                         <td><input type="number" class="form-control" placeholder="1023037660" disabled></td>
-                                        <td rowspan="3"><img src="../../img/avatar.png"></td>
+                                        <td rowspan="3"><img src="../../img/avatar.png" type="file"></td>
                                     </tr>
                                     <tr>
                                         <td><label>Curso:</label></td>

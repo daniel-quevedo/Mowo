@@ -10,7 +10,6 @@
 <%
 
     //traer los datos de los estudianes y los cursos*** 
-
     AssocCourseDAO DocEst = new AssocCourseDAO();
 
     ResultSet resUser = DocEst.listStudent();
@@ -46,7 +45,7 @@
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor mt-4">
+                        <div class="contenedor m-auto">
                             <h5 class="mb-4">Asignar Cursos a Estudiantes</h5>
                             <br>
                             <form action="../../AssocCourseSERVLET" method="POST">
@@ -57,82 +56,79 @@
                                         <label> Seleccion un curso </label>
                                         <select class="form-control mb-3" name="idCourse" id="idCourse" autofocus required>
                                             <option value="#" selected>--SELECCIONE--</option> 
-                                            <%     
-                                                while (resCourse.next()) {
-                                                    out.println("<option value='" + resCourse.getInt(1) + "'>" + resCourse.getString(2) + "</option>");
+                                        <%                                                while (resCourse.next()) {
+                                                out.println("<option value='" + resCourse.getInt(1) + "'>" + resCourse.getString(2) + "</option>");
+                                            }
+                                        %>
+                                    </select> 
+
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row mb-3">
+
+                                <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
+
+                                    <table class="table table-borderless table-responsive backg">
+                                        <thead class="text-center">
+                                            <tr>
+                                                <th></th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>No Documento</th>
+                                                <th>Telefono</th>
+                                                <th>Correo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%
+                                                while (resUser.next()) {
+                                                    out.println("<tr>");
+                                                    out.println("<td>\n"
+                                                            + "<input type='checkbox' name='user' value='" + resUser.getInt(1) + "'>\n"
+                                                            + "</td>");
+                                                    out.println("<td> " + resUser.getString(2) + " </td>");
+                                                    out.println("<td> " + resUser.getString(3) + " </td>");
+                                                    out.println("<td> " + resUser.getLong(4) + " </td>");
+                                                    out.println("<td> " + resUser.getLong(5) + " </td>");
+                                                    out.println("<td> " + resUser.getString(5) + " </td>");
+
+                                                    out.println("</tr>");
                                                 }
+                                                DocEst.closeConnection();
                                             %>
-                                        </select> 
+                                        </tbody>
 
-                                    </div>
+                                    </table>
                                 </div>
-
-                                <br>
-
-                                <div class="row">
-
-                                    <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
-
-                                        <table class="table table-borderless table-responsive backg">
-                                            <thead class="text-center">
-                                                <tr>
-                                                    <th></th>
-                                                    <th>Nombre</th>
-                                                    <th>Apellido</th>
-                                                    <th>No Documento</th>
-                                                    <th>Telefono</th>
-                                                    <th>Correo</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <%
-                                                    while (resUser.next()) {
-                                                        out.println("<tr>");
-                                                        out.println("<td>\n"
-                                                                + "<input type='checkbox' name='user' value='" + resUser.getInt(1) + "'>\n"
-                                                                + "</td>");
-                                                        out.println("<td> " + resUser.getString(2) + " </td>");
-                                                        out.println("<td> " + resUser.getString(3) + " </td>");
-                                                        out.println("<td> " + resUser.getLong(4) + " </td>");
-                                                        out.println("<td> " + resUser.getLong(5) + " </td>");
-                                                        out.println("<td> " + resUser.getString(5) + " </td>");
-
-                                                        out.println("</tr>");
-                                                    }
-                                                    DocEst.closeConnection();
-                                                %>
-                                            </tbody>
-
-                                        </table>
-
-                                        <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
-
-                                    </div>
-
-                                </div>
-
-                            </form>
-                        </div>
+                            </div>
+                            <div class=" mb-3 ml-2">
+                                <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
+                            </div>
+                        </form>
                     </div>
-                </section>
-                <!--Ventana Modal -->
-                <jsp:include page="../../layout/modalUser.jsp"></jsp:include>
+                </div>
+            </section>
+            <!--Ventana Modal -->
+            <jsp:include page="../../layout/modalUser.jsp"></jsp:include>
             </main>
 
-            <jsp:include page="../../layout/scripts.jsp"></jsp:include>
+        <jsp:include page="../../layout/scripts.jsp"></jsp:include>
 
             <!-- Validar si se asociaron correctemente los estudiantes-->
-            <jsp:include page="../../includes/Admin/ValidateAssocUser.jsp"></jsp:include> 
-            
-            
-            <!--implementar select2********-->
-            <script>
-                
-                $(document).ready(function() {
-                    $('#idCourse').select2();
-                });
-                
-            </script>
+        <jsp:include page="../../includes/Admin/ValidateAssocUser.jsp"></jsp:include> 
+
+
+        <!--implementar select2********-->
+        <script>
+
+            $(document).ready(function () {
+                $('#idCourse').select2();
+            });
+
+        </script>
 
     </body>
 </html>

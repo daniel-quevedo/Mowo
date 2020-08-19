@@ -52,7 +52,7 @@
                                                 + "<div class='target'>\n"
                                                 + "<img src='../../img/avatar.png' alt='Foto de Perfil'>\n"
                                                 + "<h4>" + result.getString(3) + "</h4>\n"
-                                                + "<p>CC:" + result.getInt(2) + "</p>\n"
+                                                + "<p>CC:" + result.getLong(2) + "</p>\n"
                                                 + "</div>\n"
                                                 + "</a>\n"
                                                 + "</div> "

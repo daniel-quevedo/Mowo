@@ -126,8 +126,8 @@ public class AssocCourseSERVLET extends HttpServlet {
                                     + "</td>");
                             out.println("<td> " + resUser.getString(2) + " </td>");
                             out.println("<td> " + resUser.getString(3) + " </td>");
-                            out.println("<td> " + resUser.getInt(4) + " </td>");
-                            out.println("<td> " + resUser.getInt(5) + " </td>");
+                            out.println("<td> " + resUser.getLong(4) + " </td>");
+                            out.println("<td> " + resUser.getLong(5) + " </td>");
                             out.println("<td> " + resUser.getString(6) + " </td>");
 
                             out.println("</tr>");

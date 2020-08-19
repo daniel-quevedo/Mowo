@@ -27,7 +27,7 @@
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor mt-4">
+                        <div class="contenedor m-auto">
                             <h5 class="mb-4 ml-5">Insertar Cursos</h5>
                             <form action="../../CrudCourseSERVLET" method="POST">
                                 <input type="hidden" name="option" value="1">

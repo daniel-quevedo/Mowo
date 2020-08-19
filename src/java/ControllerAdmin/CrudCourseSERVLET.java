@@ -79,7 +79,7 @@ public class CrudCourseSERVLET extends HttpServlet {
 
                     ResultSet result = aDAO.listCourse(0);
 
-                    out.println("<table class='ml-5 table table-light table-borderless col-4 table-responsive-sm mt-2'>");
+                    out.println("<table class='ml-5 table table-borderless col-4 table-responsive-sm mt-2'>");
 
                     if (result.next()) {
 

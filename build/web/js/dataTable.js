@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('.mydataTable').DataTable({
         
-        order: [[1, 'asc']],
+        order: [[1, 'asc']],        
         lengthMenu: [[ 10, 25, 50, -1], [ 10, 25, 50, "all"]],
         pagingType: 'full_numbers',
         "language": {
@@ -17,7 +17,8 @@ $(document).ready(function() {
                 "sNext": "Siguiente",
                 "sPrevious": "Anterior"
             },
-            "sProcessing": "Procesando..."
+            "sProcessing": "Procesando...",
+            
         }
     });
 });
