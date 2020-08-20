@@ -62,7 +62,7 @@
                                     <table class="table table-borderless table-responsive backg">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
+                                                <th scope="col"><i data-feather="check"></i></th>
                                                 <th scope="col">Identificacion</th>
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Telefono</th>

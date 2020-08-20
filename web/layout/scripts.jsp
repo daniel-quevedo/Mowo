@@ -7,14 +7,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-    <script src="../../js/jquery.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <script src="../../js/abrir.js" charset="utf-8"></script>
-    <script src="../../js/desplegable.js" charset="utf-8"></script>
-    <script src="../../js/jquery.dataTables.min.js" charset="utf-8"></script>
-    <script src="../../js/dataTable.js" charset="utf-8"></script>
-    <script src="../../js/sweetalert2.min.js" charset="utf-8"></script>
-    <script src="../../js/listCourse.js" charset="utf-8"></script>
-    <script src="../../js/select2.min.js" charset="utf-8"></script>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/abrir.js" charset="utf-8"></script>
+<script src="../../js/desplegable.js" charset="utf-8"></script>
+<script src="../../js/jquery.dataTables.min.js" charset="utf-8"></script>
+<script src="../../js/dataTable.js" charset="utf-8"></script>
+<script src="../../js/sweetalert2.min.js" charset="utf-8"></script>
+<script src="../../js/listCourse.js" charset="utf-8"></script>
+<script src="../../js/select2.min.js" charset="utf-8"></script>
+<script src="../../js/feather.min.js" charset="utf-8"></script>
+<script src="../../js/feather.js" charset="utf-8"></script>
+<script>
+    feather.replace()
+</script>
 
-    

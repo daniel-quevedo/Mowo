@@ -81,7 +81,7 @@
                                     <table class="table table-hover table-borderless backg table-responsive-sm" id="dataSubject">
                                         <thead class="text-center">
                                             <tr>
-                                                <th></th>
+                                                <th><i data-feather="check"></i></th>
                                                 <th>Nombre</th>
                                                 <th>Salon</th>
                                             </tr>

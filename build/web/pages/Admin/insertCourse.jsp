@@ -34,8 +34,8 @@
                                 <table class="ml-5 table backg table-borderless col-6 table-responsive-sm mt-2">                                
                                     <thead>
                                         <tr>
-                                            <th><label>Jornada:</label></th>
-                                            <th><label>Codigo:</label></th>                                 
+                                            <th>Jornada:</th>
+                                            <th>Codigo:</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -43,10 +43,10 @@
                                             <td><input type="text" class="form-control" name="name" id="name" value="" autofocus pattern="([J]+[T,M])" placeholder="JM / JT" title="Se debe escribir JM o JT en MAYUSCULAS" required></td>
                                             <td><input type="number" class="form-control" name="code" id="code" value="" minlength="3" maxlength="3"  pattern="[9-0]{3}" placeholder="ej. 902" required></td>
                                         </tr>                                                                
-                                    <td colspan="2">
+                                    <th colspan="2">
                                         <button type="submit" name="save" class="btn btn-success">Guardar</button>
                                         <button class="btn btn-danger" type="reset">Cancelar</button>
-                                    </td>
+                                    </th>
                                     </tbody>
                                 </table>
                             </form>

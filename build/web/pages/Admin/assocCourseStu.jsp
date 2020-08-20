@@ -74,7 +74,7 @@
                                     <table class="table table-borderless table-responsive backg">
                                         <thead class="text-center">
                                             <tr>
-                                                <th></th>
+                                                <th><i data-feather="check"></i></th>
                                                 <th>Nombre</th>
                                                 <th>Apellido</th>
                                                 <th>No Documento</th>

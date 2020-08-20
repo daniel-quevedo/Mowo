@@ -6,20 +6,20 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div class="sidebar">    
-    <h2><a href="index.jsp" title="inicio">Administrador</a></h2>
+<div class="sidebar">  
+    <h2 class="sticky-top"><a href="index.jsp" title="inicio">Administrador</a></h2>
     <a href="perfil.jsp" title="Ver Perfil"><img src="../../img/avatar.png" ></a>
     <div class="logo">
         <a href="../../LoginSERVLET?logout=1" title="Salir"><img src="../../img/salir.png" alt="Salir" ></a>
     </div>
     <ul class="submenu">
-        <li><a href="#">Usuarios</a>
+        <li><a href="#"><i data-feather="users"></i> Usuarios</a>
             <ul> 
                 <li><a href="insertUser.jsp">Insertar Usuarios</a></li>
                 <li><a href="modifyUser.jsp">Modificar Usuarios</a></li>
             </ul>
         </li>
-        <li><a href="#">Cursos</a>
+        <li><a href="#"><i data-feather="edit"></i> Cursos</a>
             <ul>
                 
                 <li><a href="insertCourse.jsp">Insertar Cursos</a></li>
@@ -28,18 +28,18 @@
                 
             </ul>
         </li>
-        <li><a href="#">Docente</a>
+        <li><a href="#"><i data-feather="briefcase"></i> Docente</a>
             <ul>
                 <li><a href="assocCourseTeacher.jsp">Asignar Curso</a></li>
                 <li><a href="assocSubjectTeacher.jsp">Asignar Asignaturas</a></li>
             </ul>
         </li>
-        <li><a href="#">Estudiantes</a>
+        <li><a href="#"><i data-feather="book-open"></i> Estudiantes</a>
             <ul>
                 <li><a href="assocCourseStu.jsp">Asignar Curso</a></li>
             </ul>
         </li>
-        <li><a href="#">Acudientes</a>
+        <li><a href="#"><i data-feather="eye"></i> Acudientes</a>
             <ul>
                 <li><a href="assocStudent.jsp">Asignar Estudiantes</a></li>
             </ul>

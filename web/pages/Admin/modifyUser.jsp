@@ -29,7 +29,7 @@
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
                         <div class="contenedor mt-4">
-                            <h5 class="mb-4">Modificar Usuarios</h5>
+                            <h5 class="mb-4 ml-5">Modificar Usuarios</h5>
                             <div class="table backg p-3 col-lg-11">
                                 <form action="../../ActivDeacSERVLET" method="POST" id="adUser">
                                     <input type="hidden" value="" name="opt" id="opt">

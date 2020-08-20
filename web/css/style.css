@@ -24,7 +24,7 @@ body{
     height: 100%;
     background: #31343D;
     color: white;
-    font-family: 'Patrick Hand', serif;
+    font-family: 'Rajdhani' ,sans-serif;
     font-size: 1.5em;
     overflow-y: auto;
 }
@@ -37,6 +37,7 @@ body{
     margin: 0;
     background: #9929B0;
     padding: 10px;
+    border-right: 1px solid black;
 }
 
 .sidebar h2 a{
@@ -56,7 +57,7 @@ body{
 }
 
 .sidebar >ul >li{
-    border-bottom: 1px solid black;
+    margin: 10px 0;
     transition-property: border;
     transition-duration: all .35s;
 
@@ -73,8 +74,9 @@ body{
     text-decoration: none;
     color: white;
 }
-.sidebar a img{
+.sidebar >a img{
     padding-left:50px;
+    margin: 15px 0;
 }
 
 .submenu ul{
@@ -84,13 +86,14 @@ body{
 .submenu ul li a{    
     background: #494D5B;
     color: white; 
+    padding-left: 20px;
+    font-size: 22px;
 }
 
 .submenu ul li a:hover{
     background: #5B6071;
     border-left: 6px solid #441452;
-    font-size: 23px;
-    
+    font-size: 21px;   
 }
 
 .active{
@@ -130,8 +133,7 @@ body{
 .line-top{
 	background-color: #AD2FC6;
 	width: 100%;
-	height: 58px;
-        border-left: 1px solid #222939;
+	height: 58px;        
 }
 .line-top img{
 	padding: 15px 30px ;
@@ -153,6 +155,8 @@ body{
     height: 100%;
     text-align: left;
     color: black;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.1em;
 }
 .contenedor h2{
     text-align: center;
@@ -166,6 +170,8 @@ body{
     text-align: center;
     border-radius: 5px;
     
+    
+    
 }
 
 .t-fixed{    
@@ -174,7 +180,7 @@ body{
 }
 
 tr td  a{
-    color:black;
+    color:black;    
 }
 tr td >a:hover {
     display: block;

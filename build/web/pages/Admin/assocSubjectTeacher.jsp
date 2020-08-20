@@ -79,7 +79,7 @@
                                     <table class=" table table-borderless table-responsive-sm backg" id="dataSubject">
                                         <thead class="text-center">
                                             <tr>
-                                                <th></th>
+                                                <th><i data-feather="check"></i></th>
                                                 <th>Nombre</th>
                                                 <th>Salon</th>
                                             </tr>
