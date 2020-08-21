@@ -23,19 +23,17 @@
                 <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
                 </header>
                 <section>
-                    <div class="contenido abrir">
+                    <div class="contenido">
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">                            
                         </div>
 
-                        <div class="contenedor">
+                    <div class="contenedor">                        
 
-                            <h2>Bienvenido:</h2>
-
-                        </div>
                     </div>
-                </section>
-            </main>
+                </div>
+            </section>
+        </main>
 
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
     </body>

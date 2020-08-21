@@ -19,18 +19,18 @@
                 <jsp:include page="../../layout/sideBarEst.jsp"></jsp:include>
                 </header>
                 <section>
-                    <div class="contenido abrir">
+                    <div class="contenido">
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor m-auto animated zoomIn">
-                            <section>
-                                <nav class="navbar navbar-expand-sm justify-content-end col-lg-6 col-sm-8">                                    
+                        <div class="contenedor">
+                            <section >
+                                <nav class="navbar navbar-expand-sm  col-lg-7 col-sm-8 col-12">                                    
                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                                        <span class="navbar-toggler-icon"></span>
+                                       <span class="mr-5">Periodos<i data-feather="chevrons-down"></i></span>
                                     </button>
-                                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                                        <div class="navbar-nav">
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                                        <div class="navbar-nav p-0">
                                             <a class="nav-link active" href="#" id="period1" onClick="notes(1)">Primer Periodo</a>
                                             <a class="nav-link" href="#" id="period2" onClick="notes(2)">Segundo Periodo</a>
                                             <a class="nav-link" href="#" id="period3" onClick="notes(3)">Tercer Periodo</a>
@@ -40,9 +40,9 @@
                                 </nav>
                             </section>
                             <section>
-                                <h5>Calificaciones</h5><br>
+                                <h5 class="mt-4 text-center">Calificaciones</h5><br>
                                 <input type="hidden" value="<%=session.getAttribute("codUser")%>" id="codUser">
-                            <div class="t-fixed col-lg-10 col-sm-12 col-xs-12">
+                            <div class="t-fixed col-lg-10 col-sm-10 col-12">
                                 <table class="table table-borderless backg table-responsive-sm" id="tableNotesStu">
                                     <thead>
                                         <tr>

@@ -41,18 +41,18 @@
                 </header>
                 <section>
 
-                    <div class="contenido abrir">
+                    <div class="contenido ">
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor m-auto">
-                            <h5 class="mb-4">Asignar Cursos a Estudiantes</h5>
+                        <div class="contenedor ">
+                            <h5 class="mb-4 text-center">Asignar Cursos a Estudiantes</h5>
                             <br>
                             <form action="../../AssocCourseSERVLET" method="POST">
                                 <input type="hidden" name="opt" value="A">  
                                 <input type="hidden" name="option" value="1">
-                                <div class="row">
-                                    <div class="col-md-3">
+                                <div class="row text-center justify-content-center">
+                                    <div class="col-8">
                                         <label> Seleccion un curso </label>
                                         <select class="form-control mb-3" name="idCourse" id="idCourse" autofocus required>
                                             <option value="#" selected>--SELECCIONE--</option> 
@@ -104,7 +104,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class=" mb-3 ml-2">
+                            <div class="row mb-3 justify-content-center">
                                 <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
                             </div>
                         </form>

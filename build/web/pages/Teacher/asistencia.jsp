@@ -27,7 +27,7 @@
                 <jsp:include page="../../layout/sideBarPro.jsp"></jsp:include>
             </section>
             <section>
-                <div class="contenido abrir">
+                <div class="contenido">
                     <img src="../../img/menu.png" alt="" class="menu-bar">
                     <div class="contenedor animated zoomIn">                        
                         <h5 class="mb-4">Asistencia</h5>

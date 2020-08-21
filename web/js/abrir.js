@@ -1,3 +1,5 @@
 $('.menu-bar').on('click', function(){
-  $('.contenido').toggleClass('abrir')
+  $('.sidebar').toggleClass('abrir'),
+  $('.menu-bar').toggleClass('abrir'),
+  $('.contenedor').toggleClass('abrir');
 });

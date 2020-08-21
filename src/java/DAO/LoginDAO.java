@@ -17,7 +17,7 @@ import util.ClassConnection;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class LoginDAO extends ClassConnection{
     
@@ -38,7 +38,7 @@ public class LoginDAO extends ClassConnection{
     private String passUsu;
     
     //VARIBLES USUARIO***********
-    private String[] valuesUsu = new String[3];
+    private String[] valuesUsu = new String[4];
     private int idUser;
     
     public LoginDAO(){
@@ -93,12 +93,12 @@ public class LoginDAO extends ClassConnection{
     
     public String[] nomUser(){
         
-        String sqlUser = "SELECT id_usuario ,nombre, fk_perfil FROM mowo.usuario WHERE id_usuario = ?";
+        String sqlUser = "SELECT id_usuario ,nombre, fk_perfil,email FROM mowo.usuario WHERE id_usuario = ?";
         
         try{
             
             this.pstm = this.conn.prepareStatement(sqlUser);
-            this.pstm.setInt(1, this.idUser);
+            this.pstm.setInt(1, this.idUser);                        
             
             this.res = this.pstm.executeQuery();
             
@@ -107,6 +107,7 @@ public class LoginDAO extends ClassConnection{
                 this.valuesUsu[0] = this.res.getString(1); 
                 this.valuesUsu[1] = this.res.getString(2); 
                 this.valuesUsu[2] = this.res.getString(3); 
+                this.valuesUsu[3] = this.res.getString(4); 
 
             }
             

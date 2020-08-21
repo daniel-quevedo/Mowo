@@ -33,11 +33,11 @@
                 <jsp:include page="../../layout/sideBarTutor.jsp"></jsp:include>
                 </header>
                 <section>
-                    <div class="contenido abrir">
+                    <div class="contenido">
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor animated zoomIn">
+                        <div class="contenedor">
                             <section>
                                 <div class="row center-xs">
                                 <%                        ShowEstutorDAO shwetDAO = new ShowEstutorDAO();

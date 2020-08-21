@@ -44,19 +44,19 @@
                 </header>
                 <section>
 
-                    <div class="contenido abrir">
+                    <div class="contenido">
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor m-auto">
-                            <h5 class="mb-3">Asignar asignaturas a un docente</h5>
+                        <div class="contenedor">
+                            <h5 class="mb-3 text-center">Asignar asignaturas a un docente</h5>
                             <br>
                             <form action="../../AssocSubjectSERVLET" method="POST">
                                 <input type="hidden" name="opt" value="A">  
                                 <input type="hidden" name="option" value="1">
                                 <input type="hidden" name="idCourse" value="0">
-                                <div class="row">
-                                    <div class="col-md-3">
+                                <div class="row text-center justify-content-center">
+                                    <div class="col-md-4 col-8">
                                         <label> Seleccion un docente </label>
                                         <select class="form-control" id="idTeacher" name="idTeacher" required>
                                             <option value="#" selected>--SELECCIONE--</option>
@@ -65,10 +65,6 @@
                                             }
                                         %>
                                     </select> 
-                                </div>
-                                <div class="col-md-3 offset-md-1">
-                                    <label> Numero de identificacion </label>
-                                    <p id="numDoc"> # </p>
                                 </div>
                             </div>
                             <br>
@@ -103,7 +99,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="row mb-3 ml-2">
+                            <div class="row mb-3 justify-content-center">
                                 <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
                             </div>           
                         </form>

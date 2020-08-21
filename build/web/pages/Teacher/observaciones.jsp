@@ -28,7 +28,7 @@
                 <jsp:include page="../../layout/sideBarPro.jsp"></jsp:include>
             </section>
             <section>
-                <div class="contenido abrir">
+                <div class="contenido">
                     <img src="../../img/menu.png" alt="" class="menu-bar">
                     <div class="contenedor animated zoomIn">
                         <h5>Datos de la Anotacion</h5><br>

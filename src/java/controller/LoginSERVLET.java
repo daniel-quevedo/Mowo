@@ -84,6 +84,7 @@ public class LoginSERVLET extends HttpServlet {
             String user = request.getParameter("user");
             String passUsu = request.getParameter("passUsu");
             
+            
             //ENCRIPTAR LA CONTRASEÑA ****************************
             
             PassVO pVO = new PassVO(passUsu);
@@ -111,6 +112,7 @@ public class LoginSERVLET extends HttpServlet {
                 mySession.setAttribute("codUser", valuesUsu[0]);
                 mySession.setAttribute("nameUser", valuesUsu[1]);
                 mySession.setAttribute("idProfile", valuesUsu[2]);
+                mySession.setAttribute("email", valuesUsu[3]);
                 
                 int id_profile = Integer.parseInt(valuesUsu[2]);
                 

@@ -27,17 +27,17 @@
                 <jsp:include page="../../layout/sideBarPro.jsp"></jsp:include>
                 </section>
                 <section>
-                    <div class="contenido abrir">
+                    <div class="contenido">
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor m-auto">                      
-                            <h3 class="mb-4">Notas</h3><br>
+                        <div class="contenedor">                      
+                            <h3 class="mb-4 text-center">Notas</h3><br>
                             <form onsubmit="" method="post">
                                 <input type="hidden" value="<%=session.getAttribute("codUser")%>" name="cod" id="cod">
                             <input type="hidden" value="<%=session.getAttribute("idProfile")%>" name="idProfile" id="idProfile">
-                            <div class="row">
-                                <div class="col-md-4">
+                            <div class="row text-center justify-content-center">
+                                    <div class="col-md-4 col-8">
 
                                     <div id='Course'>
                                         <select class='form-control'>
@@ -57,8 +57,8 @@
                             </div>
                         </form>
                         <br>
-                        <div class="t-fixed col-lg-10 col-sm-10 col-xs-12">
-                            <div class="table-responsive-sm backg" id='notes'>
+                        <div class="t-fixed col-lg-10 col-sm-10 col-12">
+                            <div class="table table-borderless backg" id='notes'>
                                 <!-- Tabla en la que se muestran las notas -->
                             </div>
                         </div>

@@ -24,7 +24,7 @@
                 <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
                 </header>
                 <section>
-                    <div class="contenido abrir">
+                    <div class="contenido">
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>

@@ -23,15 +23,15 @@
                 <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
                 </header>
                 <section>
-                    <div class="contenido abrir">
+                    <div class="contenido">
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor m-auto">
-                            <h5 class="mb-4 ml-5">Insertar Cursos</h5>
+                        <div class="contenedor">
+                            <h5 class="text-center mb-4">Insertar Cursos</h5>
                             <form action="../../CrudCourseSERVLET" method="POST">
                                 <input type="hidden" name="option" value="1">
-                                <table class="ml-5 table backg table-borderless col-6 table-responsive-sm mt-2">                                
+                                <table class="table backg table-borderless col-md-6 col-12 table-responsive-sm mt-2">
                                     <thead>
                                         <tr>
                                             <th>Jornada:</th>

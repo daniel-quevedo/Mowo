@@ -49,19 +49,19 @@
                 </header>
                 <section>
 
-                    <div class="contenido abrir">
+                    <div class="contenido">
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor m-auto">
-                            <h5 class="mb-4">Asignar asignaturas a un curso</h5>
+                        <div class="contenedor">
+                            <h5 class="mb-4 text-center">Asignar asignaturas a un curso</h5>
                             <br>
                             <form action="../../AssocSubjectSERVLET" method="POST">
                                 <input type="hidden" name="opt" value="B">  
                                 <input type="hidden" name="option" value="1">
                                 <input type="hidden" name="idTeacher" value="0">
-                                <div class="row">
-                                    <div class="col-md-3">
+                                <div class="row text-center justify-content-center">
+                                    <div class=" col-8">
                                         <label> Seleccion un curso </label>
                                         <select class="form-control" id="idCourse" name="idCourse" autofocus required>
                                             <option value="#" selected>--SELECCIONE--</option>
@@ -76,7 +76,7 @@
 
                             <div class="row mb-3">
 
-                                <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
+                                <div class="t-fixed col-lg-8 col-sm-10 col-12">
 
                                     <table class="table table-hover table-borderless backg table-responsive-sm" id="dataSubject">
                                         <thead class="text-center">
@@ -106,7 +106,7 @@
                                 </div>
 
                             </div>
-                            <div class="row mb-3 ml-2">
+                            <div class="row mb-3 justify-content-center">
                                 <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
                             </div>
                         </form>

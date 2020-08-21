@@ -24,16 +24,16 @@
                 <jsp:include page="../../layout/sideBarTutor.jsp"></jsp:include>
                 </header>
                 <section>
-                    <div class="contenido abrir">
+                    <div class="contenido">
 
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                        <div class="contenedor m-auto animated zoomIn">
+                        <div class="contenedor">
                             <section>
-                                <nav class="navbar navbar-expand-sm justify-content-end col-lg-6 col-sm-8">                                    
+                                <nav class="navbar navbar-expand-sm justify-content-end col-lg-6 col-sm-8 col-12">                                    
                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="mr-5">Periodos<i data-feather="chevrons-down"></i></span>
                                     </button>
                                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                         <div class="navbar-nav">
@@ -48,7 +48,7 @@
                             <section>
                                 <h5>Calificaciones</h5><br>
                                 <input type="hidden" value="<%=id_student%>" id="codUser">
-                            <div class="t-fixed col-lg-10 col-sm-12 col-xs-12">
+                            <div class="t-fixed col-lg-10 col-sm-12 col-12">
                                 <table class="table table-borderless backg table-responsive-sm" id="tableNotesStu">
                                     <thead class="thead-dark">
                                         <tr>
