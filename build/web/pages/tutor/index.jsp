@@ -11,23 +11,25 @@
 <html lang="es">
     <head>
         <jsp:include page="../../layout/head.jsp"></jsp:include>
-        <title>Menu</title>
-    </head>
-    <body>
-        <main>
-            <header>
+            <title>Menu</title>
+        </head>
+        <body>
+            <main>
+                <header>
                 <jsp:include page="../../layout/sideBarTutor.jsp"></jsp:include>
-            </header>
-            
-            <section>
-                <div class="contenido">
-                    <div class="line-top sticky-top">
+                </header>
+
+                <section>
+                    <div class="contenido">
+                        <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">
                         </div>
-                    <div class="contenedor mt-4">
-
-                        <h2>Bienvenido: <%=session.getAttribute("nameUser")%></h2>
-                    
+                        <div class="contenedor mt-4">
+                            <div class="index">
+                                <img src="../../img/logo-mowo-lateral.png" >                        
+                                <h1 class=" ml-1 mt-3"> Bienvenido/a </h1>                        
+                                <h3 class="mt-3"><%=session.getAttribute("nameUser")%></h3>   
+                        </div>                   
                     </div>
                 </div>
             </section>

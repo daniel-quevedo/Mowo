@@ -70,7 +70,7 @@
                                         <input type="text" class="form-control" name="dir" id="dir" value="" minlength="10" maxlength="100" required></th>
                                     
                                         <th>Fecha de Nacimiento:
-                                        <input type="date" class="form-control" name="date" id="date" value="" min="1960-01-01" max="2014-01-01" required></th>
+                                        <input type="date" class="form-control" name="date" id="date" value="" min="1960-01-01" max="2015-01-01" required></th>
                                     </tr>
                                     <tr>
                                         <th colspan="2">Correo:

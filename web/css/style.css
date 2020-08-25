@@ -106,10 +106,17 @@ body{
 .active{
     background: #441452;         
 }
-.prueba{
-    cursor: pointer;
-    display: block;
+.index{
+    width: 100%;    
+    text-align: center;
+    margin-top: 8%;          
 }
+
+.index img{
+    width: 250px;
+    height: 120px;
+}
+
 .navbar-nav a,.navbar-nav a:hover{
     color: rgba(0,0,0,.5);
 }
@@ -244,6 +251,9 @@ h2 img{
     width: 120px;
     height: 50px;
     padding: 0px 0px;
-    margin: 0px 10px;
-       
+    margin: 0px 10px;      
+}
+
+.tt td{
+    width: 50%;       
 }

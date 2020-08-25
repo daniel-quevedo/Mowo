@@ -71,14 +71,14 @@
 
                                 <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
 
-                                    <table class="table table-borderless table-responsive backg">
+                                    <table class="table table-borderless backg">
                                         <thead class="text-center">
                                             <tr>
                                                 <th><i data-feather="check"></i></th>
                                                 <th>Nombre</th>
                                                 <th>Apellido</th>
-                                                <th>No Documento</th>
-                                                <th>Telefono</th>
+                                                <th>No. Documento</th>
+                                                <th>Teléfono</th>
                                                 <th>Correo</th>
                                             </tr>
                                         </thead>

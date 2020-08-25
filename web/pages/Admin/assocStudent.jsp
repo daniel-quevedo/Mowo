@@ -59,14 +59,14 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
-                                    <table class="table table-borderless table-responsive backg">
+                                    <table class="table table-borderless backg">
                                         <thead>
                                             <tr>
                                                 <th scope="col"><i data-feather="check"></i></th>
-                                                <th scope="col">Identificacion</th>
+                                                <th scope="col">Identificación</th>
                                                 <th scope="col">Nombre</th>
-                                                <th scope="col">Telefono</th>
-                                                <th scope="col">email</th>
+                                                <th scope="col">Teléfono</th>
+                                                <th scope="col">Correo</th>
                                             </tr>
                                         </thead>
                                         <tbody>

@@ -19,17 +19,20 @@
         </head>
         <body>
             <main>
-                <header>
-                <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
-                </header>
-                <section>
-                    <div class="contenido">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">                            
+            <header>
+            <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
+            </header>
+            <section>
+                <div class="contenido">
+                    <div class="line-top sticky-top">
+                        <img src="../../img/menu.png" alt="" class="menu-bar">                            
+                    </div>
+                    <div class="contenedor">
+                        <div class="index">
+                            <img src="../../img/logo-mowo-lateral.png" >                        
+                            <h1 class=" ml-1 mt-3"> Bienvenido/a </h1>                        
+                            <h3 class="mt-3"><%=session.getAttribute("nameUser")%></h3>   
                         </div>
-
-                    <div class="contenedor">                        
-
                     </div>
                 </div>
             </section>

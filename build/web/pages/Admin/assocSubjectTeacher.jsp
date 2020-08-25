@@ -77,7 +77,7 @@
                                             <tr>
                                                 <th><i data-feather="check"></i></th>
                                                 <th>Nombre</th>
-                                                <th>Salon</th>
+                                                <th>Salón</th>
                                             </tr>
                                         </thead>
                                         <tbody>

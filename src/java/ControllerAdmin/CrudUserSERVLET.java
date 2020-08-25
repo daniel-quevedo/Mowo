@@ -111,22 +111,22 @@ public class CrudUserSERVLET extends HttpServlet {
                         out.println("<script src='../../js/jquery.dataTables.min.js' charset='utf-8'></script>\n" +
                                     "<script src='../../js/dataTable.js' charset='utf-8'></script>");
 
-                        out.println("<table class=\"table-hover table-borderless table-responsive mt-5 mydataTable\" id=\"dataUser\">");
+                        out.println("<table class='table table-hover table-borderless table-responsive mt-5 mydataTable' id='dataUser'>");
                             out.println("<thead>");
 
                             out.println("<tr>" +
                                             "<th>Estado</th> \n" +
-                                            "<th>Nombre</th>\n" +
-                                            "<th>Apellido</th>\n" +
+                                            "<th>Nombres</th>\n" +
+                                            "<th>Apellidos</th>\n" +
                                             "<th>Tipo de Documento</th>\n" +
                                             "<th>No. Documento</th>\n" +
                                             "<th>Tipo de Usuario</th>\n" +
-                                            "<th>Teléfono</th>\n" +
+                                            "<th>Telefono</th>\n" +
                                             "<th>Direccion</th>\n" +
-                                            "<th>Fecha de Nac.</th>\n" +
+                                            "<th>Fecha de Nacimiento</th>\n" +
                                             "<th>Correo</th>\n" +
-                                            "<th>Acciones</th>\n" +
-                                            "<th></th>\n" +
+                                            "<th colspan='2'>Acciones</th>\n" +
+                                            "<th></th>\n"+
                                         "</tr>");
 
                             out.println("</thead>");
@@ -184,8 +184,9 @@ public class CrudUserSERVLET extends HttpServlet {
                                     out.println("<td>"+result.getString(8)+"</td>");
                                     out.println("<td>"+result.getString(9)+"</td>");
                                     out.println("<td>"+result.getString(10)+"</td>");
-                                    out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalUser("+result.getInt(5)+")'><button type='button' class='btn btn-primary'>Editar</button></a></td>");
+                                    out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalUser("+result.getInt(5)+")'><button type='button' class='btn btn-primary'>Editar</button></a></td>");                                    
                                     out.println("<td>"+button+"</td>");
+                                    out.println("<td></td>");
                                 out.println("</tr>");
                             }
 
@@ -246,7 +247,7 @@ public class CrudUserSERVLET extends HttpServlet {
                                                 "<tr>\n" +
                                                     "<th><label>Fecha de Nacimiento:</label></th>\n" +
                                                     "<td>\n"+
-                                                        "<input type='date' class='form-control' name='date' value='"+result.getString(9)+"' min='1960-01-01' max='dd-mm-yyyy'>\n"+
+                                                        "<input type='date' class='form-control' name='date' value='"+result.getString(9)+"' min='1960-01-01' max='2015-01-01'>\n"+
                                                     "</td>\n" +
                                                 "</tr>\n" +
                                                 "<tr>\n" +
