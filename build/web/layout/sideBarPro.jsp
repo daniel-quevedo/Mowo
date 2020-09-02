@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="sidebar">
-    <h2 class="sticky-top"><a href="index.jsp" title="inicio">Profesor</a></h2>
+    <h2 class="sticky-top">Profesor</h2>
     <div class="perfil">
         <h5 class="text-center pt-4"><%=session.getAttribute("nameUser")%></h5>
         <h6 class="text-center"><%=session.getAttribute("email")%></h6>

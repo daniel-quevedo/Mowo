@@ -61,7 +61,8 @@
                                         <select class="form-control" id="idCourse" name="idCourse" autofocus required>
 
                                             <option value="#" selected>--SELECCIONE--</option> 
-                                        <%                                                while (resCourse.next()) {
+                                        <%      
+                                            while (resCourse.next()) {
                                                 out.println("<option value='" + resCourse.getInt(1) + "'>" + resCourse.getString(2) + "</option>");
                                             }
                                         %>

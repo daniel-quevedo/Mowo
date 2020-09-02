@@ -4,6 +4,7 @@
     Author     : Daniel
 --%>
 
+<%@page import="DAOAdmin.AssocCourseDAO"%>
 <%@page import="DAOAdmin.CrudUserDAO"%>
 <%@page import="VOAdmin.CrudUserVO"%>
 <%@page import="java.sql.ResultSet"%>
@@ -15,18 +16,18 @@
     
     int id_user = Integer.parseInt(varSession);
     
-    //traer los datos del admin***
-    CrudUserVO uVO = new CrudUserVO(0);
+    //traer los datos del Estudiante y el Curso ......
+    CrudUserVO uVO = new CrudUserVO(0);   
 
     CrudUserDAO uDAO = new CrudUserDAO(uVO);
-
-    ResultSet dataUser = uDAO.infProfile(id_user);
+    
+    ResultSet dataUser = uDAO.infProfile(id_user);    
     String typeUs = "";
 
 %>
-<!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA PROFESOR************************-->
+<!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA ESTUDIANTE************************-->
 
-<%@include file="../../includes/Teacher/ValidateSession.jsp"%> 
+<%@include file="../../includes/Student/ValidateSession.jsp"%> 
 
 <!--*****************************************************************************************-->
 
@@ -41,11 +42,8 @@
         </head>
         <body>
             <main>
-                <header>
-                </header>
-
                 <section>
-                <jsp:include page="../../layout/sideBarPro.jsp"></jsp:include>
+                <jsp:include page="../../layout/sideBarEst.jsp"></jsp:include>
                 </section>
                 <section>
                     <div class="contenido">
@@ -60,10 +58,16 @@
                             out.print("<table class='table table-dark col-12'>");
                                 out.print("<tr>");
                                 out.print("<td><label>Tipo de documento:</label></td>");
-                                out.print("<td><input type='text' class='form-control' value='" + dataUser.getString(1) + "' disabled></td>");
+                                out.print("<td><input type='text' class='form-control text-center' value='" + dataUser.getString(1) + "' disabled></td>");
                                 out.print("<td><label>N° de documento:</label></td>");
-                                out.print("<td><input type='text' class='form-control' value='" + dataUser.getLong(2) + "' disabled></td>");
+                                out.print("<td><input type='text' class='form-control text-center' value='" + dataUser.getLong(2) + "' disabled></td>");
                                 out.print("<td rowspan='3'><img src='../../img/avatar.png' type='file'></td>");
+                                out.print("</tr>");
+                                out.print("<tr>");
+                                out.print("<td><label>Curso:</label></td>");
+                                out.print("<th><input type='text' class='form-control text-center' value='" + dataUser.getInt(10) + "' disabled></th>");
+                                out.print("<td><label>Jornada:</label></td>");
+                                out.print("<th><input type='text' class='form-control text-center' value='" + dataUser.getString(11) + "' disabled></th>");
                                 out.print("</tr>");
                                 out.print("<tr>");
                                 out.print("<td><label>Correo:</label></td>");
@@ -73,8 +77,7 @@
 
                             out.print("<table class='table backg table-borderless table-responsive-sm col-12 mt-2'>");
                                 out.print("<tr><td colspam='2'></td><td></td></tr>");
-                                    
-                                            
+                                                                                
                                         //VALIDAR EL TIPO DE USUARIO ********************
                                         int typeOpt = dataUser.getInt(6);
 

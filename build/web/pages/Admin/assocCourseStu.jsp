@@ -56,7 +56,7 @@
                                         <label> Seleccion un curso </label>
                                         <select class="form-control mb-3" name="idCourse" id="idCourse" autofocus required>
                                             <option value="#" selected>--SELECCIONE--</option> 
-                                        <%                                                while (resCourse.next()) {
+                                        <%                                            while (resCourse.next()) {
                                                 out.println("<option value='" + resCourse.getInt(1) + "'>" + resCourse.getString(2) + "</option>");
                                             }
                                         %>
@@ -93,7 +93,7 @@
                                                     out.println("<td> " + resUser.getString(3) + " </td>");
                                                     out.println("<td> " + resUser.getLong(4) + " </td>");
                                                     out.println("<td> " + resUser.getLong(5) + " </td>");
-                                                    out.println("<td> " + resUser.getString(5) + " </td>");
+                                                    out.println("<td> " + resUser.getString(6) + " </td>");
 
                                                     out.println("</tr>");
                                                 }
