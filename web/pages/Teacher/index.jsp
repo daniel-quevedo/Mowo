@@ -35,7 +35,7 @@
                             <div class="index">
                                 <img src="../../img/logo-mowo-lateral.png" >                        
                                 <h1 class=" ml-1 mt-3"> Bienvenido/a </h1>                        
-                                <h3 class="mt-3"><%=session.getAttribute("nameUser")%></h3>   
+                                <h3 class="mt-3"><%=session.getAttribute("nameUser")%></h3>
                         </div>
                     </div>
                 </div>

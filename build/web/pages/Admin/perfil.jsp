@@ -11,7 +11,7 @@
    
 <%
 
-    String varSession = (String) session.getAttribute("codUser");
+    String varSession = (String) session.getAttribute("idProfile");
     
     int id_user = Integer.parseInt(varSession);
     
@@ -26,7 +26,7 @@
 %>
 <!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA PROFESOR************************-->
 
-<%@include file="../../includes/Teacher/ValidateSession.jsp"%> 
+<%@include file="../../includes/Admin/ValidateSession.jsp"%> 
 
 <!--*****************************************************************************************-->
 
@@ -45,15 +45,15 @@
                 </header>
 
                 <section>
-                <jsp:include page="../../layout/sideBarPro.jsp"></jsp:include>
+                <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
                 </section>
                 <section>
                     <div class="contenido">
                         <div class="line-top sticky-top">
                             <img src="../../img/menu.png" alt="" class="menu-bar">                            
                         </div>
-                        <div class="contenedor col-9 mt-4">
-                            <h5 class="mb-4">Mi perfil</h5>
+                        <div class="contenedor animated zoomIn col-9">
+                            <h5>Mi perfil</h5>
                             <%                                                                                
                             if (dataUser.next()) {
                                 

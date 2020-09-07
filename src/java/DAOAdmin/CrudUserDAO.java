@@ -198,7 +198,41 @@ public class CrudUserDAO extends ClassConnection{
         
         return result;
         
-    }        
+    }   
+    
+    public ResultSet infProfile(int iduser){
+        
+        String sql = "SELECT    tipo_iden\n"
+                                +",identificacion\n"
+                                +",nombre\n"
+                                +",apellido\n"
+                                +",telefono\n"
+                                +",fk_perfil\n"
+                                +",direccion\n"
+                                +",fecha_nacimiento\n"
+                                +",email\n"
+                                +",C.codigo\n" 
+                                +",C.nombre_curso\n" 
+                    + "FROM mowo.usuario U\n"
+                    + "LEFT OUTER JOIN mowo.curso C\n"
+                    + "ON U.fk_curso = C.id_curso WHERE id_usuario = ?";
+        
+        try {
+        
+            this.pstm = this.con.prepareStatement(sql);
+            this.pstm.setInt(1, iduser);                        
+            
+            System.out.println(this.pstm);
+            this.res = this.pstm.executeQuery();
+            
+        } catch (SQLException e) {
+            
+            System.err.println(" Error -> " + e.getMessage());
+            
+        }
+        
+        return this.res;
+    }
     
     
     

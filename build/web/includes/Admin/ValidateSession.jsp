@@ -1,7 +1,7 @@
 <%-- 
     Document   : ValidateSession
     Created on : 1/06/2020, 10:50:50 PM
-    Author     : Leonardo
+    Author     : Daniel
 --%>
 
 <!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA ADMINISTRADOR************************-->

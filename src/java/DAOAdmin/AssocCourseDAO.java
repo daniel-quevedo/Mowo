@@ -19,7 +19,6 @@ import util.ClassConnection;
  *
  * @author Daniel
  */
-
 public class AssocCourseDAO extends ClassConnection {
 
     //variables de conexion 
@@ -31,11 +30,10 @@ public class AssocCourseDAO extends ClassConnection {
     private int id_course;
     private int id_user;
     private String opt;
-    
+
     //variable para validar retorno de consulta insert y update
     private int resultQuery = 0;
     private int result = 0;
-    
 
     public AssocCourseDAO() {
         try {
@@ -93,25 +91,25 @@ public class AssocCourseDAO extends ClassConnection {
         return result;
 
     }
-    
-    public ResultSet listTutor(){
-        
-        try { 
-            
-            String sqlList =    "SELECT id_usuario, nombre, apellido, identificacion,telefono,email FROM mowo.usuario\n" +
-                                "WHERE fk_perfil = ? \n" +
-                                "AND    (id_usuario NOT IN(SELECT fk_curso_prof \n" +
-                                                            "FROM mowo.prof_curso \n" +
-                                                            "WHERE fk_prof_curso = ?)\n" +
-                                        "OR NOT EXISTS (SELECT fk_curso_prof \n" +
-                                                            "FROM mowo.prof_curso \n" +
-                                                            "WHERE fk_prof_curso = ?)\n" +
-                                        ")\n" +
-                                "AND activo = ?"+
-                                "ORDER BY nombre ASC";
+
+    public ResultSet listTutor() {
+
+        try {
+
+            String sqlList = "SELECT id_usuario, nombre, apellido, identificacion,telefono,email FROM mowo.usuario\n"
+                    + "WHERE fk_perfil = ? \n"
+                    + "AND    (id_usuario NOT IN(SELECT fk_curso_prof \n"
+                    + "FROM mowo.prof_curso \n"
+                    + "WHERE fk_prof_curso = ?)\n"
+                    + "OR NOT EXISTS (SELECT fk_curso_prof \n"
+                    + "FROM mowo.prof_curso \n"
+                    + "WHERE fk_prof_curso = ?)\n"
+                    + ")\n"
+                    + "AND activo = ?"
+                    + "ORDER BY nombre ASC";
 
             this.pstm = this.conn.prepareStatement(sqlList);
-            this.pstm.setInt(1,2);
+            this.pstm.setInt(1, 2);
             this.pstm.setInt(2, id_course);
             this.pstm.setInt(3, id_course);
             this.pstm.setInt(4, 1);
@@ -155,13 +153,14 @@ public class AssocCourseDAO extends ClassConnection {
             if (view == 1) {
                 where = "WHERE estado = 1";
             }
-            if(this.id_course !=0)
-                where= "WHERE id_curso=?";
-            
-            String sqlListC =   "SELECT id_curso, (codigo||' '||nombre_curso)AS nombre, nombre_curso ,codigo, estado "
-                                +"FROM mowo.curso "
-                                +where+
-                                "ORDER BY nombre_curso DESC";
+            if (this.id_course != 0) {
+                where = "WHERE id_curso=?";
+            }
+
+            String sqlListC = "SELECT id_curso, (codigo||' '||nombre_curso)AS nombre, nombre_curso ,codigo, estado "
+                    + "FROM mowo.curso "
+                    + where
+                    + "ORDER BY nombre_curso ASC";
 
             this.pstm = this.conn.prepareStatement(sqlListC);
 
@@ -182,14 +181,13 @@ public class AssocCourseDAO extends ClassConnection {
 
     public int insertCourse(String pamname, int pamcode) {
 
-        
         String sqlInsCourser = "INSERT INTO mowo.curso(nombre_curso,codigo,estado) VALUES(?,?,1) ";
 
         try {
             this.pstm = this.conn.prepareStatement(sqlInsCourser);
             this.pstm.setString(1, pamname);
             this.pstm.setInt(2, pamcode);
-            
+
             resultQuery = this.pstm.executeUpdate();
 
             if (resultQuery == 1) {
@@ -204,7 +202,7 @@ public class AssocCourseDAO extends ClassConnection {
     }
 
     public int modifyCourse(String pamNCourse, int pamcode, int pamid) {
-               
+
         String sqlModify = "";
         try {
             sqlModify = "UPDATE mowo.curso SET nombre_curso=?, codigo=?, estado=1\n"
@@ -213,8 +211,7 @@ public class AssocCourseDAO extends ClassConnection {
             this.pstm.setString(1, pamNCourse);
             this.pstm.setInt(2, pamcode);
             this.pstm.setInt(3, pamid);
-                       
-            
+
             resultQuery = this.pstm.executeUpdate();
 
             if (resultQuery == 1) {
@@ -224,7 +221,7 @@ public class AssocCourseDAO extends ClassConnection {
         } catch (SQLException e) {
             System.out.println("Ocurrio un erro al modificar los usuario: " + e);
         }
-        
+
         return result;
     }
 

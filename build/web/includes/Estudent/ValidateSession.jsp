@@ -4,7 +4,7 @@
     Author     : Daniel
 --%>
 
-<!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA PROFESOR************************-->
+<!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA ESTUDIANTE************************-->
 
 <%! 
     
@@ -24,7 +24,7 @@
        idProfile = (String) session.getAttribute("idProfile");
        id_profile = Integer.parseInt(idProfile);
        
-       if(id_profile != 2){
+       if(id_profile != 3){
            
         response.sendRedirect("../../index.jsp");
         

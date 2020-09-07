@@ -93,7 +93,7 @@ public class LoginDAO extends ClassConnection{
     
     public String[] nomUser(){
         
-        String sqlUser = "SELECT id_usuario ,nombre, fk_perfil,email FROM mowo.usuario WHERE id_usuario = ?";
+        String sqlUser = "SELECT id_usuario ,nombre, fk_perfil, email FROM mowo.usuario WHERE id_usuario = ?";
         
         try{
             
