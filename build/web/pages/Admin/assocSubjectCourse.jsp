@@ -115,14 +115,14 @@
             </section>
             <!--Ventana Modal -->
             <jsp:include page="../../layout/modalUser.jsp"></jsp:include>
-            </main>
+        </main>
 
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
 
-            <!--Validar cambio de estado del select-->
-            <script src="../../js/Admin/ShowSubjectAssoc.js"></script>
+        <!--Validar cambio de estado del select-->
+        <script src="../../js/Admin/ShowSubjectAssoc.js"></script>
 
-            <!-- Validar si se asociaron correctemente los asignaturas-->
+        <!-- Validar si se asociaron correctemente los asignaturas-->
         <jsp:include page="../../includes/Admin/ValidateAssocSubject.jsp"></jsp:include> 
 
 
