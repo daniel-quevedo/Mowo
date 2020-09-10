@@ -12,6 +12,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +23,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import mail.MailMassives;
 
 /**
  *
@@ -72,6 +77,9 @@ public class FileUsersSERVLET extends HttpServlet {
         processRequest(request, response);
         try (PrintWriter out = response.getWriter()) {
             
+            
+            int records =0; //cantidad de usuarios insertados *************
+            
             try {
                 
                 
@@ -103,13 +111,27 @@ public class FileUsersSERVLET extends HttpServlet {
                 inputS.close();
                 fileOut.close();
                 
-                //INSERTAR USUARIOS DEL ARCHIVO A LA DB ****
+                //INSERTAR USUARIOS DEL ARCHIVO A LA DB ****************************
                 
-//                FileUsersDAO insertUsers = new FileUsersDAO();
+                FileUsersDAO insertUsers = new FileUsersDAO();
                 
-//                insertUsers.insertUsers(destiPath);
-//                
-                //ELIMINAR ARCHIVO *************************
+                ResultSet res = insertUsers.insertUsers(destiPath, 1); //SUBE LOS REGISTROS A UNA TABLA TEMPORAL (USUARIOS_MASIVOS)
+                
+                while (res.next()) { //enviar los correos a los usuarios masivos en segundo plano ********
+                    
+                    Runnable mm = new MailMassives(res.getString(1));
+                    
+                    Thread t = new Thread(mm);
+                    
+                    t.start();
+                    
+                }
+                
+                res = insertUsers.insertUsers(destiPath, 2); //SUBE LOS REGISTROS A LA TABLA USUARIO
+                while (res.next()) 
+                    records ++;
+                
+                //ELIMINAR ARCHIVO DEL SERVIDOR*************************
                 
                 File delete = new File(destiPath);
                 
@@ -127,9 +149,12 @@ public class FileUsersSERVLET extends HttpServlet {
                 
                 System.err.println("Error -> " + e.getMessage());
                 
+            } catch (SQLException ex) {
+                Logger.getLogger(FileUsersSERVLET.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            response.sendRedirect("pages\\Admin\\prueba_masivos.jsp");
+            response.sendRedirect("pages\\Admin\\prueba_masivos.jsp?records="+records);
+            
         }
     }
 
