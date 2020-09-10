@@ -20,9 +20,7 @@
                 </header>
                 <section>
                     <div class="contenido">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">
-                        </div>
+                        <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor">
                             <section >
                                 <nav class="navbar navbar-expand-sm  col-lg-7 col-sm-8 col-12">                                    

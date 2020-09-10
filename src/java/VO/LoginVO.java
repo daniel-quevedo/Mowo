@@ -7,7 +7,7 @@ package VO;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class LoginVO {
     

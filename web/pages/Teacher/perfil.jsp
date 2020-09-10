@@ -49,9 +49,7 @@
                 </section>
                 <section>
                     <div class="contenido">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">                            
-                        </div>
+                        <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor col-9 mt-4">
                             <h5 class="mb-4">Mi perfil</h5>
                             <%                                                                                
@@ -98,11 +96,11 @@
                                             out.print("</tr>");
                                             out.print("<tr>");
                                             out.print("<th>Tipo de usuario:<input type='text' class='form-control text-center' value='" + typeUs + "' disabled></th>");
-                                            out.print("<th>Telefono:<input type='text' class='form-control text-center' value='" + dataUser.getLong(5) + "' disabled></th>");
+                                            out.print("<th>Teléfono:<input type='text' class='form-control text-center' value='" + dataUser.getLong(5) + "' disabled></th>");
 
                                             out.print("</tr>");
                                             out.print("</tr>");
-                                            out.print("<th>Direccion:<input type='text' class='form-control text-center' value='" + dataUser.getString(7) + "' disabled></th>");
+                                            out.print("<th>Dirección:<input type='text' class='form-control text-center' value='" + dataUser.getString(7) + "' disabled></th>");
                                             out.print("<th>Fecha de Nacimiento:<input type='text' class='form-control text-center' value='" + dataUser.getString(8) + "' disabled></th>");
                                             out.print("</tr>");
                                         }

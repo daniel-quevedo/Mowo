@@ -4,6 +4,7 @@
     Author     : Daniel
 --%>
 
+<%@page import="java.util.Calendar"%>
 <!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA ADMINISTRADOR************************-->
 
 <%@include file="../../includes/Admin/ValidateSession.jsp"%> 
@@ -11,6 +12,12 @@
 <!--*****************************************************************************************-->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+Calendar calendario = Calendar.getInstance();
+int an = calendario.get(Calendar.YEAR);
+int minyear = an - 6;
+int maxyear = an - 58;
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,9 +31,7 @@
                 </header>
                 <section>
                     <div class="contenido">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">
-                        </div>
+                        <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor">
                             <h5 class="mb-4 ml-5">Insertar Usuarios</h5>
                             <form action="../../CrudUserSERVLET" method="POST" autocomplete="off">
@@ -35,10 +40,10 @@
                                     <tr><td colspam="2"></td><td></td></tr>
                                     <tr>
                                         <th>Nombre:
-                                        <input type="text" class="form-control" name="name" id="name" value="" minlength="3" maxlength="25" pattern="[A-Za-z ]{3,25}" required></th>
+                                            <input type="text" class="form-control" name="name" id="name" value="" minlength="3" maxlength="25" pattern="[A-Za-zñ ]{3,25}" autofocus required></th>
                                     
                                         <th>Apellido:
-                                        <input type="text" class="form-control" name="lname" id="lname" value="" minlength="3" maxlength="25" pattern="[A-Za-z ]{3,25}" required></th>
+                                        <input type="text" class="form-control" name="lname" id="lname" value="" minlength="3" maxlength="25" pattern="[A-Za-zñ ]{3,25}" required></th>
                                     </tr>
                                     <tr>
                                         <th>Tipo de Documento:
@@ -70,7 +75,7 @@
                                         <input type="text" class="form-control" name="dir" id="dir" value="" minlength="10" maxlength="100" required></th>
                                     
                                         <th>Fecha de Nacimiento:
-                                        <input type="date" class="form-control" name="date" id="date" value="" min="1960-01-01" max="2015-01-01" required></th>
+                                        <input type="date" class="form-control" name="date" id="date" value="" min="<%=maxyear%>-01-01" max="<%=minyear%>-12-31" required></th>
                                     </tr>
                                     <tr>
                                         <th colspan="2">Correo:

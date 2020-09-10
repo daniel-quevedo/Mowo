@@ -18,7 +18,7 @@ import util.ClassConnection;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class PassDAO extends ClassConnection{
     

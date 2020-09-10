@@ -1,7 +1,7 @@
 <%-- 
     Document   : ValidateActDeac
     Created on : 20/06/2020, 10:29:38 PM
-    Author     : Leonardo
+    Author     : Daniel
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

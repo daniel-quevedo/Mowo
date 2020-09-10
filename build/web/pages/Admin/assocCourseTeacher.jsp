@@ -43,11 +43,8 @@
                 <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
                 </header>
                 <section>
-
                     <div class="contenido ">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">
-                        </div>
+                        <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor">
                             <h5 class="mb-4 text-center">Asignar Cursos a Profesores</h5>
                             <br>

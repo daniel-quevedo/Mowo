@@ -25,9 +25,7 @@
                 </header>
                 <section>
                     <div class="contenido">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">
-                        </div>
+                        <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor mt-4">
                             <h5 class="mb-4 ml-5">Modificar Usuarios</h5>
                             <div class=" backg p-3 col-lg-11">

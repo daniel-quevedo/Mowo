@@ -7,7 +7,7 @@ package VOStudents;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class ShowNotesVO {
     

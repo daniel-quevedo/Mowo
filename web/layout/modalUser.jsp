@@ -21,11 +21,11 @@
                         <table class="table table-responsive-sm table-light">
                             <tr>
                                 <th><label>Nombre:</label></th>
-                                <td><input type="text" class="form-control" name="" value="" minlength="3" maxlength="25" pattern="[A-Za-z ]{3,25}"></td>
+                                <td><input type="text" class="form-control" name="" value="" minlength="3" maxlength="25" pattern="[A-Za-zñ ]{3,25}"></td>
                             </tr>
                             <tr>
                                 <th><label>Apellido:</label></th>
-                                <td><input type="text" class="form-control" name="" value="" minlength="3" maxlength="25" pattern="[A-Za-z ]{3,25}"></td>
+                                <td><input type="text" class="form-control" name="" value="" minlength="3" maxlength="25" pattern="[A-Za-zñ ]{3,25}"></td>
                             </tr>
                             <tr>
                                 <th><label>Tipo de Documento:</label></th>

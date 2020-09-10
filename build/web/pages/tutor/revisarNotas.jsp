@@ -34,9 +34,7 @@
                 </header>
                 <section>
                     <div class="contenido">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">
-                        </div>
+                        <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor">
                             <section>
                                 <div class="row center-xs">

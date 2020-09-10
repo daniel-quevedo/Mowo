@@ -32,6 +32,7 @@
 <html>
     <head>
         <jsp:include page="../../layout/head.jsp"></jsp:include>
+        <meta charset="UTF-8">
             <title>Asignar Cursos</title>
         </head>
         <body>
@@ -42,9 +43,7 @@
                 <section>
 
                     <div class="contenido ">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">
-                        </div>
+                        <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor ">
                             <h5 class="mb-4 text-center">Asignar Cursos a Estudiantes</h5>
                             <br>

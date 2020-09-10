@@ -28,9 +28,7 @@
                 </section>
                 <section>
                     <div class="contenido">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">
-                        </div>
+                        <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor">                      
                             <h3 class="mb-4 text-center">Notas</h3><br>
                             <form onsubmit="" method="post">

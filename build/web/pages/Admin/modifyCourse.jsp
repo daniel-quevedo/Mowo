@@ -34,9 +34,7 @@
                 <section>
 
                     <div class="contenido">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">
-                        </div>
+                        <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor ">
                             <h5 class="mb-4 text-center">Lista de Cursos</h5>
                             <form action="../../ActivDeacSERVLET" id="addCourse" method="POST">                                

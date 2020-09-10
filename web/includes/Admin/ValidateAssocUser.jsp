@@ -1,7 +1,7 @@
 <%-- 
     Document   : VlidateAssocStudent
     Created on : 9/08/2020, 08:22:56 PM
-    Author     : Leonardo
+    Author     : Daniel
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
