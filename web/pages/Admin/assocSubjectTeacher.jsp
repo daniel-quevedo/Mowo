@@ -1,7 +1,7 @@
 <%-- 
     Document   : assocSubjectTutor
     Created on : 17/08/2020, 03:38:52 PM
-    Author     : Leonardo
+    Author     : Daniel
 --%>
 
 <%@page import="DAOAdmin.AssocSubjectDAO"%>
@@ -45,9 +45,7 @@
                 <section>
 
                     <div class="contenido">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">
-                        </div>
+                        <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor">
                             <h5 class="mb-3 text-center">Asignar asignaturas a un docente</h5>
                             <br>

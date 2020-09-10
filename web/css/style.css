@@ -25,25 +25,25 @@ body{
     background: #31343D;
     color: white;
     font-family: 'Rajdhani' ,sans-serif;
-    font-size: 1.3em;
+    font-size: 1.2em;
     overflow-y: scroll;
-    transition-duration: .3s;
+    transition-duration: .5s;
     z-index: 100;
 }
 .sidebar::-webkit-scrollbar{
     width: 2px;
-} 
-.sidebar h2{
+}
+.sidebar h3{
     text-align: center;
     margin: 0;
-    background: #9929B0;
-    padding: 10px;       
+    background: #00697F;
+    padding: 10px 5px;
 }
 
-.sidebar h2 a{
+.sidebar h3 a{
     color: white;
 }
-.sidebar h2 a:hover{
+.sidebar h3 a:hover{
     color: white;
     display: block;
     text-decoration: none;
@@ -51,26 +51,22 @@ body{
 }
 
 .perfil{
-    background: #9929B0;
-    padding-bottom: 70px; 
+    background: #00697F;
+    padding-bottom: 70px;
 }
 
 .sidebar ul{
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .sidebar >ul >li{
     margin: 10px 0;
-    transition-property: border;
-    transition-duration: all .35s;
-
+    text-indent: 15px;
 }
 
 .sidebar >ul >li >a:hover{
-    background: #441452;
-    border-left: 6px solid #858585;
+    background: #00697F;
+    border-left: 6px solid #E8940D;
 }
 
 .sidebar ul li a{
@@ -82,34 +78,36 @@ body{
 .sidebar >a img{
     border-radius: 50%;
     border: 5px solid #31343D;
-    margin-left:55px;    
-    margin-top: -70px;  
+    margin-left:65px;
+    margin-top: -60px;
+    width: 120px;
+    height: 120px;
 }
 
 .submenu ul{
     display: none;
 }
 
-.submenu ul li a{    
+.submenu ul li a{
     background: #494D5B;
-    color: white; 
-    padding-left: 20px;
+    color: white;
+    padding-left: 35px;
     font-size: .9em;
 }
 
 .submenu ul li a:hover{
     background: #5B6071;
-    border-left: 6px solid #441452;
-    font-size: 1.1em;   
+    border-left: 6px solid #00697F;
+    font-size: 1.1em;
 }
 
 .active{
-    background: #441452;         
+    background: #00697F;
 }
 .index{
-    width: 100%;    
+    width: 100%;
     text-align: center;
-    margin-top: 8%;          
+    margin-top: 8%;
 }
 
 .index img{
@@ -131,36 +129,37 @@ body{
     margin-bottom: 10px;
 }
 
-.contenido{    
+.contenido{
     position: fixed;
     width: 100%;
-    height: 100%;    
-    background: #EFEFEF;    
+    height: 100%;
+    background: #EFEFEF;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-.line-top{    
-    background-color: #AD2FC6;
+.line-top{
+    background-color: #00697F;
     width: 100%;
-    height: 58px;      
-    transition-duration: .3s;
+    height: 58px;
 }
-.line-top img{    
-    padding: 15px 30px ;    
+.line-top >img{
+    padding-top: 13px;
+    margin-left: 270px;
+    
 }
-
-.menu-bar{
+.menu-bar{    
     margin-left: 250px;
+    padding: 0 0;
     cursor: pointer;
-    transition-duration: .3s;
+    transition-duration: .5s;
 }
 
 .abrir{
-    transform: translateX(-250px);        
+    transform: translateX(-250px);
 }
-.contenedor{    
-    padding-top: 30px;    
+.contenedor{
+    padding-top: 30px;
     margin-left: 300px;
     width: 80%;
     height: 100%;
@@ -168,14 +167,14 @@ body{
     color: black;
     font-family: 'Dosis', sans-serif;
     font-size: 1.1em;
-    transition-duration: .3s;
+    transition-duration: .5s;
 }
 .contenedor h2{
     text-align: center;
 }
 
 .contenedor nav{
-    margin-left: 20%;   
+    margin-left: 20%;
 }
 
 .table{
@@ -183,20 +182,20 @@ body{
     border-radius: 5px;
 }
 
-.t-fixed{    
+.t-fixed{
     margin: auto auto;
     height: 500px;
-    overflow-y: auto;        
+    overflow-y: auto;
 }
 
 tr td  a{
-    color:black;    
+    color:black;
 }
 tr td >a:hover {
     display: block;
     text-decoration: none;
     color: black;
-    box-shadow: 2px 2px 2px -1px #AD2FC6;
+    box-shadow: 2px 2px 2px -1px #5AB1CF;
 }
 
 
@@ -217,16 +216,16 @@ h2 img{
     padding: 1px 1px;
     text-align: center;
     border-radius: 5px;
-    background-color: #F9EFFB;    
+    background-color: #F9EFFB;
     box-shadow: 2px 2px 9px -5px black;
-    color: black;    
+    color: black;
     margin-top: 10%;
 }
 
 .target img{
     padding-top: 5px;
 }
-.target:hover{    
+.target:hover{
     color: black;
     display: block;
     text-decoration: #30ff00;
@@ -251,9 +250,50 @@ h2 img{
     width: 120px;
     height: 50px;
     padding: 0px 0px;
-    margin: 0px 10px;      
+    margin: 0px 10px;
 }
 
 .tt td{
-    width: 50%;       
+    width: 50%;
+}
+
+.his >a{
+    display: none;
+}
+.remove{    
+    color: white;
+    cursor: pointer;
+    animation:rubberBand;
+    animation-duration: .5s;
+    
+}
+.remove img{
+    padding:  0 ;
+    margin-right: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+td img{
+    border: 5px solid #31343D;
+    border-radius: 50%;          
+    width: 150px;
+    height: 150px;
+}
+
+
+
+ .btn-group{   
+     margin: 10px 0;
+     float: right;
+}
+
+.btn-group .dropdown-menu {    
+    margin-top: 7px;    
+}
+
+.btn-group .dropdown-item:hover{
+    color:white;    
+    background: #00697F;
 }

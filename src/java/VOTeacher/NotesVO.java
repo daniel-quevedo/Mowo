@@ -7,7 +7,7 @@ package VOTeacher;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class NotesVO {
     

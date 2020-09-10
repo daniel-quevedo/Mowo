@@ -9,7 +9,7 @@ import java.util.Base64;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class EncodeDecode {
     

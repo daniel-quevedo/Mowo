@@ -13,8 +13,10 @@
 <link rel="stylesheet" href="../../css/style.css">
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/sweetalert2.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" >
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" href="../../css/flexboxgrid.min.css" >
+<link rel="stylesheet" href="../../css/flexboxgrid.css" >
+<link rel="stylesheet" href="../../css/animate.css">
+<link rel="stylesheet" href="../../css/animate.min.css">
 <link rel="stylesheet" href="../../css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="../../css/select2.min.css">
 

@@ -214,11 +214,11 @@ public class CrudUserSERVLET extends HttpServlet {
                                 out.println("<table class='table table-responsive-sm table-light'>");
                                     out.println("<tr>\n" +
                                                     "<th><label>Nombre:</label></th>\n" +
-                                                    "<td><input type='text' class='form-control' name='name' value='"+result.getString(2)+"' minlength='3' maxlength='25' pattern='[A-Za-z ]{3,25}'></td>\n" +
+                                                    "<td><input type='text' class='form-control' name='name' value='"+result.getString(2)+"' minlength='3' maxlength='25' pattern='[A-Za-zñ ]{3,25}'></td>\n" +
                                                 "</tr>");
                                     out.println("<tr>\n" +
                                                     "<th><label>Apellido:</label></th>\n" +
-                                                    "<td><input type='text' class='form-control' name='lname' value='"+result.getString(3)+"' minlength='3' maxlength='25' pattern='[A-Za-z ]{3,25}'></td>\n" +
+                                                    "<td><input type='text' class='form-control' name='lname' value='"+result.getString(3)+"' minlength='3' maxlength='25' pattern='[A-Za-zñ ]{3,25}'></td>\n" +
                                                 "</tr>");
                                 
                                     out.println("<tr>\n"+

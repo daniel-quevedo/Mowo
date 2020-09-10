@@ -7,12 +7,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="sidebar">
-    <h2 class="sticky-top"><a href="index.jsp" title="inicio">Administrador</a></h2>    
+    <h3 class="sticky-top"><a href="index.jsp" title="inicio"><img src="../../img/logo-mowo-solo.png" width="60px" height="60px">Administrador</a></h3>
     <div class="perfil">
         <h5 class="text-center pt-4"><%=session.getAttribute("nameUser")%></h5>
         <h6 class="text-center"><%=session.getAttribute("email")%></h6>
     </div>
-        <a href="perfil.jsp" title="Ver Perfil"><img src="../../img/avatar.png" ></a>
+        <a href="perfil.jsp" title="Ver Perfil"><img src="../../img/avatar.jpg" ></a>
     <div class="logo">
         <a href="../../LoginSERVLET?logout=1" title="Salir"><img src="../../img/salir.png" alt="Salir" ></a>
     </div>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : ValidateAssocSubject
     Created on : 17/08/2020, 03:31:41 PM
-    Author     : Leonardo
+    Author     : Daniel
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

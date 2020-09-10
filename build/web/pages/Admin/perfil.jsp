@@ -49,10 +49,8 @@
                 </section>
                 <section>
                     <div class="contenido">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">                            
-                        </div>
-                        <div class="contenedor animated zoomIn col-9">
+                        <jsp:include page="../../layout/line-top.jsp"></jsp:include>
+                        <div class="contenedor col-9">
                             <h5>Mi perfil</h5>
                             <%                                                                                
                             if (dataUser.next()) {
@@ -63,7 +61,7 @@
                                 out.print("<td><input type='text' class='form-control' value='" + dataUser.getString(1) + "' disabled></td>");
                                 out.print("<td><label>N° de documento:</label></td>");
                                 out.print("<td><input type='text' class='form-control' value='" + dataUser.getLong(2) + "' disabled></td>");
-                                out.print("<td rowspan='3'><img src='../../img/avatar.png' type='file'></td>");
+                                out.print("<td rowspan='3'><img src='../../img/avatar.jpg' type='file'></td>");
                                 out.print("</tr>");
                                 out.print("<tr>");
                                 out.print("<td><label>Correo:</label></td>");
@@ -71,7 +69,7 @@
                                 out.print("</tr>");
                             out.print("</table>");
 
-                            out.print("<table class='table backg table-borderless table-responsive-sm col-12 mt-2'>");
+                            out.print("<table class='table backg table-borderless  col-12 mt-2'>");
                                 out.print("<tr><td colspam='2'></td><td></td></tr>");
                                     
                                             
@@ -98,11 +96,11 @@
                                             out.print("</tr>");
                                             out.print("<tr>");
                                             out.print("<th>Tipo de usuario:<input type='text' class='form-control text-center' value='" + typeUs + "' disabled></th>");
-                                            out.print("<th>Telefono:<input type='text' class='form-control text-center' value='" + dataUser.getLong(5) + "' disabled></th>");
+                                            out.print("<th>Teléfono:<input type='text' class='form-control text-center' value='" + dataUser.getLong(5) + "' disabled></th>");
 
                                             out.print("</tr>");
                                             out.print("</tr>");
-                                            out.print("<th>Direccion:<input type='text' class='form-control text-center' value='" + dataUser.getString(7) + "' disabled></th>");
+                                            out.print("<th>Dirección:<input type='text' class='form-control text-center' value='" + dataUser.getString(7) + "' disabled></th>");
                                             out.print("<th>Fecha de Nacimiento:<input type='text' class='form-control text-center' value='" + dataUser.getString(8) + "' disabled></th>");
                                             out.print("</tr>");
                                         }

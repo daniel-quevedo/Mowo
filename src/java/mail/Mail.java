@@ -18,7 +18,7 @@ import javax.mail.internet.MimeMessage;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class Mail {
     
@@ -47,7 +47,7 @@ public class Mail {
         EncodeDecode encoDe = new EncodeDecode(this.mailRec);
 
         String mailEncode = encoDe.encode();
-        
+        String mowo_o = "http://localhost:8084/Mowo/pages/validUser/Validate.jsp?m41r=";
         //******************************
         
         
@@ -67,7 +67,7 @@ public class Mail {
             mail.setFrom(new InternetAddress (this.mailEmi));
             mail.addRecipient(Message.RecipientType.TO, new InternetAddress(this.mailRec));
             mail.setSubject(this.subject);
-            mail.setText("http://localhost:8084/Mowo/pages/validUser/Validate.jsp?m41r="+mailEncode+"");
+            mail.setText(mowo_o+mailEncode+"" , "UTF-8");
             
             Transport transport = session.getTransport("smtp");
             transport.connect(this.mailEmi, this.passEmi);

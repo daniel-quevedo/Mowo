@@ -7,7 +7,7 @@ package VOAdmin;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 public class ActivDeacVO {
     

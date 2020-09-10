@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 @WebServlet(name = "ActivDeacSERVLET", urlPatterns = {"/ActivDeacSERVLET"})
 public class ActivDeacSERVLET extends HttpServlet {

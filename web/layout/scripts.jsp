@@ -8,6 +8,8 @@
 <!DOCTYPE html>
 
 <script src="../../js/jquery.min.js"></script>
+<script src="../../js/popper.min.js"></script>
+<script src="../../js/popper.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/abrir.js" charset="utf-8"></script>
 <script src="../../js/desplegable.js" charset="utf-8"></script>
@@ -19,6 +21,6 @@
 <script src="../../js/feather.min.js" charset="utf-8"></script>
 <script src="../../js/feather.js" charset="utf-8"></script>
 <script>
-    feather.replace()
+    feather.replace();
 </script>
 

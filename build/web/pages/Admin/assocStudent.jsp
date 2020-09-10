@@ -1,7 +1,7 @@
 <%-- 
     Document   : asigStudent
     Created on : 9/08/2020, 04:39:44 PM
-    Author     : Leonardo
+    Author     : Daniel
 --%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="DAOAdmin.AssocStudentTutorDAO"%>
@@ -28,6 +28,7 @@
 <html>
     <head>
         <jsp:include page="../../layout/head.jsp"></jsp:include>
+        <meta charset="UTF-8">
             <title>Asignar Estudiantes</title>
         </head>
         <body>
@@ -38,17 +39,15 @@
                 </header>
                 <section>
                     <div class="contenido">
-                        <div class="line-top sticky-top">
-                            <img src="../../img/menu.png" alt="" class="menu-bar">
-                        </div>
-                        <div class="contenedor">
+                       <jsp:include page="../../layout/line-top.jsp"></jsp:include>
+                       <div class="contenedor">
                             <h5 class="mb-5 text-center">Asignar Estudiantes</h5>                                                                        
                             <form action="../../AssocStudentTutorSERVLET" method="POST">
 
                                 <div class="row text-center justify-content-center">
                                     <div class="col-8">                                    
                                         <label>Seleccione el acudiente</label>                                    
-                                        <select class="form-control mb-5" name="id_tutor">
+                                        <select class="form-control mb-5" name="id_tutor" autofocus required>
                                             <option value="#" selected>--SELECCIONE--</option>
                                         <%                                            while (resultParents.next()) {
                                                 out.println("<option value='" + resultParents.getInt(2) + "'>" + resultParents.getString(1) + "</option>");
