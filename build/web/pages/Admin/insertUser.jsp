@@ -83,8 +83,8 @@ int maxyear = an - 58;
                                     </tr>
                                     <tr>
                                         <th colspan="2">
-                                            <button type="submit" name="save" class="btn btn-success">Guardar</button>
-                                            <button class="btn btn-danger" type="reset">Cancelar</button>
+                                            <button type="submit" name="save" class="btn btn-info">Guardar</button>
+                                            <button class="btn btn-secondary" type="reset">Cancelar</button>                                            
                                         </th>
                                     </tr>
                                     <tr><td colspam="2"></td><td></td></tr>

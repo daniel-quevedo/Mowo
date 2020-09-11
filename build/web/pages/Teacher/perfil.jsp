@@ -50,18 +50,18 @@
                 <section>
                     <div class="contenido">
                         <jsp:include page="../../layout/line-top.jsp"></jsp:include>
-                        <div class="contenedor col-9 mt-4">
+                        <div class="contenedor mt-4">
                             <h5 class="mb-4">Mi perfil</h5>
                             <%                                                                                
                             if (dataUser.next()) {
                                 
-                            out.print("<table class='table table-dark col-12'>");
+                            out.print("<table class='table table-responsive-lg table-dark col-12'>");
                                 out.print("<tr>");
                                 out.print("<td><label>Tipo de documento:</label></td>");
                                 out.print("<td><input type='text' class='form-control' value='" + dataUser.getString(1) + "' disabled></td>");
                                 out.print("<td><label>N° de documento:</label></td>");
                                 out.print("<td><input type='text' class='form-control' value='" + dataUser.getLong(2) + "' disabled></td>");
-                                out.print("<td rowspan='3'><img src='../../img/avatar.png' type='file'></td>");
+                                out.print("<td rowspan='3'><img src='../../img/avatar.png' title='EDITAR'></td>");
                                 out.print("</tr>");
                                 out.print("<tr>");
                                 out.print("<td><label>Correo:</label></td>");
@@ -69,7 +69,7 @@
                                 out.print("</tr>");
                             out.print("</table>");
 
-                            out.print("<table class='table backg table-borderless table-responsive-sm col-12 mt-2'>");
+                            out.print("<table class='table backg table-borderless col-12 mt-2'>");
                                 out.print("<tr><td colspam='2'></td><td></td></tr>");
                                     
                                             

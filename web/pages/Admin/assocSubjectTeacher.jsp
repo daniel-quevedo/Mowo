@@ -53,8 +53,8 @@
                                 <input type="hidden" name="opt" value="A">  
                                 <input type="hidden" name="option" value="1">
                                 <input type="hidden" name="idCourse" value="0">
-                                <div class="row text-center justify-content-center">
-                                    <div class="col-md-4 col-8">
+                                <div class="row  justify-content-center">
+                                    <div>
                                         <label> Seleccion un docente </label>
                                         <select class="form-control" id="idTeacher" name="idTeacher" required>
                                             <option value="#" selected>--SELECCIONE--</option>
@@ -64,14 +64,11 @@
                                         %>
                                     </select> 
                                 </div>
-                            </div>
-                            <br>
-
-                            <div class="row mb-3">
-                                <div class="t-fixed col-lg-5 col-sm-6 col-xs-12">
-
-                                    <table class=" table table-borderless table-responsive-sm backg" id="dataSubject">
-                                        <thead class="text-center">
+                            </div>                            
+                            <div>
+                                <div class="t-fixed col-lg-11 col-12">
+                                    <table class=" table table-borderless  backg" id="dataSubject">
+                                        <thead>
                                             <tr>
                                                 <th><i data-feather="check"></i></th>
                                                 <th>Nombre</th>
@@ -93,13 +90,12 @@
                                                 asSubjectDAO.closeConnection();
                                             %>
                                         </tbody>
-
                                     </table>
+                                    <div class="table mt-3 pb-5">                                    
+                                        <button type="submit" name="send" id="send" class="btn btn-info"> Aceptar </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3 justify-content-center">
-                                <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
-                            </div>           
+                            </div>                                   
                         </form>
                     </div>
                 </div>

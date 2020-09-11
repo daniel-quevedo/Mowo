@@ -20,11 +20,11 @@ $('.menu-bar').on('click', function() {
   if ($('.btn-group').hasClass('remove')) {
     $('.btn-group').removeClass('remove');
     $('.btn-group').addClass('his');
-    $('.btn-group >a').hide();
-  } else {    
+    $('.btn-group').hide();
+  }else {    
     $('.btn-group').removeClass('his');        
     $('.btn-group').addClass('remove');
-    $('.btn-group >a').show();
+    $('.btn-group').show();
   }
 });
 

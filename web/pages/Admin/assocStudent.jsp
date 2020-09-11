@@ -28,7 +28,7 @@
 <html>
     <head>
         <jsp:include page="../../layout/head.jsp"></jsp:include>
-        <meta charset="UTF-8">
+            <meta charset="UTF-8">
             <title>Asignar Estudiantes</title>
         </head>
         <body>
@@ -39,15 +39,14 @@
                 </header>
                 <section>
                     <div class="contenido">
-                       <jsp:include page="../../layout/line-top.jsp"></jsp:include>
-                       <div class="contenedor">
+                    <jsp:include page="../../layout/line-top.jsp"></jsp:include>
+                        <div class="contenedor">
                             <h5 class="mb-5 text-center">Asignar Estudiantes</h5>                                                                        
                             <form action="../../AssocStudentTutorSERVLET" method="POST">
-
-                                <div class="row text-center justify-content-center">
-                                    <div class="col-8">                                    
+                                <div class="row justify-content-center">
+                                    <div class="">                                    
                                         <label>Seleccione el acudiente</label>                                    
-                                        <select class="form-control mb-5" name="id_tutor" autofocus required>
+                                        <select class="form-control" name="id_tutor" id="id_tutor" autofocus required>
                                             <option value="#" selected>--SELECCIONE--</option>
                                         <%                                            while (resultParents.next()) {
                                                 out.println("<option value='" + resultParents.getInt(2) + "'>" + resultParents.getString(1) + "</option>");
@@ -56,8 +55,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
+                            <div>
+                                <div class="t-fixed col-lg-11 col-12">
                                     <table class="table table-borderless backg">
                                         <thead>
                                             <tr>
@@ -84,12 +83,12 @@
                                                 astDAO.closeConnection();
                                             %>  
                                         </tbody>
-                                    </table>                                        
+                                    </table>
+                                    <div class="table mt-3 pb-5">                                    
+                                        <button type="submit" name="send" id="send" class="btn btn-info"> Aceptar </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3 justify-content-center">
-                                <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
-                            </div>
+                            </div>                            
                         </form>
                     </div>
                 </div>
@@ -104,7 +103,7 @@
         <script>
 
             $(document).ready(function () {
-                $('#idCourse').select2();
+                $('#id_tutor').select2();
             });
 
         </script>

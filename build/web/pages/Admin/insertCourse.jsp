@@ -29,7 +29,7 @@
                             <h5 class="text-center mb-4">Insertar Cursos</h5>
                             <form action="../../CrudCourseSERVLET" method="POST">
                                 <input type="hidden" name="option" value="1">
-                                <table class="table backg table-borderless col-md-6 col-12 mt-2">
+                                <table class="table backg table-borderless col-lg-11 col-12 mt-2">
                                     <thead>
                                         <tr>
                                             <th>Jornada:</th>
@@ -42,8 +42,9 @@
                                             <td><input type="number" class="form-control" name="code" id="code" value="" min="101" max="1109" pattern="[0-9]" placeholder="ej. 902" required></td>
                                         </tr>                                                                
                                     <th colspan="2">
-                                        <button type="submit" name="save" class="btn btn-success">Guardar</button>
-                                        <button class="btn btn-danger" type="reset">Cancelar</button>
+                                        <button type="submit" name="save" class="btn btn-info">Guardar</button> 
+                                        <button class="btn btn-secondary" type="reset">Cancelar</button>
+                                                                               
                                     </th>
                                     </tbody>
                                 </table>
