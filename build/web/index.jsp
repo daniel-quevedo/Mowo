@@ -30,13 +30,13 @@
                     <div class="form-group">
                         <img src="./img/user.png">
                         <label>Nombre:</label><br>
-                        <input type="text" name="user" class="form-control" autofocus placeholder="Nombre de usuario" required pattern="[A-Za-0-9z.@]{2,30}" >
+                        <input type="text" name="user" class="form-control" autofocus placeholder="Nombre de usuario" maxlength="35" required pattern="[A-Za-0-9z.@]{2,30}" >
                     </div>
                     <div class="form-group">
                         <img src="./img/lock.png">
 
-                        <label>Contraseña: <img src="./img/eye.png" id="show"></label><br> 
-                        <input type="password" name="passUsu" id="pass" class="form-control" placeholder="Contraseña" required pattern="(?=.*\d)(?=.*[A-Z]).{8,}" title="
+                        <label>Contraseña: <img src="./img/eyeoff.png" id="show"></label><br> 
+                        <input type="password" name="passUsu" id="pass" class="form-control" placeholder="Contraseña" maxlength="25"  required pattern="(?=.*\d)(?=.*[A-Z]).{8,}" title="
                                Debe contener al menos un número, una letra mayúscula y al menos 8 o más caracteres">
                     </div>
                     <div class="text-center">

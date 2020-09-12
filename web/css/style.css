@@ -344,7 +344,7 @@ td img{
     right: 0;
     width: calc(100% - 75px);
     height:100%;
-    padding: 40px;
+    padding: 30px;    
     justify-content: center;
     align-items: center;
 }

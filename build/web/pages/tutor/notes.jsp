@@ -43,11 +43,11 @@
                                 </nav>
                             </section>
                             <section>
-                                <h5>Calificaciones</h5><br>
+                                <h5 class="text-center mt-3">Calificaciones</h5><br>
                                 <input type="hidden" value="<%=id_student%>" id="codUser">
                             <div class="t-fixed col-lg-10 col-sm-12 col-12">
                                 <table class="table table-borderless backg table-responsive-sm" id="tableNotesStu">
-                                    <thead class="thead-dark">
+                                    <thead>
                                         <tr>
                                             <th colspan="8" scope="col">Primer Periodo</th>
                                         </tr>
