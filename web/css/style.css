@@ -101,7 +101,7 @@ body{
     font-size: 1.1em;
 }
 
-.active{
+.actives{
     background: #00697F;
 }
 .index{
@@ -120,6 +120,7 @@ body{
 }
 .navbar-nav .nav-link.active{
     color: white;
+     background: #00697F;
 }
 
 
@@ -296,4 +297,12 @@ td img{
 .btn-group .dropdown-item:hover{
     color:white;    
     background: #00697F;
+}
+
+.contenido .contenedor ul li a{
+    color:black;
+}
+.contenido .contenedor ul li .active{
+    background: #00697F;
+    color: #FFFFFF;
 }

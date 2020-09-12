@@ -4,13 +4,13 @@ $(document).ready(function(){
                
     });
    $('.submenu li:has(ul)').click(function(){
-        if ($(this).hasClass('active')) {
-            $(this).removeClass('active');
+        if ($(this).hasClass('actives')) {
+            $(this).removeClass('actives');
             $(this).children('ul').slideUp();
         }else {
             $('.submenu >li >ul').slideUp();
-            $('.submenu >li').removeClass('active');
-            $(this).addClass('active');
+            $('.submenu >li').removeClass('actives');
+            $(this).addClass('actives');
             $(this).children('ul').slideDown();
         }
    });

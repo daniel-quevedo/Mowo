@@ -5,18 +5,10 @@
  */
 package DAOAdmin;
 
-import DAO.LoginDAO;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import mail.Mail;
 import util.ClassConnection;
 
 /**
@@ -28,8 +20,6 @@ public class FileUsersDAO extends ClassConnection {
     private Connection conn;
     private PreparedStatement pstm;
     private ResultSet res;
-
-    private boolean returnRes = false;
     
     
     public FileUsersDAO() {
@@ -39,8 +29,6 @@ public class FileUsersDAO extends ClassConnection {
     }
 
     public ResultSet insertUsers(String pathFile, int option) {
-
-        returnRes = false;
 
         String sql = "SELECT mowo.f_usuarios_masivos(?,?)";
 

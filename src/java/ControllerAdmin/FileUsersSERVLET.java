@@ -153,7 +153,7 @@ public class FileUsersSERVLET extends HttpServlet {
                 Logger.getLogger(FileUsersSERVLET.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            response.sendRedirect("pages\\Admin\\prueba_masivos.jsp?records="+records);
+            response.sendRedirect("pages\\Admin\\insertUser.jsp?records="+records);
             
         }
     }
