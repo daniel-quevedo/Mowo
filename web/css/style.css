@@ -94,7 +94,7 @@
     font-size: 1.1em;
 }
 
-.active{
+.actives{
     background: #00697F;
 }
 
@@ -103,6 +103,7 @@
 }
 .navbar-nav .nav-link.active{
     color: white;
+     background: #00697F;
 }
 
 
@@ -275,7 +276,6 @@ td img{
     color:white;    
     background: #00697F;
 }
-
 .index{
     position: relative;
     width: 800px;

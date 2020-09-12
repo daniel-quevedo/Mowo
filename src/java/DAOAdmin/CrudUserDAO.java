@@ -91,7 +91,6 @@ public class CrudUserDAO extends ClassConnection{
             this.pstm.setInt(10, this.active);
             
             
-            System.out.println(this.pstm);
             
             this.res = this.pstm.executeQuery();
             
