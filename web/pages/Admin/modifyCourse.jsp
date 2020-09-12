@@ -40,7 +40,7 @@
                             <form action="../../ActivDeacSERVLET" id="addCourse" method="POST">                                
                                 <input type="hidden" value="" name="opt" id="opt">
                                 <input type="hidden" value="" name="cod" id="cod">
-                                <div class="t-fixed col-lg-6 col-sm-8 col-12">
+                                <div class="t-fixed col-lg-11 col-12">
                                     <table class="table backg table-borderless col-12 mt-2">
                                         <thead class="text-center">
                                             <tr>
@@ -69,7 +69,7 @@
                                                 out.println("<td>" + state + "</td>");
                                                 out.println("<td>" + resulCourse.getString(3) + "</td>");
                                                 out.println("<td>" + resulCourse.getInt(4) + "</td>");
-                                                out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalCourse(" + resulCourse.getInt(1) + ")'><button type='button' class='btn btn-primary'>Editar</button></a></td></td>");
+                                                out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalCourse(" + resulCourse.getInt(1) + ")'><button type='button' class='btn btn-info'>Editar</button></a></td>");
                                                 out.println("<td>" + button + "</td>");
                                                 out.println("</tr>");
                                             }

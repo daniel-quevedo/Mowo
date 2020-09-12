@@ -12,7 +12,8 @@
 <!--*****************************************************************************************-->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%    Calendar calendario = Calendar.getInstance();
+<%   
+    Calendar calendario = Calendar.getInstance();
     int an = calendario.get(Calendar.YEAR);
     int minyear = an - 6;
     int maxyear = an - 58;
@@ -112,14 +113,13 @@
 
                                 </form>
                             </div>
+                           
                         </div>
                     </div>
                 </div>
             </section>
         </main>
-
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
-
             <script>
 
                 $("#file").change(function(){

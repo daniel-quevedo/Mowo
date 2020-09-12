@@ -51,8 +51,8 @@
                             <form action="../../AssocCourseSERVLET" method="POST">
                                 <input type="hidden" name="opt" value="B">  
                                 <input type="hidden" name="option" value="1">
-                                <div class="row text-center justify-content-center">
-                                    <div class="col-8">
+                                <div class="row justify-content-center">
+                                    <div>
 
                                         <label> Seleccion un curso </label>
                                         <select class="form-control" id="idCourse" name="idCourse" autofocus required>
@@ -66,16 +66,12 @@
                                     </select> 
 
                                 </div>
-                            </div>
-
-                            <br>
-
-                            <div class="row">
-
-                                <div class="t-fixed col-lg-8 col-sm-10 col-12">
+                            </div>                            
+                            <div>
+                                <div class="t-fixed col-lg-11 col-12">
 
                                     <table class="table table-borderless backg" id="dataUser">
-                                        <thead class="text-center">
+                                        <thead>
                                             <tr>
                                                 <th><i data-feather="check"></i></th>
                                                 <th>Nombre</th>
@@ -103,13 +99,12 @@
                                                 TuStu.closeConnection();
                                             %>
                                         </tbody>
-
                                     </table>
+                                    <div class="table mt-3 pb-5">                                    
+                                        <button type="submit" name="send" id="send" class="btn btn-info"> Aceptar </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3 justify-content-center">
-                                <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
-                            </div>
+                            </div>                            
                         </form>
                     </div>
                 </div>

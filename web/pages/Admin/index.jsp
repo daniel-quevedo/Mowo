@@ -27,17 +27,57 @@
                     <jsp:include page="../../layout/line-top.jsp"></jsp:include>                   
                         <div class="contenedor">
                             <div class="index">
-                                <img src="../../img/logo-mowo-lateral.png" >                        
-                                <h1 class=" ml-1 mt-3"> Bienvenido/a </h1>                        
-                                <h3 class="mt-3"><%=session.getAttribute("nameUser")%></h3>   
+                                <div class="card">
+                                    <div class="imgBx">
+                                        <img src="../../img/InsUs.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <div>
+                                            <h3>Insertar Usuarios</h3>                                            
+                                            <a href="insertUser.jsp">Ir al sitio</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="imgBx">
+                                        <img src="../../img/InsCou.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <div>
+                                            <h3>Insertar Cursos</h3>                                            
+                                            <a href="insertCourse.jsp">Ir al sitio</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="imgBx">
+                                        <img src="../../img/AsoPro.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <div>
+                                            <h3>Asignar curso a un Profesor</h3>                                            
+                                            <a href="assocCourseTeacher.jsp">Ir al sitio</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="imgBx">
+                                        <img src="../../img/AsoEst.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <div>
+                                            <h3>Asignar curso a un Estudiante</h3>
+                                            <a href="assocCourseStu.jsp">Ir al sitio</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
                         </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+                </section>
+            </main>
 
         <jsp:include page="../../layout/scripts.jsp"></jsp:include>
-        
+
     </body>
 </html>
 

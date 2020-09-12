@@ -156,7 +156,7 @@ public class OtherSERVLET extends HttpServlet {
                     
                     DStu.closeConnection();
                     
-                    out.println("<table class='table table-hover table-borderless backg table-responsive-sm'>");
+                    out.println("<table class='table table-hover table-borderless backg '>");
                         out.println("<thead'>");
                             out.println("<tr>");
                             

@@ -37,23 +37,27 @@
                         <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor">
                             <section>
-                                <div class="row center-xs">
-                                <%                        ShowEstutorDAO shwetDAO = new ShowEstutorDAO();
+                                <div class="index">
+                                <%                        
+                                    ShowEstutorDAO shwetDAO = new ShowEstutorDAO();
                                     ResultSet result = shwetDAO.listUser(id_tutor);
 
                                     shwetDAO.closeConnection();
 
                                     while (result.next()) {
 
-                                        out.println("<div class='col-xs-12 col-md-6 col-lg-5'>\n"
-                                                + "<a href='notes.jsp?src=" + result.getInt(1) + "'>\n"
-                                                + "<div class='target'>\n"
-                                                + "<img src='../../img/avatar.png' alt='Foto de Perfil'>\n"
-                                                + "<h4>" + result.getString(3) + "</h4>\n"
-                                                + "<p>CC: " + result.getLong(2) + "</p>\n"
+                                        out.println("<div class='card '>\n"
+                                                + "<div class='imgBx'>\n"
+                                                + "<img src='../../img/InsUs.png'>\n"
                                                 + "</div>\n"
-                                                + "</a>\n"
-                                                + "</div> "
+                                                + "<div class='content'>\n"
+                                                + "<div>\n"                                                  
+                                                + "<h3>" + result.getString(3) + "</h3>\n"
+                                                + "<p>CC: " + result.getLong(2) + "</p>\n"     
+                                                + "<a href='notes.jsp?src=" + result.getInt(1) + "'>Ver Notas</a>\n"                                                
+                                                + "</div>\n"
+                                                + "</div>\n"
+                                                + "</div>\n"
                                         );
 
                                     }

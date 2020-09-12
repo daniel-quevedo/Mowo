@@ -184,7 +184,7 @@ public class CrudUserSERVLET extends HttpServlet {
                                     out.println("<td>"+result.getString(8)+"</td>");
                                     out.println("<td>"+result.getString(9)+"</td>");
                                     out.println("<td>"+result.getString(10)+"</td>");
-                                    out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalUser("+result.getInt(5)+")'><button type='button' class='btn btn-primary'>Editar</button></a></td>");                                    
+                                    out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalUser("+result.getInt(5)+")'><button type='button' class='btn btn-info'>Editar</button></a></td>");                                    
                                     out.println("<td>"+button+"</td>");
                                     out.println("<td></td>");
                                 out.println("</tr>");

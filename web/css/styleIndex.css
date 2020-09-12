@@ -85,3 +85,9 @@ body {
     text-align: left;
     float: left;
 }
+
+@media (max-width: 992px){    
+    .form-group label >img{
+        left: 240px;
+    }
+}

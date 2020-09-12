@@ -41,19 +41,17 @@
                 <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
                 </header>
                 <section>
-
                     <div class="contenido ">
                         <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor ">
-                            <h5 class="mb-4 text-center">Asignar Cursos a Estudiantes</h5>
-                            <br>
+                            <h5 class="mb-4 text-center">Asignar Cursos a Estudiantes</h5>                           
                             <form action="../../AssocCourseSERVLET" method="POST">
                                 <input type="hidden" name="opt" value="A">  
                                 <input type="hidden" name="option" value="1">
-                                <div class="row text-center justify-content-center">
-                                    <div class="col-8">
-                                        <label> Seleccion un curso </label>
-                                        <select class="form-control mb-3" name="idCourse" id="idCourse" autofocus required>
+                                <div class="row justify-content-center">
+                                    <div>
+                                        <label>Seleccione un curso </label>
+                                        <select class="form-control" name="idCourse" id="idCourse" autofocus required>
                                             <option value="#" selected>--SELECCIONE--</option> 
                                         <%                                            while (resCourse.next()) {
                                                 out.println("<option value='" + resCourse.getInt(1) + "'>" + resCourse.getString(2) + "</option>");
@@ -62,16 +60,11 @@
                                     </select> 
 
                                 </div>
-                            </div>
-
-                            <br>
-
-                            <div class="row mb-3">
-
-                                <div class="t-fixed col-lg-8 col-sm-10 col-xs-12">
-
+                            </div>                            
+                            <div>
+                                <div class="t-fixed col-lg-11 col-12">
                                     <table class="table table-borderless backg">
-                                        <thead class="text-center">
+                                        <thead>
                                             <tr>
                                                 <th><i data-feather="check"></i></th>
                                                 <th>Nombre</th>
@@ -99,12 +92,11 @@
                                                 DocEst.closeConnection();
                                             %>
                                         </tbody>
-
                                     </table>
+                                    <div class="table mt-3 pb-5">                                    
+                                        <button type="submit" name="send" id="send" class="btn btn-info"> Aceptar </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mb-3 justify-content-center">
-                                <button type="submit" name="send" id="send" class="btn btn-success"> Aceptar </button>
                             </div>
                         </form>
                     </div>

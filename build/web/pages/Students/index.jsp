@@ -22,12 +22,7 @@
                 <section>
                     <div class="contenido ">
                         <jsp:include page="../../layout/line-top.jsp"></jsp:include>
-                        <div class="contenedor">
-                            <div class="index">
-                                <img src="../../img/logo-mowo-lateral.png" >                        
-                                <h1 class=" ml-1 mt-3"> Bienvenido/a </h1>                        
-                                <h3 class="mt-3"><%=session.getAttribute("nameUser")%></h3>   
-                        </div>
+                        <div class="contenedor">                          
                     </div>
                 </div>
             </section>
