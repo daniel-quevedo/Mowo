@@ -27,8 +27,8 @@
                     <div class="contenido">
                         <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor mt-4">
-                            <h5 class="mb-4 ml-5">Modificar Usuarios</h5>
-                            <div class=" backg p-3 col-lg-11">
+                            <div class=" backg col-lg-12 col-md-10 mb-2 pb-2">
+                            <h3 class="mb-5 pt-3 text-dark">Modificar Usuarios</h3>
                                 <form action="../../ActivDeacSERVLET" method="POST" id="adUser">
                                     <input type="hidden" value="" name="opt" id="opt">
                                     <input type="hidden" value="" name="cod" id="cod">

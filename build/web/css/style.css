@@ -153,14 +153,25 @@
     justify-content: center;
     align-items: center;
     min-height:100vh;
-    transition-duration: .5s;
+    transition-duration: .5s;    
 }
 .contenedor h2{
     text-align: center;
 }
 
-.contenedor nav{
-    margin-left: 20%;
+.contenedor .nav li a{    
+    color: black;
+}
+
+.contenedor .nav li .active{
+    background: #00697F;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.contenedor .navbar .navbar-nav,.contenedor .navbar .navbar-toggler{
+    margin-left: 25%;
 }
 
 .table{    
@@ -173,12 +184,6 @@
     margin: 0 2px;
 }
 
-.t-fixed{
-    margin: auto auto;
-    height: auto;
-    overflow-y: auto;
-}
-
 tr td  a{
     color:black;
 }
@@ -186,14 +191,7 @@ tr td >a:hover {
     display: block;
     text-decoration: none;
     color: black;
-    box-shadow: 2px 2px 2px -1px #5AB1CF;
-}
-
-
-td button  {
-    margin: 0px 5px;
-    float: right;
-
+    box-shadow: -2px 2px 2px -1px #5AB1CF;
 }
 
 h2 img{
@@ -207,6 +205,12 @@ h2 img{
     color: white;
     margin: auto;
     box-shadow: 4px 5px 14px -7px black;
+}
+
+.t-fixed{    
+    margin: auto auto;
+    height: auto;
+    overflow-y: auto;        
 }
 
 .prl{
@@ -293,6 +297,7 @@ td img{
     display:flex;
     width: 40%;
     margin: 30px 0;
+    border-radius: 10px;
 }
 .index .card .imgBx{
     position: absolute;
@@ -307,6 +312,7 @@ td img{
     align-items: center;
     overflow: hidden;
     transition: 0.5s ease-in-out;
+    border-radius: 10px;
 }
 
 .index .card:hover .imgBx{

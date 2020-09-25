@@ -27,7 +27,7 @@ import mail.MailMassives;
 
 /**
  *
- * @author Leonardo
+ * @author Daniel
  */
 @WebServlet(name = "FileUsersSERVLET", urlPatterns = {"/FileUsersSERVLET"})
 @MultipartConfig
@@ -87,7 +87,7 @@ public class FileUsersSERVLET extends HttpServlet {
                 String name = request.getParameter("nameFile");
                 Part file = request.getPart("file");
                 
-                String destiPath = "D:\\1programas\\netbeans\\NetbeansProyects\\Mowo\\web\\files\\"+name;
+                String destiPath = "C:\\Users\\Daniel\\Documents\\PROYECTO\\Actualizado\\Mowo_o\\web\\files\\"+name;
                 
                 
                 InputStream inputS = file.getInputStream();
@@ -143,7 +143,7 @@ public class FileUsersSERVLET extends HttpServlet {
                 
             } catch (FileNotFoundException  e) {
             
-                System.err.println("Error -> " + e.getMessage());;
+                System.err.println("Error -> " + e.getMessage());
                 
             } catch (IOException e) {
                 

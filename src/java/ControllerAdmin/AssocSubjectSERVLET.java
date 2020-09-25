@@ -144,9 +144,9 @@ public class AssocSubjectSERVLET extends HttpServlet {
                         
                         asSubjectDAO.closeConnection();
                         
-                        out.println("<thead class=\"text-center\">\n" +
+                        out.println("<thead>\n" +
                                         "<tr>\n" +
-                                            "<th></th>\n" +
+                                            "<th><i data-feather=\"check\"></i></th>\n" +
                                             "<th>Nombre</th>\n" +
                                             "<th>Salon</th>\n" +
                                         "</tr>\n" +
@@ -165,14 +165,10 @@ public class AssocSubjectSERVLET extends HttpServlet {
                         }
                         
                         out.println("</tbody>");
-                        
-                        
+                        out.println("<script src=\"../../js/feather.min.js\" charset=\"utf-8\"></script>\n" +
+                                    "<script> feather.replace(); </script>");       
                         break;
                 }
-                
-                
-                
-
             }catch(Exception ex){
 
                 out.println("ocurrio un error inesperado "+ ex);

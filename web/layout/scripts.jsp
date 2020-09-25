@@ -19,7 +19,6 @@
 <script src="../../js/listCourse.js" charset="utf-8"></script>
 <script src="../../js/select2.min.js" charset="utf-8"></script>
 <script src="../../js/feather.min.js" charset="utf-8"></script>
-<script src="../../js/feather.js" charset="utf-8"></script>
 <script>
     feather.replace();
 </script>

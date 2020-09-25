@@ -180,7 +180,7 @@ public class OtherSERVLET extends HttpServlet {
                                 out.println("<td>"+students.getDouble(4)+"</td>");
                                 out.println("<td>"+students.getDouble(5)+"</td>");
                                 out.println("<td>"+students.getDouble(6)+"</td>");
-                                out.println("<td>"+students.getDouble(7)+"</td>");
+                                out.println("<td>"+students.getFloat(7)+"</td>");
                             out.println("</tr>");
                         }
                         out.println("</tbody>");
@@ -224,8 +224,8 @@ public class OtherSERVLET extends HttpServlet {
                                         "<td><input class=\"form-control\" name=\"note4\" id=\"note4\" type=\"number\" min=\"1\" max=\"5\"pattern=\"[1-9]\" step=\"0.1\" value="+students2.getDouble(6)+" required></td>\n" +
                                     "</tr>\n" +
                                     "<tr>\n" +
-                                        "<td><button type=\"submit\" class=\"btn btn-success\" >Guardar</button></td>\n" +
-                                        "<td><button type=\"reset\" class=\"btn btn-danger\" data-dismiss=\"modal\" >Cerrar</button></td>\n" +
+                                        "<td><button type=\"reset\" class=\"btn btn-secondary\" data-dismiss=\"modal\" >Cerrar</button></td>\n" +
+                                        "<td><button type=\"submit\" class=\"btn btn-info\" >Guardar</button></td>\n" +                                        
                                     "</tr>\n" +
                                 "</table>"+
                                 "</div>");

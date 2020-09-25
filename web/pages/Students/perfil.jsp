@@ -59,7 +59,7 @@
                                 out.print("<td><input type='text' class='form-control text-center' value='" + dataUser.getString(1) + "' disabled></td>");
                                 out.print("<td><label>N° de documento:</label></td>");
                                 out.print("<td><input type='text' class='form-control text-center' value='" + dataUser.getLong(2) + "' disabled></td>");
-                                out.print("<td rowspan='3'><img src='../../img/avatar.png' type='file'></td>");
+                                out.print("<td rowspan='3'><img src='../../img/avatar.jpg' type='file'></td>");
                                 out.print("</tr>");
                                 out.print("<tr>");
                                 out.print("<td><label>Curso:</label></td>");

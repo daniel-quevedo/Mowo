@@ -100,8 +100,8 @@ public class CrudCourseSERVLET extends HttpServlet {
                         out.println("</tr>");
                         out.println("<tr>");
 
-                        out.println("<td><button class=\"btn btn-danger\" data-dismiss=\"modal\">Cerrar</button></td>\n"
-                                + "<td><button class=\"btn btn-success\">Guardar</button></td>");
+                        out.println("<td><button class=\"btn btn-secondary\" data-dismiss=\"modal\">Cerrar</button></td>\n"
+                                + "<td><button class=\"btn btn-info\">Guardar</button></td>");
 
                         out.println("</tr>");
                         out.println("</tbody>");

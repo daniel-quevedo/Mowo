@@ -35,48 +35,44 @@
 
                     <div class="contenido">
                         <jsp:include page="../../layout/line-top.jsp"></jsp:include>
-                        <div class="contenedor ">
-                            <h5 class="mb-4 text-center">Lista de Cursos</h5>
+                        <div class="contenedor ">                            
                             <form action="../../ActivDeacSERVLET" id="addCourse" method="POST">                                
                                 <input type="hidden" value="" name="opt" id="opt">
-                                <input type="hidden" value="" name="cod" id="cod">
-                                <div class="t-fixed col-lg-11 col-12">
-                                    <table class="table backg table-borderless col-12 mt-2">
-                                        <thead class="text-center">
-                                            <tr>
-                                                <th>Estado</th>
-                                                <th>Jornada</th>
-                                                <th>Código</th>
-                                                <th colspan="2" class="text-center">Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                <input type="hidden" value="" name="cod" id="cod">                                
+                                <table class="table backg table-borderless  mt-2 col-lg-12 col-md-10 col-12">
+                                    <thead>
+                                        <tr><th><h3>Lista de Cursos</h3></th></tr>
+                                        <tr>
+                                            <th>Estado</th>
+                                            <th>Jornada</th>
+                                            <th>Código</th>
+                                            <th class="text-right">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <%
+                                        while (resulCourse.next()) {
 
-                                        <%
-                                            while (resulCourse.next()) {
+                                            if (resulCourse.getInt(5) == 1) {
+                                                state = "Activo";
 
-                                                if (resulCourse.getInt(5) == 1) {
-                                                    state = "Activo";
+                                                button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-danger' onclick='addCourse(4," + resulCourse.getInt(1) + ")'> <i data-feather='user-minus'></i></button>";
 
-                                                    button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-danger' onclick='addCourse(4," + resulCourse.getInt(1) + ")'>Inactivar</button>";
+                                            } else {
+                                                state = "Inactivo";
 
-                                                } else {
-                                                    state = "Inactivo";
-
-                                                    button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-success' onclick='addCourse(3," + resulCourse.getInt(1) + ")'>Activar</button>";
-                                                }
-                                                out.println("<tr>");
-                                                out.println("<td>" + state + "</td>");
-                                                out.println("<td>" + resulCourse.getString(3) + "</td>");
-                                                out.println("<td>" + resulCourse.getInt(4) + "</td>");
-                                                out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalCourse(" + resulCourse.getInt(1) + ")'><button type='button' class='btn btn-info'>Editar</button></a></td>");
-                                                out.println("<td>" + button + "</td>");
-                                                out.println("</tr>");
+                                                button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-success' onclick='addCourse(3," + resulCourse.getInt(1) + ")'> <i data-feather='user-plus'></i></button>";
                                             }
-                                        %>
-                                    </tbody>
-                                </table>
-                            </div>
+                                            out.println("<tr>");
+                                            out.println("<td>" + state + "</td>");
+                                            out.println("<td>" + resulCourse.getString(3) + "</td>");
+                                            out.println("<td>" + resulCourse.getInt(4) + "</td>");
+                                            out.println("<td>"+button+" <a href='#ventana1' data-toggle='modal' onclick='modalCourse(" + resulCourse.getInt(1) + ")'><button type='button' class='btn btn-info'><i data-feather='edit-3'></i></button></a></td>");                                                
+                                            out.println("</tr>");                                            
+                                        }
+                                    %>
+                                </tbody>
+                            </table>                            
                         </form>
                     </div>
             </section>

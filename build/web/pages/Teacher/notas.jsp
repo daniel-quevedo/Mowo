@@ -32,7 +32,7 @@
                             <input type="hidden" value="<%=session.getAttribute("codUser")%>" name="cod" id="cod">
                             <input type="hidden" value="<%=session.getAttribute("idProfile")%>" name="idProfile" id="idProfile">
                             <div class="row text-center justify-content-center">
-                                <div class="col-lg-5 col-12 ">
+                                <div class="col-lg-5 col-md-10 col-12 ">
 
                                     <div id='Course'>
                                         <select class='form-control'>
@@ -43,7 +43,7 @@
 
                                 </div>
 
-                                <div class="col-lg-5 col-12">
+                                <div class="col-lg-5 col-md-10 col-12">
                                     <select  class="form-control" name="subjects" id="subjects" disabled onchange='students()'>
                                         <!-- Lista en la que se muestran las asignaturas -->
                                         <option>...Asignaturas...</option>
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="t-fixed table table-borderless col-lg-11 col-12 mt-5" id='notes'>
+                        <div class="t-fixed table table-borderless col-lg-12 col-md-10 col-12 mt-5" id='notes'>
                             <!-- Tabla en la que se muestran las notas -->
                         </div>                        
                     </div>

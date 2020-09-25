@@ -23,11 +23,11 @@
                         <jsp:include page="../../layout/line-top.jsp"></jsp:include>
                         <div class="contenedor">
                             <section >
-                                <nav class="navbar navbar-expand-sm  col-lg-7 col-sm-8 col-12">                                    
+                                <nav class="navbar navbar-expand-sm col-lg-12 col-md-10 col-12">                                    
                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                                        <span class="mr-5">Periodos<i data-feather="chevrons-down"></i></span>
                                     </button>
-                                    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                         <div class="navbar-nav p-0">
                                             <a class="nav-link active" href="#" id="period1" onClick="notes(1)">Primer Periodo</a>
                                             <a class="nav-link" href="#" id="period2" onClick="notes(2)">Segundo Periodo</a>
@@ -40,7 +40,7 @@
                             <section>
                                 <h5 class="mt-4 text-center">Calificaciones</h5><br>
                                 <input type="hidden" value="<%=session.getAttribute("codUser")%>" id="codUser">
-                            <div class="t-fixed col-lg-10 col-sm-10 col-12">
+                            <div class="t-fixed col-lg-12 col-md-10 col-12">
                                 <table class="table table-borderless backg table-responsive-sm" id="tableNotesStu">
                                     <thead>
                                         <tr>

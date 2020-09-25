@@ -54,7 +54,7 @@
                             </tr>
                             <tr>
                                 <th><label>Telefono:</label></th>
-                                <td><input type="number" class="form-control" name="" value="" minlength="7" maxlength="15" pattern="[0-9]{3,15}"></td>
+                                <td><input type="number" class="form-control" name="" value="" min="7" max="15" pattern="[0-9]{3,15}"></td>
                             </tr>
                             <tr>
                                 <th><label>Direccion:</label></th>
