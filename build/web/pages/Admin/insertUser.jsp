@@ -22,6 +22,7 @@
 <html>
     <head>
         <jsp:include page="../../layout/head.jsp"></jsp:include>
+<<<<<<< HEAD
         <title>Insertar Usuarios</title>
     </head>
     <body>
@@ -51,6 +52,36 @@
                                         <tr>
                                             <th>Nombre:
                                                 <input type="text" class="form-control" name="name" id="name" value="" minlength="3" maxlength="25" pattern="[A-Za-zñ ]{3,25}" autofocus required></th>
+=======
+            <title>Insertar Usuarios</title>
+        </head>
+        <body>
+            <main>
+                <header>
+                <jsp:include page="../../layout/sideBarAdm.jsp"></jsp:include>
+                </header>
+                <section>
+                    <div class="contenido">
+                    <jsp:include page="../../layout/line-top.jsp"></jsp:include>
+                        <div class="contenedor">
+                            <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="users-tab" data-toggle="tab" href="#users" role="tab" aria-controls="home" aria-selected="true"> <h5> Insertar usuarios </h5> </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><h5> Insertar usuarios masivos </h5></a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="home-tab">                                    
+                                    <form action="../../CrudUserSERVLET" method="POST" autocomplete="off">
+                                        <input type="hidden" name="option" value="2">
+                                        <table class="table backg table-borderless table-responsive-sm col-lg-12 col-md-10 mt-3">
+                                            <tr><td><h3>Insertar Usuarios</h3></td></tr>
+                                            <tr>
+                                                <th>Nombre:
+                                                    <input type="text" class="form-control" name="name" id="name" value="" minlength="3" maxlength="25" pattern="[A-Za-zñ ]{3,25}" autofocus required></th>
+>>>>>>> 0e31dd3c9085ea3a0852a008815ebb162857114f
 
                                             <th>Apellido:
                                                 <input type="text" class="form-control" name="lname" id="lname" value="" minlength="3" maxlength="25" pattern="[A-Za-zñ ]{3,25}" required></th>
@@ -94,25 +125,25 @@
                                         </tr>
                                         <tr>
                                             <th colspan="2">
-                                                <button type="submit" name="save" class="btn btn-success">Guardar</button>
-                                                <button class="btn btn-danger" type="reset">Cancelar</button>
+                                                <button type="submit" name="save" class="btn btn-info">Guardar</button>
+                                                <button class="btn btn-secondary mb-2" type="reset">Cancelar</button>
                                             </th>
-                                        </tr>   
-                                        <tr><td colspam="2"></td><td></td></tr>
+                                        </tr>                                           
                                     </table>
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="backg mt-3">
+                                    <h3 class="pt-3 mb-3 ml-3 text-dark">Insertar Usuarios Masivos</h3><br>                                
+                                    <form class="mb-4 ml-3" enctype="multipart/form-data" action="../../FileUsersSERVLET" method="POST" autocomplete="off">
 
-                                <h5 class="mb-4 ml-5">Insertar Usuarios Masivos</h5><br>
-                                <form class="mb-4 ml-5" enctype="multipart/form-data" action="../../FileUsersSERVLET" method="POST" autocomplete="off">
+                                        <label>Seleccione un archivo csv</label><br>
+                                        <input type="file" class="text-dark" name="file" id="file" accept=".csv">
+                                        <input type="hidden" name="nameFile" id="nameFile" value=""><br><br>
+                                        <button type="submit" class="btn btn-info mb-4"> Enviar </button>
 
-                                    <label>Seleccione un archivo csv</label><br>
-                                    <input type="file" name="file" id="file" accept=".csv">
-                                    <input type="hidden" name="nameFile" id="nameFile" value=""><br><br>
-                                    <button type="submit" class="btn btn-info"> Enviar </button>
-
-                                </form>
+                                    </form>
+                                </div>
                             </div>
 
                         </div>

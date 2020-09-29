@@ -14,9 +14,8 @@
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/sweetalert2.css">
 <link rel="stylesheet" href="../../css/flexboxgrid.min.css" >
-<link rel="stylesheet" href="../../css/flexboxgrid.css" >
-<link rel="stylesheet" href="../../css/animate.css">
 <link rel="stylesheet" href="../../css/animate.min.css">
 <link rel="stylesheet" href="../../css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="../../css/dataTables.css">
 <link rel="stylesheet" href="../../css/select2.min.css">
 

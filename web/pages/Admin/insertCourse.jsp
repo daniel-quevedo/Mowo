@@ -15,7 +15,7 @@
 <html>
     <head>
         <jsp:include page="../../layout/head.jsp"></jsp:include>
-            <title>Insertar Usuarios</title>
+            <title>Insertar Cursos</title>
         </head>
         <body>
             <main>
@@ -25,12 +25,12 @@
                 <section>
                     <div class="contenido">
                         <jsp:include page="../../layout/line-top.jsp"></jsp:include>
-                        <div class="contenedor">
-                            <h5 class="text-center mb-4">Insertar Cursos</h5>
+                        <div class="contenedor">                            
                             <form action="../../CrudCourseSERVLET" method="POST">
                                 <input type="hidden" name="option" value="1">
-                                <table class="table backg table-borderless col-lg-11 col-12 mt-2">
-                                    <thead>
+                                <table class="table backg table-borderless col-lg-12 col-md-10 col-12 mt-2">
+                                    <thead class="">
+                                        <tr><td colspam="2"><h3>Insertar Cursos</h3></td><td></td></tr>
                                         <tr>
                                             <th>Jornada:</th>
                                             <th>Código:</th>

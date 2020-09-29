@@ -47,7 +47,7 @@
                                     <div class="">                                    
                                         <label>Seleccione el acudiente</label>                                    
                                         <select class="form-control" name="id_tutor" id="id_tutor" autofocus required>
-                                            <option value="#" selected>--SELECCIONE--</option>
+                                            <option selected disabled>--SELECCIONE--</option>
                                         <%                                            while (resultParents.next()) {
                                                 out.println("<option value='" + resultParents.getInt(2) + "'>" + resultParents.getString(1) + "</option>");
                                             }
@@ -55,40 +55,36 @@
                                     </select>
                                 </div>
                             </div>
-                            <div>
-                                <div class="t-fixed col-lg-11 col-12">
-                                    <table class="table table-borderless backg">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col"><i data-feather="check"></i></th>
-                                                <th scope="col">Identificación</th>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Teléfono</th>
-                                                <th scope="col">Correo</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <%
-                                                while (resultStudents.next()) {
-                                                    out.println("<tr>");
-                                                    out.println("<td>\n"
-                                                            + "<input type='checkbox' name='students' value='" + resultStudents.getInt(1) + "'>\n"
-                                                            + "</td>");
-                                                    out.println("<td>" + resultStudents.getLong(2) + "</td>");
-                                                    out.println("<td>" + resultStudents.getString(3) + "</td>");
-                                                    out.println("<td>" + resultStudents.getLong(4) + "</td>");
-                                                    out.println("<td>" + resultStudents.getString(5) + "</td>");
-                                                    out.println("</tr>");
-                                                }
-                                                astDAO.closeConnection();
-                                            %>  
-                                        </tbody>
-                                    </table>
-                                    <div class="table mt-3 pb-5">                                    
-                                        <button type="submit" name="send" id="send" class="btn btn-info"> Aceptar </button>
-                                    </div>
-                                </div>
-                            </div>                            
+                            <table class="table table-borderless backg col-lg-12 col-md-10 col-12">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><i data-feather="check"></i></th>
+                                        <th scope="col">Identificación</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Teléfono</th>
+                                        <th scope="col">Correo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                        while (resultStudents.next()) {
+                                            out.println("<tr>");
+                                            out.println("<td>\n"
+                                                    + "<input type='checkbox' name='students' value='" + resultStudents.getInt(1) + "'>\n"
+                                                    + "</td>");
+                                            out.println("<td>" + resultStudents.getLong(2) + "</td>");
+                                            out.println("<td>" + resultStudents.getString(3) + "</td>");
+                                            out.println("<td>" + resultStudents.getLong(4) + "</td>");
+                                            out.println("<td>" + resultStudents.getString(5) + "</td>");
+                                            out.println("</tr>");
+                                        }
+                                        astDAO.closeConnection();
+                                    %>  
+                                </tbody>
+                            </table>
+                            <div class="table mt-3 pb-5">                                    
+                                <button type="submit" name="send" id="send" class="btn btn-info"> Aceptar </button>
+                            </div>                           
                         </form>
                     </div>
                 </div>

@@ -106,9 +106,9 @@ public class AssocCourseSERVLET extends HttpServlet {
                     
                     try{
                         
-                        out.println("<thead class=\"text-center\">\n" +
+                        out.println("<thead>\n" +
                                         "<tr>\n" +
-                                            "<th></th>\n" +
+                                            "<th><i data-feather=\"check\"></th>\n" +
                                             "<th>Nombre</th>\n" +
                                             "<th>Apellido</th>\n" +
                                             "<th>No Documento</th>\n" +
@@ -140,7 +140,8 @@ public class AssocCourseSERVLET extends HttpServlet {
                     }
                     
                     TuStu.closeConnection();
-                    
+                    out.println("<script src=\"../../js/feather.min.js\" charset=\"utf-8\"></script>\n" +
+                                    "<script> feather.replace(); </script>");
                     break;
                     
             }

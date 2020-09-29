@@ -7,10 +7,10 @@ show.addEventListener('click', viewpass);
 function viewpass(){
     if (pass.type === "password") {
         pass.type = 'text';
-        show.src = './img/eyeoff.png';
+        show.src = './img/eye.png';
     }else {
         pass.type = 'password';
-        show.src = './img/eye.png';
+        show.src = './img/eyeoff.png';
     }
 
 }

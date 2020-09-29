@@ -57,7 +57,7 @@
                                         <label> Seleccion un curso </label>
                                         <select class="form-control" id="idCourse" name="idCourse" autofocus required>
 
-                                            <option value="#" selected>--SELECCIONE--</option> 
+                                            <option selected disabled>--SELECCIONE--</option> 
                                         <%      
                                             while (resCourse.next()) {
                                                 out.println("<option value='" + resCourse.getInt(1) + "'>" + resCourse.getString(2) + "</option>");
@@ -66,45 +66,40 @@
                                     </select> 
 
                                 </div>
-                            </div>                            
-                            <div>
-                                <div class="t-fixed col-lg-11 col-12">
+                            </div>
+                            <table class="table table-borderless backg col-lg-12 col-md-10 col-12" id="dataUser">
+                                <thead>
+                                    <tr>
+                                        <th><i data-feather="check"></i></th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>No. Documento</th>
+                                        <th>Teléfono</th>
+                                        <th>Correo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                        while (resUser.next()) {
+                                            out.println("<tr>");
+                                            out.println("<td>\n"
+                                                    + "<input type='checkbox' name='user' value='" + resUser.getInt(1) + "'>\n"
+                                                    + "</td>");
+                                            out.println("<td> " + resUser.getString(2) + " </td>");
+                                            out.println("<td> " + resUser.getString(3) + " </td>");
+                                            out.println("<td> " + resUser.getLong(4) + " </td>");
+                                            out.println("<td> " + resUser.getLong(5) + " </td>");
+                                            out.println("<td> " + resUser.getString(6) + " </td>");
 
-                                    <table class="table table-borderless backg" id="dataUser">
-                                        <thead>
-                                            <tr>
-                                                <th><i data-feather="check"></i></th>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>No. Documento</th>
-                                                <th>Teléfono</th>
-                                                <th>Correo</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <%
-                                                while (resUser.next()) {
-                                                    out.println("<tr>");
-                                                    out.println("<td>\n"
-                                                            + "<input type='checkbox' name='user' value='" + resUser.getInt(1) + "'>\n"
-                                                            + "</td>");
-                                                    out.println("<td> " + resUser.getString(2) + " </td>");
-                                                    out.println("<td> " + resUser.getString(3) + " </td>");
-                                                    out.println("<td> " + resUser.getLong(4) + " </td>");
-                                                    out.println("<td> " + resUser.getLong(5) + " </td>");
-                                                    out.println("<td> " + resUser.getString(6) + " </td>");
-
-                                                    out.println("</tr>");
-                                                }
-                                                TuStu.closeConnection();
-                                            %>
-                                        </tbody>
-                                    </table>
-                                    <div class="table mt-3 pb-5">                                    
-                                        <button type="submit" name="send" id="send" class="btn btn-info"> Aceptar </button>
-                                    </div>
-                                </div>
-                            </div>                            
+                                            out.println("</tr>");
+                                        }
+                                        TuStu.closeConnection();
+                                    %>
+                                </tbody>
+                            </table>
+                            <div class="table mt-3 pb-5">                                    
+                                <button type="submit" name="send" id="send" class="btn btn-info"> Aceptar </button>
+                            </div>                          
                         </form>
                     </div>
                 </div>

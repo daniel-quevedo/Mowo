@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -108,10 +109,11 @@ public class CrudUserSERVLET extends HttpServlet {
 
                         ResultSet result = uDAO.dataUsers();
 
-                        out.println("<script src='../../js/jquery.dataTables.min.js' charset='utf-8'></script>\n" +
+                        out.println("<script src=\"../../js/feather.min.js\" charset=\"utf-8\"></script>\n" +
+                                    "<script> feather.replace(); </script>" +
                                     "<script src='../../js/dataTable.js' charset='utf-8'></script>");
 
-                        out.println("<table class='table table-hover table-borderless table-responsive mt-5 mydataTable' id='dataUser'>");
+                        out.println("<table class='table table-hover table-borderless table-responsive nowrap mt-5 mydataTable' width='100%' id='dataUser'>");
                             out.println("<thead>");
 
                             out.println("<tr>" +
@@ -121,8 +123,8 @@ public class CrudUserSERVLET extends HttpServlet {
                                             "<th>Tipo de Documento</th>\n" +
                                             "<th>No. Documento</th>\n" +
                                             "<th>Tipo de Usuario</th>\n" +
-                                            "<th>Telefono</th>\n" +
-                                            "<th>Direccion</th>\n" +
+                                            "<th>T&eacutelefono</th>\n" +
+                                            "<th>Direcci&oacuten</th>\n" +
                                             "<th>Fecha de Nacimiento</th>\n" +
                                             "<th>Correo</th>\n" +
                                             "<th colspan='2'>Acciones</th>\n" +
@@ -132,7 +134,7 @@ public class CrudUserSERVLET extends HttpServlet {
                             out.println("</thead>");
                             out.println("<tbody>");
 
-
+                            
 
 
                             while(result.next()){
@@ -143,12 +145,12 @@ public class CrudUserSERVLET extends HttpServlet {
                                 if (result.getInt(1) == 1){ 
                                     state = "Activo";
 
-                                    button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-danger' onclick='adUser(2,"+result.getInt(11)+")'>Inactivar</button>";
+                                    button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-danger' onclick='adUser(2,"+result.getInt(11)+")'><i data-feather='user-minus'></i></button>";
 
                                 }else{
                                     state = "Inactivo";
 
-                                    button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-success' onclick='adUser(1,"+result.getInt(11)+")'>Activar</button>";
+                                    button = "<button type='submit' name='adButton' id='adButton' class='btn btn-outline-success' onclick='adUser(1,"+result.getInt(11)+")'><i data-feather='user-plus'></i></button>";
 
 
                                 }
@@ -184,7 +186,7 @@ public class CrudUserSERVLET extends HttpServlet {
                                     out.println("<td>"+result.getString(8)+"</td>");
                                     out.println("<td>"+result.getString(9)+"</td>");
                                     out.println("<td>"+result.getString(10)+"</td>");
-                                    out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalUser("+result.getInt(5)+")'><button type='button' class='btn btn-info'>Editar</button></a></td>");                                    
+                                    out.println("<td><a href='#ventana1' data-toggle='modal' onclick='modalUser("+result.getInt(5)+")'><button type='button' class='btn btn-info'><i data-feather='edit-3'></i></button></a></td>");                                    
                                     out.println("<td>"+button+"</td>");
                                     out.println("<td></td>");
                                 out.println("</tr>");
@@ -193,12 +195,18 @@ public class CrudUserSERVLET extends HttpServlet {
                             out.println("</tbody>");
                         out.println("</table>");
 
-                        break;    
+                        break;   
+                        
                     }
                     case 4:
                     {
                         
                         //MOSTRAR LOS DATOS DEL USUARIO EN EL MODAL PARA MODIFICAR***************
+                        
+                        Calendar calendario = Calendar.getInstance();
+                        int an = calendario.get(Calendar.YEAR);
+                        int minyear = an - 6;
+                        int maxyear = an - 58;
                         
                         int nDocument = Integer.parseInt(request.getParameter("nDocument"));
                         
@@ -224,8 +232,8 @@ public class CrudUserSERVLET extends HttpServlet {
                                     out.println("<tr>\n"+
                                                     "<th><label>Tipo de Documento:</label></th>\n" +
                                                         "<td>\n"+
-                                                            "<select class='form-control' name='typeDoc'>\n" +
-                                                                "<option value='#'>Seleccione...</option>\n" +
+                                                            "<select class='form-control' name='typeDoc' required>\n" +
+                                                                "<option value=''>Seleccione...</option>\n" +
                                                                 "<option value='CC'>CC</option>\n" +
                                                                 "<option value='TI' focus>TI</option>\n" +
                                                                 "<option value='CE'>CE</option>\n" +
@@ -233,13 +241,13 @@ public class CrudUserSERVLET extends HttpServlet {
                                                         "</td>"+
                                                 "</tr>");                                    
                                     out.println("<tr>\n" +
-                                                    "<th><label>Telefono:</label></th>\n" +
+                                                    "<th><label>T&eacutelefono:</label></th>\n" +
                                                     "<td>\n"+
-                                                        "<input type='number' class='form-control' name='phone' value='"+result.getString(7)+"' minlength='7' maxlength='15' pattern='[0-9]{3,15}'>\n"+
+                                                        "<input type='text' class='form-control' name='phone' value='"+result.getString(7)+"' minlength='7' maxlength='10' pattern='[0-9]{3,15}' title='No se admiten letras'>\n"+
                                                     "</td>\n" +
                                                 "</tr>\n" +
                                                 "<tr>\n" +
-                                                    "<th><label>Direccion:</label></th>\n" +
+                                                    "<th><label>Direcci&oacuten:</label></th>\n" +
                                                     "<td>\n"+
                                                         "<input type='text' class='form-control' name='dir' value='"+result.getString(8)+"' minlength='10' maxlength='100'>\n"+
                                                     "</td>\n" +
@@ -247,7 +255,7 @@ public class CrudUserSERVLET extends HttpServlet {
                                                 "<tr>\n" +
                                                     "<th><label>Fecha de Nacimiento:</label></th>\n" +
                                                     "<td>\n"+
-                                                        "<input type='date' class='form-control' name='date' value='"+result.getString(9)+"' min='1960-01-01' max='2015-01-01'>\n"+
+                                                        "<input type='date' class='form-control' name='date' value='"+result.getString(9)+"' min='"+maxyear+"-01-01' max='"+minyear+"-01-01'>\n"+
                                                     "</td>\n" +
                                                 "</tr>\n" +
                                                 "<tr>\n" +
@@ -257,8 +265,8 @@ public class CrudUserSERVLET extends HttpServlet {
                                                     "</td>\n" +
                                                 "</tr>");
                                     out.println("<tr>\n"+
-                                                    "<td><button class='btn btn-danger' data-dismiss='modal'>Cerrar</button></td>\n" +
-                                                    "<td><button class='btn btn-success'>Guardar</button></td>\n" +
+                                                    "<td><button class='btn btn-secondary' data-dismiss='modal'>Cerrar</button></td>\n" +
+                                                    "<td><button class='btn btn-info'>Guardar</button></td>\n" +
                                                 "</tr>");
                                 out.println("</table>");
                             out.println("</div>");

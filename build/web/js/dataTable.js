@@ -1,9 +1,9 @@
 $(document).ready(function () {
     $('.mydataTable').DataTable({
-
-        order: [[2, 'asc']],
-        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "all"]],
-        pagingType: 'full_numbers',        
+        
+        "order": [[2, 'asc']],         
+        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "all"]],
+        "pagingType": "full_numbers",        
         "language": {
             "lengthMenu":
                     "Mostrar _MENU_ Registros",
@@ -20,5 +20,5 @@ $(document).ready(function () {
             },
             "sProcessing": "Procesando..."
         }
-    });
+    });    
 });

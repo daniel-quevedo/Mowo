@@ -25,8 +25,7 @@ public class ClassConnection {
         user = "postgres";
         pass = "B@W5p~%\\Z@mCGRt";
         db = "mowo_o";
-        urldb = "jdbc:postgresql://localhost:5432/"+db;
-            
+        urldb = "jdbc:postgresql://localhost:5432/"+db;            
         
         try{
             

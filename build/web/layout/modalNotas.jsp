@@ -41,8 +41,8 @@
                             </tr>
                             <tr>
 
-                                <td><button type="submit" class="btn btn-success" >Guardar</button></td>
-                                <td><button type="reset" class="btn btn-danger" data-dismiss="modal" >Cerrar</button></td>
+                                <td><button type="submit" class="btn btn-info" >Guardar</button></td>
+                                <td><button type="reset" class="btn btn-secondary" data-dismiss="modal" >Cerrar</button></td>
 
                             </tr>
                         </table>

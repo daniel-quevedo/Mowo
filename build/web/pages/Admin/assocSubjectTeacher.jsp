@@ -57,45 +57,41 @@
                                     <div>
                                         <label> Seleccion un docente </label>
                                         <select class="form-control" id="idTeacher" name="idTeacher" required>
-                                            <option value="#" selected>--SELECCIONE--</option>
+                                            <option selected disabled>--SELECCIONE--</option>
                                         <%                                                while (listTutor.next()) {
                                                 out.println("<option value='" + listTutor.getInt(1) + "'>" + listTutor.getString(3) + "</option>");
                                             }
                                         %>
                                     </select> 
                                 </div>
-                            </div>                            
-                            <div>
-                                <div class="t-fixed col-lg-11 col-12">
-                                    <table class=" table table-borderless  backg" id="dataSubject">
-                                        <thead>
-                                            <tr>
-                                                <th><i data-feather="check"></i></th>
-                                                <th>Nombre</th>
-                                                <th>Salón</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <%
-                                                while (listSubjects.next()) {
-                                                    out.println("<tr>");
-                                                    out.println("<td>\n"
-                                                            + "<input type='checkbox' name='subject' value='" + listSubjects.getInt(1) + "'>\n"
-                                                            + "</td>");
-                                                    out.println("<td> " + listSubjects.getString(2) + " </td>");
-                                                    out.println("<td> " + listSubjects.getString(3) + " </td>");
-                                                    out.println("</tr>");
-                                                }
+                            </div>                                                            
+                            <table class=" table table-borderless backg col-lg-12 col-md-10 col-12" id="dataSubject">
+                                <thead>
+                                    <tr>
+                                        <th><i data-feather="check"></i></th>
+                                        <th>Nombre</th>
+                                        <th>Salón</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                        while (listSubjects.next()) {
+                                            out.println("<tr>");
+                                            out.println("<td>\n"
+                                                    + "<input type='checkbox' name='subject' value='" + listSubjects.getInt(1) + "'>\n"
+                                                    + "</td>");
+                                            out.println("<td> " + listSubjects.getString(2) + " </td>");
+                                            out.println("<td> " + listSubjects.getString(3) + " </td>");
+                                            out.println("</tr>");
+                                        }
 
-                                                asSubjectDAO.closeConnection();
-                                            %>
-                                        </tbody>
-                                    </table>
-                                    <div class="table mt-3 pb-5">                                    
-                                        <button type="submit" name="send" id="send" class="btn btn-info"> Aceptar </button>
-                                    </div>
-                                </div>
-                            </div>                                   
+                                        asSubjectDAO.closeConnection();
+                                    %>
+                                </tbody>
+                            </table>
+                            <div class="table mt-3 pb-5">                                    
+                                <button type="submit" name="send" id="send" class="btn btn-info"> Aceptar </button>
+                            </div>
                         </form>
                     </div>
                 </div>

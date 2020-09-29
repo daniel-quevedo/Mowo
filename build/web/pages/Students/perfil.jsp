@@ -63,6 +63,7 @@
                             <h5 class="mb-4">Mi perfil</h5>
                             <%                                                                                
                             if (dataUser.next()) {
+<<<<<<< HEAD
                                 pathPhoto = "../../photos/"+dataUser.getString(12);
                                 out.print("<form id='formPhoto' enctype='multipart/form-data' action='../../PhotoUserSERVLET' method='post'>");
                                     out.print("<table class='table table-dark col-12'/>");
@@ -93,6 +94,31 @@
 
                                     out.print("<table class='table backg table-borderless table-responsive-sm col-12 mt-2'>");
                                         out.print("<tr><td colspam='2'></td><td></td></tr>");
+=======
+                                
+                            out.print("<table class='table table-dark col-12'>");
+                                out.print("<tr>");
+                                out.print("<td><label>Tipo de documento:</label></td>");
+                                out.print("<td><input type='text' class='form-control text-center' value='" + dataUser.getString(1) + "' disabled></td>");
+                                out.print("<td><label>N° de documento:</label></td>");
+                                out.print("<td><input type='text' class='form-control text-center' value='" + dataUser.getLong(2) + "' disabled></td>");
+                                out.print("<td rowspan='3'><img src='../../img/avatar.jpg' type='file'></td>");
+                                out.print("</tr>");
+                                out.print("<tr>");
+                                out.print("<td><label>Curso:</label></td>");
+                                out.print("<th><input type='text' class='form-control text-center' value='" + dataUser.getInt(10) + "' disabled></th>");
+                                out.print("<td><label>Jornada:</label></td>");
+                                out.print("<th><input type='text' class='form-control text-center' value='" + dataUser.getString(11) + "' disabled></th>");
+                                out.print("</tr>");
+                                out.print("<tr>");
+                                out.print("<td><label>Correo:</label></td>");
+                                out.print("<th colspan='3'><input type='text' class='form-control text-center' value='" + dataUser.getString(9) + "' disabled></th>");
+                                out.print("</tr>");
+                            out.print("</table>");
+
+                            out.print("<table class='table backg table-borderless table-responsive-sm col-12 mt-2'>");
+                                out.print("<tr><td colspam='2'></td><td></td></tr>");
+>>>>>>> 0e31dd3c9085ea3a0852a008815ebb162857114f
                                                                                 
                                         //VALIDAR EL TIPO DE USUARIO ********************
                                         int typeOpt = dataUser.getInt(6);

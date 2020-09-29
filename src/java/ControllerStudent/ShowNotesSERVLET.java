@@ -105,7 +105,7 @@ public class ShowNotesSERVLET extends HttpServlet {
                                     "<td> "+result.getDouble(3)+" </td> \n"+
                                     "<td> "+result.getDouble(4)+" </td> \n"+
                                     "<td> "+result.getDouble(5)+" </td> \n"+
-                                    "<td> "+result.getDouble(6)+" </td> \n"+
+                                    "<td> "+result.getFloat(6)+" </td> \n"+
                                     approve+
                                 "</tr>");
                     out.println("</tbody> \n"+
