@@ -62,13 +62,16 @@ public class LoginDAO extends ClassConnection{
     
     public boolean verifyUser(){
         
-        String sqlVerify = "SELECT usuario, passusu, fkcred_usu FROM mowo.credenciales WHERE  usuario = ? AND passusu = ?";
+        String sqlVerify = "SELECT C.usuario, C.passusu, C.fkcred_usu FROM mowo.credenciales C \n"+
+                            "LEFT OUTER JOIN mowo.usuario U ON C.fkcred_usu = U.id_usuario \n"+
+                            "WHERE  C.usuario = ? AND C.passusu = ? AND U.activo = ?";
         
         try{
             
             this.pstm = this.conn.prepareStatement(sqlVerify);
             this.pstm.setString(1, this.user);
             this.pstm.setString(2, this.passUsu);
+            this.pstm.setInt(3, 1);
             
             this.res = this.pstm.executeQuery();
             
@@ -78,8 +81,6 @@ public class LoginDAO extends ClassConnection{
                 this.ready = true;
                 
             }
-            
-            //this.closeConnection();
             
         }catch(SQLException ex){
             

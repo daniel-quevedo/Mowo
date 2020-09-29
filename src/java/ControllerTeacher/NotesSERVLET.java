@@ -53,14 +53,6 @@ public class NotesSERVLET extends HttpServlet {
                 note4 = Double.parseDouble(request.getParameter("note4"));
                 id_user = Integer.parseInt(request.getParameter("id_user"));
                 id_subj = Integer.parseInt(request.getParameter("id_subject"));
-                
-//                out.println("<h1> here </h1>");
-//                out.println("<h1> "+ note1 +" </h1>");
-//                out.println("<h1> "+ note2 +" </h1>");
-//                out.println("<h1> "+ note3 +" </h1>");
-//                out.println("<h1> "+ note4 +" </h1>");
-//                out.println("<h1> "+ id_user +" </h1>");
-//                out.println("<h1> "+ id_subj +" </h1>");
 
                 
                 NotesVO nVO = new NotesVO(note1, note2, note3, note4, id_user, id_subj); 

@@ -65,10 +65,7 @@ function students(){
 
 
 function modal(val) {
-
-    var course = $('#course').val();
     var subject = $('#subjects').val();
-    var student = 1;
     
     var option = 4;
     var url="../../OtherSERVLET";

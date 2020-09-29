@@ -5,6 +5,9 @@
 --%>
 
 <!--VALIDAR QUE EL USUARIO TENGA LA SESION ACTIVA Y SEA ADMINISTRADOR************************-->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 
 <%! 
     
@@ -16,7 +19,7 @@
 <%
     
     if (session.getAttribute("nameUser") == null) {
-            
+        
        response.sendRedirect("../../index.jsp");
         
     }else{

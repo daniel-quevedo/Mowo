@@ -129,6 +129,8 @@ public class OtherSERVLET extends HttpServlet {
                     OtherDAO DAs = new OtherDAO(VAs);
 
                     ResultSet asig = DAs.Subjects();
+                    
+                    DAs.closeConnection();
 
                     out.println("<select>");
                     out.println("<option value='#'>...Asignaturas...</option>");

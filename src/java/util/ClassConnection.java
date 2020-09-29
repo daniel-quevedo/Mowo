@@ -38,7 +38,7 @@ public class ClassConnection {
    
         }catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e){
     
-            System.out.println("Ocurrio un erro al conectarse a la base de datos: "+e);   
+            System.out.println("Ocurrio un erro al conectarse a la base de datos: "+ e.getMessage());   
             
         }
         

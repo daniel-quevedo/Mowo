@@ -245,12 +245,15 @@ h2 img{
     height: 40px;
 }
 
-td img{
+td #img{
+    background-repeat: no-repeat;
+    background-size: contain;
     border: 5px solid #31343D;
     border-radius: 50%;          
     width: 150px;
     height: 150px;
 }
+
 
 .btn-group{   
     margin: 10px 0;

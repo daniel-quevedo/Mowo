@@ -212,6 +212,7 @@ public class CrudUserDAO extends ClassConnection{
                                 +",email\n"
                                 +",C.codigo\n" 
                                 +",C.nombre_curso\n" 
+                                +",foto\n"
                     + "FROM mowo.usuario U\n"
                     + "LEFT OUTER JOIN mowo.curso C\n"
                     + "ON U.fk_curso = C.id_curso WHERE id_usuario = ?";
@@ -219,9 +220,8 @@ public class CrudUserDAO extends ClassConnection{
         try {
         
             this.pstm = this.con.prepareStatement(sql);
-            this.pstm.setInt(1, iduser);                        
+            this.pstm.setInt(1, iduser);      
             
-            System.out.println(this.pstm);
             this.res = this.pstm.executeQuery();
             
         } catch (SQLException e) {
